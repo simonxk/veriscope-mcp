@@ -1,0 +1,45 @@
+{
+  "$schema": "https://glama.ai/mcp/manifest/v1/schema.json",
+  "name": "veriscope",
+  "displayName": "VeriScope Citation Verification",
+  "description": "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents across 24 disciplines.",
+  "version": "1.0.0",
+  "icon": "https://veriscope.cc/assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veriscope-ai/veriscope-mcp"
+  },
+  "command": "npx",
+  "args": [
+    "-y",
+    "@veriscope/mcp-server"
+  ],
+  "env": {
+    "VERISCOPE_API_KEY": {
+      "description": "Optional API Key for live primary evidence port. Unauthenticated requests run against built-in 50-canon sandbox.",
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "veriscope_discover_concepts",
+      "description": "Elevate colloquial topics or news into canonical scholarly ontologies across 24 disciplines."
+    },
+    {
+      "name": "veriscope_inspect_topography",
+      "description": "Retrieve formal axiomatic definitions, Wikidata QIDs, and 3+ historical dialectical disputes."
+    },
+    {
+      "name": "veriscope_locate_evidence",
+      "description": "Locate fair-use verbatim citations (<=300 chars) with chapter coordinates, 64-bit SHA-256 hashes, and Ed25519 receipts."
+    },
+    {
+      "name": "veriscope_verify_attestation",
+      "description": "Cryptographically verify whether a cited quote or hash matches genuine verified editions."
+    },
+    {
+      "name": "veriscope_probe_radar",
+      "description": "Probe cross-disciplinary synaptic radar connections and epistemic blind spots."
+    }
+  ]
+}

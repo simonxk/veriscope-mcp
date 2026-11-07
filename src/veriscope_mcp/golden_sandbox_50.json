@@ -1,0 +1,1758 @@
+{
+  "version": "1.0.0",
+  "title": "VeriScope Golden Sandbox 50 Offline Dataset",
+  "description": "50 Classical Philosophical & Social Science Concepts with Verifiable Sovereign Anchors",
+  "total_concepts": 50,
+  "concepts": [
+    {
+      "concept_id": "VS-PHIL-001",
+      "name_zh": "物自体（Ding an sich）",
+      "name_en": "Thing-in-itself (Ding an sich)",
+      "discipline": "哲学与伦理学",
+      "discipline_code": "PHIL",
+      "primary_thinker": "伊曼努尔·康德 (Immanuel Kant)",
+      "historical_period": "德国古典哲学 / 启蒙时代 (1781)",
+      "core_thesis": "人类感官与知性只能认识现象界（Phaenomena），而作为现象背后客观本体的物自体不可直接认知，构成了人类理性认识能力的先验界限。",
+      "formal_kernel": "康德在《纯粹理性批判》中确立认识论哥白尼式革命：并非人类观念符合外在对象，而是外在对象必须符合主体的先验认知形式（先天感性形式：时间与空间；十二知性先验范畴）。物自体提供经验感觉的质料刺激，却因不可通过范畴予以构成而永远隐匿于现象界彼岸，成为划定人类知识界限与为信仰保留地盘的消极界限概念。",
+      "dialectical_disputes": [
+        "黑格尔绝对唯心主义：批判物自体为'抽象且贫乏的不可知之物'，认为思维与存在具有辩证同一性，绝对精神通过历史外化与自我反思能够完全克服主客二元对立；",
+        "叔本华意志哲学：将不可知的物自体实存化为盲目奔涌、无休止欲望的宇宙本体——'作为意志和表象的世界'；",
+        "费希特知识学：直接废除外部物自体假设，主张由绝对自我的先验行动设定非我，以此建构自足的先验唯心论体系。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10420,
+        "title": "Kritik der reinen Vernunft (纯粹理性批判)",
+        "author": "Immanuel Kant",
+        "year": "1781",
+        "chapter_anchor": "先验分析论 · 第二卷 · 第三章：将所有对象划分为现象与本体的基础",
+        "canon_sha256": "8d3e2365bf029e24699059f31b4028ec4b95bc58e0a3249fe379c3ef71911aa1",
+        "verbatim_excerpt": "本体这一概念只是一个界限概念，其目的是为了限制感性的僭妄，因此只具有消极的用途。然而，它并不是任意虚构的，而是与感性的局限不可分割地联系在一起的。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_479109c83f433356",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-001:8d3e2365bf029e24699059f31b4028ec4b95bc58e0a3249fe379c3ef71911aa1:e7e7a6abd93862ad:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:835af019855f5f0e7bf3342e4e0a5506604f7d4f565cc1e930d6718f3eb38de1fcbd65a4a232adda6c32f90e4f4404c9b40399b31f52a6b900c260929bf9560e",
+        "slice_sha256_16": "e7e7a6abd93862ad",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PHIL-002",
+      "name_zh": "我思故我在（Cogito, ergo sum）",
+      "name_en": "Cogito, ergo sum (I think, therefore I am)",
+      "discipline": "哲学与伦理学",
+      "discipline_code": "PHIL",
+      "primary_thinker": "勒内·笛卡尔 (René Descartes)",
+      "historical_period": "近代早期哲学 / 理性主义奠基 (1641)",
+      "core_thesis": "通过彻底的普遍怀疑方法，哪怕一切感官知觉与外部世界皆为恶魔欺瞒的假象，'正在进行怀疑的主体正在思考'这一事实本身具有无可动摇的自明性，从而奠定现代主体性哲学的阿基米德支点。",
+      "formal_kernel": "笛卡尔在《第一哲学沉思集》中展开方法论怀疑，将怀疑推至极限：感官会欺骗、梦境与现实不可区分、全能恶魔可能扭曲数学逻辑。然而，只要'我'在怀疑、受骗或思考，'我'作为一个思维实体（Res cogitans）的存在就是绝对不证自明的。这开启了近代认识论的主体性转向，将第一哲学的基础从古代本体论转移至主体意识的清晰明白知觉。",
+      "dialectical_disputes": [
+        "伽森狄与霍布斯唯物主义反驳：从'我在散步'是否也能推导'我是散步'？质疑思考动作并不必然推导出一个独立的实体性灵魂；",
+        "休谟怀疑论经验主义：内省反思中只能捕捉到转瞬即逝的知觉束，从未观测到那个恒常稳定的'我'之实体；",
+        "拉康精神分析拓扑学：颠覆为'在我不想之处我存在，在我思之处我不在'，宣告笛卡尔式理性统觉主体的分裂。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10421,
+        "title": "Meditationes de prima philosophia (第一哲学沉思集)",
+        "author": "René Descartes",
+        "year": "1641",
+        "chapter_anchor": "第二沉思：论人类心灵的本性：心灵比物体更容易认识",
+        "canon_sha256": "4b684898b9e76fa968e1a7b8e19e0788ee52bb0757270e599e52c80387440409",
+        "verbatim_excerpt": "只要我宣布'我是，我存在'，或者在心中构想它，这句话必然是真实的。但我还不太明白，这个如今必然存在的'我'究竟是什么。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_4d6d75423e33e790",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-002:4b684898b9e76fa968e1a7b8e19e0788ee52bb0757270e599e52c80387440409:b2159d6dc455530a:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:18e867a58f3b9c4b968748391673071fbb931b68ac0435f1e3432e47e395238a0efe82688133993d743f443c66ea979df52694076ec12ed43245e6c71fbb7a08",
+        "slice_sha256_16": "b2159d6dc455530a",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PHIL-003",
+      "name_zh": "实体自因（Substantia causa sui）",
+      "name_en": "Substance as Cause of Itself (Causa Sui)",
+      "discipline": "哲学与伦理学",
+      "discipline_code": "PHIL",
+      "primary_thinker": "巴鲁赫·斯宾诺莎 (Baruch Spinoza)",
+      "historical_period": "近代唯理主义 / 泛神论 (1677)",
+      "core_thesis": "宇宙间只存在唯一的、无限的实体即神或自然（Deus sive Natura），它因其自身而存在并通过自身被认识，一切有限事物皆为其无限属性所派生之分殊样态。",
+      "formal_kernel": "斯宾诺莎在《伦理学》中采用几何学公理方法建构一元论本体论：实体的本质必然包含存在（自因），若存在两个不同实体，它们因具有共同属性而彼此限制，这与实体的无限性自相矛盾。实体具有无限多的属性，人类理智仅能把握其中的广延与思维。身心并非笛卡尔式的两种独立实体交互，而是同一实体在不同属性上的平行表达，因果必然性贯通于一切自然样态之中。",
+      "dialectical_disputes": [
+        "莱布尼茨单子论反驳：斯宾诺莎的一元论抹杀了受造物的个体自由与个性差异，主张宇宙由无数具有自主知觉与预定和谐的个体精神实体构成；",
+        "雅可比泛神论论争：指责斯宾诺莎主义是无神论和机械宿命论的极端形态，摧毁了道德责任与超验上帝；",
+        "德勒兹内在性哲学：将实体重塑为充满生成力、强度的单义性存在平面。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10422,
+        "title": "Ethica Ordine Geometrico Demonstrata (伦理学)",
+        "author": "Baruch Spinoza",
+        "year": "1677",
+        "chapter_anchor": "第一部分：论神 · 界说一至界说三与命题十四",
+        "canon_sha256": "c71a396e625be2f6238bc35715562140bbbfd2382f63f538356d56d78ec58d11",
+        "verbatim_excerpt": "除神以外，不能有任何实体，也不能设想有任何实体。如果神以外还有实体，则该实体必须通过某一属性来理解，然而神包含了所有无限属性，故神之外无他物。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_71b97d1140aeeb1f",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-003:c71a396e625be2f6238bc35715562140bbbfd2382f63f538356d56d78ec58d11:d866ff0eba18a3e8:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:4a9913efed1549daa17616704734b001aa580611c9a7cce0d25fc72c9bffe17c3d12b402c09af075577473e07ffbb155039f78e616d636f63879e32496b89c07",
+        "slice_sha256_16": "d866ff0eba18a3e8",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PHIL-004",
+      "name_zh": "权力意志（Wille zur Macht）",
+      "name_en": "Will to Power (Wille zur Macht)",
+      "discipline": "哲学与伦理学",
+      "discipline_code": "PHIL",
+      "primary_thinker": "弗里德里希·尼采 (Friedrich Nietzsche)",
+      "historical_period": "19世纪晚期欧陆反理性主义 / 生命哲学 (1886)",
+      "core_thesis": "生命的最深层本质不是达尔文式的被动求生或自我保存，而是主动的扩张、克服、支配与创造价值的本能冲动，它是评价一切道德与真理的最终尺度。",
+      "formal_kernel": "尼采在《善恶的彼岸》与《查拉图斯特拉如是说》中宣告'上帝之死'与欧洲虚无主义的降临。权力意志并非单纯政治暴政欲求，而是一种生命冲动动力学：生命总是力求向外宣泄自身力量、克服自身阻碍、将异质性力量同化为自身的形式。传统基督教与启蒙理性道德被诊断为弱者怨恨发明的奴隶道德；唯有超越好善恶恶对立的超人，方能在永恒轮回中以权力意志重估一切价值。",
+      "dialectical_disputes": [
+        "海德格尔形而上学终结诊断：将尼采的权力意志视为西方主体性形而上学的最后完成与极端顶峰，认为其未能触及存在之真理；",
+        "法兰克福学派技术理性批判：警告盲目崇拜生命力量与否定普遍理性易滑向对非理性统治与法西斯暴力的哲学辩护；",
+        "福柯微观权力学：将权力意志去实体化，转化为弥散于整个社会机体毛细血管的规训与生产性网络。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10423,
+        "title": "Jenseits von Gut und Böse (善恶的彼岸)",
+        "author": "Friedrich Nietzsche",
+        "year": "1886",
+        "chapter_anchor": "第一章：论哲学家的偏见 · 第十三节与第三十六节",
+        "canon_sha256": "5c90b0d35967ff355a16d5590cb7a8b309a478c93b6890fbdbce531cfd93d395",
+        "verbatim_excerpt": "一个活着的有机体首先追求的是释放其力量——生命本身就是权力意志。自我保存只是生命的一种间接且频繁的后果，而非其目的。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_3838dd8863e2db78",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-004:5c90b0d35967ff355a16d5590cb7a8b309a478c93b6890fbdbce531cfd93d395:92a908a94a183564:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:7dd811a93bf7904f2e302969631b72774d3a8069f7be9d880a95841eb89d385350be8ae3cb3423f3ae2cf1f1d3804fb289d35e511de298b84dd7e6c08bde0a03",
+        "slice_sha256_16": "92a908a94a183564",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PHIL-005",
+      "name_zh": "此在与在世界之中存在（Dasein & In-der-Welt-sein）",
+      "name_en": "Dasein and Being-in-the-world",
+      "discipline": "哲学与伦理学",
+      "discipline_code": "PHIL",
+      "primary_thinker": "马丁·海德格尔 (Martin Heidegger)",
+      "historical_period": "20世纪现象学与存在主义 (1927)",
+      "core_thesis": "人并非孤立的主体旁观客体世界，而是通过日常筹划、烦操原初地融入世界网络中；此在的本质在于其生存，其存在先于且关切自身的存在。",
+      "formal_kernel": "海德格尔在《存在与时间》中发起基础本体论重构，批判西方两千年形而上学遗忘存在。此在作为唯一能够追问存在意义的存在者，其原初状态并非主客认知对立，而是沉浸于用具之网的前理论实践——上手状态优先于现成在手。此在沉沦于常人的闲言中，唯有直面向死而在唤起的本真畏感，才能把握存在的有限性与时间性本质。",
+      "dialectical_disputes": [
+        "萨特存在主义人文主义：承袭'存在先于本质'，但将此在的被抛性激进化为个体的绝对自由与自欺伦理选择；",
+        "莱维纳斯他者伦理学：指责海德格尔的存在论是中性、非人格的存在帝国主义，主张遭遇他者的面容是第一哲学；",
+        "哈贝马斯交往行为理论：批判海德格尔孤立的本真性生存论忽视了主体间交往互动与日常语言论辩的基础维度。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10424,
+        "title": "Sein und Zeit (存在与时间)",
+        "author": "Martin Heidegger",
+        "year": "1927",
+        "chapter_anchor": "第一篇：此在的预备性基础分析 · 第十二节至第十四节",
+        "canon_sha256": "fa6b78dc3b51ee2bc3d7cb0ef45759bb8a3b56a3e144ea1d9ceee89c56fa9809",
+        "verbatim_excerpt": "此在的'本质'在于它的生存。在这一存在者身上所能指认的性质都不是现成存在着的属性，而是此在去存在的可能方式。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_83c8a91909b26c20",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-005:fa6b78dc3b51ee2bc3d7cb0ef45759bb8a3b56a3e144ea1d9ceee89c56fa9809:2aeb88156198fc06:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:2c8d3e22cf523674c124107e45c6e035f17d6d44c32c741b3b0ff5802e3c6b0fa8bf61b5a3400b95fc073e811fcc6258c3779548b5056f98be65479314dcf609",
+        "slice_sha256_16": "2aeb88156198fc06",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SOC-001",
+      "name_zh": "科层制与形式合理性（Bureaucracy & Formal Rationality）",
+      "name_en": "Bureaucracy and Formal Rationality",
+      "discipline": "社会学",
+      "discipline_code": "SOC",
+      "primary_thinker": "马克斯·韦伯 (Max Weber)",
+      "historical_period": "古典社会学 / 现代化理论 (1922)",
+      "core_thesis": "现代资本主义与国家治理依赖于以非人格化规则、等级分工、专业文书为特征的理性科层制，构成了人类文明迄今最精确高效的组织形式，但亦导致工具理性膨胀与压抑人性的铁笼。",
+      "formal_kernel": "韦伯在《经济与社会》中确立统治社会学理想型。现代法理型统治的核心组织载体即科层制：其特征包含明确管辖权、层级节制、档案化管理、专业资格凭证与职务薪俸制。韦伯揭示了形式合理性（按可计算程序运作）与实质合理性（价值信仰与人文目标）的宿命冲突。现代社会的全面合理化将世界祛魅，最终使人类作茧自缚于冰冷的技术铁笼之中。",
+      "dialectical_disputes": [
+        "默顿结构功能主义越轨理论：提出科层制功能失调，规则崇拜导致目标倒错与官僚僵化；",
+        "米歇尔斯寡头统治铁律：政党组织在科层化演进中必然不可逆地演变为少数职业技术官僚独揽权力的寡头架构；",
+        "哈贝马斯生活世界殖民论：科层系统通过金钱与权力介质过度向生活世界渗透，造成交往理性扭曲。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10425,
+        "title": "Wirtschaft und Gesellschaft (经济与社会)",
+        "author": "Max Weber",
+        "year": "1922",
+        "chapter_anchor": "第一部分 · 第三章：统治的类型 · 第二节：具有官僚制行政班子的法理型统治",
+        "canon_sha256": "9b12d591c28cbb1d3ec1a1e4839cf9e52c8091ecb9b94092b781ecaa06f90112",
+        "verbatim_excerpt": "充分发展的官僚体制就如同机器生产相比手工业一样，以纯粹技术性的精密、稳定、纪律严格以及可靠性，超越了其他一切管理组织形式。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_2a4691598f746fba",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-001:9b12d591c28cbb1d3ec1a1e4839cf9e52c8091ecb9b94092b781ecaa06f90112:b5307ebf16c51cb0:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:ba5cbe3a437d81a7e278335211d0835d0feb7e7ba6df5cef8fe33c4a64c1b18708ff336a015d8d8bd23f185f09a80a6d3f5fc2dfd823953671ae1e5ab83fb60d",
+        "slice_sha256_16": "b5307ebf16c51cb0",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SOC-002",
+      "name_zh": "机械团结与有机团结（Solidarité mécanique et organique）",
+      "name_en": "Mechanical and Organic Solidarity",
+      "discipline": "社会学",
+      "discipline_code": "SOC",
+      "primary_thinker": "埃米尔·涂尔干 (Émile Durkheim)",
+      "historical_period": "古典社会学实证主义传统 (1893)",
+      "core_thesis": "传统社会依赖成员同质性与集体意识压倒性掌控的机械团结，现代社会则基于复杂分工所形成的功能相互依赖而建立有机团结，但分工失调易引发社会失范危机。",
+      "formal_kernel": "涂尔干在《社会分工论》中探求现代社会的整合机制。在机械团结阶段，个体相似性高，集体意识占据心灵主导，越轨行为对应严苛的刑事压制法。随着物质密度与道德密度的增加，分工深化催生了有机团结：个体通过异质性职能分工实现相互依存，民商事恢复法成为主导。若经济转型期缺乏道德契约规范，社会将跌入失范（Anomie）的虚空之中。",
+      "dialectical_disputes": [
+        "马克思阶级对抗理论：批判涂尔干的分工调和论，强调资本主义分工不仅没有创造普遍和谐，反而是阶级剥削与异化对立的根源；",
+        "帕森斯AGIL结构功能主义：吸收涂尔干规范整合思想，将社会分工深化重塑为系统功能分化与价值泛化的现代化演进过程；",
+        "吉登斯现代性反思：指出分工形成了专家信任系统脱域机制，但同时也带来了制度性高后果风险。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10426,
+        "title": "De la division du travail social (社会分工论)",
+        "author": "Émile Durkheim",
+        "year": "1893",
+        "chapter_anchor": "第一篇：分工的功能 · 第三章：有机团结与恢复性制裁",
+        "canon_sha256": "7a353683bf12b059e51b34e2c88ea9b3e1577732a3560efbe9f80a22cb1893aa",
+        "verbatim_excerpt": "如果分工没有产生团结，那是因为不同机能之间的关系尚未形成确定规范；各部分之间缺乏持久接触，处于一种病态的'失范状态'。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_94c7d78c626ec1a6",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-002:7a353683bf12b059e51b34e2c88ea9b3e1577732a3560efbe9f80a22cb1893aa:e01266e337d1294c:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:6648bf03a16509c4a01451e1e6b5e3887c5ad05e2b7240f3cb14ace2aa450ff67023b58bd2a26d2d3907c5467682804bd336376c9894ca0986790a913f12310d",
+        "slice_sha256_16": "e01266e337d1294c",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SOC-003",
+      "name_zh": "异化劳动（Alienated Labour）",
+      "name_en": "Alienated Labour (Entfremdete Arbeit)",
+      "discipline": "社会学与政治经济学",
+      "discipline_code": "SOC",
+      "primary_thinker": "卡尔·马克思 (Karl Marx)",
+      "historical_period": "历史唯物主义创立初期 (1844)",
+      "core_thesis": "在资本主义私有制条件下，工人的劳动转化为奴役自身的异己力量，表现为产品异化、劳动活动异化、人的类本质异化以及人同人关系的异化四个层级。",
+      "formal_kernel": "马克思在《1844年经济学哲学手稿》中揭示：工人的生命物化为商品，生产的财富越多，工人自身越贫困。一、劳动产品作为异己对象与劳动者对立；二、劳动活动不是自由本质的肯定，而是肉体摧残与精神折磨的外在强迫；三、自由自觉的类本质退化为维持生存的纯粹手段；四、人与人之间确立为劳资阶级对立与剥削关系。消灭私有制是扬弃异化的必然历史辩证法。",
+      "dialectical_disputes": [
+        "阿尔都塞认识论断裂论：主张《1844手稿》仍处于人道主义意识形态期，真正的科学马克思始于《资本论》对剩余价值生产的唯物主义剖析；",
+        "卢卡奇物化与阶级意识：从异化理论推演出现代资本主义的全面物化，商品形式普遍化为覆盖整个社会心灵的第二自然；",
+        "法兰克福学派技术理性批判：将异化延伸至闲暇时间与文化工业，指出消费主义消解了个体的否定性力量。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10427,
+        "title": "Ökonomisch-philosophische Manuskripte aus dem Jahre 1844 (1844年经济学哲学手稿)",
+        "author": "Karl Marx",
+        "year": "1844",
+        "chapter_anchor": "第一手稿：异化劳动与私有财产",
+        "canon_sha256": "4392bc3c5825a1e2f385c276a16089bc257fa969317549887ec7e829bf8a25c3",
+        "verbatim_excerpt": "工人生产的商品越多，他就越变成廉价的商品。物的世界的增值同人的世界的贬值成正比。劳动不仅生产商品，它还生产作为商品的自身和工人。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_116d1f72bdbb3ba4",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-003:4392bc3c5825a1e2f385c276a16089bc257fa969317549887ec7e829bf8a25c3:691d4d3f861458c0:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:b6370c0179f9335be458ed5f5f427c6534bee27fada92aaa9c2a7ad8a0bdaf5194a0d2e8db63d262739f005cfdf3a1637bd24dc58deef7552eb1ff4c96348909",
+        "slice_sha256_16": "691d4d3f861458c0",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SOC-004",
+      "name_zh": "文化资本与场域（Cultural Capital & Field）",
+      "name_en": "Cultural Capital and Field (Champ)",
+      "discipline": "社会学",
+      "discipline_code": "SOC",
+      "primary_thinker": "皮埃尔·布迪厄 (Pierre Bourdieu)",
+      "historical_period": "当代法国批判社会学 / 发生结构主义 (1979)",
+      "core_thesis": "社会不平等不仅通过经济资本传递，更通过身体化、客观化与制度化的文化资本，以及惯习在不同场域中的博弈，实现阶级统治与审美区隔的隐蔽再生产。",
+      "formal_kernel": "布迪厄构建了'【惯习 × 资本】+ 场域 = 实践'的发生学公式。文化资本以身体化形态（谈吐与品味）、客观化形态（文化财产）、制度化形态（名校文凭）存在。场域是充斥着力量关系与资本争夺的客观社会空间。优势阶级通过将其特权品味标榜为普适的高雅艺术，对被支配阶层实施象征暴力，让教育体系成为阶级再生产的最隐蔽掩护。",
+      "dialectical_disputes": [
+        "拉图尔行动者网络理论：批判布迪厄的场域理论预设了决定论式的隐秘社会结构，将一切人类行动庸俗化为追逐资本的博弈；",
+        "文化杂食主义经验反驳：当代精英不再单向度追求高雅文化，而是以跨越边界的多元杂食包容性展现新特权；",
+        "伯恩斯坦言语代码理论：从语言社会学视角深化文化资本在工人阶层与中产家庭儿童言语习得中的分殊机制。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10428,
+        "title": "La Distinction: Critique sociale du jugement (区分：判断力的社会批判)",
+        "author": "Pierre Bourdieu",
+        "year": "1979",
+        "chapter_anchor": "导言与第一章：文化品味的贵族头衔",
+        "canon_sha256": "3cb10885e332bb8454b036bf6902263ca09f871ca9d25114be6a77d704ba4e9f",
+        "verbatim_excerpt": "艺术审美绝非纯粹精神的自由顿悟，而是最隐蔽的社会界线标志。在看似最脱俗无功利的品味抉择背后，隐藏着阶级区分与象征地位的终极角力。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_23db5d41c2cb1a63",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-004:3cb10885e332bb8454b036bf6902263ca09f871ca9d25114be6a77d704ba4e9f:1d4d18cae635bfa6:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:d53df895f136d50a66b729bb916ec5c25e932a6e2a2df279bd7008c242c8783ca072075d0ecbc9fbdf0224f284a4434bd16567e2a8eced9ed970280a33c6ed08",
+        "slice_sha256_16": "1d4d18cae635bfa6",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SOC-005",
+      "name_zh": "全景敞视建筑与规训权力（Panopticon & Disciplinary Power）",
+      "name_en": "Panopticon and Disciplinary Power",
+      "discipline": "社会学与哲学",
+      "discipline_code": "SOC",
+      "primary_thinker": "米歇尔·福柯 (Michel Foucault)",
+      "historical_period": "后结构主义 / 权力考古学与谱系学 (1975)",
+      "core_thesis": "现代权力转型从古代君主式的公开酷刑震慑，演进为借助微观监视、时空划界、规范化裁决与等级考核将肉体驯化为有用且顺从工具的毛细血管式规训技术。",
+      "formal_kernel": "福柯借用边沁的全景敞视建筑隐喻现代权力的拓扑结构：中央监视塔使得环形牢房中的犯人始终处于被观看却无法看清监视者的不对称可视状态。权力的巧妙在于使受监视者将监视目光内化为自我审查。这一微观技术在工厂、军营、学校与医院全面铺展，制造出符合资本生产效能的驯服肉体，权力成为弥散于日常话语与制度实践中的微观网络。",
+      "dialectical_disputes": [
+        "德勒兹控制社会诊断：宣告规训社会已经被数字资本主义下的控制社会取代，封闭空间规训演变为流动的连续调制；",
+        "哈贝马斯批判相对主义反驳：指责福柯的权力泛化理论摧毁了启蒙理性的规范性基础，使真理和正义沦为话语争霸；",
+        "韩炳哲自我剥削论：指出当代新自由主义不再依赖外部监视，而是通过功绩社会话语将个体转化为自愿自我剥削的抑郁主体。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10429,
+        "title": "Surveiller et punir: Naissance de la prison (规训与惩罚：监狱的诞生)",
+        "author": "Michel Foucault",
+        "year": "1975",
+        "chapter_anchor": "第三部分：规训 · 第三章：全景敞视主义",
+        "canon_sha256": "184bc2262ea84b059e776ea21c751283e766da15494cf06ef99d4538804c8f15",
+        "verbatim_excerpt": "全景敞视机制的主要效果在于：在被监视者身上造成一种有意识的、持久的可视状态，从而确保权力能够自动发挥其效能，哪怕监视者此刻不在塔内。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_880a4516fd38c0b2",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-005:184bc2262ea84b059e776ea21c751283e766da15494cf06ef99d4538804c8f15:e78b6ba515915066:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:b3f719fd993e3f76906888b68268cd26906d093071ef64ac29a42884147a4dca4d202957db86f43dab53186b2b32e7bb390dfc43ee9675ffbc5db962d348900f",
+        "slice_sha256_16": "e78b6ba515915066",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-POL-001",
+      "name_zh": "利维坦与自然状态（Leviathan & State of Nature）",
+      "name_en": "Leviathan and State of Nature",
+      "discipline": "政治学与政治哲学",
+      "discipline_code": "POL",
+      "primary_thinker": "托马斯·霍布斯 (Thomas Hobbes)",
+      "historical_period": "近代政治哲学开端 / 契约论 (1651)",
+      "core_thesis": "在缺乏公共权威的自然状态下，人与人处于所有人对所有人的普遍战争状态，生命孤独、贫困、肮脏、残忍而短寿；人们通过转让自然权利订立契约，造就拥有绝对主权的人造巨灵利维坦以换取安全秩序。",
+      "formal_kernel": "霍布斯在《利维坦》中奠定现代政治哲学的唯物主义人性假设：人类受自我保存与对暴力死亡的深层恐惧驱使。缺乏至高权力压制时，人人平等的自然状态必然滑向争夺资源的掠夺互害。摆脱死亡深渊的唯一理性路径，是所有人共同订立授权契约，将全部决断权与武力移交给单一主权者（君主或议会），主权具有绝对性、不可分割与不可反抗性，由此确立了现代主权国家与法律实证主义的合法性根基。",
+      "dialectical_disputes": [
+        "洛克有限政府契约论：反驳自然状态并非单纯的杀戮战场，主张生命、自由与财产权是天赋不可剥夺的权利，政府权力受宪政分权与人民反抗权限制；",
+        "卢梭高贵野蛮人假说：认为霍布斯的自然状态投射了文明社会的堕落贪婪，真正原初状态下的人类生而自由淳朴，文明与私有财产才是奴役的罪魁；",
+        "国际政治无政府状态现实主义：将霍布斯的自然状态平移至主权国家之间的威斯特伐利亚国际秩序，强调没有世界政府时国家安全自救的困境。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10430,
+        "title": "Leviathan, or The Matter, Forme, & Power of a Common-wealth (利维坦)",
+        "author": "Thomas Hobbes",
+        "year": "1651",
+        "chapter_anchor": "第一部分 · 第十三章：论人类幸福与苦难的自然状态 & 第十七章：论国家的起源与定义",
+        "canon_sha256": "8a44b1c28f9d0c67e9903ef88bbcae127391ca349f7831bb29e0ab12f679a901",
+        "verbatim_excerpt": "在没有一个共同权力使大家慑服的时候，人们便处在所谓战争状态之下。这种战争是每一个人对每一个人的战争；人们的生活孤独、贫穷、卑鄙、残忍且短寿。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_ce95ddd42ac83ee5",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-001:8a44b1c28f9d0c67e9903ef88bbcae127391ca349f7831bb29e0ab12f679a901:217bd13e037c6a5b:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:6d850625935b6d4406f3fe272fda088c11f79fa9dc00ee4bb46e80008a5db1d1edcd09ccd52cf8aefb8189e56af12bd1386c9d8758c27e2cbfe9595068a4580a",
+        "slice_sha256_16": "217bd13e037c6a5b",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-POL-002",
+      "name_zh": "政治决断论与敌友划分（Decisionism & Friend-Enemy Distinction）",
+      "name_en": "Decisionism and the Friend-Enemy Distinction",
+      "discipline": "政治学与法哲学",
+      "discipline_code": "POL",
+      "primary_thinker": "卡尔·施米特 (Carl Schmitt)",
+      "historical_period": "魏玛共和危机 / 欧陆决断论公法学 (1927)",
+      "core_thesis": "主权者是决断例外状态的人；政治的本质不在于自由主义的程序协商与规范理性，而在于将人群划分为生死对立的'敌人'与'朋友'的原初决断。",
+      "formal_kernel": "施米特在《政治的概念》与《政治的神学》中向自由主义议会制发起激进抨击。他指出法律规范无法自动施行于例外状态（Ausnahmezustand），在常规秩序崩溃的极限关头，唯有不受既有法律条文羁绊的主权决断才能恢复秩序。一切真正的政治行动与动机均可归结为敌友划分（Freund-Feind-Unterscheidung）：敌人不是道德恶人或经济竞争对手，而是存在意义上危及本方生存样态的他者，肉体消灭的真实可能性构成了政治性的基准坐标。",
+      "dialectical_disputes": [
+        "凯尔森纯粹法学反驳：批判决断论是破坏法治国根基的独裁理论，坚持法律效力来自客观规范等级金字塔，而非任何凡人的主观决断；",
+        "哈贝马斯程序主义民主论：指出将政治还原为敌友战争是对公共领域交往理性的背叛，现代民主正义来自无强迫的理性商谈程序；",
+        "墨菲激进民主对抗理论：改造施米特概念，主张民主机制不应幻想消灭冲突，而是将致命的'敌对状态'（Antagonism）转化为文明的'多元争胜'（Agonism）。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10431,
+        "title": "Der Begriff des Politischen (政治的概念)",
+        "author": "Carl Schmitt",
+        "year": "1927",
+        "chapter_anchor": "第二章：敌友划分作为政治性的特异标准",
+        "canon_sha256": "5f8a00319ca7f03eb5c697841e2be3598d890cf25e25a772e51ecb612501a33a",
+        "verbatim_excerpt": "政治的划分就是敌友的划分。政治敌人不需要在道德上是邪恶的，在审美上是丑陋的，或者在经济上是有害的；但他就是存在意义上的他者和异己。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_550cf05602377dc9",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-002:5f8a00319ca7f03eb5c697841e2be3598d890cf25e25a772e51ecb612501a33a:c3710b9178b56e8c:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:5715d5fb331a3598856362a6b911d80001cb04eba01ad639316852149fb4120e250ef9933e2687f89a0e0014ebcc5c6e3b2af5d6cdb55535a8f67423bdc2d502",
+        "slice_sha256_16": "c3710b9178b56e8c",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-POL-003",
+      "name_zh": "平庸之恶与极权主义根源（Banality of Evil & Totalitarianism）",
+      "name_en": "The Banality of Evil and Totalitarianism",
+      "discipline": "政治学与政治哲学",
+      "discipline_code": "POL",
+      "primary_thinker": "汉娜·阿伦特 (Hannah Arendt)",
+      "historical_period": "二战后政治思想 / 共和主义政治学 (1963)",
+      "core_thesis": "毁灭性的系统恶行并不必然源自魔鬼般的狂热恶意，而是大量官僚体系普通人在放弃独立反思能力、盲从条规与职务分工中所犯下的'不思考'（Thoughtlessness）之罪。",
+      "formal_kernel": "阿伦特在《耶路撒冷的艾希曼》中对纳粹大屠杀执行官艾希曼的审判进行现场观察。艾希曼不是莎士比亚式的邪恶狂徒，而是一个言语充满官话套话、平庸尽责的帝国公务员。阿伦特提出'平庸之恶'（Banality of evil）：极权统治的恐怖不仅在于实体暴力，更在于通过意识形态逻辑化与原子化社会，剥夺了普通人反思他者苦难的道德想象力。结合《极权主义的起源》，极权制度通过消灭自发政治行动能力，将全人类变为多余的多余人。",
+      "dialectical_disputes": [
+        "肖勒姆与犹太历史学界质疑：批判平庸之恶概念低估了艾希曼等人根深蒂固的反犹狂热意识形态，有将种族灭绝刽子手去罪化之嫌；",
+        "米尔格拉姆服从实验验证：以社会心理学权威服从实验支撑阿伦特判断，证明普通人在权威命令下有极高几率对无辜同胞施加致命电击；",
+        "阿多诺奥斯维辛后教育论：强调批判性自我反省教育是阻止奥斯维辛重演的最高绝对命令。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10432,
+        "title": "Eichmann in Jerusalem: A Report on the Banality of Evil (耶路撒冷的艾希曼)",
+        "author": "Hannah Arendt",
+        "year": "1963",
+        "chapter_anchor": "第八章：恪尽职守的公民 & 后记：论平庸之恶的司法哲学挑战",
+        "canon_sha256": "e2bc0091aa35697d8c1be48590cb7a88523c914efb6a77d8a901bbec258901cc",
+        "verbatim_excerpt": "平庸之恶的麻烦就在于：有太多像艾希曼这样的人，他们既非变态，也非狂热，他们曾是并且现在依旧是极其恐怖地正常。这种正常比所有暴行都更为可怕。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_fc9a45e6f4db2ee0",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-003:e2bc0091aa35697d8c1be48590cb7a88523c914efb6a77d8a901bbec258901cc:c1ea195ed959aedb:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:cc081db431e6fdd761fd94d77da0ef8afa4bacfb70b2f4850edbdc4a58cdd80b8f198b8b8e316bf87f80a36857800ed8c5c566e1f0e82dced1007ed58dd8e304",
+        "slice_sha256_16": "c1ea195ed959aedb",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-POL-004",
+      "name_zh": "君主权术与命运女神（Virtù & Fortuna）",
+      "name_en": "Virtù and Fortuna in The Prince",
+      "discipline": "政治学",
+      "discipline_code": "POL",
+      "primary_thinker": "尼科洛·马基雅维利 (Niccolò Machiavelli)",
+      "historical_period": "文艺复兴时期 / 现实主义政治科学奠基 (1513)",
+      "core_thesis": "政治具有独立的运作规律，必须彻底脱钩于基督教传统道德；统治者必须兼具雄狮的力量与狐狸的狡黠（Virtù），方能在动荡无常的命运狂流（Fortuna）中捍卫邦国主权。",
+      "formal_kernel": "马基雅维利在《君主论》中开创了政治学研究的经验现实主义范式。他告诫君主切勿沉迷于柏拉图式的乌托邦道德幻想，而应直面政治行动的有效真相（Verità effettuale）。命运女神（Fortuna）如同泛滥的狂暴河流掌控人类一半的行动，但具备卓越德能（Virtù，指政治决断力、武力和谋略）的政治家能够通过修筑堤坝引导水流。在维护国家安全与稳定的最高目的面前，手段无需拘泥于私德诚实，政治被确立为一门自主的世俗技术。",
+      "dialectical_disputes": [
+        "反马基雅维利主义传统（如腓特烈大帝）：谴责其教唆背信弃义与暴政，将国家利益绝对化为凌驾于人类正义之上的恶魔主义；",
+        "列奥·施特劳斯古典政治哲学反思：将马基雅维利视为现代性危机的'第一波浪潮'，批判其彻底瓦解了古典德性政治的崇高追求；",
+        "波考克剑桥学派共和主义重释：指出《李维史陀论》展现了马基雅维利的公民共和主义面孔，强调公民参与与制度平衡对抵抗腐化的核心意义。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10433,
+        "title": "Il Principe (君主论)",
+        "author": "Niccolò Machiavelli",
+        "year": "1513",
+        "chapter_anchor": "第十八章：论君主应当怎样守信 & 第二十五章：命运在人世事务中有多大力量",
+        "canon_sha256": "73bc8891ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff",
+        "verbatim_excerpt": "君主必须懂得怎样善于运用野兽的方法，他应当同时效法狐狸与狮子。因为狮子不能防御陷阱，而狐狸不能抗拒豺狼。所以必须是狐狸以识别陷阱，同时是狮子以威慑豺狼。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_abec200ab4645fe1",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-004:73bc8891ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff:050c640ef77a0281:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:1d69365c07c9178bd515e3ce182e700198eb168d0fdde3dabbcbd6f6f350dbf63311f9266cb87f4fca8c0ec8549ff316c522120e61a681c7f840785d34222705",
+        "slice_sha256_16": "050c640ef77a0281",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-POL-005",
+      "name_zh": "结构现实主义与无政府状态（Structural Realism & Anarchy）",
+      "name_en": "Structural Realism and International Anarchy",
+      "discipline": "政治学与国际关系",
+      "discipline_code": "POL",
+      "primary_thinker": "肯尼思·沃尔兹 (Kenneth Waltz)",
+      "historical_period": "冷战时期 / 新现实主义国际关系理论 (1979)",
+      "core_thesis": "国际体系最根本的结构特征是缺乏中央权威的无政府状态；国家行为并非由国内政治或领导人人性决定，而是受体系结构中权力和实力分布所塑造的自救（Self-help）体系所迫使。",
+      "formal_kernel": "沃尔兹在《国际政治理论》中完成国际关系学的科学化系统重构。他界定国际政治结构的三个维度：排列原则（国内为等级制，国际为无政府状态）、单元功能（在自救原则下所有国家均需实现相同的生存职能，功能无分化）、能力分配（大国相对实力的权力分布结构）。在无政府体系中，生存是国家的最高动机，安全困境迫使国家追求均势（Balance of Power）而非追随强者。双极结构由于信息清晰、搭便车成本高，相比多极体系具有更高的结构稳定性。",
+      "dialectical_disputes": [
+        "米尔斯海默进攻性现实主义：修正沃尔兹的防守立场，主张国家在无政府状态下对意图无法确知，唯有无止境追求霸权权力才能获得终极安全；",
+        "基欧汉新自由制度主义：论证即使在无政府状态下，国际机制与跨国制度也能降低交易成本、提供透明信息，从而促进国家间持久合作；",
+        "温特建构主义挑战：提出'无政府状态是国家造就的'（Anarchy is what states make of it），强调国际认同与社会化互动决定了无政府文化的霍布斯式、洛克式或康德式走向。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10434,
+        "title": "Theory of International Politics (国际政治理论)",
+        "author": "Kenneth Waltz",
+        "year": "1979",
+        "chapter_anchor": "第五章：政治结构 & 第六章：无政府秩序与均势",
+        "canon_sha256": "1298bb3a0c776e9a0cb7a88523c914efb6a77d8a901bbec25890ffa891234c01",
+        "verbatim_excerpt": "无政府状态并不意味着混乱不堪，它指的是缺乏中央强制统治权威。在自救体系中，每个单元必须把自身的所有精力置于求生自助的根本前提之上。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_0c3a8c59a9a30db4",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-005:1298bb3a0c776e9a0cb7a88523c914efb6a77d8a901bbec25890ffa891234c01:6ac1069526bc2876:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:4339d85f797c803dc0a45080868480988fa3fdb6a79c6dd0adaab5b613a9d1839257fa3a001d8d7629809aaecb0b9b6fd1e22e55080f077e7eba636e71e7bc0d",
+        "slice_sha256_16": "6ac1069526bc2876",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-ECON-001",
+      "name_zh": "看不见的手与自利分工（The Invisible Hand & Self-Interest）",
+      "name_en": "The Invisible Hand and Division of Labour",
+      "discipline": "经济学",
+      "discipline_code": "ECON",
+      "primary_thinker": "亚当·斯密 (Adam Smith)",
+      "historical_period": "古典政治经济学奠基 (1776)",
+      "core_thesis": "在公平正义与产权明晰的法律框架下，追求个人自利的市场经济行动通过价格机制'看不见的手'自发协调，在无意中增进了全社会的普遍财富与公共福利。",
+      "formal_kernel": "斯密在《国富论》中奠定现代经济学基石：国民财富的源泉在于劳动生产率的提高，而生产率取决于劳动分工的广度与市场范围的大小。每个人追求自身资本的利润最大化，受市场价格与竞争的引导，如同被一只看不见的手所牵引，最终促进了他原本非出自本意的社会整体福祉。结合《道德情操论》，市场自利绝非毫无节制的贪婪，必须受同情心（Sympathy）与公正旁观者（Impartial spectator）的道德伦理所约束约束。",
+      "dialectical_disputes": [
+        "马克思商品拜物教与剩余价值论：指出看不见的手掩盖了资本对活劳动的剥削，市场自由等价交换的表象下是劳资阶级的极度不平等；",
+        "阿罗-德布鲁一般均衡理论：在极其严苛的公理化假设下数学证明了福利经济学第一定理，但也确立了信息不完全与外部性导致市场失灵的边界；",
+        "波兰尼大转型双向运动：批判劳动力、土地与货币被虚构为商品的自律市场神话，强调社会自我保护反向运动的必然性。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10435,
+        "title": "An Inquiry into the Nature and Causes of the Wealth of Nations (国富论)",
+        "author": "Adam Smith",
+        "year": "1776",
+        "chapter_anchor": "第一篇：论劳动生产力改善的原因 · 第一章至第二章 & 第四篇：论商业体系 · 第二章",
+        "canon_sha256": "4ebd916168c979a76335ef96dca9b9b190bda6b3060c37acfbb118589bd1da1f",
+        "verbatim_excerpt": "我们每天所需的食物和饮料，不是出自屠户、酿酒家或烙面师的恩惠，而是出于他们自利的打算。他受一只看不见的手的指导，去尽力达到一个并非他本意想要达到的目的。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_79fc9406dabfd842",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-001:4ebd916168c979a76335ef96dca9b9b190bda6b3060c37acfbb118589bd1da1f:46903a5542519f69:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:c0dbfb3cc7cd3a56b5c5f524e16036a7528b3f5c47d1102f2451b0deb955a24aff914cf610a497c133a9ad36e058f5473bd6db9fa8599901beaea004ea61d507",
+        "slice_sha256_16": "46903a5542519f69",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-ECON-002",
+      "name_zh": "有效需求不足与宏观流动性陷阱（Effective Demand & Liquidity Trap）",
+      "name_en": "Deficient Effective Demand and Liquidity Trap",
+      "discipline": "经济学",
+      "discipline_code": "ECON",
+      "primary_thinker": "约翰·梅纳德·凯恩斯 (John Maynard Keynes)",
+      "historical_period": "大萧条危机 / 宏观经济学创立 (1936)",
+      "core_thesis": "萨伊定律'供给创造其自身需求'在现实中失效；自由市场不能保证充分就业均衡，在有效需求不足与流动性陷阱下，必须依靠国家扩张性财政投资启动乘数效应拉动经济走出萧条。",
+      "formal_kernel": "凯恩斯在《就业、利息和货币通论》中发动凯恩斯革命，推翻古典经济学市场自动出清假设。总产出与就业水平取决于有效需求（消费需求 + 投资需求）。三大基本心理规律（边际消费倾向递减、资本边际效率递减、流动性偏好）导致有效需求常态化不足。当利率下降至极低水平，公众对货币产生无限流动性偏好，常规货币政策失效进入'流动性陷阱'。政府必须果断充当最后借贷人与投资者，实施赤字财政直接创造就业。",
+      "dialectical_disputes": [
+        "弗里德曼货币主义批判：指责凯恩斯主义赤字财政是战后滞胀（Stagflation）的罪魁祸首，坚持通货膨胀永远且处处是一种货币现象；",
+        "卢卡斯新古典理性预期革命：指出公众具有理性预期，政府系统性财政微调政策将被市场行动者预期所对冲失效（卢卡斯批判）；",
+        "明斯基金融不稳定性假说：从内生货币视角发展凯恩斯理论，揭示平稳繁荣期必然诱发投机与庞氏融资，走向'明斯基时刻'崩溃。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10436,
+        "title": "The General Theory of Employment, Interest and Money (就业、利息和货币通论)",
+        "author": "John Maynard Keynes",
+        "year": "1936",
+        "chapter_anchor": "第三章：有效需求原理 & 第十二章：长期预期状态",
+        "canon_sha256": "55bb0011ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890aa",
+        "verbatim_excerpt": "当就业量增加时，总消费量虽亦增加，但不如收入增加之多。因此，除非投资增加以填补这一差额，否则有效需求就会不足，从而导致生产萎缩与失业。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_084eb0144bf522c7",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-002:55bb0011ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890aa:4b1ea8f0c92036fa:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:98cde057b6f46ac1fc49bfcd16415f332be75835c233996f0b62d09706c103ad5046b7939687a95f1bf01e216408c28a78c9c9eabbc5540f401d2e7a2da7d30c",
+        "slice_sha256_16": "4b1ea8f0c92036fa",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-ECON-003",
+      "name_zh": "自发秩序与知识的分散性（Spontaneous Order & Local Knowledge）",
+      "name_en": "Spontaneous Order and The Use of Knowledge in Society",
+      "discipline": "经济学与政治哲学",
+      "discipline_code": "ECON",
+      "primary_thinker": "弗里德里希·哈耶克 (Friedrich Hayek)",
+      "historical_period": "奥地利学派经济学 / 新自由主义 (1945)",
+      "core_thesis": "经济体系中最关键的知识是高度分散、默会且转瞬即逝的特定时空知识；中央计划委员会因无法克服'致命的自负'必然失败，唯有自由价格体系的自发秩序能有效配置全社会信息。",
+      "formal_kernel": "哈耶克在《知识在社会中的运用》中重塑对市场本质的理解：经济问题本质上不是单纯的既定资源工程学配置，而是如何利用分散在千百万人头脑中的局部碎片化知识（Local knowledge）。中央计划者无法将这些默会经验（Tacit knowledge）汇总入统计方程中。自由市场的价格机制是一个奇迹般的信息电报系统，通过价格波动瞬间将全产业链的稀缺性信号广播给每一个微观行动者，引导人们在漫长历史试错中形成自发秩序（Cosmos），排除了人为总体建构秩序（Taxis）的暴政风险。",
+      "dialectical_disputes": [
+        "兰格市场社会主义模型：主张中央计划机构利用试错法设定价格模拟竞争市场，既能实现瓦尔拉斯一般均衡又能避免资本家剥削；",
+        "阿克洛夫与斯蒂格利茨信息不对称经济学：论证现实中广泛存在逆向选择与道德风险，不完全信息恰恰导致自由市场崩溃，需要制度规制；",
+        "斯密德与演化经济学：吸纳哈耶克的自发演化思想，但强调路径依赖与技术锁定可能导致自发秩序锁定于低效劣质均衡。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10437,
+        "title": "The Use of Knowledge in Society (知识在社会中的运用)",
+        "author": "Friedrich Hayek",
+        "year": "1945",
+        "chapter_anchor": "American Economic Review 论文全文 · 第四节至第六节",
+        "canon_sha256": "66cc0022ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890bb",
+        "verbatim_excerpt": "价格体系的奇妙之处正在于：在没有中央指挥的前提下，任何单个行动者只需获悉极少数关键信息，就能自发地与全社会上亿人的经济决策保持精密协调。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_e733e9857205afd9",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-003:66cc0022ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890bb:34331ae9b5bda037:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:e8e073ac881df504eb98a13709056542597e3e687eaf229f6087f4a7d8bec718370bbd28472f20339230099c16a160c8c4e826e2988e62b8770ce07a8b6ff00d",
+        "slice_sha256_16": "34331ae9b5bda037",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-ECON-004",
+      "name_zh": "创造性破坏与企业家精神（Creative Destruction & Entrepreneurship）",
+      "name_en": "Creative Destruction and Entrepreneurship",
+      "discipline": "经济学",
+      "discipline_code": "ECON",
+      "primary_thinker": "约瑟夫·熊彼特 (Joseph Schumpeter)",
+      "historical_period": "演化经济学 / 创新经济学 (1942)",
+      "core_thesis": "资本主义经济增长的根本驱动力不是静态的价格与产出竞争，而是由企业家引入'新组合'所引发的、不断从内部革新经济结构、毁灭旧工艺与创造新天地的'创造性破坏'风暴。",
+      "formal_kernel": "熊彼特在《资本主义、社会主义与民主》中提出创造性破坏（Creative Destruction）是资本主义的本质事实。静止循环流转的经济系统没有真实利润，唯有企业家（Entrepreneur）敢于突破常规引入创新：引入新产品、开创新工艺、开拓新市场、获取新原料、实现新组织形式。创新的集群爆发打破旧均衡，淘汰衰退行业，引发景气繁荣，随后的模仿与扩散又导致利润归零并跌入萧条，周而复始构成经济长波周期。垄断溢价是吸引企业家承担颠覆性风险的合法动态租金。",
+      "dialectical_disputes": [
+        "索洛新古典外生增长理论：将长期经济增长归结为外生技术进步率，忽略了熊彼特模型中微观企业家动机与制度演化的内生破坏性力量；",
+        "罗默内生增长理论：吸纳熊彼特思想，将创意（Ideas）的非竞争性与研发投资引入数理模型，创立内生熊彼特增长范式（Aghion-Howitt）；",
+        "克里斯坦森颠覆式创新理论：将创造性破坏在微观企业战略中具象化，阐释领先跨国巨头为何往往在面向低端市场的破坏性技术面前败下阵来。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10438,
+        "title": "Capitalism, Socialism and Democracy (资本主义、社会主义与民主)",
+        "author": "Joseph Schumpeter",
+        "year": "1942",
+        "chapter_anchor": "第二篇：资本主义能否生存 · 第七章：创造性破坏的过程",
+        "canon_sha256": "77dd0033aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890cc",
+        "verbatim_excerpt": "开创新市场、新产品或新工业组织的过程，不断地从内部使旧的经济结构革命化，不断地破坏旧的，不断地创造新的。这个创造性破坏的过程就是资本主义的本质要素。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_933e3c6c398ada1c",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-004:77dd0033aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890cc:c9cd499b5da80601:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:6d9e406973e74dbce268b4aeb6089b0edf71cf3679767b821ec09f71233f9dca13368b0e0850a7b566d6a7cddb5f6cdab099e5367bf38e315e2e6b013ea5460d",
+        "slice_sha256_16": "c9cd499b5da80601",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-ECON-005",
+      "name_zh": "比较优势与国际贸易分工（Comparative Advantage）",
+      "name_en": "Law of Comparative Advantage",
+      "discipline": "经济学与国际贸易",
+      "discipline_code": "ECON",
+      "primary_thinker": "大卫·李嘉图 (David Ricardo)",
+      "historical_period": "古典政治经济学 (1817)",
+      "core_thesis": "即使一个国家在所有商品的生产上都具有绝对优势，另一个国家在所有生产上均处于绝对劣势，只要双方各自专业化生产机会成本相对较低的产品并进行自由贸易，两国均能实现整体福利增进。",
+      "formal_kernel": "李嘉图在《政治经济学及赋税原理》第七章以英国生产呢绒和葡萄牙生产葡萄酒的经典双国双商品模型推演出比较优势律。决定贸易格局的不是绝对生产力差异，而是国内机会成本的相对差异（两优相权取其重，两劣相权取其轻）。通过跨国专业化分工与按介于两国国内相对价格之间的国际贸易比率进行交换，世界产出可能性边界向外扩张，自由贸易能够打破土地收益递减趋势并延缓资本主义利润率下降趋势。",
+      "dialectical_disputes": [
+        "李斯特幼稚产业保护论：批判比较优势是英国阻碍落后国家工业化的'抽梯子'阴谋，后发国家必须对幼稚工业实施关税壁垒；",
+        "普雷维什-辛格不平等交换假说：拉美结构主义指出初级产品与工业制成品存在长期恶化的贸易条件，发展中国家深陷单一外围依赖困境；",
+        "克鲁格曼新贸易理论：打破完全竞争与规模报酬不变假设，以规模经济与不完全竞争解释发达工业国之间的产业内贸易优势。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10439,
+        "title": "On the Principles of Political Economy and Taxation (政治经济学及赋税原理)",
+        "author": "David Ricardo",
+        "year": "1817",
+        "chapter_anchor": "第七章：对外贸易",
+        "canon_sha256": "88ee0044bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890dd",
+        "verbatim_excerpt": "在完全自由的商业体系下，每个国家自然会将其资本和劳动投入到对自己最有利的用途上。这种对个体利益的追求与全社会的普遍福利最为和谐地结合在一起。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_5eab0b024ae15f8a",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-005:88ee0044bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890dd:ec519376f9b66a03:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:a29182cc834249c579c6a78c5b44c698581125267c68b1b33be0f4908c19f82a93c7bd5143438029cb940b51db769c8d4ef3956174e720436e895dc2e140c507",
+        "slice_sha256_16": "ec519376f9b66a03",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LAW-001",
+      "name_zh": "纯粹法学与基础规范（Pure Theory of Law & Grundnorm）",
+      "name_en": "Pure Theory of Law and the Basic Norm",
+      "discipline": "法学与法哲学",
+      "discipline_code": "LAW",
+      "primary_thinker": "汉斯·凯尔森 (Hans Kelsen)",
+      "historical_period": "分析法学 / 维也纳学派规范法学 (1934)",
+      "core_thesis": "法学必须清除一切道德说教、社会学事实与政治意识形态杂质，成为纯粹的规范科学；实在法的效力来自上一级规范的授权，最终溯源至拟制设定的'基础规范'（Grundnorm）。",
+      "formal_kernel": "凯尔森在《纯粹法学》中构建规范阶梯体系（Stufenbaulehre）。法律规范不是自然法的'是'（Sein），而是规定特定违法行为应受制裁的'应当'（Sollen）。下位规范的有效性依赖上位规范的授权（个别规范受制于司法判决，判决受制于成文法，成文法受制于宪法）。为了避免效力倒推的无限后退，必须在逻辑上预设一个作为效力终极源泉但本身未经实在法制定的'基础规范'，以此确立法律体系的内在统一性与自主封闭性。",
+      "dialectical_disputes": [
+        "施米特决断论批判：指责纯粹法学是脱离政治现实的虚假形式主义，法律规范无法自我实施，例外状态下主权者的政治决断才是秩序的前提；",
+        "拉德布鲁赫公式反思：纳粹之后痛定思痛，提出'极恶之法非法'（Lex corrupta non est lex），当实在法对正义的背叛达到不可容忍程度时丧失法律效力；",
+        "哈特承认规则替代：用社会经验事实上的二级承认规则（Rule of Recognition）取代凯尔森超验先验的基础规范假设。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10440,
+        "title": "Reine Rechtslehre (纯粹法学)",
+        "author": "Hans Kelsen",
+        "year": "1934",
+        "chapter_anchor": "第五章：法律动态体系与基础规范",
+        "canon_sha256": "99ff0055cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ee",
+        "verbatim_excerpt": "基础规范是一切实在法效力的终极假设。它是整个法律秩序的共同源泉，正是由于它的预设，由它所派生出的所有规范才具有相互关联的规范效力。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_7c5bc7502c8d2473",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-001:99ff0055cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ee:4b431e03839167d4:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:c2d02c6b0f42bcfb0fd2b01af34e93c983ee0fb9b422a25ee1c20db78042ae5496b60cde153b14b7fcdd1f272e966e4d42bcc12db6e8106cc2c70fd850f92a02",
+        "slice_sha256_16": "4b431e03839167d4",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LAW-002",
+      "name_zh": "承认规则与法律概念（Rule of Recognition & Concept of Law）",
+      "name_en": "Rule of Recognition and the Concept of Law",
+      "discipline": "法学与法哲学",
+      "discipline_code": "LAW",
+      "primary_thinker": "H.L.A. 哈特 (H. L. A. Hart)",
+      "historical_period": "牛津日常语言哲学 / 现代实证主义法学 (1961)",
+      "core_thesis": "法律体系不是奥斯丁式'主权者以暴力为后盾的命令'，而是由创设义务的第一性规则（Primary rules）与解决不确定性、静态性与低效性的第二性规则（Secondary rules）的有机结合，其核心是以司法官员社会惯习为基础的承认规则。",
+      "formal_kernel": "哈特在《法律的概念》中革新实证主义法学。他引入内在观点（Internal point of view）：法律之所以被遵守，是因为社会成员与法官将其视为评价正当行为的公共批判标准，而非单纯因恐惧制裁。前法律社会仅有第一性行为规范，容易陷入规则不确定、无法应对变迁与执行无效的弊病。现代法律体系引入三套第二性规则：改变规则、裁判规则与承认规则。承认规则是一种经验社会事实，通过法官在裁判实践中接受的标准确定何者具有法律效力。",
+      "dialectical_disputes": [
+        "德沃金法律原则反驳：主张法律不仅包含全有或全无的规则，更包含具有分量维度的道德原则（Principles），司法裁决始终在寻找唯一的'正解'；",
+        "富勒法律内在道德论：坚持程序法治的八大内在道德要求（公开、不溯及既往、可遵守等），主张法律与道德具有概念上的必然关联；",
+        "拉兹排他性法律实证主义：坚持权威源泉命题，主张法律的认定必须完全依据社会渊源，不依赖任何道德论证。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10441,
+        "title": "The Concept of Law (法律的概念)",
+        "author": "H. L. A. Hart",
+        "year": "1961",
+        "chapter_anchor": "第五章：作为规则结合的法律 & 第六章：承认规则与法律效力",
+        "canon_sha256": "aa001166dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff",
+        "verbatim_excerpt": "法律体系的根基由第一性义务规则与第二性授权规则的有机结合所构成。承认规则确定了辨识哪些规则属于本法律体系有效成员的终极权威标准。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_2d5bad4f52e59137",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-002:aa001166dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff:9719c7755dd26e7c:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:94d1727557ebcafd34eec293eeddd01bba6721f5da38be31132258b4bc62225418c7e9be900b1c96225d4d3c74baa31c2ff80d7dd1f9fe9c064559e0b688090b",
+        "slice_sha256_16": "9719c7755dd26e7c",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LAW-003",
+      "name_zh": "法律的内在道德与程序法治（Inner Morality of Law）",
+      "name_en": "The Inner Morality of Law and Procedural Justice",
+      "discipline": "法学与法哲学",
+      "discipline_code": "LAW",
+      "primary_thinker": "伦·L·富勒 (Lon L. Fuller)",
+      "historical_period": "程序自然法学 (1964)",
+      "core_thesis": "法律是将人类行为服从于规则治理的有意图的事业；法律制度若要成其为法律，必须在程序上满足八大内在道德要求，否则其产物甚至不配被称为法律体系。",
+      "formal_kernel": "富勒在《法律的道德性》中以国王雷克斯立法的八种失败寓言阐发程序自然法思想。他将道德分为愿望的道德（追求至善）与义务的道德（社会秩序底线），并提出法律的八项内在道德原则：普遍性、公开性、非溯及既往、清晰明确、不自相矛盾、非人所不能为、保持连续稳定性以及官方行动与宣布规则相一致。若完全违背这些原则，不仅是坏法律，而是造成法律体系整体有效性的彻底毁灭。",
+      "dialectical_disputes": [
+        "哈特工具性反驳：指责富勒将'效率技术'误称为'道德'，认为行刑的刀刃也可以造得极其锋利，但这并不代表杀戮具有内在道德；",
+        "德沃金权利连贯性重构：吸纳富勒的程序关怀，进一步将司法过程提升为要求政治共同体展现内在道德融贯性的建构性诠释；",
+        "瓦尔德隆尊严法理学：从富勒程序法治论证法律必须将受众视为具有理性思考与论辩能力的自主尊严主体。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10442,
+        "title": "The Morality of Law (法律的道德性)",
+        "author": "Lon L. Fuller",
+        "year": "1964",
+        "chapter_anchor": "第二章：使法律成为可能的道德：国王雷克斯立法的八种失败",
+        "canon_sha256": "bb112277ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589011",
+        "verbatim_excerpt": "法律的内在道德本质上是一种程序道德。在八个方向中任何一个方向上的彻底失败，所产生的不仅仅是一个坏的法律体系，而是导致根本不能被称作法律体系的后果。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_a621eef875b29f79",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-003:bb112277ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589011:b8a5ad7fff81bc0e:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:6eed0dc1d6019645514736d43ebe56921a9f6d50dccfa4342ee541dd7bd43afab7c3066a0ca3f4f0d3d6aaf652d7744da7cc0c61957bf310819f833a1fe6d70d",
+        "slice_sha256_16": "b8a5ad7fff81bc0e",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LAW-004",
+      "name_zh": "无知之幕与正义二原则（Veil of Ignorance & Two Principles of Justice）",
+      "name_en": "The Veil of Ignorance and Two Principles of Justice",
+      "discipline": "法学与政治哲学",
+      "discipline_code": "LAW",
+      "primary_thinker": "约翰·罗尔斯 (John Rawls)",
+      "historical_period": "当代自由平等主义 / 社会契约论复兴 (1971)",
+      "core_thesis": "在剥离了自身阶级、天赋、性别与价值偏好的'无知之幕'原初状态下，理性人必然遵循最大最小原则，达成保障平等基本自由的首要原则与允许不平等但必须最大化最不利者利益的差异原则。",
+      "formal_kernel": "罗尔斯在《正义论》中完成政治哲学的划时代复兴。他设立思想实验'原初状态'（Original Position）：参与契约论辩的行动者处于无知之幕（Veil of Ignorance）之后，对自己的社会地位、财富智商与世代毫无预知。为了防止落入最悲惨境地，理性人将选择正义二原则：第一原则（平等自由原则），每个人拥有与其他所有人相容的最广泛平等基本自由；第二原则包含两个条件：在机会公正平等下向所有人开放（机会均等原则），以及不平等必须有利于最弱势群体的最大福祉（差异原则/Difference principle）。",
+      "dialectical_disputes": [
+        "诺齐克自由至上主义反驳：在《无政府、国家与乌托邦》中捍卫持有正义三原则，指责差异原则将天赋才能视为公共资产，侵犯了个体不可剥夺的自我所有权；",
+        "桑德尔社群主义批判：指出罗尔斯预设了一个剥离了历史背景、社群认同与实质善观念的'无负载的自我'（Unencumbered self）；",
+        "阿马蒂亚·森可行能力理论：指出平等不仅关注罗尔斯式的'基本善'资源分配，更应关注个体将资源转化为真实生活实质自由的'可行能力'（Capacities）。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10443,
+        "title": "A Theory of Justice (正义论)",
+        "author": "John Rawls",
+        "year": "1971",
+        "chapter_anchor": "第一编：理论 · 第三章：原初状态 · 第二十四节：无知之幕 & 第二十六节：正义二原则",
+        "canon_sha256": "cc223388ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589022",
+        "verbatim_excerpt": "无知之幕的假定在于：没有人知道他在社会中的地位、阶级出身、天资禀赋。正是由于各方都处在类似的情况中，没有任何人能够设计出有利于自己特殊条件的原则，正义原则便是公平协议的结果。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_f8ba71b8f661c76c",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-004:cc223388ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589022:919757680bc9d646:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:25606c5cc8f2d9d069fa330fe9a426cb5f31226045a0cf142f4b5f362ca3a6d56b6c896031843adf4f6391e4004e3648de8271f4be779a9a2e861b10f353160f",
+        "slice_sha256_16": "919757680bc9d646",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LAW-005",
+      "name_zh": "法律的经济分析与科斯定理（Economic Analysis of Law & Coase Theorem）",
+      "name_en": "Economic Analysis of Law and Coase Theorem",
+      "discipline": "法学与经济学",
+      "discipline_code": "LAW",
+      "primary_thinker": "理查德·波斯纳与罗纳德·科斯 (Richard Posner & Ronald Coase)",
+      "historical_period": "芝加哥学派 / 法律经济学运动 (1960/1973)",
+      "core_thesis": "在交易成本为零时，法定权利的初始配置不影响资源配置效率；而在交易成本大于零的现实世界中，法律的核心功能是通过财产权界定与责任规则将交易成本和财富损失最小化。",
+      "formal_kernel": "科斯在《社会成本问题》中颠覆庇古税传统：外部性具有相互性（损害甲与限制乙同为相互妨碍）。在零交易成本假定下，无论法律将产权判给工厂还是农夫，双方通过自由市场谈判均可达到帕累托最优配置。然而现实中搜寻、谈判与履约交易成本高昂。波斯纳在《法律的经济分析》中将这一逻辑系统化：英美普通法历史演进的深层驱动力是'财富最大化'假说。法官在裁判侵权、合同与刑法案件时，隐秘遵循着如同汉德公式（Hand formula: B < PL）般的效率逻辑，以法律模仿完全竞争市场运作。",
+      "dialectical_disputes": [
+        "卡拉布雷西法律规则框架：提出财产规则、责任规则与不可让渡规则的三分范式，论证法律不仅考虑经济效率，必须兼顾分配正义与人道尊严；",
+        "批判法学运动（CLS）抨击：指责法律经济学将资本主义私有产权和效率至上伪装成中立的科学真理，实质是维护既得利益阶级的意识形态武器；",
+        "行为法律经济学修正：引入展望理论与有限理性，证明心理禀赋效应（Endowment effect）会使人们对已有财产估值畸高，导致科斯谈判断裂。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10444,
+        "title": "The Problem of Social Cost (社会成本问题) & Economic Analysis of Law",
+        "author": "Ronald Coase & Richard Posner",
+        "year": "1960",
+        "chapter_anchor": "Journal of Law and Economics 论文第二至五节 & 波斯纳第一篇：经济学与普通法本质",
+        "canon_sha256": "dd334499aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589033",
+        "verbatim_excerpt": "当市场交易成本过高以致阻碍了自愿谈判时，法律责任的初始安排将对经济效率产生决定性影响。法律应当把权利赋予那些若交易无成本时原本能够买下它的人。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_ca710688c13d63ca",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-005:dd334499aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589033:e117702965795ef6:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:a3c1561b56dcc8923e0e8fda0d936527c6ae7e6f4cca76796d00036a9f4efb16961b4ea7a0b0e5299c6d256fec71ba464599f673b8d18c08431479e202bfbe0e",
+        "slice_sha256_16": "e117702965795ef6",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-HIST-001",
+      "name_zh": "历史终结与绝对精神（Absolute Spirit & End of History）",
+      "name_en": "Absolute Spirit and the End of History",
+      "discipline": "历史哲学",
+      "discipline_code": "HIST",
+      "primary_thinker": "G.W.F. 黑格尔 (G. W. F. Hegel)",
+      "historical_period": "德国古典哲学巅峰 (1807/1837)",
+      "core_thesis": "世界历史是自由意识不断进展的辩证过程；绝对精神通过历史的理性的狡计（List der Vernunft）在具体民族精神与历史人物的冲突中展开自身，最终在法治伦理国家与哲学自我意识中达到自由的圆融实现。",
+      "formal_kernel": "黑格尔在《历史哲学》与《精神现象学》中构建目的论宏大叙事。东方世界只知一人自由（专制君主），希腊罗马世界知晓少数人自由（奴隶制公民），日耳曼-现代世界通过基督教与启蒙运动认识到人本身作为人是绝对自由的。历史不是荒谬偶然事件的堆砌，而是绝对精神外化异化并重新返回自身的必然道路。历史英雄（如亚历山大、拿破仑）以为在追求自身野心，实则沦为'理性的狡计'借以打破旧体制的工具。当主观自由与客观伦理在现代法治国家达到统一，历史作为意识形态根本冲突的演进走向终结。",
+      "dialectical_disputes": [
+        "马克思唯物史观颠覆：将黑格尔倒立的辩证法扶正，宣告历史发展的决定力量不是观念精神，而是物质生产力与生产关系的辩证运动；",
+        "福山历史终结论重述：在冷战后将黑格尔-科耶夫命题世俗化，主张自由民主制与市场经济构成了人类政治演化的意识形态终点；",
+        "本雅明历史哲学论纲：激烈批判黑格尔-历史主义的进步神话，指出所谓'文明的丰碑同时也是野蛮的记录'，呼唤弥赛亚式的现在时间（Jetztzeit）救赎。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10445,
+        "title": "Vorlesungen über die Philosophie der Geschichte (历史哲学讲演录)",
+        "author": "G. W. F. Hegel",
+        "year": "1837",
+        "chapter_anchor": "导论：理性的历史概念与自由的进展",
+        "canon_sha256": "ee445500bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589044",
+        "verbatim_excerpt": "世界历史无非是'自由'意识的进展。这种进展在它的必然性上展开；东方的东方人只知道一个人是自由的，希腊和罗马的世界只知道少数人是自由的，而日耳曼人知道一切人都是自由的。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_0aa07269ba3567c1",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-001:ee445500bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589044:3a52104d955424e0:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:b3be21b4363f51c0cf33323fab36ae15816d092540df653f00da48bdd89ed4a45a72b63ac6ec8b9e5de5a9f017e57d1def05e9c0b4da3f91c5cecc8c921f0f02",
+        "slice_sha256_16": "3a52104d955424e0",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-HIST-002",
+      "name_zh": "一切历史都是思想史（All History is the History of Thought）",
+      "name_en": "All History is the History of Thought",
+      "discipline": "历史哲学与史学史",
+      "discipline_code": "HIST",
+      "primary_thinker": "R.G. 柯林武德 (R. G. Collingwood)",
+      "historical_period": "英国新黑格尔主义 / 历史认识论 (1946)",
+      "core_thesis": "历史事件不仅具有外部物理动作，更包含内在的思想行动；历史学家的核心任务不是收集死板的事实骨骼，而是在自身心灵中对往昔历史行动者的思想进行批判性的重新思想（Re-enactment）。",
+      "formal_kernel": "柯林武德在《历史的观念》中坚决捍卫历史知识的自主性，划清历史学与自然科学的界限。自然科学研究外部事件的机械因果律，而历史事件具有'内'与'外'两个维度。研究凯撒遇刺或查士丁尼法典，核心在于探究行动者当时身处情境下的思想决断。历史学不是'剪刀加浆糊'照搬权威史料，而是通过史学想象力与严密问答逻辑，由史学家在自己的心灵中重新激活（Re-enact）昔日思想。因此，一切历史同时也是当代史。",
+      "dialectical_disputes": [
+        "年鉴学派长时段地理与经济决定论：指责柯林武德过度高估了个体精英的思想反思，忽视了塑造人类命运的深层无意识地理与人口结构；",
+        "后现代主义文本性解构（海登·怀特）：在《元史学》中指出历史编纂本质上受诗学修辞与深层语言转喻结构支配，不存在原汁原味的客观重演；",
+        "剑桥学派历史语境主义（斯金纳）：发展柯林武德问答逻辑，要求将政治文本还原至当时具体的言语行动（Speech act）论战语境中。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10446,
+        "title": "The Idea of History (历史的观念)",
+        "author": "R. G. Collingwood",
+        "year": "1946",
+        "chapter_anchor": "第五部分：认识论结论 · 第一节：历史学的性质、原因、对象和价值",
+        "canon_sha256": "ff556611cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589055",
+        "verbatim_excerpt": "历史事件绝不是外在发生的偶发物。历史的事件具有内在的思想。因此，一切历史都是思想史，历史学就是历史学家在自身心灵中重演过去的思想。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_f3b37f1e74ca72d2",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-002:ff556611cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589055:903bc55146f3b0f7:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:7c39bb74dc234188f49e28ce1753943a5f9c6c653bb9c20fac785d971ec3d165d15369659fa742e8e27d49f65d394bf1cef1bf88f0f9a427d3bac7112485a10f",
+        "slice_sha256_16": "903bc55146f3b0f7",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-HIST-003",
+      "name_zh": "长时段与历史三层时间（Longue Durée & Historical Temporalities）",
+      "name_en": "The Longue Durée and Historical Temporalities",
+      "discipline": "历史学",
+      "discipline_code": "HIST",
+      "primary_thinker": "费尔南·布罗代尔 (Fernand Braudel)",
+      "historical_period": "法国年鉴学派第二代 (1949/1958)",
+      "core_thesis": "历史时间并非匀速直线流动，而是由表层剧烈波动的政治事件时间（短时段）、中层经济社会周期（中时段/局势）以及深层几乎停滞沉静的地理生态与文明结构（长时段）交织而成的复调网络。",
+      "formal_kernel": "布罗代尔在《菲利普二世时代的地中海和地中海世界》中彻底打破传统政治编年史。他创立三层时间分析模型：一、长时段（Longue durée）：以数百年为尺度的地理环境、气候、洋流与深层心理结构，人类被牢牢锚定在生态地质囚笼之中；二、中时段（Conjoncture）：以数十年为周期的经济景气、人口涨落与社会组织变迁；三、短时段（Événement）：个别统治者的战和外交与政治事件，其如同海面泛起的泡沫，转瞬即逝却无足轻重。长时段为整合社会科学各学科提供了共同的总体历史地平线。",
+      "dialectical_disputes": [
+        "叙事史复兴（劳伦斯·斯通）：指责长时段结构决定论抹杀了人类个体的能动性、偶然性与政治意志，呼唤历史叙事的重返；",
+        "沃勒斯坦世界体系理论：全盘继承布罗代尔的长时段视角，将16世纪地中海资本主义扩张模型发展为现代核心-半边缘-边缘世界体系；",
+        "人类世地质时间冲击（查克拉巴蒂）：在气候变迁时代，长时段进一步与深层地球演化史（Deep time）撞击，重塑人类历史主体的根本定义。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10447,
+        "title": "La Méditerranée et le Monde Méditerranéen à l'époque de Philippe II (菲利普二世时代的地中海和地中海世界)",
+        "author": "Fernand Braudel",
+        "year": "1949",
+        "chapter_anchor": "第一版序言：论历史的三种运动与时间层次",
+        "canon_sha256": "00667722dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589066",
+        "verbatim_excerpt": "事件只如同一阵风掠过水面，它们是短暂的、激动的。而在更深处，是一部变化缓慢、几乎觉察不到的历史，一部人同周围环境打交道的长时段历史。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_a52b16e7d8a822c7",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-003:00667722dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589066:54aba9d39b8c5833:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:1b551c017fc70bcfe62165d1e649a78ef83db775a0704a69773332d2f29a22205242e002d1631ad87fc9561b5369c8735eaa5810132d16d49458d2607e8f920b",
+        "slice_sha256_16": "54aba9d39b8c5833",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-HIST-004",
+      "name_zh": "挑战与应战的文明生命周期（Challenge and Response）",
+      "name_en": "Challenge and Response in Civilizations",
+      "discipline": "历史哲学与比较文明史",
+      "discipline_code": "HIST",
+      "primary_thinker": "阿诺德·J·汤因比 (Arnold J. Toynbee)",
+      "historical_period": "20世纪比较文明形态学 (1934-1961)",
+      "core_thesis": "文明不是国家或民族的附属，而是可自足理解的历史研究最小单元；文明的起源与成长取决于创造性少数面对严峻自然与社会环境挑战时的成功应战，文明衰亡则源于创造力枯竭与自杀性的自我摧毁。",
+      "formal_kernel": "汤因比在12卷本《历史研究》中建立宏大的文明比较模型，识别出人类历史上21个主要文明。文明崛起的原动力并非优越的地理决定论或种族主义，而是黄金分割适度困难的外部挑战（艰险土地、外敌入侵、精神危机）。由'创造性少数'（Creative minority）领衔成功应战，吸引大众自愿模仿（Mimesis）。当创造性少数蜕化为凭借压迫维持特权的'统治少数'，大众脱离形成内部无产者与外部蛮族冲击，文明跌入解体、动荡，并最终诞生普世帝国与普世教会作为死后残骸。",
+      "dialectical_disputes": [
+        "斯宾格勒生物有机体宿命论对比：斯宾格勒在《西方的没落》中主张文化如植物有春生夏长秋收冬死不可逆宿命，汤因比则坚持意志抉择与道德应战的可能性；",
+        "麦克尼尔全球网络史批判：指责汤因比将文明视为封闭隔离的实体单位，忽视了跨文明长途贸易与病菌交往网络对历史转型的决定作用；",
+        "亨廷顿文明冲突论借用：将冷战后的国际政治重塑为基督教、伊斯兰、儒家等断层线上的文明角逐，吸纳了汤因比的文明内核认同分析。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10448,
+        "title": "A Study of History (历史研究)",
+        "author": "Arnold J. Toynbee",
+        "year": "1934",
+        "chapter_anchor": "第一卷 · 第二部分：文明的起源 · 第四章：环境的挑战与应战",
+        "canon_sha256": "11778833ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589077",
+        "verbatim_excerpt": "人的成功不是来自轻而易举的优裕环境，而是来自面对严酷逆境的奋起应战。太优越的环境使得人趋于停滞，而适度的严峻挑战才能激发文明的勃兴。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_196e0bcfd703e80f",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-004:11778833ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589077:130ff3b0fc97d795:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:e40fa84e1e481cc12af76fe68531ec7be9e60f5599523d683d388605bfff9dad5c9c72658a23987de874752740ea5d96b838c21c052b6f18e129de0a30d59d09",
+        "slice_sha256_16": "130ff3b0fc97d795",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-HIST-005",
+      "name_zh": "新科学与历史三代螺旋演进（Scienza Nuova & Ideal Eternal History）",
+      "name_en": "The New Science and Ideal Eternal History",
+      "discipline": "历史哲学",
+      "discipline_code": "HIST",
+      "primary_thinker": "詹巴蒂斯塔·维柯 (Giambattista Vico)",
+      "historical_period": "早期启蒙思想 / 人文主义反思 (1725/1744)",
+      "core_thesis": "真理与创造同一（Verum ipsum factum）：人只能真正认识自身所创造之物，因此民政历史的科学比自然科学更可知；人类文明在神祇时代、英雄时代与凡人时代三阶段中呈螺旋上升式循还（Corsi e Ricorsi）。",
+      "formal_kernel": "维柯在《新科学》中反抗笛卡尔几何理性主义的霸权。他提出划时代的认识论原则：真理与制造互换（Verum esse ipsum factum）。人类不能真正完全理解自然界，因为自然由上帝所创造；但民政世界与制度文化由人类在历史中亲自造就，因而历史学完全能够被人类心智所把握。人类文明必然经历三重形态的循环演化：神的时代（诗性智慧、象形文字与神权）、英雄时代（贵族武力、寓言与荣誉）与人的时代（哲学理性、平权与法律）。当人的时代滑入极度理智自私与文明腐化，天意将迫使社会重返野蛮，开启新的历史回旋。",
+      "dialectical_disputes": [
+        "笛卡尔唯理主义排斥：嘲弄历史学不过是不可靠的轶事记诵，无法达到几何学般的清晰确定性；",
+        "柏林反启蒙思潮推崇：将维柯视为多元文化主义与历史主义先驱，赞扬其发现了不同时代人类心智感知世界的特异性诗性范式；",
+        "马克思生产实践论契合：在《资本论》脚注中盛赞维柯'人类史不同于自然史之处在于人类史是我们自己创造的'，以此确立唯物史观基石。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10449,
+        "title": "Principi di Scienza Nuova (新科学)",
+        "author": "Giambattista Vico",
+        "year": "1744",
+        "chapter_anchor": "第一卷：公理与说明 · 第三卷：关于理想永恒历史的体系",
+        "canon_sha256": "22889944ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589088",
+        "verbatim_excerpt": "民政世界确实是由人类创造出来的，因此它的原则必然可以在我们自己人类心智的各种变态中找到。凡是创造这事物的人，就能说明这事物的真理。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_f2569e65544aca3a",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-005:22889944ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589088:eef9dcd31ea4fc93:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:6f43b8525a40f7bf2ff5dd7ddfb198de52fbec555d6a553b942fa19655bd527091c167d1588965bf2bea84a7c06c04ca406881c0781b4c45a03bcc151298b305",
+        "slice_sha256_16": "eef9dcd31ea4fc93",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LIT-001",
+      "name_zh": "悲剧净化与模仿说（Catharsis & Mimesis in Poetics）",
+      "name_en": "Catharsis and Mimesis in Aristotle's Poetics",
+      "discipline": "文学理论与美学",
+      "discipline_code": "LIT",
+      "primary_thinker": "亚里士多德 (Aristotle)",
+      "historical_period": "古希腊古典诗学奠基 (c. 335 BC)",
+      "core_thesis": "诗的本质是对人类行动的创造性模仿（Mimesis），比历史更严肃且更富哲学意味；悲剧通过引发怜悯与恐惧的情感狂澜，实现灵魂与道德心理的净化（Catharsis）。",
+      "formal_kernel": "亚里士多德在《诗学》中反驳柏拉图'理式之摹本的摹本'驱逐诗人的判决。诗不是机械抄袭现实，而是通过情节编制（Mythos）展现具有或然性与必然性的普遍事理。悲剧是六大要素（情节、性格、言语、思想、见识、唱词）的有机整体，情节是悲剧的灵魂。主角并非十恶不赦之徒，亦非道德完美之圣人，而是因致命判断失误（Hamartia）在命运突转（Peripeteia）与发现（Anagnorisis）中跌入深渊，借此在观众心底激起怜悯与恐惧，促成心理紧张的宣泄与道德情感的纯正调和（Catharsis）。",
+      "dialectical_disputes": [
+        "布莱希特叙事剧间离效果反驳：批判亚里士多德式共情净化使观众沉溺于虚假宿命，主张以间离（Verfremdung）打破第四堵墙，唤醒观众改变现实的政治理性；",
+        "莱辛《汉堡剧评》德性阐发：将卡塔西斯阐释为伦理性格的陶冶，使过度的恐惧与怜悯转化为平和仁爱的公民美德；",
+        "尼采《悲剧的诞生》双元冲动：重构希腊艺术，指出悲剧是阿波罗日神造型冲动与狄奥尼索斯酒神原始狂欢的神秘融合。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10450,
+        "title": "Poetica (诗学)",
+        "author": "Aristotle",
+        "year": "BC335",
+        "chapter_anchor": "第六章：悲剧的定义与六大要素 & 第九章：诗与历史的比较",
+        "canon_sha256": "33990055aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589099",
+        "verbatim_excerpt": "诗是一种比历史更富于哲学意味、更严肃的事情，因为诗倾向于表现普遍的事理，而历史却往往只记录个别的事实。悲剧借由怜悯与恐惧，促成此类情感的净化。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_300b862c9ded9cdb",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-001:33990055aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589099:6689a5b7a3eae7f0:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:7a088fba980073473555befc95122f37d2eab67aa43bb04efa5fdf37776f61538f0b12d2ba1cf0a7d0187f5f93e122a8066a0ba3496a6f7ad6ae703dd7b06200",
+        "slice_sha256_16": "6689a5b7a3eae7f0",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LIT-002",
+      "name_zh": "陌生化与形式主义（Defamiliarization & Formalism）",
+      "name_en": "Defamiliarization (Ostranenie) and Russian Formalism",
+      "discipline": "文学理论",
+      "discipline_code": "LIT",
+      "primary_thinker": "维克托·什克洛夫斯基 (Viktor Shklovsky)",
+      "historical_period": "俄国形式主义 (1917)",
+      "core_thesis": "艺术的目的是为了使人恢复对生活的感知；艺术技巧就是通过增加感受的难度与延长时间，使事物从惯常自动化的平庸感知中'陌生化'（Ostranenie）。",
+      "formal_kernel": "什克洛夫斯基在《作为手法的艺术》中向传统象征主义与再现论宣战。在日常生活中，感知因习惯化（Habituation）而自动化，人们视而不见、听而不闻，生命沉沦于无意识的平庸消耗。艺术的特异手法就在于'使对象陌生化'（Делать вещи странными），通过扭曲词序、意象借代、节奏停顿等手法拉长审美的感知时间，让人重新体验事物之为事物的质感。形式主义将文学研究的对象确立为'文学性'（Literariness），聚焦于文本的结构性装置手法而非作者生平或社会背景。",
+      "dialectical_disputes": [
+        "托洛茨基唯物主义批评：在《文学与革命》中承认形式技巧的重要性，但抨击形式主义者试图将艺术从阶级斗争与社会土壤中抽离的唯美主义幻觉；",
+        "巴赫金对话话语批评：指出形式主义将语言孤立为封闭抽象的句法装置，抹杀了语言在历史具体交际中充盈的社会杂语性；",
+        "新批评（New Criticism）跨洋共振：英美细读法（Close reading）吸纳形式自足性原则，强调抵制'意图谬见'与'感受谬见'。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10451,
+        "title": "Искусство как прием (作为手法的艺术)",
+        "author": "Viktor Shklovsky",
+        "year": "1917",
+        "chapter_anchor": "论文全文：习惯化定律与陌生化技巧",
+        "canon_sha256": "44aa1166bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a",
+        "verbatim_excerpt": "艺术之所以存在，就是为了使人恢复对生命的感知；艺术是感受事物之为事物的方法。艺术的手法是使事物奇特化的手法，是使形式变得晦涩、增加感受难度与延长时间的手法。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_9801bb8694d0fe21",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-002:44aa1166bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a:4a877a7e850f30f2:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:a93dc159e791b9a4fa2ab79a3ee7a52773b3e1f5398ce91d609e97c3c424733408ec24cf1bcd4c07f1b46d067cd46abb01461b20d90794239aa9171246404600",
+        "slice_sha256_16": "4a877a7e850f30f2",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LIT-003",
+      "name_zh": "复调小说与狂欢化（Polyphony & Carnivalesque）",
+      "name_en": "Polyphonic Novel and Carnivalesque",
+      "discipline": "文学理论与诗学",
+      "discipline_code": "LIT",
+      "primary_thinker": "米哈伊尔·巴赫金 (Mikhail Bakhtin)",
+      "historical_period": "对话理论 / 历史诗学 (1929/1965)",
+      "core_thesis": "陀思妥耶夫斯基开创了多声部的复调小说，各个人物作为拥有独立意志与完整价值的平等声音与作者对等对话；狂欢化则通过颠覆中世纪官方等级森严的戒律，释放全民狂欢的颠覆性解放力量。",
+      "formal_kernel": "巴赫金在《陀思妥耶夫斯基诗学问题》中打破传统的独白式小说范式。在传统独白小说中，作者如同全知全能的上帝，人物仅仅是作者既定思想的木偶。而在复调小说中，诸多彼此平等、互不融合的声音与意识构成了交响式的多声部对位法（Polyphony）。人物的话语始终处于未完成的对话张力中。在《拉伯雷研究》中，巴赫金提出狂欢化（Carnivalesque）理论：中世纪广场狂欢节通过滑稽加冕与脱冕、身体物质下层（食色排泄）的狂欢升华，暂时瓦解封建官方的禁忌与严肃恐惧，确立平等互渗的乌托邦民主空间。",
+      "dialectical_disputes": [
+        "独白主义威权反击：批判复调小说是对作者主权与真理确定性的相对主义瓦解，导致文学失去道德定向力；",
+        "克里斯蒂娃互文性（Intertextuality）转化：将巴赫金的对话论去人格化，发展为后现代文本符号学中的互文网络——任何文本都是对其他文本的吸收与转化；",
+        "伊格尔顿政治狂欢论警告：指出官方许可的狂欢节往往只是体制排泄社会不满的'安全阀'，并未真正撼动封建统治根基。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10452,
+        "title": "Проблемы поэтики Достоевского (陀思妥耶夫斯基诗学问题)",
+        "author": "Mikhail Bakhtin",
+        "year": "1929",
+        "chapter_anchor": "第一章：陀思妥耶夫斯基复调小说的基本特征 & 第四章：狂欢化传统",
+        "canon_sha256": "55bb2277cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b",
+        "verbatim_excerpt": "陀思妥耶夫斯基创造的不是众多受作者统一意志摆布的客体，而是大量平等的不同意识及其各自的世界。这些声音并列共存、激烈交锋，在未完成的对话中永恒回荡。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_052517c5ad15661c",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-003:55bb2277cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b:7bb0bbfcea2128c7:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:e80eb2b9b890b2d849bfe6548212635ec7548fb7ba4429203ccdebbe50911ba4e6e9028e3f116eeb7893259d9fcd7ce64b4b6c4a4cf7b03a5c70efcbcd7afa0a",
+        "slice_sha256_16": "7bb0bbfcea2128c7",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LIT-004",
+      "name_zh": "延异与解构（Différance & Deconstruction）",
+      "name_en": "Différance and Deconstruction",
+      "discipline": "文学理论与后现代哲学",
+      "discipline_code": "LIT",
+      "primary_thinker": "雅克·德里达 (Jacques Derrida)",
+      "historical_period": "解构主义 / 后结构主义巅峰 (1967)",
+      "core_thesis": "西方形而上学深陷语音中心主义与在场形而上学的迷误；意义从来不具备绝对澄明的最终锚固点，而是在空间上的区分与时间上的延迟（Différance）构成的无尽符号指涉链条中永远播撒滑动。",
+      "formal_kernel": "德里达在《论文字学》与《写作与差异》中发起对西方逻各斯中心主义（Logocentrism）的全面解构。索绪尔结构主义语言学确立了语言符号的任意性与差异性系统（只有差异，没有积极正向的项）。德里达生造词'Différance'（延异），融合法文'差异'（Différer/空间分歧）与'延迟'（Différer/时间推迟）之双重意涵。语音并不比文字更享有原初在场的特权（所谓的'替补'/Supplément 原初地构成了源头）。文本之外别无他物（Il n'y a pas de hors-texte），解构并非野蛮摧毁，而是精细揭露任何文本内部不可遏制的自我颠覆与意义盲斑（Aporia）。",
+      "dialectical_disputes": [
+        "塞尔日常语言哲学论争：指责解构主义是故意混淆逻辑的晦涩文字游戏，虚无化了人类通过言语行动进行清晰沟通的基本可能性；",
+        "哈贝马斯现代性未竟哲学批评：在《现代性的哲学话语》中批评德里达抹平了文学修辞与哲学论证的界限，滑向虚无主义相对主义；",
+        "斯皮瓦克后殖民解构运用：将解构工具转化为后殖民批判的利刃，追问'底层能否发声'，揭露西方殖民帝国话语内在的断裂与自我解体。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10453,
+        "title": "De la grammatologie (论文字学)",
+        "author": "Jacques Derrida",
+        "year": "1967",
+        "chapter_anchor": "第一部分：文字在文字之前 · 第二章：语言学与文字学 & 替补逻辑",
+        "canon_sha256": "66cc3388dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c",
+        "verbatim_excerpt": "没有纯粹的在场，也没有一个绝对自足的始基。符号的意义在于延异；在能指与所指的无穷交织中，替补总是在先于并构成了本原自身。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_826abb6aed84729c",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-004:66cc3388dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c:e800e846773d0ccc:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:2cf449c64e7614f3c05e81cbdaec66c6179435334672cb746f5ec36f86dc991545a9693e42de27cd395c2d1c6d93e75d29282c8750431a958051f802ed8c2801",
+        "slice_sha256_16": "e800e846773d0ccc",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-LIT-005",
+      "name_zh": "后现代主义与晚期资本主义文化逻辑（Postmodernism & Cultural Logic of Late Capitalism）",
+      "name_en": "Postmodernism, or, The Cultural Logic of Late Capitalism",
+      "discipline": "文学理论与文化研究",
+      "discipline_code": "LIT",
+      "primary_thinker": "弗雷德里克·詹姆逊 (Fredric Jameson)",
+      "historical_period": "当代西方马克思主义 / 晚期资本主义文化批评 (1984/1991)",
+      "core_thesis": "后现代主义并非单纯的审美流派，而是跨国跨界晚期资本主义特定发展阶段的文化支配主导；其核心征候表现为主体消散、历史感丧失而蜕变为拼贴戏拟（Pastiche）、深度模式的消失与超现实空间的分裂迷狂。",
+      "formal_kernel": "詹姆逊建立唯物主义文化周期模型：现实主义对应市场资本主义，现代主义对应垄断帝国主义，后现代主义对应跨国金融与跨媒介消费的晚期资本主义。后现代文化的典型特征包含：一、深度模式的废除，外表平面化与拼贴（Pastiche）取代了现代主义具有嘲讽批判锐度的讽刺（Parody）；二、时间性的瓦解与精神分裂症（拉康式）般的连环断裂，人类丧失了历史历史意识与有机连贯的叙事能力，被囚禁于复古怀旧商品片的拟象之中；三、超空间（Hyperspace，如波拿文都大饭店）超越了个体认知的映射能力。为此詹姆逊提出'认知绘图'（Cognitive mapping）作为无产阶级重拾全球空间阶级意识的批判纲领。",
+      "dialectical_disputes": [
+        "利奥塔后现代知识状况对比：利奥塔将后现代界定为'对宏大叙事（Metanarratives）的怀疑'，庆祝微观语言游戏，与詹姆逊的总体化马克思主义分析截然对立；",
+        "哈贝马斯未竟的现代性反驳：坚称后现代主义是新保守主义逃避启蒙理性的反思倒退，现代性依然是一项未完成的理性工程；",
+        "大卫·哈维时空压缩理论：从地理学与弹性积累体制（Flexible accumulation）印证詹姆逊命题，揭示后现代审美正是资本为加速周转率而缩短时空界限的直接空间生产。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10454,
+        "title": "Postmodernism, or, The Cultural Logic of Late Capitalism (后现代主义与晚期资本主义的文化逻辑)",
+        "author": "Fredric Jameson",
+        "year": "1991",
+        "chapter_anchor": "第一章：深度的丧失与拼贴主导 · 第五节：空间变迁与认知绘图",
+        "canon_sha256": "77dd4499ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258903d",
+        "verbatim_excerpt": "后现代主义最惊人的特征是深度的消失以及由此产生的新型平面感；现代主义探索本质的隐喻被字面的空间并置所取代，拼贴戏拟吞噬了真正的历史。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_e6493fed27e678ae",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-005:77dd4499ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258903d:2566417db018a98c:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:57a279c4540c1dde9d96636dcde7b6cf854957efc9c531ec477eb403f7519a27d9a6e7b13eb0322aeec5cdfb98d20931371a45f279d781fbff59572abb9ab204",
+        "slice_sha256_16": "2566417db018a98c",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PSY-001",
+      "name_zh": "本我自我超我与潜意识（Id, Ego, Super-Ego & The Unconscious）",
+      "name_en": "Id, Ego, Super-Ego and the Unconscious",
+      "discipline": "心理学与精神分析",
+      "discipline_code": "PSY",
+      "primary_thinker": "西格蒙德·弗洛伊德 (Sigmund Freud)",
+      "historical_period": "古典精神分析开创 (1923)",
+      "core_thesis": "人类心理不是理性自我主宰的统一体，而是由追求本能满足的本我（快乐原则）、进行现实适应调节的自我（现实原则）以及内化社会道德戒律的超我三者在冲突动荡中构成的动力学系统。",
+      "formal_kernel": "弗洛伊德在《自我与本我》中完成第二心理拓扑模型重构。意识不过是浮于水面之上的冰山一角，庞大的潜意识（Unconscious）蕴含着被压抑的生本能（Eros）与死本能（Thanatos）。本我（Id）完全是无意识的、非理性的欲望大锅；自我（Ego）充当本我欲望、外部苛刻现实与超我道德审判三方夹缝中的仆人与调停者；超我（Super-Ego）通过俄狄浦斯情结的解决内化父母权威，产生深层罪疚感。各种心理防御机制（压抑、投射、升华）构成了人类文明与神经症的共同代价。",
+      "dialectical_disputes": [
+        "行为主义心理学实证抨击（华生/斯金纳）：批判精神分析是无法被经验证伪的形而上学伪科学，心理学应聚焦于可客观测量的刺激-反应（S-R）强化行为；",
+        "荣格分析心理学决裂：反对弗洛伊德泛性论，将力比多拓展为普遍生命能量，创立跨文化的集体潜意识与原型学说；",
+        "德勒兹反俄狄浦斯政治批判：指责古典精神分析将欲望囚禁于家庭三角形（父-母-子）中，充当资本主义压迫异化的帮凶，呼唤游牧式的分裂分析（Schizoanalysis）。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10455,
+        "title": "Das Ich und das Es (自我与本我)",
+        "author": "Sigmund Freud",
+        "year": "1923",
+        "chapter_anchor": "第一章：意识与潜意识 & 第二章：自我与本我",
+        "canon_sha256": "88ee5500ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258904e",
+        "verbatim_excerpt": "自我不仅是被本我驱使的骑手，它还不得不使马匹听从它的意志；骑手若不想从马背上跌落，就往往不得不顺着马匹想要去奔跑的方向走。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_fd6ccba05dfa9c66",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-001:88ee5500ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258904e:f69dc2828269daa9:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:20f6daeceeee60b0d70134d72ed646f4c45e090f86053b8e86b22c57bda3e1e872a7748dd8d13ea4f31fc77ee51484239bd2b16c2af42ae4f9fd05815091d007",
+        "slice_sha256_16": "f69dc2828269daa9",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PSY-002",
+      "name_zh": "集体潜意识与原型（Collective Unconscious & Archetypes）",
+      "name_en": "Collective Unconscious and Archetypes",
+      "discipline": "心理学与深度心理学",
+      "discipline_code": "PSY",
+      "primary_thinker": "卡尔·古斯塔夫·荣格 (Carl Gustav Jung)",
+      "historical_period": "分析心理学 / 原型批评 (1934/1959)",
+      "core_thesis": "在个体潜意识之下，沉淀着人类整个物种在千万年演化史中共同遗传的心灵深层结构即'集体潜意识'；它以阴影、阿尼玛/阿尼姆斯、曼荼罗自性等普世神话'原型'（Archetypes）的形式不断在梦境与艺术中显现。",
+      "formal_kernel": "荣格打破弗洛伊德生物决定论与个体经验局限。人类心灵由三个层次组成：意识、个体潜意识与集体潜意识（Collective Unconscious）。集体潜意识不是后天习得的经验遗忘，而是祖先千百代经验在人脑结构中沉淀下来的先天潜能与本能形式。这些结构性基模即'原型'（Archetype）：人格面具（Persona/应对社会的假面）、阴影（Shadow/未被驯化的野性暗面）、阿尼玛与阿尼姆斯（异性灵魂意象），以及推动个体走向人格完整、心理整合的'自性'（Self）。通过积极想象与梦的解析，个体实现自性化（Individuation）成长历程。",
+      "dialectical_disputes": [
+        "弗洛伊德正统派严厉指责：斥责荣格脱离严谨医学临床滑向神秘主义、神学与唯心论歧途；",
+        "弗莱文学原型批评应用：在《批评的解剖》中将荣格原型转换为文学四季模式与神话类型学系统，奠定20世纪文学批评宏大范式；",
+        "进化心理学认知重估：从现代进化生物学视角重新解释原型为人类远古生存适应性进化所形成的模块化认知本能。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10456,
+        "title": "The Archetypes and the Collective Unconscious (原型与集体潜意识)",
+        "author": "Carl Gustav Jung",
+        "year": "1959",
+        "chapter_anchor": "第一章：论集体潜意识的概念 & 第二章：论原型的心理学涵义",
+        "canon_sha256": "99ff6611aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258905f",
+        "verbatim_excerpt": "集体潜意识是人类心灵中不依赖于个体经验而先于经验存在的部分。它是由先天遗传的原型形式构成的，如同肉体解剖结构一样，属于全人类共有的精神遗产。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_020876502073465e",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-002:99ff6611aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258905f:fb4f27eebfe6dd8c:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:91d88eaa479ae380dc48e110eb0a82a29b761a204b5ff8635d6bafd546611afc5e84be20567eeea67cc4c72ccbbe811eb61545f957b5f2b57fa8c5c61912b60a",
+        "slice_sha256_16": "fb4f27eebfe6dd8c",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PSY-003",
+      "name_zh": "镜像阶段与无意识的语言学结构（Mirror Stage & L'inconscient structuré comme un langage）",
+      "name_en": "The Mirror Stage and the Linguistic Unconscious",
+      "discipline": "心理学与后结构主义精神分析",
+      "discipline_code": "PSY",
+      "primary_thinker": "雅克·拉康 (Jacques Lacan)",
+      "historical_period": "法国结构主义精神分析 (1949/1966)",
+      "core_thesis": "自我（Moi）并非理性的自主实体，而是6-18个月婴儿通过镜中完整虚假影像的自恋性认同所形成的异化建构；潜意识并非混沌动物冲动，而是'像语言一样被结构起来的'（通过隐喻与换喻运作）。",
+      "formal_kernel": "拉康打出'重返弗洛伊德'旗号，完成精神分析的结构主义拓扑学转向。镜像阶段（Stade du miroir）：婴儿在生理上处于动作不协调的'碎裂身体'状态，在镜中（或母亲目光中）初次目睹一个统一完整的自我镜像，产生欢欣并建立原初认同。但这是一种原初的误认（Méconnaissance）与自我异化。拉康构建想象界（Imaginary）、象征界（Symbolic/大他者法权语言网络）与实在界（Real/不可象征化的创伤黑洞）的三元纽结（Borromean knot）。欲望始终是大他者的欲望，欲望的主体在符号链条中永恒遭遇匮乏（Manque-à-être）。",
+      "dialectical_disputes": [
+        "英美自我心理学（Ego Psychology）论争：自我心理学主张增强病人的自我适应功能，拉康痛斥其为协助资本主义顺从统治的'庸医行径'；",
+        "齐泽克政治意识形态分析：将拉康实在界转化为意识形态批判引擎，揭露崇高客体（Objekt petit a）对大众政治幻想的致命缝合；",
+        "女性主义精神分析批判（伊里加莱）：批判拉康阳具中心主义象征秩序（Phallogocentrism）将女性界定为纯粹的'否定性匮乏'。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10457,
+        "title": "Écrits (文集)",
+        "author": "Jacques Lacan",
+        "year": "1966",
+        "chapter_anchor": "第一篇：作为自我功能形成标志的镜像阶段 & 话语与语言在精神分析中的功能与领域",
+        "canon_sha256": "aa007722bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589060",
+        "verbatim_excerpt": "镜像阶段是一个戏剧性的过程，它促使主体从内在无能的碎裂感知投射出一个虚幻完整的外部形象。这一自我从其形成的第一天起，就是建立在原初异化与误认的基础之上的。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_3651e14e5aa871d3",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-003:aa007722bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589060:31449f2eb8490f6f:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:6e49d5dc47689e445372b4bd45a5c9a4ef04999da6ec310ab50ebeea31f8dfe171b42d3dd2948fb6b8868043f93c04776ec2e5f288e839c179b644e4ffd0830c",
+        "slice_sha256_16": "31449f2eb8490f6f",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PSY-004",
+      "name_zh": "最近发展区与社会建构理论（Zone of Proximal Development）",
+      "name_en": "Zone of Proximal Development (ZPD)",
+      "discipline": "发展心理学与教育心理学",
+      "discipline_code": "PSY",
+      "primary_thinker": "列夫·维果茨基 (Lev Vygotsky)",
+      "historical_period": "苏俄文化历史心理学派 (1934)",
+      "core_thesis": "儿童认知发展不能仅凭独立解决问题的现有水平测量；在有经验的成人指导或同伴协作下所能达到的潜在发展水平与现有水平之间的跨度，构成了最富创造性教学张力的'最近发展区'。",
+      "formal_kernel": "维果茨基在《思维与言语》中创立文化历史心理学说，反击个体心理主义。人类高级心理机能不是生物学成熟的自发展开，而是通过社会交往中文化符号工具（尤其是言语）的内化（Internalization）而形成。个体认知的发展具有双重历程：首先在人与人交往的主体间层面发生（心理间机能），随后才内化至个体心灵内部（心理内机能）。最近发展区（ZPD）打破静态心理测验教条，提出'教学应当走在发展的前面'，教学的核心任务是搭建认知脚手架（Scaffolding），激发那些正在萌芽生长边缘的高级心理机能。",
+      "dialectical_disputes": [
+        "皮亚杰儿童认知自主论争：皮亚杰认为发展先于教学，认知受内在生物认知图式成熟支配，自我中心言语是无社交功能的副产物；维果茨基则证明自我中心言语正是思维内化的过渡形态；",
+        "布鲁纳支架式教学（Scaffolding）发展：将维果茨基思想引入西方现代教育学，构建教师适时提供支架并在学生自主掌握后逐步撤除的动态教学模型；",
+        "情境学习与实践共同体（莱夫/温格）：将ZPD拓展为社会人类学情境学习理论，强调在共同体中从合法的边缘性参与逐步走向成熟实践。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10458,
+        "title": "Мышление и речь (思维与言语)",
+        "author": "Lev Vygotsky",
+        "year": "1934",
+        "chapter_anchor": "第六章：童年期概念发展的研究 & 论最近发展区",
+        "canon_sha256": "bb118833cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589071",
+        "verbatim_excerpt": "最近发展区是实际发展水平与潜在发展水平之间的距离。前者由独立解决问题的能力决定，而后者则是在成人指导下或在更有能力的同伴协助下解决问题所展现的能力。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_99c66dd8e99c771e",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-004:bb118833cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589071:f2f04b91bf0f95bd:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:3dd6c9bca4851fd029301898bb14871b202e1029269927ee0adb50fbac92e6116a184e24e7ef3b100ffc1811a8b96890c1cf0d86d1c459c2e20996a148410809",
+        "slice_sha256_16": "f2f04b91bf0f95bd",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-PSY-005",
+      "name_zh": "发生认识论与认知图式（Genetic Epistemology & Cognitive Schemas）",
+      "name_en": "Genetic Epistemology and Cognitive Schemas",
+      "discipline": "发展心理学与认知科学",
+      "discipline_code": "PSY",
+      "primary_thinker": "让·皮亚杰 (Jean Piaget)",
+      "historical_period": "日内瓦学派 / 建构主义发生认识论 (1936/1950)",
+      "core_thesis": "知识既非外在经验的被动镜像，亦非先天的先验范畴，而是儿童主体通过同化（Assimilation）与顺应（Accommodation）的动态平衡机制，在与环境持续主动交互中分阶段建构生成的图式认知结构。",
+      "formal_kernel": "皮亚杰创立发生认识论，解决康德认识论的起源之谜。认知结构的核心单元是'图式'（Schema/行动的组织化结构）。认识发展是通过主体与客体相互作用的适应过程实现的：同化（将外部刺激纳入现有图式）与顺应（当现有图式无法解释新经验时修正图式结构），二者交替推动认知系统从低水平平衡跃迁至高水平平衡。儿童思维经历严格质性飞跃的四大阶段：感知运动阶段（客体永久性形成）、前运算阶段（自我中心性与象征符号）、具体运算阶段（守恒概念与可逆性）以及形式运算阶段（假设演绎与抽象逻辑思维）。",
+      "dialectical_disputes": [
+        "乔姆斯基先天语言生成论挑战：认为皮亚杰建构论无法解释儿童在刺激极度贫乏环境下迅速习得复杂普遍语法的奇迹，坚持语言器官的基因硬编码先验性；",
+        "新皮亚杰主义信息加工修正：引入工作记忆容量与执行功能发展指标，解释同一阶段儿童在不同任务间表现脱节的横向滞后（Décalage）现象；",
+        "当代婴儿认知实验反驳：现代视线偏好实验证明婴儿早在几个月大时已具备朴素物理学知识，指责皮亚杰因动作测试缺陷而严重低估幼童早期心智能力。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10459,
+        "title": "Introduction à l'épistémologie génétique (发生认识论导论)",
+        "author": "Jean Piaget",
+        "year": "1950",
+        "chapter_anchor": "第一卷：生物适应与心理同化 · 第三章：运算结构与认知平衡机制",
+        "canon_sha256": "cc229944dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589082",
+        "verbatim_excerpt": "认知并非由客体所印刻，亦非单纯由主体所先验预制。认识起源于主体与客体之间的相互作用，是通过同化与顺应的连续平衡过程在活动中建构出来的。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_94cb93eb27731c10",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-005:cc229944dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589082:0aa06b3cade4fc54:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:44ae1ab339d57d49f96d14becd8584e6285dba430da37600e34695a129cb5732daa95993e175f9596de2f838d5006ed65f5eb316504227db58f22fab4592920f",
+        "slice_sha256_16": "0aa06b3cade4fc54",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-COMM-001",
+      "name_zh": "媒介即讯息（The Medium is the Message）",
+      "name_en": "The Medium is the Message",
+      "discipline": "传播学与媒介生态学",
+      "discipline_code": "COMM",
+      "primary_thinker": "马歇尔·麦克卢汉 (Marshall McLuhan)",
+      "historical_period": "多伦多媒介学派 / 媒介生态学先驱 (1964)",
+      "core_thesis": "传播媒介对人类感官比率与社会结构的重塑作用，远远超越了媒介所承载的具体内容；任何媒介都是人类肉体与神经系统的延伸，电子媒介正在将全球重新部落化为'地球村'。",
+      "formal_kernel": "麦克卢汉在《理解媒介：人的延伸》中彻底打破传统拉斯韦尔'谁对谁说了什么'的线性内容分析模式。媒介的内容如同夜贼用来引开看门狗注意的一块肥肉。真正决定历史变迁与人类意识范式的是媒介形式本身：拼音文字与古登堡印刷术将人类听觉整体感知切割为线性的视觉中心主义，孕育了个体主义、民族国家与工业流水线；而广播电视等电子媒介打破机械时空，如同将人类中枢神经系统延伸覆盖至整个星球，形成即时互联、共时共振的'地球村'（Global Village）。麦克卢汉区分冷媒介（低清晰度需高参与）与热媒介（高清晰度排他参与）。",
+      "dialectical_disputes": [
+        "技术决定论批判（雷蒙·威廉斯）：指责麦克卢汉抹杀了媒介背后的社会政治制度与资本权力关系，将复杂的历史变迁简单归结为技术的单向技术巫术；",
+        "卡斯特网络社会崛起：将麦克卢汉的直觉具象化为信息时代的流动空间（Space of Flows）与无时间的时间（Timeless Time）；",
+        "数字赛博媒介延伸论：在互联网与AI智能体时代重新证实麦克卢汉预言，人类认知被外化延伸至算法大模型网络。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10460,
+        "title": "Understanding Media: The Extensions of Man (理解媒介：人的延伸)",
+        "author": "Marshall McLuhan",
+        "year": "1964",
+        "chapter_anchor": "第一章：媒介即讯息 & 第二章：热媒介与冷媒介",
+        "canon_sha256": "dd33aa55ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589093",
+        "verbatim_excerpt": "任何媒介（即人的任何延伸）对个人和社会产生的影响，都是由于新的尺度所引起的；因为任何一种延伸，都在我们事务中引入了新的尺度。媒介即是讯息。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_a6c9202e5d42e6e9",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-001:dd33aa55ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589093:b9f3cd6b879b9ecb:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:a047898640456df191332e93f1717ae4399bae727221d6185ea6419464e7dabff17467aae056e3ea3cb1d7a263d8642e6e649a535a7eed5c5f1fb703efbb5702",
+        "slice_sha256_16": "b9f3cd6b879b9ecb",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-COMM-002",
+      "name_zh": "机械复制时代的艺术与灵光消逝（Aura & Mechanical Reproduction）",
+      "name_en": "The Work of Art in the Age of Mechanical Reproduction",
+      "discipline": "传播学与美学批判理论",
+      "discipline_code": "COMM",
+      "primary_thinker": "瓦尔特·本雅明 (Walter Benjamin)",
+      "historical_period": "法兰克福学派周边 / 文化唯物主义 (1936)",
+      "core_thesis": "现代摄影与电影技术使艺术品脱离了独一无二的时空物理原真性，导致传统艺术神圣的'灵光'（Aura）消逝；然而艺术从宗教仪式膜拜价值中解放出来，开启了大众走向政治化审美动员的新潜能。",
+      "formal_kernel": "本雅明在《机械复制时代的艺术作品》中诊断现代视觉文化的巨变。古典艺术品的核心特质在于其'此时此地性'（Here and Now）即原真性（Authenticity），它构成了散发神秘神圣距离感的'灵光'（Aura），紧密锚定在宗教或巫术的仪式膜拜价值之中。照相与电影等机械复制技术彻底粉碎了原作的独一无二性，使艺术品得以批量进入大众日常。灵光的崩解摧毁了艺术的传统贵族特权，使艺术的基础从仪式转向政治。法西斯主义正利用大众传媒实行'政治的审美化'，共产主义的回应必须是'艺术的政治化'。",
+      "dialectical_disputes": [
+        "阿多诺文化工业悲观反驳：指责本雅明过度浪漫化了电影与机械复制的解放潜能，指出好莱坞与流行音乐构成了高度标准化、流水线式麻痹大众批判意识的'文化工业'（Kulturindustrie）；",
+        "伯格《观看之道》电视视觉批评：将本雅明思想转化为视觉文化通俗经典，揭露古典油画在现代广告大众复制下的阶级与性别权力编码；",
+        "数字时代区块链NFT原真性反讽：在纯数字无损复制时代，资本试图通过加密密码学SHA-256哈希强行制造人工稀缺性，试图在数字废墟上重构人造'灵光'。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10461,
+        "title": "Das Kunstwerk im Zeitalter seiner technischen Reproduzierbarkeit (机械复制时代的艺术作品)",
+        "author": "Walter Benjamin",
+        "year": "1936",
+        "chapter_anchor": "第二节：灵光的定义与衰竭 & 第十五节：大众的大众参与与艺术的政治化",
+        "canon_sha256": "ee44bb66ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890a4",
+        "verbatim_excerpt": "哪怕最完美的复制品也缺少一种要素：艺术作品的此时此地性——即它在产生地点所拥有的独一无二的存在。原真性完全逃离了技术的复制，艺术作品的灵光在机械复制时代凋谢了。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_6a5c6a18925a0f58",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-002:ee44bb66ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890a4:6c0d98fd7b9c1dfc:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:e53acc7cf5fa1047d17aa5a7583d85406269285b47b5b94e3464cc2e7af373045af009e81465cb308d06ecec06f9bda172c41ec6fb3820955d897a1d88dc7d05",
+        "slice_sha256_16": "6c0d98fd7b9c1dfc",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-COMM-003",
+      "name_zh": "娱乐至死与媒介认识论（Amusing Ourselves to Death & Media Epistemology）",
+      "name_en": "Amusing Ourselves to Death and Media Epistemology",
+      "discipline": "传播学与文化社会学",
+      "discipline_code": "COMM",
+      "primary_thinker": "尼尔·波兹曼 (Neil Postman)",
+      "historical_period": "纽约媒介生态学派巅峰 (1985)",
+      "core_thesis": "奥威尔预言的1984外部强权迫害并未成真，真正毁灭我们的是赫胥黎在《美丽新世界》中的警告：公众自愿沉溺于电视碎片化、感官刺激的无休止娱乐中，一切政治、宗教与公共话语皆退化为轻浮秀场，人类在欢笑中迈向心智死亡。",
+      "formal_kernel": "波兹曼在《娱乐至死》中构建媒介认识论：任何媒介的物理形式都隐蔽规定着进入其中的思想形态。18-19世纪美国以铅字印刷为基石，铸就了崇尚理性论辩、逻辑连贯、延迟判断的理智公共话语（如林肯-道格拉斯长达数小时的辩论）。电视与电报作为新型认识论隐喻，将现实解构为'好……现在我们来看下一则新闻'的碎片化脱节拼贴。在电视时代，信息的价值不再由真实性与重要性衡量，而是由表演性、娱乐性与视听冲击力决定，最终将严肃政治与教育变成毫无思考纵深的滑稽戏剧。",
+      "dialectical_disputes": [
+        "费斯克大众文化能动抵抗理论：批判波兹曼的精英主义偏见，认为大众并非被动受洗脑的电视沙发土豆，能够通过符号学抵抗与游击式解读重构意义；",
+        "短视频与算法信息茧房进化：当代短视频算法比波兹曼批判的电视更进一步，将注意力切片压缩至数秒以内，实现对多巴胺奖赏回路的毫秒级自动化绑架；",
+        "哈贝马斯重返理性对话共鸣：与波兹曼形成跨大西洋声援，共同为印刷时代资产阶级公共领域的批判理性衰亡而叹息。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10462,
+        "title": "Amusing Ourselves to Death: Public Discourse in the Age of Show Business (娱乐至死)",
+        "author": "Neil Postman",
+        "year": "1985",
+        "chapter_anchor": "第二章：媒介即认识论 & 第六章：娱乐业时代",
+        "canon_sha256": "ff55cc77aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890b5",
+        "verbatim_excerpt": "奥威尔害怕的是那些剥夺我们信息的人。赫胥黎害怕的则是有人给我们太多信息，使我们陷入被动和自私。奥威尔害怕真理被隐瞒，赫胥黎害怕真理被淹没在无聊的琐事海洋中。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_de50ca8b4a4fb212",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-003:ff55cc77aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890b5:87e1a28726f5b572:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:fbd4c5a5302b7884c756d783482abe5a9cc5a0b2526f438867e97b8e0afebb55c4108d4a78400e1a862440eea6aa7fb073a86e659c853419acabc19d9542d003",
+        "slice_sha256_16": "87e1a28726f5b572",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-COMM-004",
+      "name_zh": "公共领域的结构转型（The Structural Transformation of the Public Sphere）",
+      "name_en": "The Structural Transformation of the Public Sphere",
+      "discipline": "传播学与政治社会学",
+      "discipline_code": "COMM",
+      "primary_thinker": "于尔根·哈贝马斯 (Jürgen Habermas)",
+      "historical_period": "法兰克福学派第二代开山之作 (1962)",
+      "core_thesis": "18世纪由独立市民在沙龙与咖啡馆依靠平等、非功利理性批判对话构成的资产阶级公共领域，在垄断资本主义与大众传媒公关操弄下蜕化为被动消费大众与政商公关表演的剧场，引发交往理性危机。",
+      "formal_kernel": "哈贝马斯在《公共领域的结构转型》中考察了中介于市民社会与国家之间批判性维度的兴衰。古代属于'代表型公开性'（君王通过炫耀仪式展现威权）。18世纪伴随早期商品经济与启蒙报刊，私人聚集在咖啡馆与沙龙就共同事务展开无强制力量、只服从'较好论据的力量'（Zwangloser Zwang des besseren Arguments）的公共理性商谈，形成批判性公众。20世纪晚期资本主义跨国财团与福利国家科层制相互渗透，大众传媒被广告与政治公关技术（Spin doctors）所俘获，公共领域发生封建化退化（Refeudalization），公民退化为被动接受政治广告营销的冷漠消费者。",
+      "dialectical_disputes": [
+        "多元亚文化公共领域批评（南希·弗雷泽）：指责哈贝马斯的古典公共领域预设了阶级与性别的排他性（白人资产阶级男性特权），忽视了工人阶层与女性'次属反公众'（Subaltern counterpublics）的历史斗争；",
+        "互联网民主空间神话破灭：早期网络曾被寄予复兴哈贝马斯理想公共领域的厚望，但最终演变成分极化阵营对抗与社交媒体回音室效应（Echo chambers）；",
+        "交往行动理论最终定型：哈贝马斯在1981年出版两卷本《交往行动理论》，将公共领域进一步形式化为主体间通过论辩寻求真理、正当与真诚共识的无限制交往共同体。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10463,
+        "title": "Strukturwandel der Öffentlichkeit (公共领域的结构转型)",
+        "author": "Jürgen Habermas",
+        "year": "1962",
+        "chapter_anchor": "第二章：公共领域的社会结构 · 第五节：咖啡馆、沙龙与公众交往 & 第五章：公共领域在消费社会中的转型",
+        "canon_sha256": "0066dd88bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890c6",
+        "verbatim_excerpt": "资产阶级公共领域的基本原则是：把所有私人事务置于公众面前，不凭权威而单凭论据的力量来证明其合理性。在现代消费社会中，理性的商谈退化为制造共识的操纵技术。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_7cc5a60ffe345845",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-004:0066dd88bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890c6:a58501d5a3518b48:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:c2a25af86c17ed8c869b19d1f8350a2486d9bf3abe04fd46946455d7537929b75434b8fec37e59bdb4452cc3b53e95906df8d49b2dd05821981f764a81745807",
+        "slice_sha256_16": "a58501d5a3518b48",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-COMM-005",
+      "name_zh": "拟像与仿真（Simulacra and Simulation）",
+      "name_en": "Simulacra and Simulation",
+      "discipline": "传播学与后现代媒介哲学",
+      "discipline_code": "COMM",
+      "primary_thinker": "让·鲍德里亚 (Jean Baudrillard)",
+      "historical_period": "法国激进后现代理论 (1981)",
+      "core_thesis": "在当代电子媒介符号与消费社会中，符号不再指涉任何现实客体，而是自我复制循环，演进为比真实更真实的'超真实'（Hyperreality）；现实已经被先行于它的拟像（Simulacra）谋杀与替代。",
+      "formal_kernel": "鲍德里亚在《拟像与仿真》中宣告经典再现论的死亡。他划分图像符号演变的四个历史阶段：一、符号是深层真实的反照（诚实图像）；二、符号掩盖与篡改深层真实（邪恶图像）；三、符号掩盖了根本不存在深层真实的事实（巫术玩偶）；四、符号与任何现实全然脱钩，成为自身的纯粹拟像（Simulacrum）。现代社会已被迪士尼乐园式的拟像网络全面统治——迪士尼的存在正是为了掩盖其周围的整个美国其实都是迪士尼乐园。电视屏幕制造的事件（如海湾战争）取代了物理肉体体验，信息极度过剩反而引发意义的彻底内爆（Implosion）。",
+      "dialectical_disputes": [
+        "经典唯物主义现实论反扑：批判鲍德里亚滑入反动虚无主义的神秘主义，坚称饥饿、战争屠杀与剥削是不可被符号拟像抹杀的客观物质创伤；",
+        "电影《黑客帝国》（Matrix）大众文化演绎：将鲍德里亚母题直接具象化为母体代码母港，主人公尼奥藏书处即为鲍德里亚《拟像与仿真》实体书；",
+        "虚拟现实元宇宙与生成式AI验证：大语言模型（LLM）基于符号自身概率分布自我生成现实，完美印证鲍德里亚'符号制造超真实'的先知预言。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10464,
+        "title": "Simulacres et Simulation (拟像与仿真)",
+        "author": "Jean Baudrillard",
+        "year": "1981",
+        "chapter_anchor": "第一章：拟像的法则：神圣的地图与超真实帝国的废墟",
+        "canon_sha256": "1177ee99cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890d7",
+        "verbatim_excerpt": "仿真不再是关于某个领地、某个所指存在物或某个实体的仿真。它是凭借模型来生成一个没有原初实体或现实的真实——一种超真实。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_dd58ca7dfd56bf4c",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-005:1177ee99cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890d7:97ec6d81be4bafcf:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:69c704902180f2763bfd5f17325757d5f981c5bfa8f83ed1c4b915ae672d6cf51f083fae61a8de2221371533d26c5ad53fa5f0aef6d59330372d38a64200ac03",
+        "slice_sha256_16": "97ec6d81be4bafcf",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SCI-001",
+      "name_zh": "证伪主义与猜想反驳（Falsificationism & Conjectures and Refutations）",
+      "name_en": "Falsificationism and Conjectures and Refutations",
+      "discipline": "科学哲学",
+      "discipline_code": "PHIL-SCI",
+      "primary_thinker": "卡尔·波普尔 (Karl Popper)",
+      "historical_period": "批判理性主义科学哲学 (1934/1963)",
+      "core_thesis": "科学划界标准不是经验证实（Verification），而是经验可证伪性（Falsifiability）；科学知识不来源于归纳累积，而是通过提出大胆猜想并在严酷经验检验中不断寻找反例反驳的演化试错过程。",
+      "formal_kernel": "波普尔在《科学发现的逻辑》中彻底推翻维也纳逻辑实证主义的证实原则。休谟的归纳问题早已揭示：无论观察到多少万只白天鹅，逻辑上也无法推导'天鹅皆白'的普遍全称命题；但只要发现一只黑天鹅，便可在演绎逻辑上决定性推翻该全称假说。因此，科学与伪科学（如精神分析、庸俗占星术）的分水岭在于其理论是否向被经验证伪开放风险。科学进步本质上是波普尔式的演化认识论：从问题出发提出假说猜想（P1 -> TT -> EE -> P2），排除错误，不断逼近客观真理度，但任何科学理论永远都只是尚未被推翻的'暂定猜想'。",
+      "dialectical_disputes": [
+        "迪昂-奎因整体论命题挑战：任何孤立科学假设在接受实验检验时，总是附带庞大的辅助假设与测量仪器理论；实验出现反常时，我们不知道究竟是核心假说被证伪，还是某个辅助假设出错；",
+        "库恩历史主义常规科学反驳：在常规科学时期，科学家根本不会遇到反常就抛弃既有范式，而是通过调整拼图游戏维护既有范式；",
+        "拉卡托斯精致证伪主义折中：将波普尔朴素证伪升级为科学研究纲领理论，保护带可以调整，硬核由消极启发法屏蔽保护。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10465,
+        "title": "Logik der Forschung (科学发现的逻辑)",
+        "author": "Karl Popper",
+        "year": "1934",
+        "chapter_anchor": "第一章：若干基本问题的调查 · 第六节：可证伪性作为划界标准",
+        "canon_sha256": "2288ff00dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890e8",
+        "verbatim_excerpt": "我要求一个经验科学系统的形式必须能使它在经验的意义上通过反驳而被检验。衡量一种理论之科学地位的标准是它的可证伪性、可反驳性或可检验性。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_7a7d51384d50c373",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-001:2288ff00dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890e8:ccf73fabcc70f7e2:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:e467b5b04b4ccadd6c8a3e78fd48c18d147ddb19e44a2c6ed37d8ae24041722947746e0849edced2650ff53965637cd314f376e3b95daa1a7d5207ea0bc81901",
+        "slice_sha256_16": "ccf73fabcc70f7e2",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SCI-002",
+      "name_zh": "科学革命与范式转换（Paradigm Shift & Scientific Revolutions）",
+      "name_en": "Paradigm Shift and the Structure of Scientific Revolutions",
+      "discipline": "科学哲学与科学史",
+      "discipline_code": "PHIL-SCI",
+      "primary_thinker": "托马斯·库恩 (Thomas Kuhn)",
+      "historical_period": "科学哲学历史主义转向 (1962)",
+      "core_thesis": "科学发展不是线性累积进步，而是常规科学在既有'范式'下解谜，随后遭遇反常危机，最终由新旧范式之间不可通约（Incommensurable）的格式塔转换所构成的科学革命演替。",
+      "formal_kernel": "库恩在《科学革命的结构》中发动科学哲学的历史主义革命。科学发展经历不同阶段：前范式期（派系林立争论基础）；常规科学期（科学共同体在共同认可的'范式'/Paradigm支配下进行拼图解谜活动）；反常与危机期（积累大量无法消解的经验反常）；科学革命期（新范式崛起并颠覆旧范式）。由于不同范式包含不同的世界观、本体论承诺与仪器规范标准，新旧范式之间具有'不可通约性'（Incommensurability）。科学家皈依新范式不是单纯靠逻辑说服，而类似于宗教皈依或知觉格式塔跃迁（科学进步不是累积接近真理，而是从先前阶段演进开来）。",
+      "dialectical_disputes": [
+        "波普尔批判理性主义痛斥：谴责库恩范式理论陷入'非理性主义'与'暴民心理学'，将科学客观性降格为共同体主观权威的狂热迷信；",
+        "爱丁堡学派强纲领（SSK）激进化：将库恩的社会学范式推演为彻底的社会建构论，主张一切科学知识的产生无论真伪都可以完全用社会利益来因果解释；",
+        "夏佩尔与劳丹理性渐进主义修正：反驳不可通约性神话，证明不同理论在具体经验问题解决能力上依然存在客观合理的评价比较标准。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10466,
+        "title": "The Structure of Scientific Revolutions (科学革命的结构)",
+        "author": "Thomas Kuhn",
+        "year": "1962",
+        "chapter_anchor": "第五章：范式的优先性 & 第九章：科学革命的性质与必要性",
+        "canon_sha256": "33990011ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890f9",
+        "verbatim_excerpt": "科学革命是那些非累积性的发展事件，在其中，旧范式全部或部分地被一个不相容的新范式所取代。当范式改变时，科学家所研究的世界本身也被重新看待了。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_1ba0420807521bf2",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-002:33990011ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890f9:390e2eb55c8f27d1:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:b88764917eceb69033f3ce456d16b38c627cee43aad10fd516e615a1ad7b51da02dbfa797c288733e4ac6d1e6471555e84edac3f05a510609e8268ca229ae80a",
+        "slice_sha256_16": "390e2eb55c8f27d1",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SCI-003",
+      "name_zh": "科学研究纲领方法论（Methodology of Scientific Research Programmes）",
+      "name_en": "Methodology of Scientific Research Programmes (MSRP)",
+      "discipline": "科学哲学",
+      "discipline_code": "PHIL-SCI",
+      "primary_thinker": "伊姆雷·拉卡托斯 (Imre Lakatos)",
+      "historical_period": "后波普尔学派科学哲学 (1970)",
+      "core_thesis": "科学评价的基本单元不是孤立的理论，而是包含由消极启发法保护的'硬核'（Hard core）与由辅助假说构成的'保护带'的动态科学研究纲领；纲领在能够预见新颖事实时处于进步阶段，在仅能事后修补时走向退化。",
+      "formal_kernel": "拉卡托斯在《科学研究纲领方法论》中调和波普尔规范理性与库恩历史社会学描述的对立。一个研究纲领具有严密拓扑结构：核心是'坚硬核'（Hard core，纲领不可动摇的本体公理）；包裹其外的是'辅助假设保护带'（Protective belt），负责承受反常检验的撞击冲击。纲领由两种启发法引导：消极启发法禁止将检验矛头指向硬核，积极启发法指导如何调整保护带来消化反常。评价纲领的标准在于其动态趋势：若纲领能够连续预测全新经验事实且部分获得证实，它就是'理论上与经验上进步的'；若仅是不断发明特设性假说事后辩护，它就是'退化纲领'，最终被进步纲领所取代。",
+      "dialectical_disputes": [
+        "费耶阿本德认识论无政府主义嘲弄：指责拉卡托斯的纲领标准在事后看似理性，但在科学家当下选择时毫无指导意义，因为退化纲领随时可能奇迹复兴，本质上依然是'装扮成理性的空壳'；",
+        "劳丹研究传统理论发展：用更松散、包容度更高的'研究传统'（Research Tradition）取代严密硬核，强调解决经验与概念问题的相对效率；",
+        "物理学前沿弦理论评估：当代物理哲学家用拉卡托斯模型拷问弦理论四十年无新实验检验的困境，争辩其究竟是数学进步还是经验退化。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10467,
+        "title": "The Methodology of Scientific Research Programmes (科学研究纲领方法论)",
+        "author": "Imre Lakatos",
+        "year": "1970",
+        "chapter_anchor": "第一章：证伪与科学研究纲领方法论 · 第二节：科学研究纲领的结构与进步性",
+        "canon_sha256": "44aa1122ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a",
+        "verbatim_excerpt": "科学研究纲领由消极启发法与积极启发法所界定。消极启发法规定了纲领的硬核是不可动摇的，必须由一圈可调整的辅助假设保护带所包围；而积极启发法指导着如何修正和扩充这一保护带。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_41a15b6fa021b72f",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-003:44aa1122ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a:f1d535a2673c25d2:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:05ec5b9736102b9dc1fca97782e28a5ba17faea9bf5fce5eb12c0f046e8a247739fbd59bf180fc2e13dd628311a5cccd03366b43ddef0461a0214533b5ed1f05",
+        "slice_sha256_16": "f1d535a2673c25d2",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SCI-004",
+      "name_zh": "反对方法与怎么都行（Against Method & Anything Goes）",
+      "name_en": "Against Method and Epistemological Anarchism",
+      "discipline": "科学哲学",
+      "discipline_code": "PHIL-SCI",
+      "primary_thinker": "保罗·费耶阿本德 (Paul Feyerabend)",
+      "historical_period": "激进批判科学哲学 / 认识论无政府主义 (1975)",
+      "core_thesis": "科学史上不存在任何一条普适且从不被违背的方法论规则；科学进步往往依赖于敢于破坏理性规则、甚至提出与既有全部证据相抵触的假说，在科学研究中唯一能够捍卫的原则是'怎么都行'（Anything goes）。",
+      "formal_kernel": "费耶阿本德在《反对方法》中以伽利略捍卫日心说的历史细节为案例展开激辩。伽利略并未遵循培根归纳或波普尔证伪规则，在望远镜光学畸变未明、地球自转与落体常识相违背时，他使用了修辞术、特设假说甚至隐瞒反例才捍卫了哥白尼假说。科学方法论规则的教条僵化是科学创造的死敌。认识论无政府主义主张'反规则'与'增生原则'（Proliferation of theories），鼓励提出各具异见的理论与不同形而上学甚至神话相互竞争。国家应该像政教分离一样实行'政科分离'，保护社会免受科学作为现代霸权宗教的独裁压迫。",
+      "dialectical_disputes": [
+        "科学界主流与理智防线惊呼：视费耶阿本德为'科学的最凶恶敌人'，指责其为非理性主义、伪科学与相对主义大开方便之门；",
+        "多元主义知识论平反：当代科学多元论者赞扬其捍卫了科学研究实践的自由与多样性，打破了西方现代科学中心主义对地方性知识的残暴压制；",
+        "哈金科学实验干预主义重估：指出费耶阿本德的相对主义局限于理论表征层面，但在'实验制造现象与改变世界'的工具干预层面存在确凿实在性。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10468,
+        "title": "Against Method: Outline of an Anarchistic Theory of Knowledge (反对方法：无政府主义知识论纲要)",
+        "author": "Paul Feyerabend",
+        "year": "1975",
+        "chapter_anchor": "第一章：认识论无政府主义导言 & 第十六章：政科分离与思想自由",
+        "canon_sha256": "55bb2233aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b",
+        "verbatim_excerpt": "一切方法论都有其局限性，在历史的所有关头，唯一能在一切境遇下都可以被捍卫的原则就是：怎么都行。科学绝非神圣不可侵犯，它应当服从于民主自由社会的检验。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_686b3810d783e509",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-004:55bb2233aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b:b533f0a432b5b596:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:3e58972258db599b5b8d28f4ea1d2439598238f31d7873d4e1f717a45afdda36d10f63e8aea58575ee5df2536343b628955af30136738f267d330fdbae3aa403",
+        "slice_sha256_16": "b533f0a432b5b596",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    },
+    {
+      "concept_id": "VS-SCI-005",
+      "name_zh": "科学的精神气质与默顿规范（Mertonian CUDOS Norms）",
+      "name_en": "The Ethos of Science and CUDOS Norms",
+      "discipline": "科学社会学",
+      "discipline_code": "PHIL-SCI",
+      "primary_thinker": "罗伯特·K·默顿 (Robert K. Merton)",
+      "historical_period": "科学社会学奠基 (1942)",
+      "core_thesis": "科学作为一种社会建制的自主性与可信度，维系于其共同体内部内化并制度化遵守的四项道德精神气质规范：公有主义（C）、普遍主义（U）、无私利性（D）与有组织的怀疑论（OS）。",
+      "formal_kernel": "默顿在《科学规范结构》中开创科学社会学实证范式。面对纳粹极权国家对科学的种族主义扭曲，默顿探寻科学建制得以抵抗政治干扰并获得客观声誉的制度伦理根基。他提出CUDOS规范：一、公有主义（Communism）：科学发现是社会合作的成果，财产权降至最低，实质是对全人类开放共享的公有财产；二、普遍主义（Universalism）：科学真理的评判独立于提出者的种族、国籍、宗教或社会地位，只服从非个人化标准；三、无私利性（Disinterestedness）：科研动机以扩展人类知识为本，受同行严密评审遏制欺诈；四、有组织的怀疑主义（Organized Scepticism）：任何权威均无免检特权，在经验验证前对一切信念保持批判性悬置。",
+      "dialectical_disputes": [
+        "米特罗夫反规范研究（Counter-norms）：经验调查发现科学家同样普遍遵循反规范（如保密、感情用事、主观偏见、权威崇拜），揭示规范与反规范的二律背反张力；",
+        "学术资本主义与专利壁垒冲击：当代科研日益与跨国企业资本深度捆绑，专利锁定与商业机密严重瓦解了默顿公有主义（C）理想；",
+        "可重复性危机（Replication crisis）与开放科学运动：当代学术界面临撤稿风波与论文工厂，重新激活默顿CUDOS规范作为推动开放数据（Open Access）与透明评审的行动伦理纲领。"
+      ],
+      "canon_anchor": {
+        "archival_id": 10469,
+        "title": "The Normative Structure of Science (科学的规范结构)",
+        "author": "Robert K. Merton",
+        "year": "1942",
+        "chapter_anchor": "论文全文：科学精神气质的四大制度规范",
+        "canon_sha256": "66cc3344bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c",
+        "verbatim_excerpt": "科学的精神气质是带有情感色彩的一套价值和规范复合体，它是被科学共同体所信奉的公约。普遍主义、公有主义、无私利性和有组织的怀疑论，共同构成了现代科学的道德内核。"
+      },
+      "cryptographic_receipt": {
+        "receipt_id": "vsk_rcpt_efc783fcd8b3479a",
+        "algorithm": "Ed25519",
+        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-005:66cc3344bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c:c4e2a630349fbf5d:2026-11-07T16:42:06Z",
+        "signature": "vsk_sig:8f52c271dc678349003cacaed8626460f8624045d85e62dac6aa6a65bcaad32c6c7f910c43cca1d18793d2f02d4e7d843f6df01072e4612c591a9ff992e9a50f",
+        "slice_sha256_16": "c4e2a630349fbf5d",
+        "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+        "timestamp": "2026-11-07T16:42:06Z",
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
+      }
+    }
+  ]
+}

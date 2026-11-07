@@ -1,0 +1,40 @@
+{
+  "name": "@veriscope/mcp-server",
+  "version": "1.0.0",
+  "description": "Cryptographic Bibliographic Index and Fair-Use Citation Verification Engine for AI Agents",
+  "main": "bin/index.js",
+  "bin": {
+    "veriscope-mcp": "./bin/index.js",
+    "veriscope-mcp-server": "./bin/index.js"
+  },
+  "files": [
+    "bin",
+    "golden_sandbox_50.json",
+    "README.md",
+    "README_ZH.md",
+    "LICENSE",
+    "smithery.yaml",
+    "glama.json"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "citation-verification",
+    "llm-hallucination",
+    "scholarly-research",
+    "fact-checking"
+  ],
+  "author": "VeriScope Sovereign Harbor <core@veriscope.cc>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veriscope/veriscope-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veriscope/veriscope-mcp/issues"
+  },
+  "homepage": "https://veriscope.cc",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

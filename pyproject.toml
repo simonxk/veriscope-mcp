@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veriscope-mcp"
+version = "1.0.0"
+description = "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "VeriScope Sovereign Harbor", email = "core@veriscope.cc" }
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "citation-verification",
+    "llm-hallucination",
+    "scholarly-research",
+    "fact-checking"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = []
+
+[project.scripts]
+veriscope-mcp = "veriscope_mcp.cli:main"
+
+[tool.setuptools.package-data]
+veriscope_mcp = ["golden_sandbox_50.json"]

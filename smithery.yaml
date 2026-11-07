@@ -1,0 +1,17 @@
+# Smithery.ai configuration for VeriScope MCP Server
+name: "@veriscope/mcp-server"
+description: "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents"
+version: "1.0.0"
+runtime: "node"
+command: "npx"
+args:
+  - "-y"
+  - "@veriscope/mcp-server"
+
+configSchema:
+  type: "object"
+  properties:
+    veriscopeApiKey:
+      type: "string"
+      description: "Optional VeriScope Sovereign API Key. If omitted, the server runs offline against the built-in 50-canon golden sandbox with zero configuration."
+  required: []
