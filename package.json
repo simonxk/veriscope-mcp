@@ -28,10 +28,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/veriscope/veriscope-mcp.git"
+    "url": "https://github.com/simonxk/veriscope-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/veriscope/veriscope-mcp/issues"
+    "url": "https://github.com/simonxk/veriscope-mcp/issues"
   },
   "homepage": "https://veriscope.cc",
   "engines": {

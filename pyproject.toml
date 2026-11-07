@@ -41,3 +41,8 @@ veriscope-mcp = "veriscope_mcp.cli:main"
 
 [tool.setuptools.package-data]
 veriscope_mcp = ["golden_sandbox_50.json"]
+
+[project.urls]
+Homepage = "https://veriscope.cc"
+Repository = "https://github.com/simonxk/veriscope-mcp"
+Issues = "https://github.com/simonxk/veriscope-mcp/issues"
