@@ -7,12 +7,12 @@
   "icon": "https://veriscope.cc/assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/veriscope-ai/veriscope-mcp"
+    "url": "https://github.com/simonxk/veriscope-mcp"
   },
   "command": "npx",
   "args": [
     "-y",
-    "@veriscope/mcp-server"
+    "veriscope-mcp"
   ],
   "env": {
     "VERISCOPE_API_KEY": {
