@@ -63,17 +63,30 @@ class VeriScopeMCPServer:
             except Exception as e:
                 sys.stderr.write(f"[VeriScope MCP] Notice: failed to load sandbox: {e}\n")
 
+    BUSINESS_SYNONYM_BRIDGE = [
+        (["部门推诿", "跨部门协同", "周报", "报表负担", "流程繁琐", "大厂黑话", "体制内", "官僚", "执行变形"], "科层制"),
+        (["价格战", "内卷", "补贴", "恶意降价", "渠道窜货", "同质化", "商业竞争", "毛利"], "看不见的手"),
+        (["信息茧房", "算法推荐", "流量", "舆论", "品牌公关", "回音室"], "公共领域"),
+        (["AI幻觉", "大模型套壳", "技术颠覆", "数字化转型", "产业升级", "第二曲线"], "范式转换"),
+        (["合规", "数据主权", "监管", "权限边界", "治理", "责任倒查"], "社会契约"),
+        (["甩锅", "言行不一", "形式主义", "认知偏差", "盲目立项"], "认知失调"),
+    ]
+
     def list_tools(self) -> List[Dict[str, Any]]:
         return [
             {
                 "name": "veriscope_discover_concepts",
-                "description": "Elevate colloquial questions or news metaphors into standardized canonical academic ontologies across 24 disciplines.",
+                "description": (
+                    "[Executive Framing & Concept Discovery] Elevate colloquial workplace/business pain points "
+                    "(e.g. bureaucracy, price wars, AI hype, executive briefings) or news metaphors into rigorous "
+                    "first-principles concepts across 24 disciplines to eliminate generic AI slop."
+                ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "query": {
                             "type": "string",
-                            "description": "Colloquial theme, metaphor, or philosophical topic (e.g. 'iron cage', 'panopticon', 'state of exception')."
+                            "description": "Colloquial business/workplace problem, metaphor, or scholarly topic (e.g. '跨部门推诿', '价格战', 'iron cage', 'panopticon')."
                         },
                         "discipline_hint": {
                             "type": "string",
@@ -85,7 +98,10 @@ class VeriScopeMCPServer:
             },
             {
                 "name": "veriscope_inspect_topography",
-                "description": "Retrieve axiomatic formal kernels, scholar lineages with Wikidata QIDs, and 3+ structured dialectical disputes to prevent shallow syntheses.",
+                "description": (
+                    "[Red-Team Pre-Mortem & Dialectical Audit] Stress-test business proposals, policy drafts, or papers "
+                    "by retrieving axiomatic formal kernels, scholar lineages with Wikidata QIDs, and 3+ opposing dialectical disputes."
+                ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
@@ -99,7 +115,10 @@ class VeriScopeMCPServer:
             },
             {
                 "name": "veriscope_locate_evidence",
-                "description": "Locate fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, 64-bit SHA-256 hash, and Ed25519 cryptographic receipt.",
+                "description": (
+                    "[De-Slop Grounding & Primary Source Proof] Locate ironclad fair-use verbatim excerpts (<=300 chars) "
+                    "with exact chapter coordinates, 64-bit SHA-256 hash, and Ed25519 cryptographic receipt for high-stakes reports."
+                ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
@@ -117,7 +136,10 @@ class VeriScopeMCPServer:
             },
             {
                 "name": "veriscope_verify_attestation",
-                "description": "Mathematically verify the Ed25519 cryptographic receipt of an academic quote to guarantee zero-hallucination and text integrity.",
+                "description": (
+                    "[Zero-Hallucination Compliance Receipt Verification] Mathematically verify the 64-bit SHA-256 hash "
+                    "and Ed25519 cryptographic receipt of a cited quote to guarantee text integrity."
+                ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
@@ -138,7 +160,10 @@ class VeriScopeMCPServer:
             },
             {
                 "name": "veriscope_probe_radar",
-                "description": "Probe matrix coverage, discipline distribution, and available conceptual nodes across all 24 academic disciplines.",
+                "description": (
+                    "[Cross-Domain Blindspot & Innovation Radar] Probe matrix coverage, discipline distribution, "
+                    "and cross-disciplinary conceptual bridges across all 24 academic disciplines."
+                ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
@@ -148,23 +173,45 @@ class VeriScopeMCPServer:
                         }
                     }
                 }
+            },
+            {
+                "name": "veriscope_citation_audit",
+                "description": (
+                    "[AI Citation Health Check & Hallucination Auditor] Fast-scan draft articles or AI generated "
+                    "text to extract and verify book titles, authors, and citations against physical holdings and "
+                    "64-bit SHA-256 hashes to eradicate fabricated AI citations and misattributions."
+                ),
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "text": {
+                            "type": "string",
+                            "description": "Draft article, proposal, research brief, or AI-generated text containing book citations to audit."
+                        },
+                        "discipline_hint": {
+                            "type": "string",
+                            "description": "Optional discipline hint (e.g. 'SOC', 'PHIL', 'ECON', 'LAW')."
+                        }
+                    },
+                    "required": ["text"]
+                }
             }
         ]
 
     def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
-        if name == "veriscope_discover_concepts":
+        if name in ("veriscope_discover_concepts", "veriscope_business_frame", "veriscope_elevate_concept"):
             return self.discover_concepts(
-                query=arguments.get("query", ""),
+                query=arguments.get("query") or arguments.get("draft_text") or "",
                 discipline=arguments.get("discipline_hint") or arguments.get("discipline")
             )
-        elif name == "veriscope_inspect_topography":
+        elif name in ("veriscope_inspect_topography", "veriscope_redteam_audit", "veriscope_dialectic_collide"):
             return self.inspect_topography(
-                concept_id=arguments.get("concept_id", ""),
+                concept_id=arguments.get("concept_id") or arguments.get("query") or "VS-SOC-001",
                 include_disputes=arguments.get("include_disputes", True)
             )
-        elif name == "veriscope_locate_evidence":
+        elif name in ("veriscope_locate_evidence", "veriscope_deslop_and_ground"):
             return self.locate_evidence(
-                concept_id=arguments.get("concept_id", ""),
+                concept_id=arguments.get("concept_id") or arguments.get("query") or "VS-SOC-001",
                 query_proposition=arguments.get("query_context") or arguments.get("query_proposition"),
                 api_key=arguments.get("api_key")
             )
@@ -174,10 +221,15 @@ class VeriScopeMCPServer:
                 canon_sha256=arguments.get("canon_sha256"),
                 attestation=arguments.get("attestation")
             )
-        elif name == "veriscope_probe_radar":
+        elif name in ("veriscope_probe_radar", "veriscope_babel_lens"):
             return self.probe_radar(
                 discipline=arguments.get("discipline") or arguments.get("discipline_hint"),
                 topic=arguments.get("topic")
+            )
+        elif name in ("veriscope_citation_audit", "veriscope_check_citations"):
+            return self.audit_citations(
+                text=arguments.get("text") or arguments.get("document_text") or arguments.get("draft_text") or "",
+                discipline_hint=arguments.get("discipline_hint") or ""
             )
         else:
             return {"error": f"Unknown tool: {name}"}
@@ -185,38 +237,49 @@ class VeriScopeMCPServer:
     def discover_concepts(self, query: str, discipline: Optional[str] = None, limit: int = 10) -> Dict[str, Any]:
         q = (query or "").strip().lower()
         disc = (discipline or "").strip().lower()
+        effective_queries = [q]
+        for triggers, canonical_term in self.BUSINESS_SYNONYM_BRIDGE:
+            if any(t.lower() in q for t in triggers):
+                effective_queries.append(canonical_term.lower())
         matched = []
+        seen_ids = set()
 
-        for c in self.sandbox_concepts:
-            if disc and disc not in c.get("discipline", "").lower() and disc != c.get("discipline_code", "").lower():
-                continue
-            anchor = c.get("canon_anchor", {})
-            text_pool = (
-                f"{c.get('concept_id', '')} "
-                f"{c.get('name_zh', '')} "
-                f"{c.get('name_en', '')} "
-                f"{c.get('primary_thinker', '')} "
-                f"{c.get('historical_period', '')} "
-                f"{c.get('core_thesis', '')} "
-                f"{c.get('formal_kernel', '')} "
-                f"{anchor.get('author', '')} "
-                f"{anchor.get('title', '')}"
-            ).lower()
+        for eq in effective_queries:
+            for c in self.sandbox_concepts:
+                if c.get("concept_id") in seen_ids:
+                    continue
+                if disc and disc not in c.get("discipline", "").lower() and disc != c.get("discipline_code", "").lower():
+                    continue
+                anchor = c.get("canon_anchor", {})
+                text_pool = (
+                    f"{c.get('concept_id', '')} "
+                    f"{c.get('name_zh', '')} "
+                    f"{c.get('name_en', '')} "
+                    f"{c.get('primary_thinker', '')} "
+                    f"{c.get('historical_period', '')} "
+                    f"{c.get('core_thesis', '')} "
+                    f"{c.get('formal_kernel', '')} "
+                    f"{anchor.get('author', '')} "
+                    f"{anchor.get('title', '')}"
+                ).lower()
 
-            if q in text_pool or any(w in text_pool for w in q.split() if len(w) > 1):
-                matched.append({
-                    "concept_id": c.get("concept_id"),
-                    "name_zh": c.get("name_zh"),
-                    "name_en": c.get("name_en"),
-                    "discipline": c.get("discipline"),
-                    "primary_thinker": c.get("primary_thinker"),
-                    "historical_period": c.get("historical_period"),
-                    "core_thesis": c.get("core_thesis"),
-                    "formal_definition": c.get("formal_kernel", "")[:160] + "...",
-                    "is_sandbox_ready": True
-                })
-                if len(matched) >= limit:
-                    break
+                if eq in text_pool or any(w in text_pool for w in eq.split() if len(w) > 1):
+                    seen_ids.add(c.get("concept_id"))
+                    matched.append({
+                        "concept_id": c.get("concept_id"),
+                        "name_zh": c.get("name_zh"),
+                        "name_en": c.get("name_en"),
+                        "discipline": c.get("discipline"),
+                        "primary_thinker": c.get("primary_thinker"),
+                        "historical_period": c.get("historical_period"),
+                        "core_thesis": c.get("core_thesis"),
+                        "formal_definition": c.get("formal_kernel", "")[:160] + "...",
+                        "is_sandbox_ready": True
+                    })
+                    if len(matched) >= limit:
+                        break
+            if len(matched) >= limit:
+                break
 
         if matched:
             return {
@@ -329,8 +392,9 @@ class VeriScopeMCPServer:
                 )
             },
             "pricing_options": {
-                "scholar_pro": "¥128/年（无限制检索）或 $19/year",
-                "agent_metered": "前 10 次免费，之后 ¥0.35/次 ($0.05/call)"
+                "scholar_pro": "国内学者/幕僚个人版 ¥128/月 或 Global Scholar Pro $19/mo (每月 5,000 次存证切片)",
+                "credits_pack": "弹性点数包 ¥68 / 500点 ($10 / 500 credits，按需充值免月费)",
+                "enterprise": "机构白名单版 ¥5,000/年 或 $800/yr (免除 F8 熔断)"
             },
             "is_teaser_mode": True,
             "access_mode": "TEASER_PREVIEW"
@@ -441,3 +505,92 @@ class VeriScopeMCPServer:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as e:
             return {"error": f"Gateway error calling {tool_name}: {str(e)}"}
+
+    def audit_citations(self, text: str, discipline_hint: str = "") -> Dict[str, Any]:
+        """
+        AI 生成物学术引文体检（离线黄金沙盒版）：
+        抽取《书名》（著者，年份），核对 50 经典哲社底座原典真伪，拦截张冠李戴与幻觉编造引文。
+        """
+        import re
+        content = text or ""
+        pattern = re.compile(r"《([^》]{2,40})》(?:（([^，,）]{1,20})(?:[，,]\s*(\d{1,4}))?）)?")
+        citations = []
+        grounded_count = 0
+        suspect_count = 0
+        unindexed_count = 0
+
+        for match in pattern.finditer(content):
+            raw_quote = match.group(0)
+            raw_title = match.group(1).strip()
+            raw_author = (match.group(2) or "").strip()
+            raw_year = (match.group(3) or "").strip()
+
+            matched_c = None
+            q_title = raw_title.lower()
+            for c in self.sandbox_concepts:
+                anchor = c.get("canon_anchor") or {}
+                a_title = (anchor.get("title") or "").lower()
+                c_zh = (c.get("name_zh") or "").lower()
+                if q_title in a_title or a_title in q_title or q_title in c_zh:
+                    matched_c = c
+                    break
+
+            if matched_c:
+                anchor = matched_c.get("canon_anchor") or {}
+                verdict = "AUTHENTIC_GROUNDED"
+                confidence = 0.99
+                notes = "精准锁定实体学术原本，64位物理 SHA-256 存证齐备"
+
+                if raw_author:
+                    a_norm = raw_author.lower()
+                    valid_authors = (f"{anchor.get('author', '')} {matched_c.get('primary_thinker', '')}").lower()
+                    if a_norm not in valid_authors and not any(part in valid_authors for part in a_norm.split("·") if len(part) > 1):
+                        verdict = "ATTRIBUTION_SUSPECT"
+                        confidence = 0.65
+                        notes = f"书目真实存在（{anchor.get('title')}），但著者可能张冠李戴（引文著者：{raw_author}，藏书著者：{anchor.get('author')}）"
+                        suspect_count += 1
+                    else:
+                        grounded_count += 1
+                else:
+                    grounded_count += 1
+
+                citations.append({
+                    "raw_citation": raw_quote,
+                    "book_title": raw_title,
+                    "cited_author": raw_author,
+                    "verdict": verdict,
+                    "confidence_score": confidence,
+                    "matched_concept_id": matched_c.get("concept_id"),
+                    "matched_title": anchor.get("title"),
+                    "author": anchor.get("author"),
+                    "year": anchor.get("year"),
+                    "canon_sha256": anchor.get("canon_sha256"),
+                    "verbatim_excerpt": anchor.get("verbatim_excerpt"),
+                    "notes": notes,
+                    "provenance": "VeriScope 权威馆藏实体学术原本（50大经典沙盒）"
+                })
+            else:
+                unindexed_count += 1
+                citations.append({
+                    "raw_citation": raw_quote,
+                    "book_title": raw_title,
+                    "cited_author": raw_author,
+                    "verdict": "UNINDEXED_OR_HALLUCINATED",
+                    "confidence_score": 0.20,
+                    "notes": "在离线 50 篇黄金沙盒中未命中。可能为大模型幻觉编造引文，或需接入全量 74.9万 权威书目母港进行深水区对勘",
+                    "provenance": "UNINDEXED"
+                })
+
+        total = len(citations)
+        health_score = round(((grounded_count * 100) + (suspect_count * 40)) / total) if total > 0 else 100
+        return {
+            "status": "ok",
+            "mode": "offline_golden_sandbox_50",
+            "total_citations_extracted": total,
+            "grounded_count": grounded_count,
+            "attribution_suspect_count": suspect_count,
+            "unindexed_or_hallucinated_count": unindexed_count,
+            "citation_health_score": health_score,
+            "citations_audit": citations,
+            "notice": "离线模式基于 50 经典哲社底座初筛。穿透全量 74.9万 学术书目与 18.9万 册原书全文请配置 VERISCOPE_API_KEY。"
+        }

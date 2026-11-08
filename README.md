@@ -2,16 +2,16 @@
 
 > **VeriScope** is a sovereign cryptographic bibliographic index and citation verification engine for AI Agents. It anchors AI Task Planners in verified scholarly editions across 24 disciplines with **exact chapter coordinates**, **verbatim fair-use excerpts (<=300 chars)**, **64-bit SHA-256 edition hashes**, and **Ed25519 tamper-proof digital receipts (`vsk_sig`)**.
 
-[![MCP Standard](https://img.shields.io/badge/MCP-1.0.0-blue.svg)](https://modelcontextprotocol.io)
+[![MCP Standard](https://img.shields.io/badge/MCP-1.1.0-blue.svg)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Zero-Config Sandbox](https://img.shields.io/badge/Sandbox-50_Canons_Offline-brightgreen.svg)](#zero-config-golden-sandbox)
 [![Dual-Track Pricing](https://img.shields.io/badge/Pricing-Payoneer_%7C_WeChat_%7C_Alipay-orange.svg)](#dual-track-pricing--access-tiers)
 
 ---
 
-## 🌟 Why VeriScope? Three A/B Scenarios
+## 🌟 Why VeriScope? Four High-Impact Scenarios (Academic & Executive Strategy)
 
-When AI Agents conduct research, general-purpose LLMs generate plausible yet ungrounded citations, fabricate page numbers, or flatten vigorous intellectual conflicts into milquetoast compromises. VeriScope provides a **deterministic factual anchor**:
+When AI Agents conduct research or draft strategic memos, general-purpose LLMs generate plausible yet ungrounded citations, saturate drafts with generic corporate clichés ("AI slop"), or flatten vigorous intellectual conflicts into milquetoast compromises. VeriScope provides a **deterministic factual & dialectical anchor**:
 
 ### Scenario 1: Max Weber Citation Verification (*The Protestant Ethic*)
 * **The Task**: "Cite Max Weber's precise German-to-English thesis on the spirit of capitalism and its ascetic calling."
@@ -47,21 +47,33 @@ When AI Agents conduct research, general-purpose LLMs generate plausible yet ung
 * ❌ **Vanilla LLM (Secondary Paraphrase)**:
   > "Keynes explained that when interest rates are zero, monetary policy becomes ineffective because people hold cash."
 * ✅ **VeriScope MCP (`veriscope_locate_evidence` & `veriscope_verify_attestation`)**:
-  > **Formal Axiom**: Absolute liquidity preference under asymptotic flat LM-curve conditions where $\partial M / \partial r 	o \infty$.  
+  > **Formal Axiom**: Absolute liquidity preference under asymptotic flat LM-curve conditions where $\partial M / \partial r \to \infty$.  
   > **Primary Location**: *The General Theory of Employment, Interest and Money*, Chapter 15 ("The Psychological and Business Incentives to Liquidity"), Section II.  
   > **Verification Status**: `VERIFIED_AUTHENTIC` (SHA-256 matched with primary English edition).
 
 ---
 
-## 🛠️ The 4+1 Cognitive Funnel Tool Matrix
+### Scenario 4: Executive Briefing Elevation & Pre-Mortem Red-Teaming (De-Slop & Grounding)
+* **The Task**: "De-slop this corporate proposal on organizational friction, elevate it to first-principles institutional economics, and run a pre-mortem red-team audit before the board review."
+* ❌ **Vanilla LLM (Generic Corporate Slop)**:
+  > "We must break down silos, leverage digital synergies, and align cross-functional stakeholders to drive end-to-end transformation."
+* ✅ **VeriScope MCP (`veriscope_discover_concepts` / `veriscope_inspect_topography` / `veriscope_locate_evidence`)**:
+  > **First-Principles Elevation**: Maps colloquial "silos and red tape" to Max Weber's **Iron Cage of Bureaucracy (`VS-SOC-001`)** and Coasean **Transaction Cost Economics (`VS-ECON-004`)**.  
+  > **Pre-Mortem Red-Team Challenges**: Exposes 3 structural blind spots (e.g., why adding digital coordination layers without altering incentive compatibility increases internal transaction friction).  
+  > **Attested Grounding**: Anchors the executive memo with a <=300-char primary excerpt and Ed25519 receipt (`vsk_sig`).
 
-| Tool Name | Input Parameters | Primary Output | Use Case |
+---
+
+## 🛠️ The 4+1+1 Cognitive Funnel Tool Matrix (with Citation Audit) (with Business Routing Aliases)
+
+| Tool Name ( & Business Alias) | Input Parameters | Primary Output | Use Case |
 | :--- | :--- | :--- | :--- |
-| `veriscope_discover_concepts` | `query: str`, `discipline_hint?: str` | Standardized canonical ontology, formal definition, Sino-Western comparative counterpart | Elevate colloquial concepts or news metaphors into formal academic disciplines |
-| `veriscope_inspect_topography` | `concept_id: str` | `formal_kernel`, Wikidata QIDs, and 3+ structured `dialectical_disputes` | Prevent shallow syntheses; ground the agent in historical debates and rival axioms |
-| `veriscope_locate_evidence` | `concept_id: str`, `proposition?: str` | Verbatim fair-use slice (**<=300 chars**), chapter coordinate, 64-bit SHA-256, Ed25519 receipt | Ground claims in physical verified editions with peer-reviewable cryptographic proof |
-| `veriscope_verify_attestation` | `concept_id: str`, `claimed_sha256: str`, `verbatim_slice?: str` | `is_valid: bool`, `verification_status: "VERIFIED_AUTHENTIC" \| "TAMPER_DETECTED"` | Zero-knowledge cryptographic check for citations, journal peer review, and fact auditing |
+| `veriscope_discover_concepts`<br>*(Alias: `veriscope_business_frame`)* | `query: str`, `discipline_hint?: str` | Standardized canonical ontology, formal definition, Sino-Western comparative counterpart | Elevate colloquial concepts, workplace pain points, or news metaphors into formal academic & strategic frameworks |
+| `veriscope_inspect_topography`<br>*(Alias: `veriscope_redteam_audit`)* | `concept_id: str` | `formal_kernel`, Wikidata QIDs, and 3+ structured `dialectical_disputes` | Pre-mortem red-teaming; prevent shallow syntheses; ground the agent in rival axioms and blind spots |
+| `veriscope_locate_evidence`<br>*(Alias: `veriscope_deslop_and_ground`)* | `concept_id: str`, `proposition?: str` | Verbatim fair-use slice (**<=300 chars**), chapter coordinate, 64-bit SHA-256, Ed25519 receipt | Replace synthetic AI filler with attested primary editions and peer-reviewable cryptographic proof |
+| `veriscope_verify_attestation` | `concept_id: str`, `claimed_sha256: str`, `verbatim_slice?: str` | `is_valid: bool`, `verification_status: "VERIFIED_AUTHENTIC" \| "TAMPER_DETECTED"` | Zero-knowledge cryptographic check for citations, journal peer review, and compliance fact auditing |
 | `veriscope_probe_radar` | `concept_id: str` | Cross-disciplinary synaptic radar links, epistemological blind spots | Interdisciplinary research, cognitive blind spot alerts, and synthetic conceptual discovery |
+| `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | Extracted citations, author alignment, SHA-256 grounding, health score (0-100), hallucination detection | **AI Citation Health Check**: Fast-scan drafts to detect fabricated AI citations and misattributions |
 
 ---
 

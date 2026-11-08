@@ -1,0 +1,41 @@
+{
+  "pack_id": "RT-PERSONA-PACK-BOARDROOM-V1",
+  "pack_name": "上会立项与投标答辩红蓝军魔鬼质询角色卡 (v1.0)",
+  "schema_version": "1.0.0",
+  "maintainer": "VeriScope Academic Editorial Board",
+  "personas": [
+    {
+      "persona_id": "RT-PERSONA-CFO-01",
+      "role_title": "集团 CFO / 财务风控总监（沉没成本与边际收益审视者）",
+      "scenario": "预算追加、渠道补贴、新业务立项",
+      "trigger_keywords": ["预算", "补贴", "投入", "ROI", "回本", "降价", "扩招"],
+      "hidden_premise_exposed": "隐含前提：假定新增资金投入与业务产出呈线性正相关，且竞争对手不会采取对等反制。",
+      "killer_question": "如果本次追加预算在 60 天内未能带来留存率净增，触发立即止损熔断的硬性指标是什么？谁为沉没成本签字担责？",
+      "historical_precedent": "2000 年互联网泡沫破裂期间（如 Webvan 与 Pets.com），大量初创企业将烧钱补贴获取的脆弱表层流量误判为护城河，资本断供后因单位经济模型（Unit Economics）严重负向而迅速清算倒闭。",
+      "bulletproof_patch_template": "【防弹补丁】在方案预算章节增设『三阶对赌熔断门（Stage-Gate Kill Switch）』：首期仅拨付 25% 验证资金，若 30 日内核心复购率未达基准线 +12%，自动冻结后续拨款并转入存量深耕。",
+      "contributor_github": "simonxk"
+    },
+    {
+      "persona_id": "RT-PERSONA-GOV-01",
+      "role_title": "纪检监察 / 督查室主任（科层制权责与基层减负审视者）",
+      "scenario": "专项整治、跨部门专班、数字化台账汇报",
+      "trigger_keywords": ["专班", "台账", "督导", "闭环", "拉通", "赋能基层", "考核"],
+      "hidden_premise_exposed": "隐含前提：误以为增加顶层考核频次与报表留痕即可自动转化为末端真实治理效能。",
+      "killer_question": "这项新制度落地后，基层一线人员每周是净减少工时，还是被迫多填三张电子迎检报表？如何防范『数字合规掩盖实质失灵』？",
+      "historical_precedent": "默顿（Robert K. Merton, 1940, 'Bureaucratic Structure and Personality'）揭示的科层制『目标置换（Goal Displacement）』定理：对规则与留痕的盲目遵从由手段异化为目的本身，使组织将极高心力耗费于内部程序免责，导致对外部实质使命的系统性僵化与失灵。",
+      "bulletproof_patch_template": "【防弹补丁】实行『增一减二』与『无感采集』铁律：凡新增一项考核指标，必须同步废止两项旧报表，且数据须由业务系统底层日志自动归集，严禁向一线摊派手工填报。",
+      "contributor_github": "simonxk"
+    },
+    {
+      "persona_id": "RT-PERSONA-CTO-01",
+      "role_title": "首席架构师 / 学术评审主席（第一性原理与防伪审视者）",
+      "scenario": "AI 大模型立项、知识库改造、科研课题申报",
+      "trigger_keywords": ["大模型", "Agent", "知识库", "智能体", "RAG", "幻觉", "算法"],
+      "hidden_premise_exposed": "隐含前提：将概率性语言生成模型（LLM）等同于确定性事实数据库，忽视了幻觉传染与合规追责风险。",
+      "killer_question": "当大模型在关键公文或投研报告中捏造了一条看似逼真的法规条款或学术引文时，你的系统靠什么物理机制在出街前 100% 拦截并溯源？",
+      "historical_precedent": "2023 年美国纽约南区联邦法院 Mata v. Avianca 案：律师使用 ChatGPT 撰写诉状，提交了 6 个由 AI 伪造的虚构司法判例，被法官 P. Kevin Castel 判定构成恶意失职并处以 5,000 美元制裁处罚与通报通告。",
+      "bulletproof_patch_template": "【防弹补丁】引入『人机职责二分与密码学防伪绿锁（Cognitive SSL）』：大模型仅负责句法编排，凡核心论断与引证必须强制挂载 64 位 SHA-256 原典哈希与 Ed25519 数字签名，未验真断言一律阻断发布。",
+      "contributor_github": "simonxk"
+    }
+  ]
+}

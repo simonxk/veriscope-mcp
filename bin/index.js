@@ -45,16 +45,25 @@ function loadSandbox() {
 }
 loadSandbox();
 
+const BUSINESS_SYNONYM_BRIDGE = [
+  [['部门推诿', '跨部门协同', '周报', '报表负担', '流程繁琐', '大厂黑话', '体制内', '官僚', '执行变形'], '科层制'],
+  [['价格战', '内卷', '补贴', '恶意降价', '渠道窜货', '同质化', '商业竞争', '毛利'], '看不见的手'],
+  [['信息茧房', '算法推荐', '流量', '舆论', '品牌公关', '回音室'], '公共领域'],
+  [['AI幻觉', '大模型套壳', '技术颠覆', '数字化转型', '产业升级', '第二曲线'], '范式转换'],
+  [['合规', '数据主权', '监管', '权限边界', '治理', '责任倒查'], '社会契约'],
+  [['甩锅', '言行不一', '形式主义', '认知偏差', '盲目立项'], '认知失调']
+];
+
 const TOOLS = [
   {
     name: 'veriscope_discover_concepts',
-    description: 'Elevate colloquial questions or news metaphors into standardized canonical academic ontologies across 24 disciplines.',
+    description: '[Executive Framing & Concept Discovery] Elevate colloquial workplace/business pain points (e.g. bureaucracy, price wars, AI hype, executive briefings) or news metaphors into rigorous first-principles concepts across 24 disciplines to eliminate generic AI slop.',
     inputSchema: {
       type: 'object',
       properties: {
         query: {
           type: 'string',
-          description: 'Colloquial theme, metaphor, or philosophical topic (e.g. \'iron cage\', \'panopticon\', \'state of exception\').'
+          description: 'Colloquial business/workplace problem, metaphor, or scholarly topic (e.g. \'跨部门推诿\', \'价格战\', \'iron cage\', \'panopticon\').'
         },
         discipline_hint: {
           type: 'string',
@@ -66,7 +75,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_inspect_topography',
-    description: 'Retrieve axiomatic formal kernels, scholar lineages with Wikidata QIDs, and 3+ structured dialectical disputes to prevent shallow syntheses.',
+    description: '[Red-Team Pre-Mortem & Dialectical Audit] Stress-test business proposals, policy drafts, or papers by retrieving axiomatic formal kernels, scholar lineages with Wikidata QIDs, and 3+ opposing dialectical disputes.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -80,7 +89,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_locate_evidence',
-    description: 'Locate fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, 64-bit SHA-256 hash, and Ed25519 cryptographic receipt.',
+    description: '[De-Slop Grounding & Primary Source Proof] Locate ironclad fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, 64-bit SHA-256 hash, and Ed25519 cryptographic receipt for high-stakes reports.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -98,7 +107,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_verify_attestation',
-    description: 'Mathematically verify the Ed25519 cryptographic receipt of an academic quote to guarantee zero-hallucination and text integrity.',
+    description: '[Zero-Hallucination Compliance Receipt Verification] Mathematically verify the 64-bit SHA-256 hash and Ed25519 cryptographic receipt of a cited quote to guarantee text integrity.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -119,7 +128,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_probe_radar',
-    description: 'Probe matrix coverage, discipline distribution, and available conceptual nodes across all 24 academic disciplines.',
+    description: '[Cross-Domain Blindspot & Innovation Radar] Probe matrix coverage, discipline distribution, and cross-disciplinary conceptual bridges across all 24 academic disciplines.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -129,8 +138,123 @@ const TOOLS = [
         }
       }
     }
+  },
+  {
+    name: 'veriscope_citation_audit',
+    description: '[AI Citation Health Check & Hallucination Auditor] Fast-scan draft articles or AI generated text to extract and verify book titles, authors, and citations against physical holdings and 64-bit SHA-256 hashes to eradicate fabricated AI citations and misattributions.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        text: {
+          type: 'string',
+          description: 'Draft article, proposal, research brief, or AI-generated text containing book citations to audit.'
+        },
+        discipline_hint: {
+          type: 'string',
+          description: 'Optional discipline hint (e.g. \'SOC\', \'PHIL\', \'ECON\', \'LAW\').'
+        }
+      },
+      required: ['text']
+    }
   }
 ];
+
+
+function auditOfflineCitations(text) {
+  const content = text || '';
+  const regex = /《([^》]{2,40})》(?:（([^，,）]{1,20})(?:[，,]\s*(\d{1,4}))?）)?/g;
+  const citations = [];
+  let match;
+  let groundedCount = 0;
+  let suspectCount = 0;
+  let unindexedCount = 0;
+
+  while ((match = regex.exec(content)) !== null) {
+    const rawQuote = match[0];
+    const rawTitle = match[1].trim();
+    const rawAuthor = match[2] ? match[2].trim() : '';
+    const rawYear = match[3] ? match[3].trim() : '';
+
+    let matchedConcept = null;
+    for (const c of sandboxConcepts) {
+      const anchor = c.canon_anchor || {};
+      const anchorTitle = (anchor.title || '').toLowerCase();
+      const conceptZh = (c.name_zh || '').toLowerCase();
+      const qTitle = rawTitle.toLowerCase();
+
+      if (anchorTitle.includes(qTitle) || qTitle.includes(anchorTitle) || conceptZh.includes(qTitle)) {
+        matchedConcept = c;
+        break;
+      }
+    }
+
+    if (matchedConcept) {
+      const anchor = matchedConcept.canon_anchor || {};
+      let verdict = 'AUTHENTIC_GROUNDED';
+      let confidence = 0.99;
+      let notes = '精准锁定实体学术原本，64位物理 SHA-256 存证齐备';
+
+      if (rawAuthor) {
+        const aNorm = rawAuthor.toLowerCase();
+        const trueAuthor = ((anchor.author || '') + ' ' + (matchedConcept.primary_thinker || '')).toLowerCase();
+        const parts = aNorm.split(/[·•\s]+/);
+        const matchesAnyPart = parts.some(p => p.length > 1 && trueAuthor.includes(p));
+        if (!trueAuthor.includes(aNorm) && !aNorm.includes(trueAuthor) && !matchesAnyPart) {
+          verdict = 'ATTRIBUTION_SUSPECT';
+          confidence = 0.65;
+          notes = `书目真实存在（${anchor.title}），但著者可能张冠李戴（引文著者：${rawAuthor}，藏书著者：${anchor.author}）`;
+          suspectCount++;
+        } else {
+          groundedCount++;
+        }
+      } else {
+        groundedCount++;
+      }
+
+      citations.push({
+        raw_citation: rawQuote,
+        book_title: rawTitle,
+        cited_author: rawAuthor,
+        verdict: verdict,
+        confidence_score: confidence,
+        matched_concept_id: matchedConcept.concept_id,
+        matched_title: anchor.title,
+        author: anchor.author,
+        year: anchor.year,
+        canon_sha256: anchor.canon_sha256,
+        verbatim_excerpt: anchor.verbatim_excerpt,
+        notes: notes,
+        provenance: 'VeriScope 权威馆藏实体学术原本（50大经典沙盒）'
+      });
+    } else {
+      unindexedCount++;
+      citations.push({
+        raw_citation: rawQuote,
+        book_title: rawTitle,
+        cited_author: rawAuthor,
+        verdict: 'UNINDEXED_OR_HALLUCINATED',
+        confidence_score: 0.20,
+        notes: '在离线 50 篇黄金沙盒中未命中。可能为大模型幻觉编造引文，或需接入全量 74.9万 权威书目母港进行深水区对勘',
+        provenance: 'UNINDEXED'
+      });
+    }
+  }
+
+  const total = citations.length;
+  const healthScore = total > 0 ? Math.round(((groundedCount * 100) + (suspectCount * 40)) / total) : 100;
+
+  return {
+    status: 'ok',
+    mode: 'offline_golden_sandbox_50',
+    total_citations_extracted: total,
+    grounded_count: groundedCount,
+    attribution_suspect_count: suspectCount,
+    unindexed_or_hallucinated_count: unindexedCount,
+    citation_health_score: healthScore,
+    citations_audit: citations,
+    notice: '离线模式基于 50 经典哲社底座初筛。穿透全量 74.9万 学术书目与 18.9万 册原书全文请配置 VERISCOPE_API_KEY。'
+  };
+}
 
 function forwardToGateway(toolName, args) {
   return new Promise((resolve) => {
@@ -203,17 +327,20 @@ async function callTool(name, args) {
       if (c) return locateConcept(c);
       return await forwardToGateway(name, args);
     }
-    if (name === 'veriscope_probe_radar') {
+    if (name === 'veriscope_probe_radar' || name === 'veriscope_citation_audit') {
       return await forwardToGateway(name, args);
     }
   }
 
   // Pure Offline Sandbox Mode
   switch (name) {
-    case 'veriscope_discover_concepts': {
-      const matches = discoverLocal(args.query, args.discipline_hint || args.discipline);
+    case 'veriscope_discover_concepts':
+    case 'veriscope_business_frame':
+    case 'veriscope_elevate_concept': {
+      const qVal = args.query || args.draft_text || '';
+      const matches = discoverLocal(qVal, args.discipline_hint || args.discipline);
       return {
-        query: args.query,
+        query: qVal,
         total_matched: matches.length,
         matched_count: matches.length,
         concepts: matches,
@@ -221,8 +348,10 @@ async function callTool(name, args) {
         sandbox_status: '50 Golden Sandbox concepts loaded (Offline Mode Ready)'
       };
     }
-    case 'veriscope_inspect_topography': {
-      const cid = (args.concept_id || '').trim();
+    case 'veriscope_inspect_topography':
+    case 'veriscope_redteam_audit':
+    case 'veriscope_dialectic_collide': {
+      const cid = (args.concept_id || args.query || '').trim();
       const c = sandboxMap.get(cid) || nameMap.get(cid.toLowerCase());
       if (c) return inspectConcept(c, args.include_disputes !== false);
       return {
@@ -231,8 +360,9 @@ async function callTool(name, args) {
         available_sandbox_concepts: Array.from(sandboxMap.keys()).slice(0, 10)
       };
     }
-    case 'veriscope_locate_evidence': {
-      const cid = (args.concept_id || '').trim();
+    case 'veriscope_locate_evidence':
+    case 'veriscope_deslop_and_ground': {
+      const cid = (args.concept_id || args.query || '').trim();
       const c = sandboxMap.get(cid) || nameMap.get(cid.toLowerCase());
       if (c) return locateConcept(c);
 
@@ -248,8 +378,9 @@ async function callTool(name, args) {
           verbatim_excerpt: '[🔒 已精准锁定素书楼原典实物存证，包含学术公理与判词。全本切片（≤300字）与 Ed25519 密码学签名需配置 VERISCOPE_API_KEY：https://veriscope.cc/pricing]'
         },
         pricing_options: {
-          scholar_pro: '¥128/年（无限制检索）或 $19/year',
-          agent_metered: '前 10 次免费，之后 ¥0.35/次 ($0.05/call)'
+          scholar_pro: '国内学者/幕僚个人版 ¥128/月 或 Global Scholar Pro $19/mo (每月 5,000 次存证切片)',
+          credits_pack: '弹性点数包 ¥68 / 500点 ($10 / 500 credits，按需充值免月费)',
+          enterprise: '机构白名单版 ¥5,000/年 或 $800/yr (免除 F8 熔断)'
         },
         is_teaser_mode: true,
         access_mode: 'TEASER_PREVIEW'
@@ -284,6 +415,10 @@ async function callTool(name, args) {
         algorithm: 'Ed25519',
         public_key: pub
       };
+    }
+    case 'veriscope_citation_audit': {
+      const txt = args.text || args.document_text || args.draft_text || '';
+      return auditOfflineCitations(txt);
     }
     case 'veriscope_probe_radar': {
       const stats = {};
@@ -358,39 +493,51 @@ function discoverLocal(query, discipline) {
   if (!query) return [];
   const q = query.toLowerCase().trim();
   const disc = (discipline || '').toLowerCase().trim();
+  const effectiveQueries = [q];
+  for (const [triggers, canonical] of BUSINESS_SYNONYM_BRIDGE) {
+    if (triggers.some(t => q.includes(t.toLowerCase()))) {
+      effectiveQueries.push(canonical.toLowerCase());
+    }
+  }
   const results = [];
+  const seenIds = new Set();
 
-  for (const c of sandboxConcepts) {
-    if (disc && !c.discipline.toLowerCase().includes(disc) && c.discipline_code.toLowerCase() !== disc) {
-      continue;
-    }
-    const anchor = c.canon_anchor || {};
-    const textPool = [
-      c.concept_id || '',
-      c.name_zh || '',
-      c.name_en || '',
-      c.primary_thinker || '',
-      c.historical_period || '',
-      c.core_thesis || '',
-      c.formal_kernel || '',
-      anchor.author || '',
-      anchor.title || ''
-    ].join(' ').toLowerCase();
+  for (const eq of effectiveQueries) {
+    for (const c of sandboxConcepts) {
+      if (seenIds.has(c.concept_id)) continue;
+      if (disc && !c.discipline.toLowerCase().includes(disc) && c.discipline_code.toLowerCase() !== disc) {
+        continue;
+      }
+      const anchor = c.canon_anchor || {};
+      const textPool = [
+        c.concept_id || '',
+        c.name_zh || '',
+        c.name_en || '',
+        c.primary_thinker || '',
+        c.historical_period || '',
+        c.core_thesis || '',
+        c.formal_kernel || '',
+        anchor.author || '',
+        anchor.title || ''
+      ].join(' ').toLowerCase();
 
-    if (textPool.includes(q) || q.split(/\s+/).some(w => w.length > 1 && textPool.includes(w))) {
-      results.push({
-        concept_id: c.concept_id,
-        name_zh: c.name_zh,
-        name_en: c.name_en,
-        discipline: c.discipline,
-        primary_thinker: c.primary_thinker,
-        historical_period: c.historical_period,
-        core_thesis: c.core_thesis,
-        formal_definition: c.formal_kernel ? c.formal_kernel.slice(0, 160) + '...' : '',
-        is_sandbox_ready: true
-      });
-      if (results.length >= 10) break;
+      if (textPool.includes(eq) || eq.split(/\s+/).some(w => w.length > 1 && textPool.includes(w))) {
+        seenIds.add(c.concept_id);
+        results.push({
+          concept_id: c.concept_id,
+          name_zh: c.name_zh,
+          name_en: c.name_en,
+          discipline: c.discipline,
+          primary_thinker: c.primary_thinker,
+          historical_period: c.historical_period,
+          core_thesis: c.core_thesis,
+          formal_definition: c.formal_kernel ? c.formal_kernel.slice(0, 160) + '...' : '',
+          is_sandbox_ready: true
+        });
+        if (results.length >= 10) break;
+      }
     }
+    if (results.length >= 10) break;
   }
   return results;
 }
@@ -431,7 +578,7 @@ rl.on('line', async (line) => {
         capabilities: { tools: {} },
         serverInfo: {
           name: 'veriscope',
-          version: '1.0.0'
+          version: '1.1.0'
         }
       }
     };

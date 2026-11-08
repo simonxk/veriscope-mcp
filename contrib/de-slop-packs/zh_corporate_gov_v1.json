@@ -1,0 +1,64 @@
+{
+  "pack_id": "DSLOP-PACK-ZH-CORP-GOV-V1",
+  "pack_name": "大厂互联网与政企公文高频塑料黑话手术包 (v1.0)",
+  "language": "zh-CN",
+  "schema_version": "1.0.0",
+  "maintainer": "VeriScope Academic Editorial Board",
+  "rules": [
+    {
+      "rule_id": "DSLOP-ZH-001",
+      "industry": "internet_tech",
+      "slop_phrase": "形成组合拳",
+      "diagnosis_reason": "滥用武术隐喻掩盖各项子策略之间的因果优先级与资源配比缺失",
+      "executive_replacement": "明确主攻单点与配套协同次序",
+      "mckinsey_replacement": "确立核心杠杆抓手与正交协同矩阵（Orthogonal Synergy Matrix）",
+      "contributor_github": "simonxk"
+    },
+    {
+      "rule_id": "DSLOP-ZH-002",
+      "industry": "internet_tech",
+      "slop_phrase": "沉淀方法论",
+      "diagnosis_reason": "将未经证伪的单次偶然经验包装为普适规律，缺乏边界条件说明",
+      "executive_replacement": "提炼可复用的标准作业程序（SOP）与适用边界",
+      "mckinsey_replacement": "固化经压力测试的制度化操作规程（Institutionalized Playbook）",
+      "contributor_github": "simonxk"
+    },
+    {
+      "rule_id": "DSLOP-ZH-003",
+      "industry": "gov_public",
+      "slop_phrase": "压实主体责任",
+      "diagnosis_reason": "缺乏具体问责触发阈值与权责对等清单，易沦为科层制单向向下甩锅",
+      "executive_replacement": "列明第一责任人、触发追责的量化红线及配套授权清单",
+      "mckinsey_replacement": "重构权责对等的委托-代理激励相容契约（Incentive-Compatible Accountability）",
+      "contributor_github": "simonxk"
+    },
+    {
+      "rule_id": "DSLOP-ZH-004",
+      "industry": "internet_tech",
+      "slop_phrase": "占领用户心智",
+      "diagnosis_reason": "空泛营销口号，未指明降低用户搜寻成本或建立转换壁垒的具体机制",
+      "executive_replacement": "成为用户在特定高频场景下的第一默认选择",
+      "mckinsey_replacement": "构筑高转换成本的认知默认锚点（Cognitive Default Anchor）",
+      "contributor_github": "simonxk"
+    },
+    {
+      "rule_id": "DSLOP-ZH-005",
+      "industry": "finance_consulting",
+      "slop_phrase": "打造全链路生态闭环",
+      "diagnosis_reason": "企图包揽上下游全环节而忽视核心比较优势，极易引发组织管理熵增",
+      "executive_replacement": "聚焦高毛利核心控制点，其余环节通过标准接口外部协同",
+      "mckinsey_replacement": "锁定价值链瓶颈控制权（Bottleneck Control）并剥离非核心重资产",
+      "contributor_github": "simonxk"
+    },
+    {
+      "rule_id": "DSLOP-ZH-006",
+      "industry": "academic_grant",
+      "slop_phrase": "具有重要的理论与现实意义",
+      "diagnosis_reason": "申报书与论文最常见套话，未指出具体推翻了哪条既有假说或解决了何种量化痛点",
+      "executive_replacement": "直接填补了既有模型在极端边界条件下的解释盲区，并可降低特定业务损耗",
+      "mckinsey_replacement": "证伪既有主流范式的隐含边界假设，并提供可量化的帕累托改进路径",
+      "contributor_github": "simonxk"
+    }
+  ]
+}
+

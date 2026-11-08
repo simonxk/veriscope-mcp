@@ -1,0 +1,29 @@
+name: Contributor Gatekeeper CI
+
+on:
+  pull_request:
+    paths:
+      - 'contrib/**'
+      - 'scripts/validate_contrib_rules.py'
+  push:
+    branches:
+      - main
+    paths:
+      - 'contrib/**'
+
+jobs:
+  validate-contrib-rules:
+    name: Seven Forensic Gatekeepers (V1-V7)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Forensic Gatekeeper Validation
+        run: |
+          python scripts/validate_contrib_rules.py

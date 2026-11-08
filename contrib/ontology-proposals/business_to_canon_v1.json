@@ -1,0 +1,48 @@
+{
+  "pack_id": "ONT-PROPOSAL-PACK-BIZ-CANON-V1",
+  "pack_name": "职场与商业高频痛点 → 24 学科第一性原理原典映射提案库 (v1.0)",
+  "schema_version": "1.0.0",
+  "maintainer": "VeriScope Academic Editorial Board",
+  "proposals": [
+    {
+      "proposal_id": "ONT-PROP-001",
+      "pain_point_triggers": ["跨部门推诿", "报表负担", "大厂黑话", "谷仓效应", "流程空转", "官僚主义"],
+      "target_concept_id": "VS-SOC-001",
+      "target_concept_zh": "科层制与形式合理性",
+      "discipline_code": "SOC",
+      "first_principles_mapping_rationale": "将日常部门扯皮与周报内卷升维至马克斯·韦伯『形式合理性铁笼』与默顿『目标置换（Goal Displacement）』公理：当科层组织将规则遵从度置于终极使命之上时，局部免责最优必然导致整体系统锁定。",
+      "eastern_institutional_counterpart": "【华夏制度对勘】王夫之《读通鉴论》『法愈密而天下之乱即生于法之中』，及北宋元丰改制后六部胥吏『以例破法、文移往复』之官僚制内耗教训。",
+      "contributor_github": "simonxk"
+    },
+    {
+      "proposal_id": "ONT-PROP-002",
+      "pain_point_triggers": ["恶性价格战", "同质化内卷", "渠道窜货", "补贴烧钱", "毛利暴跌", "零和博弈"],
+      "target_concept_id": "VS-ECON-001",
+      "target_concept_zh": "看不见的手与自利分工",
+      "discipline_code": "ECON",
+      "first_principles_mapping_rationale": "将同质化价格厮杀升维至伯特兰价格竞争陷阱（Bertrand Paradox）与亚当·斯密分工定界定理：缺乏产权壁垒与认知差异化的存量补贴，必将在纳什均衡下把全行业超额利润竞次归零。",
+      "eastern_institutional_counterpart": "【华夏制度对勘】《管子·轻重篇》『散则轻，聚则重』与西汉《盐铁论》桑弘羊、桓宽关于官营垄断与民间恶性竞价之辩。",
+      "contributor_github": "simonxk"
+    },
+    {
+      "proposal_id": "ONT-PROP-003",
+      "pain_point_triggers": ["AI幻觉", "大模型套壳", "数字化烂尾", "技术焦虑", "算力堆砌", "概念炒作"],
+      "target_concept_id": "VS-SCI-002",
+      "target_concept_zh": "科学革命与范式转换",
+      "discipline_code": "SCI",
+      "first_principles_mapping_rationale": "将盲目采购新技术却无业务产出升维至托马斯·库恩《科学革命的结构》与索洛生产率悖论（Solow Paradox）：未触及底层契约与权责关系重构的工具叠加，仅属旧范式内的冗余修补，无法触发范式转换。",
+      "eastern_institutional_counterpart": "【华夏制度对勘】晚清洋务运动『中体西用、仅购坚船利炮而未改火耗督抚考成之制』，终致北洋水师空有亚洲第一吨位而困于体制。",
+      "contributor_github": "simonxk"
+    },
+    {
+      "proposal_id": "ONT-PROP-004",
+      "pain_point_triggers": ["甩锅免责", "外包背锅", "合规留痕", "假装努力", "报喜不报忧", "一言堂"],
+      "target_concept_id": "VS-POL-003",
+      "target_concept_zh": "平庸之恶与极权主义根源",
+      "discipline_code": "POL",
+      "first_principles_mapping_rationale": "将组织合规留痕、只对流程负责而放弃实质纠错的官僚推诿心态，升维至汉娜·阿伦特《艾希曼在耶路撒冷》『平庸之恶（Banality of Evil）』哲学公理：当个体将自身退化为免责齿轮时，制度性盲从便在程序正义的掩护下滋生。",
+      "eastern_institutional_counterpart": "【华夏制度对勘】唐代贞观朝『给事中封驳制』与明代『六科廊直言封还』制度——凡缺少独立蓝军封驳权与容错担当机制的决策中枢，必陷于阿谀同构与报喜不报忧。",
+      "contributor_github": "simonxk"
+    }
+  ]
+}

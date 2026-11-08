@@ -1,68 +1,113 @@
-# 真镜 v3.0 MCP Server
+# 真镜 VeriScope MCP Server (`veriscope-mcp` / `@veriscope/mcp-server`)
 
-> **真镜** = 知识证据溯源系统。素书楼馆藏实体原本与全量学术文献 (FTS5+INSTR 段落级定位) · 7.5万张卡片 (22学科) · 2.1万条双链 · 27个学术社区 · 476万共现对。核心动作：输入命题 → 输出可信等级 + 支持/反对证据 + 谱系 + 盲区 + 原文锚点。
+> **真镜（VeriScope）** 是面向 AI Agents、高阶幕僚与学术研究者的**密码学文献索引与引文验真引擎（Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine）**。覆盖 24 门学科大典，通过**精确章节坐标**、**合理使用原文切片（≤300 字）**、**64 位 SHA-256 版本哈希**以及 **Ed25519 防篡改数字凭证（`vsk_sig`）**，彻底消除大模型幻觉、黑话空话（AI Slop）与和稀泥式平庸综述。
 
----
-
-## 这是什么？
-
-**MCP Server** 是真镜的 **Model Context Protocol (MCP)** 服务端实现，把真镜的 5 个核心 Skill（三态取证 / 概念地形图 / 书目深挖 / 验证 / 学者谱系）暴露为标准化的 MCP Tools。
-
-**为什么需要？**
-- 40+ AI Agent（Claude Code / Cursor / Codex / Gemini / 等）可通过 MCP 协议**直接调用真镜能力**，无需浏览器插件
-- 这是真镜 v3.0 **L4 生态与入口层**的关键一环（见架构文档 §二·四层架构模型 L4）
-- **不是 Chrome 插件的替代**——插件入口思维不变（§七-4 不变量），MCP Server 是**额外的入口**，服务于 AI Agent 生态
+[![MCP Standard](https://img.shields.io/badge/MCP-1.1.0-blue.svg)](https://modelcontextprotocol.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Zero-Config Sandbox](https://img.shields.io/badge/Sandbox-50_Canons_Offline-brightgreen.svg)](#零配置黄金离线沙盒)
+[![Dual-Track Pricing](https://img.shields.io/badge/Pricing-Payoneer_%7C_WeChat_%7C_Alipay-orange.svg)](#双轨接入与定价体系)
 
 ---
 
-## 核心能力（5 个 MCP Tools）
+## 🌟 为什么需要真镜？四大核心赋能场景（学术研究 + 商业幕僚双栖）
 
-| Tool 名称 | 对应 Skill | 端点 | 说明 |
-|-----------|------------|------|------|
-| `three-state-evidence` | 三态取证 | `/api/collision/duel` | 相关/对立/缺口 三态证据验证 |
-| `concept-terrain` | 概念地形图 | `/api/concept/terrain` | 概念的层位、谱系、盲区全景 |
-| `book-deep-dive` | 书目深挖 | `/api/topology/evidence-concept` | 单本书的论点、谱系、关联卡片、盲区 |
-| `verify` | 验证模式 | `/api/collision/en` | 英文入口：声明溯源 + 对立证据 |
-| `scholar-lineage` | 学者谱系 | `/api/thinker/biography` | 学者的影响、代表作、关联思想家 |
+通用大模型在起草报告、提案或论文时，极易产生两类致命缺陷：**① 满篇“赋能/抓手/闭环”的同质化 AI 塑料味（AI Slop）與虚构引文**；**② 缺乏反方压力测试的盲目乐观**。真镜提供确定性的事实与思想底座：
 
----
-
-## 安装
-
-```bash
-cd F:\翰林院AI总账本
-pip install mcp  # 可选，mock 模式不需要
-```
-
-> **零额外依赖**：核心逻辑仅用标准库。`mcp` 包仅在真实 MCP 连接时需要；mock 模式（`--list-tools`）零依赖。
+### 场景 1：政企内参 / 商业立项报告 ——「祛 AI 味 + 立意升维 + 魔鬼质询」
+* **任务指令**：“把这段关于‘部门协同内耗、数字化转型推不动’的汇报初稿祛除 AI 味，升维到制度经济学与组织社会学高度，并在上会前做一次魔鬼质询（Pre-Mortem）。”
+* ❌ **普通大模型（空洞套话）**：
+  > “我们需要打破部门墙，强化顶层设计，通过数字化抓手赋能业务闭环，实现降本增效与生态共赢。”
+* ✅ **真镜 MCP（`veriscope_discover_concepts` → `veriscope_inspect_topography` → `veriscope_locate_evidence`）**：
+  > **【立意升维】**：将“部门推诿与流程空转”锚定为马克斯·韦伯**「科层制铁笼（Iron Cage of Bureaucracy）」**与科斯/威廉姆森**「内部交易成本（Transaction Cost）与资产专用性摩擦」**——当跨部门协调的边际组织成本高于外部市场契约时，单纯增加审批节点只会引发帕金森定律式的行政自殖。  
+  > **【魔鬼质询（会前防怼压力测试）】**：  
+  > 1. *制度动力学反诘*：若不重构考核激励相容机制，新增的数字化中台是否会沦为强化形式理性的第二道“数字铁笼”？  
+  > 2. *原典定海神针（≤300字合理使用切片）*：《经济与社会》第 11 章第 6 节 | SHA-256: `f1a9c284e73b61...` | 凭证: `vsk_sig:ed25519_...`
 
 ---
 
-## 启动方式
-
-### 1. MCP stdio 模式（供 AI Agent 连接）
-```bash
-python -m mcp_server.veriscope_mcp_server
-```
-
-### 2. Mock 模式（无 MCP SDK 时验证）
-```bash
-python -m mcp_server.veriscope_mcp_server --list-tools
-python -m mcp_server.veriscope_mcp_server --call-tool three-state-evidence --args '{"lens_card_id":"abc","opponent_card_id":"def"}'
-```
+### 场景 2：马克斯·韦伯原典核验（《新教伦理与资本主义精神》）
+* **任务指令**：“引用韦伯关于资本主义精神与禁欲主义天职观的精确论述并核验版本真伪。”
+* ❌ **普通大模型（幻觉捏造）**：虚构页码与并不存在的引文段落。
+* ✅ **真镜 MCP（`veriscope_locate_evidence`）**：
+  > **版本著录**：*The Protestant Ethic and the Spirit of Capitalism*  
+  > **章节坐标**：Section 2: "The Spirit of Capitalism", Paragraph 12  
+  > **版本 SHA-256**：`d7a8fbb5628549...3984e1`  
+  > **数字凭证**：`vsk_sig:ed25519_8f0a2e...`（支持零知识防伪校验）
 
 ---
 
-## 与 AI Agent 集成示例
+### 场景 3：凯尔森 vs. 施米特 —— 思想史两造交锋（拒绝和稀泥）
+* **任务指令**：“对比汉斯·凯尔森纯粹法学与卡尔·施米特决断论关于‘例外状态’的主权之争。”
+* ✅ **真镜 MCP（`veriscope_inspect_topography`）**：
+  > 返回**形式核公理（`formal_kernel`）**、学者 Wikidata QID（`Q84322` vs `Q57476`）以及 **3 组结构化两造交锋（`dialectical_disputes`）**，完整还原规范主义基础规范与政治决断论的不可调和张力。
 
-### Claude Code / Cursor / Codex / Gemini
+---
+
+### 场景 4：凯恩斯流动性陷阱边界核查（《就业、利息和货币通论》）
+* **任务指令**：“核查凯恩斯流动性陷阱的制度成立边界与原著对应章节。”
+* ✅ **真镜 MCP（`veriscope_locate_evidence` & `veriscope_verify_attestation`）**：
+  > 锁定《通论》第 15 章第 2 节，返回 `VERIFIED_AUTHENTIC` 64 位哈希验真状态。
+
+---
+
+## 🛠️ 4+1+1 主权认知漏斗工具矩阵（新增：AI 引文体检与大模型幻觉查杀）（含商业幕僚语义路由别名）
+
+| 主权标准工具名（商业场景路由别名） | 核心输入参数 | 核心输出载荷 | 典型唤醒场景 |
+| :--- | :--- | :--- | :--- |
+| `veriscope_discover_concepts`<br>*(别名: `veriscope_business_frame`)* | `query: str`, `discipline_hint?: str` | 24 学科标准概念本体、形式核定义、中西范畴互勘 | **立意升维 / 祛 AI 味**：将口语痛点、商业提案或新闻热词升维为第一性原理学术锚点 |
+| `veriscope_inspect_topography`<br>*(别名: `veriscope_redteam_audit`)* | `concept_id: str` | `formal_kernel`、Wikidata QID、3+ 组正反学派 `dialectical_disputes` | **魔鬼质询 / 红蓝军压力测试**：暴露方案隐含假设盲区，获取正反两造交锋弹药 |
+| `veriscope_locate_evidence`<br>*(别名: `veriscope_deslop_and_ground`)* | `concept_id: str`, `query_proposition?: str` | 合理使用原文切片（**≤300 字**）、章节坐标、64 位 SHA-256、Ed25519 签名 | **硬核引文坐实**：用不可篡改的权威著作切片替换空洞套话，生成免责数字回执 |
+| `veriscope_verify_attestation` | `concept_id: str`, `canon_sha256: str` | `is_cryptographically_verified: bool`, `VERIFIED_AUTHENTIC \| TAMPER_DETECTED` | **合规与审稿验真**：零知识校验引文哈希或 Ed25519 签名是否被篡改 |
+| `veriscope_probe_radar` | `topic: str` | 跨学科突触连接（`babel_synapses`）、认知盲区诊断 | **跨界策展与盲区探测**：打通哲学、经济、法学、社会学等跨学科高维连接 |
+| `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | 引用书目提取、著者对勘、实物 SHA-256 吻合度、健康度评分（0-100）、幻觉查杀判定 | **AI 引文真伪体检**：毫秒级查杀大模型幻觉虚构的书目引文与张冠李戴，杜绝学术伪证 |
+
+---
+
+## ⚡ 零配置黄金离线沙盒（Zero-Config Golden Sandbox）
+
+真镜内置 **50 篇跨学科经典概念离线沙盒**（`golden_sandbox_50.json`，仅约 126 KB）：
+* **开箱即用**：无需注册、无需配置 API Key，安装后即可离线跑通“概念发现 → 两造交锋 → 原典定位 → 签名验真”完整闭环。
+* **优雅预览模式（Teaser Mode）**：当未配置 API Key 查询沙盒外的长尾概念时，绝不粗暴报错中断 Agent 思考链，而是返回包含匹配书名、章节坐标与真实 16 位哈希前缀的 **Cryptographic Teaser Preview**。
+
+---
+
+## 💳 双轨接入与定价体系（告别按次微支付焦虑）
+
+| 方案档位 | 适用人群与场景 | 国内通道（微信 / 支付宝） | 国际通道（Payoneer Checkout） | 包含权益与额度 |
+| :--- | :--- | :--- | :--- | :--- |
+| **Community Sandbox** | 开发者评测与基础体验 | **免费 (¥0)** | **Free ($0)** | 50 篇黄金经典沙盒全量解锁 + 全库长尾概念 Teaser 预览 |
+| **Scholar Pro** | 个人研究者 / 高阶幕僚 / 博士生 | **¥128 / 月** | **$19 / month** | 标准检索不限次，每月 5,000 次原典切片锚定 + Ed25519 数字签名 |
+| **Power Credit Pack** | 自动化工作流 / 批量立项与审稿管线 | **¥68 / 500 点** | **$10 / 500 credits** | 按需充值点数包，无月费压力，适合 Agent 批量任务调度 |
+| **Enterprise / 机构版** | 智库实验室 / 律所 / 咨询与投研机构 | **¥5,000 / 年** | **$800 / year** | 独立高并发配额、IP 白名单、机构联署签名密钥与 SLA 保障 |
+
+*获取与激活 API Key：[https://veriscope.cc/pricing](https://veriscope.cc/pricing)*
+
+---
+
+## 🚀 快速接入指南
+
+### 1. Claude Desktop / Claude Code / Cursor (`npx` 零依赖启动)
 ```json
 {
   "mcpServers": {
     "veriscope": {
-      "command": "python",
-      "args": ["-m", "mcp_server.veriscope_mcp_server"],
-      "cwd": "F:/翰林院AI总账本"
+      "command": "npx",
+      "args": ["-y", "veriscope-mcp"],
+      "env": {
+        "VERISCOPE_API_KEY": "vsk_live_optional_your_key_here"
+      }
+    }
+  }
+}
+```
+
+### 2. Python / `uvx` 启动
+```json
+{
+  "mcpServers": {
+    "veriscope": {
+      "command": "uvx",
+      "args": ["veriscope-mcp"]
     }
   }
 }
@@ -70,86 +115,15 @@ python -m mcp_server.veriscope_mcp_server --call-tool three-state-evidence --arg
 
 ---
 
-## 架构定位：与 v3.0 §七-4 不变量的关系
+## 🔒 学术合理使用（Fair-Use）与安全合规承诺
 
-> **不变量 4：插件入口思维不变** —— 所有外部入口（MCP / Skill Registry）最终汇聚到 Chrome 插件这一人类入口
-
-```
-L4: Chrome插件(人类) / MCP Server(AI Agent) / Skill Registry / K-Dense互导流
-  ↓ 统一路由（建议1）
-L2: archive_server.py 统一路由技能
-  ↓
-L3: 三态取证 / Evidence Object 9字段 / 行级锚定
-  ↓
-L1: 素书楼学术原典实物物证库 + FTS5 + INSTR + SHA256
-```
-
-**关键点**：
-- MCP Server **不绕过** archive_server.py，通过 `skills_adapter.py` **直接 import 调用** view function
-- 所有证据产出遵循 **Evidence Object 9 字段 schema**（`evidence_object_schema.json`）
-- 三态取证（相关/对立/缺口）哲学核心 **不变**（§七-3）
+1. **纯只读架构**：严格工作于只读模式（`mode=ro`），绝不修改宿主环境文件。
+2. **学术合理使用原则（≤300 字硬上限）**：本引擎定位为密码学书目索引与引文核验工具，绝不分发整本电子书文件；所有原文核验切片严格限制在命题锚点周边 **≤300 字符**。
+3. **Ed25519 密码学防伪凭证**：每条引文回执均包含切片 16 位哈希摘要与 Ed25519 数字签名，改动哪怕一个标点符号均会触发 `TAMPER_DETECTED`。
+4. **F8 跨学科高熵防掏空护盾**：针对短时间内高频跨越 $\ge 6$ 个学科的异常批量抓取行为，自动降级为**零文本证明模式（Zero-Text Proof Mode）**，仅输出坐标与哈希前缀。
 
 ---
 
-## 与 K-Dense plugin.json 的关系
+## 📄 开源协议
 
-参考 `decisions/_refs/k_dense_scientific_agent_skills_v2.64.0/plugin.json`（23 行标准模板）。真镜 MCP Server 遵循同一 **Agent Plugins 1.0.0 标准**：
-- `name`/`version`/`description`/`author`/`license`/`keywords` 字段对齐
-- Skill 目录结构遵循 K-Dense 硬规范：`SKILL.md` + `references/` + `scripts/` + `assets/`
-- `metadata.version` 必须引号包字符串（如 `"0.1"`）
-- `allowed-tools` 为空格分隔字符串
-
----
-
-## 内部实现要点
-
-| 文件 | 职责 | 行数 |
-|------|------|------|
-| `veriscope_mcp_server.py` | MCP Server 核心，优雅降级，stdio transport | ~160 |
-| `skills_adapter.py` | registry.json → MCP Tool 定义 + 本地调用 archive_server | ~180 |
-| `__init__.py` | 包元信息 | ~15 |
-
-**关键设计**：
-1. **不强依赖 mcp SDK**：`try/except ImportError` 优雅降级，mock 模式可独立运行
-2. **本地调用而非 HTTP**：Flask `test_request_context` 直接调用 view function，零网络开销
-3. **param_mapping 自动生成 schema**：registry.json → JSON Schema（inputSchema）
-4. **stdio transport**：标准 MCP 协议，兼容所有 MCP Client
-
----
-
-## 验证
-
-```bash
-python -c "import ast; ast.parse(open('mcp_server/veriscope_mcp_server.py', encoding='utf-8').read())"
-python -c "import ast; ast.parse(open('mcp_server/skills_adapter.py', encoding='utf-8').read())"
-python -m mcp_server.veriscope_mcp_server --list-tools  # 应显示 5 个 tool
-python -m mcp_server.skills_adapter
-```
-
----
-
-## 回归风险控制
-
-| 风险 | 对策 |
-|------|------|
-| 改动现有文件 | **严禁**改动 `archive_server.py` / `prompts.toml` / `sidebar.*` 等 |
-| 强依赖 mcp SDK | `try/except` 优雅降级，mock 模式完整可用 |
-| 引入额外依赖 | 仅标准库 + `mcp`（可选） |
-| 暴露 secrets | 无 API key / secret 硬编码 |
-| 破坏插件入口 | MCP Server 只是**额外入口**，插件主入口不受影响 |
-
----
-
-## 后续规划（P2 阶段）
-
-- [ ] 真实 MCP SDK 集成测试
-- [ ] Evidence Object 9 字段在 tool 返回中透传
-- [ ] 支持 `/skill/<name>` 统一路由技能（建议 1）
-- [ ] K-Dense 互导流：双向路由 + 数据交换
-- [ ] 安全扫描集成（Cisco AI Defense Skill Scanner）
-
----
-
-## 许可证
-
-MIT License — 与真镜主项目一致。
+MIT License. 详见 [LICENSE](LICENSE)。
