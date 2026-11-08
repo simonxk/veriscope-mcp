@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.simonxk/veriscope-mcp",
+  "description": "Cryptographic bibliographic index and citation verification engine for AI agents.",
+  "repository": {
+    "url": "https://github.com/simonxk/veriscope-mcp",
+    "source": "github",
+    "id": "1449571280"
+  },
+  "version": "1.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "veriscope-mcp",
+      "version": "1.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "VERISCOPE_API_KEY",
+          "description": "Optional API Key for live sovereign evidence port. If omitted, runs offline against built-in 50-canon golden sandbox.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

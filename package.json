@@ -1,6 +1,7 @@
 {
   "name": "veriscope-mcp",
-  "version": "1.1.0",
+  "version": "1.1.1",
+  "mcpName": "io.github.simonxk/veriscope-mcp",
   "description": "Cryptographic Bibliographic Index and Fair-Use Citation Verification Engine for AI Agents",
   "main": "bin/index.js",
   "bin": {
@@ -14,7 +15,8 @@
     "README_ZH.md",
     "LICENSE",
     "smithery.yaml",
-    "glama.json"
+    "glama.json",
+    "server.json"
   ],
   "keywords": [
     "mcp",
