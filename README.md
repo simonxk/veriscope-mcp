@@ -9,6 +9,10 @@
 
 ---
 
+> 🧩 **Looking for 100 Sovereign Cognitive Primitives (Pure Markdown)?**  
+> If you want zero-dependency, copy-paste decision models, negative attention anchors (Anti-Cliches), and `.cursorrules` for Cursor / Claude Code without setting up an MCP server, check out our companion repository: [**simonxk/veriscope-the-idea-depot**](https://github.com/simonxk/veriscope-the-idea-depot).
+
+---
 ## 🌟 Why VeriScope? Four High-Impact Scenarios (Academic & Executive Strategy)
 
 When AI Agents conduct research or draft strategic memos, general-purpose LLMs generate plausible yet ungrounded citations, saturate drafts with generic corporate clichés ("AI slop"), or flatten vigorous intellectual conflicts into milquetoast compromises. VeriScope provides a **deterministic factual & dialectical anchor**:
@@ -19,7 +23,7 @@ When AI Agents conduct research or draft strategic memos, general-purpose LLMs g
   > "Weber writes in Chapter 2, page 181: 'The modern capitalist spirit arose purely from Calvinist predestination.' (Weber, 1905, Scribner edition)."
   > *Audit*: Fabricated page number; inaccurate quotation; no cryptographic edition hash.
 * ✅ **VeriScope MCP (`veriscope_locate_evidence`)**:
-  > **Edition**: *The Protestant Ethic and the Spirit of Capitalism* (Archival ID: Sovereign Harbor Verified Edition)  
+  > **Edition**: *The Protestant Ethic and the Spirit of Capitalism* (Archival ID: VeriScope Epistemic Substrate Verified Edition)  
   > **Coordinate**: Section 2: "The Spirit of Capitalism", Paragraph 12  
   > **Verbatim Excerpt (<=300 chars)**: *"Man is dominated by the making of money, by acquisition as the ultimate purpose of his life. Economic acquisition is no longer subordinated to man as the means for the satisfaction of his material needs."*  
   > **Edition SHA-256**: `d7a8fbb5628549...3984e1`  

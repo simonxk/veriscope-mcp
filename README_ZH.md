@@ -9,6 +9,10 @@
 
 ---
 
+> 🧩 **正在寻找 100 篇开箱即用的第一性原理决策标准件（纯 Markdown 实体）？**  
+> 如果您希望在无需安装任何 Node.js/Python 环境的前提下，直接复制带有 64 位 SHA-256 原本散列的决策模型、反陈词滥调禁区（Anti-Cliches）以及适配 Cursor / Claude Code 的 `.cursorrules`，请直接访问我们的孪生知识库仓库：[**simonxk/veriscope-the-idea-depot**](https://github.com/simonxk/veriscope-the-idea-depot)。
+
+---
 ## 🌟 为什么需要真镜？四大核心赋能场景（学术研究 + 商业幕僚双栖）
 
 通用大模型在起草报告、提案或论文时，极易产生两类致命缺陷：**① 满篇“赋能/抓手/闭环”的同质化 AI 塑料味（AI Slop）與虚构引文**；**② 缺乏反方压力测试的盲目乐观**。真镜提供确定性的事实与思想底座：
