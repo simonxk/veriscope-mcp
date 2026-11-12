@@ -190,7 +190,7 @@ function cleanAuthorName(raw) {
   for (const w of AUTHOR_NOISE_WORDS) {
     s = s.replace(w, '').trim();
   }
-  s = s.replace(/^[\s，,、“”"'（(：:【\[]+/, '').replace(/[\s，,、“”"'）)：:】\]]+/, '');
+  s = s.replace(/^[\s，,、“”"'（(：:【\[]+/, '').replace(/[\s，,、“”"'）)：:】\]]+$/, '');
   if (s.includes('·')) {
     const parts = s.split('·');
     if (parts.length >= 2) {
@@ -289,6 +289,41 @@ function extractCitationsFromText(text) {
     }
   }
 
+  // Pattern 5: 英文标准著录 Author, "Title" (Year) / Author, Title (Year) (例如 Kant, Critique of Pure Reason (1781))
+  const reEngStd = /([A-Za-z\s]{2,25}),\s*(?:["“]|_|\*)?([A-Za-z\s]{2,60})(?:["”]|_|\*)?\s*\(\s*(\d{4})\s*\)/g;
+  while ((m = reEngStd.exec(content)) !== null) {
+    const author = cleanAuthorName(m[1]);
+    const title = cleanBookTitle(m[2]);
+    if (author.length >= 2 && title.length >= 2 && !seenTitles.has(title.toLowerCase())) {
+      seenTitles.add(title.toLowerCase());
+      found.push({
+        raw_citation: m[0].trim(),
+        author: author,
+        title: title,
+        year: m[3] || '',
+        pattern: 'ENGLISH_STD',
+        index: m.index
+      });
+    }
+  }
+
+  // Pattern 6: As Author argues in "Title" / in Critique of Pure Reason
+  const reEngArgues = /(?:As|as|In|in|According to)\s+([A-Za-z\s]{2,25})\s+(?:argues|states|claims|writes)?\s*(?:in)?\s*["“]([^"”\n]{2,60})["”]/g;
+  while ((m = reEngArgues.exec(content)) !== null) {
+    const author = cleanAuthorName(m[1]);
+    const title = cleanBookTitle(m[2]);
+    if (author.length >= 2 && title.length >= 2 && !seenTitles.has(title.toLowerCase())) {
+      seenTitles.add(title.toLowerCase());
+      found.push({
+        raw_citation: m[0].trim(),
+        author: author,
+        title: title,
+        pattern: 'ENGLISH_ARGUES',
+        index: m.index
+      });
+    }
+  }
+
   return found;
 }
 
@@ -304,15 +339,15 @@ function matchSandboxConceptByTitle(title) {
       return c;
     }
     // 经典中外名篇规范对齐
-    if (qTitle === '国富论' && aTitle.includes('wealth of nations')) return c;
-    if (qTitle === '资本论' && aTitle.includes('das kapital')) return c;
-    if (qTitle === '纯粹理性批判' && aTitle.includes('reinen vernunft')) return c;
-    if (qTitle === '正义论' && aTitle.includes('theory of justice')) return c;
-    if (qTitle === '利维坦' && aTitle.includes('leviathan')) return c;
-    if (qTitle === '经济与社会' && aTitle.includes('wirtschaft und gesellschaft')) return c;
-    if (qTitle === '社会分工论' && aTitle.includes('division du travail')) return c;
-    if (qTitle === '通论' && aTitle.includes('general theory')) return c;
-    if (qTitle === '君主论' && aTitle.includes('principe')) return c;
+    if ((qTitle === '国富论' || qTitle === 'wealth of nations') && aTitle.includes('wealth of nations')) return c;
+    if ((qTitle === '资本论' || qTitle === 'capital' || qTitle === 'das kapital') && aTitle.includes('das kapital')) return c;
+    if ((qTitle === '纯粹理性批判' || qTitle === 'critique of pure reason') && aTitle.includes('reinen vernunft')) return c;
+    if ((qTitle === '正义论' || qTitle === 'theory of justice' || qTitle === 'a theory of justice') && aTitle.includes('theory of justice')) return c;
+    if ((qTitle === '利维坦' || qTitle === 'leviathan') && aTitle.includes('leviathan')) return c;
+    if ((qTitle === '经济与社会' || qTitle === 'economy and society') && aTitle.includes('wirtschaft und gesellschaft')) return c;
+    if ((qTitle === '社会分工论' || qTitle.includes('division of lab')) && aTitle.includes('division du travail')) return c;
+    if ((qTitle === '通论' || qTitle.includes('general theory')) && aTitle.includes('general theory')) return c;
+    if ((qTitle === '君主论' || qTitle === 'the prince') && aTitle.includes('principe')) return c;
   }
   return null;
 }
@@ -406,7 +441,7 @@ function auditOfflineCitations(text) {
           extracted_title: item.title,
           extracted_author: item.author,
           verdict: isExact ? 'EXACT_MATCH' : 'SUPPORTS',
-          verdict_zh: isExact ? '🟢 权威原典字句确证（256 位 SHA-256 版本存证）' : '🟢 权威学术正典思想支持',
+          verdict_zh: isExact ? '🟢 权威原典字句确证（256 位 SHA-256 版本存证）' : '🟢 权威正典出处吻合（著录与篇章坐标确证，命题语义待研读）',
           confidence_score: isExact ? 0.99 : 0.95,
           matched_concept_id: matchedConcept.concept_id,
           canonical_title: anchor.title,
@@ -415,7 +450,7 @@ function auditOfflineCitations(text) {
           canon_sha256: anchor.canon_sha256,
           chapter_anchor: anchor.chapter_anchor,
           verbatim_excerpt: anchor.verbatim_excerpt,
-          notes: '匹配权威学术正典，出处坐标与 256 位 SHA-256 版本哈希完备。'
+          notes: isExact ? '原文切片字句高度匹配，出处坐标与 256 位 SHA-256 版本哈希完备。' : '著作与著者著录核对吻合，已定位馆藏权威版本；命题语义核实建议深入研读原典章节。'
         });
       }
     } else {
@@ -424,10 +459,10 @@ function auditOfflineCitations(text) {
         raw_citation: item.raw_citation,
         extracted_title: item.title,
         extracted_author: item.author,
-        verdict: 'UNINDEXED_OR_HALLUCINATED',
-        verdict_zh: '⚪ 离线沙盒未收录（疑似 AI 幻觉编造引文或需全库检索）',
-        confidence_score: 0.20,
-        notes: `未在内置的 50 篇离线正典沙盒中检索到《${item.title}》。可能属于其他学科专著，或系大模型幻觉编造引文。`
+        verdict: 'UNINDEXED',
+        verdict_zh: '⚪ 离线沙盒未收录（本地沙盒未覆盖，无法直接确证，需经权威书目查证）',
+        confidence_score: 0.50,
+        notes: `未在内置的 50 篇离线正典沙盒中检索到《${item.title}》。该文献可能为其他学科真实著作或外部文献，离线沙盒不作虚构断言。建议连接全库 API 或外部书目数据库（如 CrossRef/OpenAlex）进行二次核验。`
       });
     }
   }
@@ -447,7 +482,7 @@ function auditOfflineCitations(text) {
     suspect_count: suspectCount,
     unindexed_count: unindexedCount,
     citation_health_score: healthScore,
-    summary: `共抽检 ${total} 处学术引注：${groundedTotal} 处经正典证实/具备辩证限定，${suspectCount} 处疑似张冠李戴，${unindexedCount} 处沙盒未收录或疑似幻觉。`,
+    summary: `共抽检 ${total} 处学术引注：${groundedTotal} 处经正典证实/具备坐标，${suspectCount} 处疑似张冠李戴，${unindexedCount} 处沙盒未收录。`,
     citations: citations,
     notice: '离线模式基于 50 篇经典学术正典沙盒初筛。如需对勘 24 学科全量学术正典与章节定位，请配置 VERISCOPE_API_KEY。'
   };
@@ -553,7 +588,7 @@ async function callTool(name, args) {
       if (c) return inspectConcept(c, args.include_disputes !== false);
       return {
         error: 'CONCEPT_NOT_FOUND',
-        message: `Concept '${args.concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 71,000+ conceptual matrix: https://veriscope.cc/pricing`,
+        message: `Concept '${args.concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 77,984 conceptual matrix: https://veriscope.cc/pricing`,
         available_sandbox_concepts: Array.from(sandboxMap.keys()).slice(0, 10)
       };
     }
@@ -593,7 +628,7 @@ async function callTool(name, args) {
           return {
             method: 'local_hash_lookup',
             hash_matched: isMatched,
-            is_cryptographically_verified: isMatched,
+            is_cryptographically_verified: false,
             verification_status: isMatched ? 'HASH_MATCHED' : 'TAMPER_DETECTED',
             concept_id: cid,
             matched_edition: c.canon_anchor && c.canon_anchor.title,
@@ -603,7 +638,22 @@ async function callTool(name, args) {
         }
       }
       const att = args.attestation || {};
-      const pub = att.public_key || VERISCOPE_PUBLIC_KEY_HEX;
+      const callerPub = att.public_key ? String(att.public_key).replace(/^0x/, '').trim() : '';
+      const trustedPub = VERISCOPE_PUBLIC_KEY_HEX;
+
+      // S-4: 严格校验公钥信任源。严禁直接信任调用方传入的任意自签公钥
+      if (callerPub && callerPub.toLowerCase() !== trustedPub.toLowerCase()) {
+        return {
+          method: 'ed25519_signature',
+          is_cryptographically_verified: false,
+          verification_status: 'ISSUER_UNTRUSTED',
+          algorithm: 'Ed25519',
+          public_key: callerPub,
+          error: 'Untrusted public key: The attestation public key does not match VeriScope authoritative trust anchor.'
+        };
+      }
+
+      const pub = trustedPub;
       const sig = att.signature || '';
       const msg = att.signed_message || att.payload || '';
 
@@ -640,7 +690,7 @@ async function callTool(name, args) {
           { source: 'VS-LAW-001', target: 'VS-LAW-002', relation: 'constitutional_polarity' },
           { source: 'VS-ECON-001', target: 'VS-ECON-004', relation: 'market_order_evolution' }
         ],
-        notice: 'Serving from built-in 50-Canon Golden Sandbox. Full 71,000+ matrix accessible via VERISCOPE_API_KEY.'
+        notice: 'Serving from built-in 50-Canon Golden Sandbox. Full 77,984 matrix accessible via VERISCOPE_API_KEY.'
       };
     }
     default:
@@ -818,3 +868,15 @@ rl.on('line', async (line) => {
     }) + '\n');
   }
 });
+
+module.exports = {
+  verifyEd25519Signature,
+  cleanAuthorName,
+  cleanBookTitle,
+  extractCitationsFromText,
+  matchSandboxConceptByTitle,
+  auditOfflineCitations,
+  callTool,
+  TOOLS,
+  VERISCOPE_PUBLIC_KEY_HEX
+};

@@ -1,14 +1,15 @@
 /**
  * Security & Cryptographic Integrity Regression Test Suite
- * Verifies fixes for S-1, S-2, S-3 reported during the 2026-11-12 Security Audit.
+ * Verifies fixes for S-1, S-2, S-3, S-4 reported during the 2026-11-12 Security Audit.
  */
 
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { spawn } = require('child_process');
 
-console.log('=== VeriScope MCP Security & Integrity Test Suite ===');
+console.log('=== VeriScope MCP Security & Integrity Test Suite (v1.1.5) ===');
 
 const binPath = path.join(__dirname, '..', 'bin', 'index.js');
 const sandboxPath = path.join(__dirname, '..', 'golden_sandbox_50.json');
@@ -84,6 +85,23 @@ sendRequest(5, 'tools/call', {
   }
 });
 
+// 6. S-4 Exploit Payload: Attacker-supplied custom public key (self-signed arbitrary payload)
+const { publicKey: attackerPubObj, privateKey: attackerPrivObj } = crypto.generateKeyPairSync('ed25519');
+const fakeMsg = 'VERISCOPE_ATTESTATION:VS-PHIL-001:' + 'f'.repeat(64) + ':0000000000000000:2026-11-12T00:00:00Z';
+const fakeSig = crypto.sign(null, Buffer.from(fakeMsg, 'utf8'), attackerPrivObj).toString('hex');
+const attackerPubHex = attackerPubObj.export({ format: 'der', type: 'spki' }).slice(-32).toString('hex');
+
+sendRequest(6, 'tools/call', {
+  name: 'veriscope_verify_attestation',
+  arguments: {
+    attestation: {
+      signature: 'vsk_sig:' + fakeSig,
+      signed_message: fakeMsg,
+      public_key: attackerPubHex
+    }
+  }
+});
+
 setTimeout(() => {
   child.stdin.end();
 
@@ -103,14 +121,15 @@ setTimeout(() => {
   assert.strictEqual(d3.verification_status, 'SIGNATURE_VALID', 'Status must be SIGNATURE_VALID');
   console.log('  [✓] Ed25519 PASS: Legitimate golden sandbox signature verified');
 
-  // Test 3: S-2 Path A Honest Labeling
+  // Test 3: S-2 Path A Honest Labeling (is_cryptographically_verified: false)
   const r4 = responses.get(4);
   assert(r4, 'Response for request 4 missing');
   const d4 = JSON.parse(r4.result.content[0].text);
   assert.strictEqual(d4.method, 'local_hash_lookup', 'S-2 FAIL: Method must be local_hash_lookup');
   assert.strictEqual(d4.algorithm, 'SHA-256', 'S-2 FAIL: Algorithm must be SHA-256 (not Ed25519)');
   assert.strictEqual(d4.hash_matched, true);
-  console.log('  [✓] S-2 PASS: Path A accurately labeled as local_hash_lookup & SHA-256');
+  assert.strictEqual(d4.is_cryptographically_verified, false, 'S-2 FAIL: Local hash lookup is not asymmetric crypto verification, must be false');
+  console.log('  [✓] S-2 PASS: Path A accurately labeled as local_hash_lookup & is_cryptographically_verified: false');
 
   // Test 4: Tampered Hash Rejection
   const r5 = responses.get(5);
@@ -119,6 +138,14 @@ setTimeout(() => {
   assert.strictEqual(d5.hash_matched, false);
   assert.strictEqual(d5.verification_status, 'TAMPER_DETECTED');
   console.log('  [✓] Path A PASS: Tampered hash correctly flagged as TAMPER_DETECTED');
+
+  // Test 5: S-4 Attacker Custom Public Key Rejection
+  const r6 = responses.get(6);
+  assert(r6, 'Response for request 6 missing');
+  const d6 = JSON.parse(r6.result.content[0].text);
+  assert.strictEqual(d6.is_cryptographically_verified, false, 'S-4 FAIL: Caller-supplied custom public key must NOT be verified');
+  assert.strictEqual(d6.verification_status, 'ISSUER_UNTRUSTED', 'S-4 FAIL: Status must be ISSUER_UNTRUSTED');
+  console.log('  [✓] S-4 PASS: Attacker custom public key strictly rejected as ISSUER_UNTRUSTED');
 
   console.log('\n===========================================');
   console.log('ALL NODE.JS SECURITY REGRESSION TESTS PASS!');

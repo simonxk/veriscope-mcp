@@ -1,12 +1,15 @@
 {
   "name": "veriscope-mcp",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "mcpName": "io.github.simonxk/veriscope-mcp",
   "description": "Cryptographic Bibliographic Index and Fair-Use Citation Verification Engine for AI Agents",
   "main": "bin/index.js",
   "bin": {
     "veriscope-mcp": "bin/index.js",
     "veriscope-mcp-server": "bin/index.js"
+  },
+  "scripts": {
+    "test": "node test/test_security_audit.js && node test/test_citation_audit.js"
   },
   "files": [
     "bin",

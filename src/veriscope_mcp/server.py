@@ -302,7 +302,7 @@ class VeriScopeMCPServer:
             "matched_count": 0,
             "concepts": [],
             "matches": [],
-            "notice": "Query not found in 50 offline sandbox concepts. Configure VERISCOPE_API_KEY to search 71,000+ scholarly concepts across 24 disciplines: https://veriscope.cc/pricing"
+            "notice": "Query not found in 50 offline sandbox concepts. Configure VERISCOPE_API_KEY to search 77,984 scholarly concepts across 24 disciplines: https://veriscope.cc/pricing"
         }
 
     def inspect_topography(self, concept_id: str, include_disputes: bool = True) -> Dict[str, Any]:
@@ -331,7 +331,7 @@ class VeriScopeMCPServer:
 
         return {
             "error": "CONCEPT_NOT_FOUND",
-            "message": f"Concept '{concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 71,000+ conceptual matrix: https://veriscope.cc/pricing",
+            "message": f"Concept '{concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 77,984 conceptual matrix: https://veriscope.cc/pricing",
             "available_sandbox_concepts": list(self.sandbox_map.keys())[:10]
         }
 
@@ -414,7 +414,7 @@ class VeriScopeMCPServer:
                 return {
                     "method": "local_hash_lookup",
                     "hash_matched": is_valid,
-                    "is_cryptographically_verified": is_valid,
+                    "is_cryptographically_verified": False,
                     "verification_status": "HASH_MATCHED" if is_valid else "TAMPER_DETECTED",
                     "concept_id": concept_id,
                     "matched_edition": c.get("canon_anchor", {}).get("title"),
@@ -424,9 +424,25 @@ class VeriScopeMCPServer:
 
         # Path B: Verify attestation receipt payload & signature
         if attestation and isinstance(attestation, dict):
+            caller_pub = attestation.get("public_key")
+            trusted_pub = VERISCOPE_PUBLIC_KEY_HEX
+
+            # S-4: 严格校验公钥信任源。严禁直接信任调用方传入的任意自签公钥
+            if caller_pub:
+                clean_caller_pub = caller_pub.replace("0x", "").strip().lower()
+                if clean_caller_pub != trusted_pub.lower():
+                    return {
+                        "method": "ed25519_signature",
+                        "is_cryptographically_verified": False,
+                        "verification_status": "ISSUER_UNTRUSTED",
+                        "algorithm": "Ed25519",
+                        "public_key": caller_pub,
+                        "error": "Untrusted public key: The attestation public key does not match VeriScope authoritative trust anchor."
+                    }
+
             sig = attestation.get("signature", "")
             msg = attestation.get("signed_message") or attestation.get("payload", "")
-            pub = attestation.get("public_key") or VERISCOPE_PUBLIC_KEY_HEX
+            pub = trusted_pub
 
             if not sig or not msg:
                 return {
@@ -503,7 +519,7 @@ class VeriScopeMCPServer:
             "sandbox_concept_count": len(self.sandbox_concepts),
             "disciplines_distribution": disc_stats,
             "babel_synapses": synapses,
-            "notice": "Serving from built-in 50-Canon Golden Sandbox. Full 71,000+ matrix accessible via VERISCOPE_API_KEY."
+            "notice": "Serving from built-in 50-Canon Golden Sandbox. Full 77,984 matrix accessible via VERISCOPE_API_KEY."
         }
 
     def _forward_remote(self, tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
@@ -542,7 +558,7 @@ class VeriScopeMCPServer:
             for w in author_noise:
                 s = s.replace(w, "").strip()
             s = re.sub(r"^[\s，,、“”\"'（(：:【\[]+", "", s)
-            s = re.sub(r"[\s，,、“”\"'）)：:】\]]+", "", s)
+            s = re.sub(r"[\s，,、“”\"'）)：:】\]]+$", "", s)
             if "·" in s:
                 parts = s.split("·")
                 if len(parts) >= 2:
@@ -624,6 +640,35 @@ class VeriScopeMCPServer:
                     "index": m.start()
                 })
 
+        re_eng_std = re.compile(r'([A-Za-z\s]{2,25}),\s*(?:["“]|_|\*)?([A-Za-z\s]{2,60})(?:["”]|_|\*)?\s*\(\s*(\d{4})\s*\)')
+        for m in re_eng_std.finditer(content):
+            author = clean_au(m.group(1))
+            title = clean_ti(m.group(2))
+            if len(author) >= 2 and len(title) >= 2 and title.lower() not in seen_titles:
+                seen_titles.add(title.lower())
+                found.append({
+                    "raw_citation": m.group(0).strip(),
+                    "author": author,
+                    "title": title,
+                    "year": m.group(3) or "",
+                    "pattern": "ENGLISH_STD",
+                    "index": m.start()
+                })
+
+        re_eng_argues = re.compile(r'(?:As|as|In|in|According to)\s+([A-Za-z\s]{2,25})\s+(?:argues|states|claims|writes)?\s*(?:in)?\s*["“]([^"”\n]{2,60})["”]')
+        for m in re_eng_argues.finditer(content):
+            author = clean_au(m.group(1))
+            title = clean_ti(m.group(2))
+            if len(author) >= 2 and len(title) >= 2 and title.lower() not in seen_titles:
+                seen_titles.add(title.lower())
+                found.append({
+                    "raw_citation": m.group(0).strip(),
+                    "author": author,
+                    "title": title,
+                    "pattern": "ENGLISH_ARGUES",
+                    "index": m.start()
+                })
+
         def match_c(t_str: str):
             q = t_str.lower()
             for c in self.sandbox_concepts:
@@ -633,19 +678,19 @@ class VeriScopeMCPServer:
                 ce = (c.get("name_en") or "").lower()
                 if q in at or at in q or q in cz or q in ce:
                     return c
-                if q == "国富论" and "wealth of nations" in at:
+                if (q == "国富论" or q == "wealth of nations") and "wealth of nations" in at:
                     return c
-                if q == "资本论" and "das kapital" in at:
+                if (q == "资本论" or q == "capital" or q == "das kapital") and "das kapital" in at:
                     return c
-                if q == "纯粹理性批判" and "reinen vernunft" in at:
+                if (q == "纯粹理性批判" or q == "critique of pure reason") and "reinen vernunft" in at:
                     return c
-                if q == "正义论" and "theory of justice" in at:
+                if (q == "正义论" or q == "theory of justice" or q == "a theory of justice") and "theory of justice" in at:
                     return c
-                if q == "利维坦" and "leviathan" in at:
+                if (q == "利维坦" or q == "leviathan") and "leviathan" in at:
                     return c
-                if q == "经济与社会" and "wirtschaft und gesellschaft" in at:
+                if (q == "经济与社会" or q == "economy and society") and "wirtschaft und gesellschaft" in at:
                     return c
-                if q == "君主论" and "principe" in at:
+                if (q == "君主论" or q == "the prince") and "principe" in at:
                     return c
             return None
 
@@ -665,10 +710,10 @@ class VeriScopeMCPServer:
                     "raw_citation": item["raw_citation"],
                     "extracted_title": item["title"],
                     "extracted_author": item["author"],
-                    "verdict": "UNINDEXED_OR_HALLUCINATED",
-                    "verdict_zh": "⚪ 离线沙盒未收录（疑似 AI 幻觉编造引文或需全库检索）",
-                    "confidence_score": 0.20,
-                    "notes": f"未在内置的 50 篇离线正典沙盒中检索到《{item['title']}》。可能属于其他学科专著，或系大模型幻觉编造引文。"
+                    "verdict": "UNINDEXED",
+                    "verdict_zh": "⚪ 离线沙盒未收录（本地沙盒未覆盖，无法直接确证，需经权威书目查证）",
+                    "confidence_score": 0.50,
+                    "notes": f"未在内置的 50 篇离线正典沙盒中检索到《{item['title']}》。该文献可能为其他学科真实著作或外部文献，离线沙盒不作虚构断言。建议连接全库 API 或外部书目数据库（如 CrossRef/OpenAlex）进行二次核验。"
                 })
                 continue
 
@@ -737,7 +782,7 @@ class VeriScopeMCPServer:
                     "extracted_title": item["title"],
                     "extracted_author": item["author"],
                     "verdict": "EXACT_MATCH" if is_exact else "SUPPORTS",
-                    "verdict_zh": "🟢 权威原典字句确证（256 位 SHA-256 版本存证）" if is_exact else "🟢 权威学术正典思想支持",
+                    "verdict_zh": "🟢 权威原典字句确证（256 位 SHA-256 版本存证）" if is_exact else "🟢 权威正典出处吻合（著录与篇章坐标确证，命题语义待研读）",
                     "confidence_score": 0.99 if is_exact else 0.95,
                     "matched_concept_id": matched_c.get("concept_id"),
                     "canonical_title": ca.get("title"),
@@ -746,7 +791,7 @@ class VeriScopeMCPServer:
                     "canon_sha256": ca.get("canon_sha256"),
                     "chapter_anchor": ca.get("chapter_anchor"),
                     "verbatim_excerpt": ca.get("verbatim_excerpt"),
-                    "notes": "匹配权威学术正典，出处坐标与 256 位 SHA-256 版本哈希完备。"
+                    "notes": "原文切片字句高度匹配，出处坐标与 256 位 SHA-256 版本哈希完备。" if is_exact else "著作与著者著录核对吻合，已定位馆藏权威版本；命题语义核实建议深入研读原典章节。"
                 })
 
         total = len(results)
@@ -764,7 +809,7 @@ class VeriScopeMCPServer:
             "suspect_count": suspect_cnt,
             "unindexed_count": unindexed_cnt,
             "citation_health_score": health_score,
-            "summary": f"共抽检 {total} 处学术引注：{grounded_total} 处经正典证实/具备辩证限定，{suspect_cnt} 处疑似张冠李戴，{unindexed_cnt} 处沙盒未收录或疑似幻觉。",
+            "summary": f"共抽检 {total} 处学术引注：{grounded_total} 处经正典证实/具备坐标，{suspect_cnt} 处疑似张冠李戴，{unindexed_cnt} 处沙盒未收录。",
             "citations": results,
             "notice": "离线模式基于 50 篇经典学术正典沙盒初筛。如需对勘 24 学科全量学术正典与章节定位，请配置 VERISCOPE_API_KEY。"
         }
