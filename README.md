@@ -77,7 +77,17 @@ When AI Agents conduct research or draft strategic memos, general-purpose LLMs g
 | `veriscope_locate_evidence`<br>*(Alias: `veriscope_deslop_and_ground`)* | `concept_id: str`, `proposition?: str` | Verbatim fair-use slice (**<=300 chars**), chapter coordinate, 256-bit SHA-256, Ed25519 receipt | Replace synthetic AI filler with attested primary editions and peer-reviewable cryptographic proof |
 | `veriscope_verify_attestation` | `concept_id: str`, `claimed_sha256: str`, `verbatim_slice?: str` | `is_valid: bool`, `verification_status: "SIGNATURE_VALID" \| "SIGNATURE_INVALID"` | Cryptographic Ed25519 signature & SHA-256 edition hash check for citations, peer review, and compliance auditing |
 | `veriscope_probe_radar` | `concept_id: str` | Cross-disciplinary synaptic radar links, epistemological blind spots | Interdisciplinary research, cognitive blind spot alerts, and synthetic conceptual discovery |
-| `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | Extracted citations, author alignment, SHA-256 grounding, health score (0-100), hallucination detection | **AI Citation Health Check**: Fast-scan drafts to detect fabricated AI citations and misattributions |
+| `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | Extracted citations, author alignment, SHA-256 grounding, 5-state forensic judgments, health score (0-100) | **AI Citation Health Check**: Fast-scan drafts to detect fabricated AI citations and misattributions |
+
+### 🔬 Five-State Citation Forensic Taxonomy
+
+`veriscope_citation_audit` scans user text or draft essays to audit citations against canonical editions, returning structured 5-state forensic judgments:
+
+1. 🟢 **`EXACT_MATCH`**: Proposition or excerpt is verified verbatim against canonical text, with exact chapter coordinate and 256-bit SHA-256 edition hash.
+2. 🟢 **`SUPPORTS`**: Core conceptual thesis is affirmed and grounded by primary treatise axioms.
+3. ⚖️ **`QUALIFIES`**: Dialectical qualification detected: the claim possesses crucial boundary conditions or competing schools in intellectual history (prevents one-sided cherry-picking).
+4. 🟡 **`ATTRIBUTION_SUSPECT`**: Real treatise detected, but severely misattributed (e.g. LLM misattributing Adam Smith's *The Wealth of Nations* to J.M. Keynes).
+5. ⚪ **`UNINDEXED_OR_HALLUCINATED`**: Citation cannot be matched in canonical index; alerts user to potential phantom reference or synthetic hallucination.
 
 ---
 

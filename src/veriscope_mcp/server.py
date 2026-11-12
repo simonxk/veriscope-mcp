@@ -526,88 +526,245 @@ class VeriScopeMCPServer:
     def audit_citations(self, text: str, discipline_hint: str = "") -> Dict[str, Any]:
         """
         AI 生成物学术引文体检（离线黄金沙盒版）：
-        抽取《书名》（著者，年份），核对 50 经典哲社底座原典真伪，拦截张冠李戴与幻觉编造引文。
+        多模态抽取中文与西文学术引注，核对 50 经典学术正典底座，输出五态法医对账判决，拦截张冠李戴与幻觉编造引文。
         """
         import re
+
+        author_noise = [
+            "德意志哲学家", "德国哲学家", "法国哲学家", "英国经济学家", "美国社会学家",
+            "古希腊哲学家", "古典政治学家", "社会学先驱", "法学先驱", "经济学大师",
+            "著名哲学家", "学者", "教授", "先生", "作家", "部分学者", "然而", "但是",
+            "认为", "强调", "指出", "提出", "声称", "根据", "按照"
+        ]
+
+        def clean_au(raw_s: str) -> str:
+            s = (raw_s or "").strip()
+            for w in author_noise:
+                s = s.replace(w, "").strip()
+            s = re.sub(r"^[\s，,、“”\"'（(：:【\[]+", "", s)
+            s = re.sub(r"[\s，,、“”\"'）)：:】\]]+", "", s)
+            if "·" in s:
+                parts = s.split("·")
+                if len(parts) >= 2:
+                    s = parts[-2].strip()[-3:] + "·" + parts[-1].strip()[:6]
+            return s.strip()
+
+        def clean_ti(raw_t: str) -> str:
+            s = (raw_t or "").strip()
+            s = re.sub(r"^(?:关于|论)\s*", "", s)
+            s = re.sub(r"\s*(?:（[^）]+）|\([^)]+\))$", "", s)
+            return s.strip()
+
         content = text or ""
-        pattern = re.compile(r"《([^》]{2,40})》(?:（([^，,）]{1,20})(?:[，,]\s*(\d{1,4}))?）)?")
-        citations = []
-        grounded_count = 0
-        suspect_count = 0
-        unindexed_count = 0
+        found = []
+        seen_titles = set()
 
-        for match in pattern.finditer(content):
-            raw_quote = match.group(0)
-            raw_title = match.group(1).strip()
-            raw_author = (match.group(2) or "").strip()
-            raw_year = (match.group(3) or "").strip()
+        re_author_book = re.compile(
+            r"(?:由|据|正如|如|在|根据)?\s*([·\u4e00-\u9fa5A-Za-z\s]{2,20}?)\s*(?:先生|教授|学者)?\s*(?:所著(?:的)?|在|于|的)?\s*《([^》\n]{2,60})》"
+        )
+        for m in re_author_book.finditer(content):
+            author = clean_au(m.group(1))
+            title = clean_ti(m.group(2))
+            if len(author) >= 2 and len(title) >= 2 and title.lower() not in seen_titles:
+                seen_titles.add(title.lower())
+                found.append({
+                    "raw_citation": m.group(0).strip(),
+                    "author": author,
+                    "title": title,
+                    "pattern": "AUTHOR_IN_BOOK",
+                    "index": m.start()
+                })
 
-            matched_c = None
-            q_title = raw_title.lower()
+        re_book_author_year = re.compile(
+            r"《([^》\n]{2,60})》\s*(?:（|\()\s*([·\u4e00-\u9fa5A-Za-z\s]{2,20}?)\s*(?:[，,]\s*(\d{3,4}(?:\s*BC)?))?\s*(?:）|\))"
+        )
+        for m in re_book_author_year.finditer(content):
+            title = clean_ti(m.group(1))
+            author = clean_au(m.group(2))
+            if len(author) >= 2 and len(title) >= 2 and title.lower() not in seen_titles:
+                seen_titles.add(title.lower())
+                found.append({
+                    "raw_citation": m.group(0).strip(),
+                    "author": author,
+                    "title": title,
+                    "year": (m.group(3) or "").strip(),
+                    "pattern": "BOOK_WITH_META",
+                    "index": m.start()
+                })
+
+        re_book = re.compile(r"《([^》\n]{2,60})》")
+        for m in re_book.finditer(content):
+            title = clean_ti(m.group(1))
+            if len(title) >= 2 and title.lower() not in seen_titles:
+                seen_titles.add(title.lower())
+                start = max(0, m.start() - 30)
+                pre = content[start:m.start()]
+                m_pre = re.search(r"(?:由|在|据)?\s*([·\u4e00-\u9fa5]{2,6})\s*(?:在|的|于|所著)?$", pre)
+                author = clean_au(m_pre.group(1)) if m_pre else ""
+                found.append({
+                    "raw_citation": m.group(0).strip(),
+                    "author": author,
+                    "title": title,
+                    "pattern": "BARE_BOOK",
+                    "index": m.start()
+                })
+
+        re_eng = re.compile(r'["“]([^"”\n]{2,60})["”]\s*(?:\(\s*([A-Za-z\s]{2,25})\s*(?:,\s*(\d{4}))?\s*\)|by\s+([A-Za-z\s]{2,25}))', re.IGNORECASE)
+        for m in re_eng.finditer(content):
+            title = clean_ti(m.group(1))
+            author = clean_au(m.group(2) or m.group(4) or "")
+            if len(title) >= 2 and title.lower() not in seen_titles:
+                seen_titles.add(title.lower())
+                found.append({
+                    "raw_citation": m.group(0).strip(),
+                    "author": author,
+                    "title": title,
+                    "year": m.group(3) or "",
+                    "pattern": "ENGLISH_QUOTE",
+                    "index": m.start()
+                })
+
+        def match_c(t_str: str):
+            q = t_str.lower()
             for c in self.sandbox_concepts:
-                anchor = c.get("canon_anchor") or {}
-                a_title = (anchor.get("title") or "").lower()
-                c_zh = (c.get("name_zh") or "").lower()
-                if q_title in a_title or a_title in q_title or q_title in c_zh:
-                    matched_c = c
+                ca = c.get("canon_anchor") or {}
+                at = (ca.get("title") or "").lower()
+                cz = (c.get("name_zh") or "").lower()
+                ce = (c.get("name_en") or "").lower()
+                if q in at or at in q or q in cz or q in ce:
+                    return c
+                if q == "国富论" and "wealth of nations" in at:
+                    return c
+                if q == "资本论" and "das kapital" in at:
+                    return c
+                if q == "纯粹理性批判" and "reinen vernunft" in at:
+                    return c
+                if q == "正义论" and "theory of justice" in at:
+                    return c
+                if q == "利维坦" and "leviathan" in at:
+                    return c
+                if q == "经济与社会" and "wirtschaft und gesellschaft" in at:
+                    return c
+                if q == "君主论" and "principe" in at:
+                    return c
+            return None
+
+        results = []
+        exact_cnt = 0
+        supports_cnt = 0
+        qualifies_cnt = 0
+        contradicts_cnt = 0
+        suspect_cnt = 0
+        unindexed_cnt = 0
+
+        for item in found:
+            matched_c = match_c(item["title"])
+            if not matched_c:
+                unindexed_cnt += 1
+                results.append({
+                    "raw_citation": item["raw_citation"],
+                    "extracted_title": item["title"],
+                    "extracted_author": item["author"],
+                    "verdict": "UNINDEXED_OR_HALLUCINATED",
+                    "verdict_zh": "⚪ 离线沙盒未收录（疑似 AI 幻觉编造引文或需全库检索）",
+                    "confidence_score": 0.20,
+                    "notes": f"未在内置的 50 篇离线正典沙盒中检索到《{item['title']}》。可能属于其他学科专著，或系大模型幻觉编造引文。"
+                })
+                continue
+
+            ca = matched_c.get("canon_anchor") or {}
+            true_author = ((ca.get("author") or "") + " " + (matched_c.get("primary_thinker") or "")).lower()
+
+            if item["author"]:
+                a_norm = item["author"].lower()
+                parts = re.split(r"[·•\s]+", a_norm)
+                author_hit = any(len(p) > 1 and p in true_author for p in parts)
+                if not author_hit:
+                    suspect_cnt += 1
+                    results.append({
+                        "raw_citation": item["raw_citation"],
+                        "extracted_title": item["title"],
+                        "extracted_author": item["author"],
+                        "verdict": "ATTRIBUTION_SUSPECT",
+                        "verdict_zh": f"🟡 疑似张冠李戴（著作真实，但著录著者不符）：《{ca.get('title')}》实际著者为『{ca.get('author') or matched_c.get('primary_thinker')}』，而非『{item['author']}』！",
+                        "confidence_score": 0.95,
+                        "matched_concept_id": matched_c.get("concept_id"),
+                        "canonical_title": ca.get("title"),
+                        "canonical_author": ca.get("author") or matched_c.get("primary_thinker"),
+                        "canon_sha256": ca.get("canon_sha256"),
+                        "notes": "大模型生成中常见将经典安放至其他学者名下，存在重大引注合规风险。"
+                    })
+                    continue
+
+            w_start = max(0, item.get("index", 0) - 100)
+            w_end = min(len(content), item.get("index", 0) + 150)
+            context = content[w_start:w_end]
+
+            matched_dispute = None
+            for d in matched_c.get("dialectical_disputes") or []:
+                d_kw = re.split(r"[\s·]", re.split(r"[：:‘'“\"]", d[:15])[0])
+                if any(len(kw) >= 2 and kw in context for kw in d_kw):
+                    matched_dispute = d
                     break
 
-            if matched_c:
-                anchor = matched_c.get("canon_anchor") or {}
-                verdict = "AUTHENTIC_GROUNDED"
-                confidence = 0.99
-                notes = "精确匹配权威学术典籍，SHA-256 版本哈希完备"
-
-                if raw_author:
-                    a_norm = raw_author.lower()
-                    valid_authors = (f"{anchor.get('author', '')} {matched_c.get('primary_thinker', '')}").lower()
-                    if a_norm not in valid_authors and not any(part in valid_authors for part in a_norm.split("·") if len(part) > 1):
-                        verdict = "ATTRIBUTION_SUSPECT"
-                        confidence = 0.65
-                        notes = f"书目真实存在（{anchor.get('title')}），但著者可能张冠李戴（引文著者：{raw_author}，藏书著者：{anchor.get('author')}）"
-                        suspect_count += 1
-                    else:
-                        grounded_count += 1
-                else:
-                    grounded_count += 1
-
-                citations.append({
-                    "raw_citation": raw_quote,
-                    "book_title": raw_title,
-                    "cited_author": raw_author,
-                    "verdict": verdict,
-                    "confidence_score": confidence,
+            if matched_dispute:
+                qualifies_cnt += 1
+                results.append({
+                    "raw_citation": item["raw_citation"],
+                    "extracted_title": item["title"],
+                    "extracted_author": item["author"],
+                    "verdict": "QUALIFIES",
+                    "verdict_zh": "⚖️ 学派辩证张力（正典包含对应限定或交锋论述）",
+                    "confidence_score": 0.92,
                     "matched_concept_id": matched_c.get("concept_id"),
-                    "matched_title": anchor.get("title"),
-                    "author": anchor.get("author"),
-                    "year": anchor.get("year"),
-                    "canon_sha256": anchor.get("canon_sha256"),
-                    "verbatim_excerpt": anchor.get("verbatim_excerpt"),
-                    "notes": notes,
-                    "provenance": "VeriScope 权威馆藏实体学术原本（50大经典沙盒）"
+                    "canonical_title": ca.get("title"),
+                    "canonical_author": ca.get("author") or matched_c.get("primary_thinker"),
+                    "canon_sha256": ca.get("canon_sha256"),
+                    "chapter_anchor": ca.get("chapter_anchor"),
+                    "dialectical_dispute": matched_dispute,
+                    "notes": f"引述命题在思想史中存在结构性学派交锋：{matched_dispute}"
                 })
             else:
-                unindexed_count += 1
-                citations.append({
-                    "raw_citation": raw_quote,
-                    "book_title": raw_title,
-                    "cited_author": raw_author,
-                    "verdict": "UNINDEXED_OR_HALLUCINATED",
-                    "confidence_score": 0.20,
-                    "notes": "在离线 50 篇黄金沙盒中未命中。可能为大模型幻觉编造引文，或需接入全量 74.9万 权威书目母港进行深水区对勘",
-                    "provenance": "UNINDEXED"
+                excerpt = ca.get("verbatim_excerpt") or ""
+                is_exact = bool(excerpt and any(len(seg) >= 6 and seg in excerpt for seg in re.split(r"[,，。；;]", context)))
+                if is_exact:
+                    exact_cnt += 1
+                else:
+                    supports_cnt += 1
+
+                results.append({
+                    "raw_citation": item["raw_citation"],
+                    "extracted_title": item["title"],
+                    "extracted_author": item["author"],
+                    "verdict": "EXACT_MATCH" if is_exact else "SUPPORTS",
+                    "verdict_zh": "🟢 权威原典字句确证（256 位 SHA-256 版本存证）" if is_exact else "🟢 权威学术正典思想支持",
+                    "confidence_score": 0.99 if is_exact else 0.95,
+                    "matched_concept_id": matched_c.get("concept_id"),
+                    "canonical_title": ca.get("title"),
+                    "canonical_author": ca.get("author") or matched_c.get("primary_thinker"),
+                    "canon_year": ca.get("year"),
+                    "canon_sha256": ca.get("canon_sha256"),
+                    "chapter_anchor": ca.get("chapter_anchor"),
+                    "verbatim_excerpt": ca.get("verbatim_excerpt"),
+                    "notes": "匹配权威学术正典，出处坐标与 256 位 SHA-256 版本哈希完备。"
                 })
 
-        total = len(citations)
-        health_score = round(((grounded_count * 100) + (suspect_count * 40)) / total) if total > 0 else 100
+        total = len(results)
+        grounded_total = exact_cnt + supports_cnt + qualifies_cnt
+        health_score = round(((grounded_total * 100) + (suspect_cnt * 30)) / total) if total > 0 else 100
+
         return {
             "status": "ok",
             "mode": "offline_golden_sandbox_50",
             "total_citations_extracted": total,
-            "grounded_count": grounded_count,
-            "attribution_suspect_count": suspect_count,
-            "unindexed_or_hallucinated_count": unindexed_count,
+            "exact_matches_count": exact_cnt,
+            "supports_count": supports_cnt,
+            "qualifies_count": qualifies_cnt,
+            "contradicts_count": contradicts_cnt,
+            "suspect_count": suspect_cnt,
+            "unindexed_count": unindexed_cnt,
             "citation_health_score": health_score,
-            "citations_audit": citations,
-            "notice": "离线模式基于 50 经典哲社底座初筛。穿透全量 74.9万 学术书目与 18.9万 册原书全文请配置 VERISCOPE_API_KEY。"
+            "summary": f"共抽检 {total} 处学术引注：{grounded_total} 处经正典证实/具备辩证限定，{suspect_cnt} 处疑似张冠李戴，{unindexed_cnt} 处沙盒未收录或疑似幻觉。",
+            "citations": results,
+            "notice": "离线模式基于 50 篇经典学术正典沙盒初筛。如需对勘 24 学科全量学术正典与章节定位，请配置 VERISCOPE_API_KEY。"
         }

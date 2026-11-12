@@ -63,7 +63,17 @@
 | `veriscope_locate_evidence`<br>*(别名: `veriscope_deslop_and_ground`)* | `concept_id: str`, `query_proposition?: str` | 合理使用原文切片（**≤300 字**）、章节坐标、256 位 SHA-256、Ed25519 签名 | **硬核引文坐实**：用规范的权威著作切片替换空洞套话，生成防篡改数字回执 |
 | `veriscope_verify_attestation` | `concept_id: str`, `canon_sha256: str` | `is_cryptographically_verified: bool`, `SIGNATURE_VALID \| SIGNATURE_INVALID` | **合规与审稿验真**：Ed25519 签名与 256 位版本哈希密码学校验 |
 | `veriscope_probe_radar` | `topic: str` | 跨学科突触连接（`babel_synapses`）、认知盲区诊断 | **跨界策展与盲区探测**：打通哲学、经济、法学、社会学等跨学科高维连接 |
-| `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | 引用书目提取、著者对勘、实物 SHA-256 吻合度、健康度评分（0-100）、幻觉查杀判定 | **AI 引文真伪体检**：毫秒级查杀大模型幻觉虚构的书目引文与张冠李戴，杜绝学术伪证 |
+| `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | 引用书目提取、著者对勘、版本 SHA-256 吻合度、五态法医对账判决、健康度评分（0-100） | **AI 引文真伪体检**：毫秒级查杀大模型幻觉虚构的书目引文与张冠李戴，杜绝学术伪证 |
+
+### 🔬 五态引文法医对账判决体系（Citation Forensic Taxonomy）
+
+`veriscope_citation_audit` 对输入文本中的学术引注进行深度对勘，输出 5 种结构化判决：
+
+1. 🟢 **`EXACT_MATCH`（原典字句确证）**：引述命题或文字片段在权威原典中获得字句级证实，附带章节坐标与 256 位 SHA-256 版本哈希；
+2. 🟢 **`SUPPORTS`（正典公理支持）**：权威正典核心范式支持该命题，思想源流与论断完全吻合；
+3. ⚖️ **`QUALIFIES`（学派辩证限定）**：该命题在学术思想史中存在核心辩证争议或先决条件，工具自动提供正反两造交锋论据，防止单边断章取义；
+4. 🟡 **`ATTRIBUTION_SUSPECT`（疑似张冠李戴）**：著作真实存在，但著录著者严重错位（例如大模型将亚当·斯密《国富论》挂在凯恩斯名下），精准拦截学术失真；
+5. ⚪ **`UNINDEXED_OR_HALLUCINATED`（未收录/疑似虚构）**：未在正典索引库中检索到出版著录，警示用户谨防大模型伪造文献幻觉。
 
 ---
 
