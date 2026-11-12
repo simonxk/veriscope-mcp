@@ -3,7 +3,7 @@
   "name": "veriscope",
   "displayName": "VeriScope Citation Verification",
   "description": "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents across 24 disciplines.",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "icon": "https://veriscope.cc/assets/icon.png",
   "repository": {
     "type": "git",

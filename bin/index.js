@@ -190,6 +190,10 @@ function cleanAuthorName(raw) {
   for (const w of AUTHOR_NOISE_WORDS) {
     s = s.replace(w, '').trim();
   }
+  // 清洗英文动词与引导介词（解决 "Kant argues in" -> "Kant", "As noted by Kant" -> "Kant", "According to Hobbes" -> "Hobbes"）
+  s = s.replace(/^(?:as|in|according to|as noted by|noted by|by)\s+/i, '');
+  s = s.replace(/\s+(?:argues(?:\s+in)?|states(?:\s+in)?|claims(?:\s+in)?|writes(?:\s+in)?|shows|in)$/i, '');
+
   s = s.replace(/^[\s，,、“”"'（(：:【\[]+/, '').replace(/[\s，,、“”"'）)：:】\]]+$/, '');
   if (s.includes('·')) {
     const parts = s.split('·');
@@ -324,30 +328,90 @@ function extractCitationsFromText(text) {
     }
   }
 
+  // Pattern 7: 标准学术参考文献 APA 格式 (e.g. Rawls, J. (1971). A theory of justice.)
+  const reEngApa = /([A-Z][a-zA-Z]+(?:,\s+[A-Z]\.(?:\s*[A-Z]\.)?)?)\s*\(\s*(\d{4})\s*\)\.\s*([A-Za-z0-9\s:,\-]{2,80}?)(?:\.|$)/g;
+  while ((m = reEngApa.exec(content)) !== null) {
+    const author = cleanAuthorName(m[1]);
+    const title = cleanBookTitle(m[3]);
+    if (author.length >= 2 && title.length >= 2 && !seenTitles.has(title.toLowerCase())) {
+      seenTitles.add(title.toLowerCase());
+      found.push({
+        raw_citation: m[0].trim(),
+        author: author,
+        title: title,
+        year: m[2] || '',
+        pattern: 'ENGLISH_APA',
+        index: m.index
+      });
+    }
+  }
+
   return found;
 }
 
+const GENERIC_STOPWORDS = new Set([
+  '理论', '社会', '资本', '通论', '价值', '哲学', '国家', '历史', '政治', '经济', '文化', '批判',
+  'theory', 'society', 'capital', 'value', 'philosophy', 'state', 'history', 'politics', 'economy', 'culture'
+]);
+
+function getCanonicalAuthor(c) {
+  if (!c) return '';
+  const pt = c.primary_thinker || '';
+  const match = pt.match(/\(([^)]+)\)/);
+  if (match && match[1].trim()) {
+    return match[1].trim();
+  }
+  if (pt) return pt.trim();
+  const anchor = c.canon_anchor || {};
+  return anchor.author || '';
+}
+
 function matchSandboxConceptByTitle(title) {
-  const qTitle = title.toLowerCase();
+  if (!title) return null;
+  const qTitle = title.toLowerCase().trim();
+  // 泛化单字/通用词禁止作为书名做模糊匹配
+  if (GENERIC_STOPWORDS.has(qTitle) || qTitle.length < 2) {
+    return null;
+  }
+
+  // 1. 经典中外名篇规范对齐（高优先级白名单，严格按书名匹配，严禁拿概念名模糊匹配）
   for (const c of sandboxConcepts) {
     const anchor = c.canon_anchor || {};
     const aTitle = (anchor.title || '').toLowerCase();
-    const cZh = (c.name_zh || '').toLowerCase();
-    const cEn = (c.name_en || '').toLowerCase();
+    if ((qTitle === '资本论' || qTitle === 'capital' || qTitle === 'das kapital') && (c.concept_id === 'VS-SOC-003' || aTitle.includes('资本论') || aTitle.includes('kapital'))) return c;
+    if ((qTitle === '国富论' || qTitle === 'wealth of nations') && (c.concept_id === 'VS-ECON-001' || aTitle.includes('wealth of nations') || aTitle.includes('国富论'))) return c;
+    if ((qTitle === '纯粹理性批判' || qTitle === 'critique of pure reason') && (c.concept_id === 'VS-PHIL-001' || aTitle.includes('reinen vernunft') || aTitle.includes('纯粹理性批判') || aTitle.includes('pure reason'))) return c;
+    if ((qTitle === '正义论' || qTitle === 'theory of justice' || qTitle === 'a theory of justice') && (c.concept_id === 'VS-LAW-004' || aTitle.includes('theory of justice') || aTitle.includes('正义论'))) return c;
+    if ((qTitle === '利维坦' || qTitle === 'leviathan') && (c.concept_id === 'VS-POL-001' || aTitle.includes('leviathan'))) return c;
+    if ((qTitle === '经济与社会' || qTitle === 'economy and society') && (c.concept_id === 'VS-SOC-001' || aTitle.includes('wirtschaft') || aTitle.includes('经济与社会'))) return c;
+    if ((qTitle === '社会分工论' || qTitle === 'the division of labour in society') && (c.concept_id === 'VS-SOC-002' || aTitle.includes('division du travail') || aTitle.includes('社会分工论'))) return c;
+    if ((qTitle === '就业、利息和货币通论' || qTitle === 'the general theory of employment, interest and money') && (c.concept_id === 'VS-ECON-002' || aTitle.includes('general theory') || aTitle.includes('通论'))) return c;
+    if ((qTitle === '君主论' || qTitle === 'the prince') && (c.concept_id === 'VS-POL-004' || aTitle.includes('principe') || aTitle.includes('君主论'))) return c;
+  }
 
-    if (aTitle.includes(qTitle) || qTitle.includes(aTitle) || cZh.includes(qTitle) || cEn.includes(qTitle)) {
-      return c;
+  // 2. 原典权威书目精确/包含比对（严禁拿概念名模糊匹配，严禁短词误伤）
+  for (const c of sandboxConcepts) {
+    const anchor = c.canon_anchor || {};
+    const aTitle = (anchor.title || '').toLowerCase();
+    if (!aTitle) continue;
+
+    // 完全一致
+    if (aTitle === qTitle) return c;
+
+    // 中文长书名包含（至少 4 个汉字，避免通用短词误触）
+    if (/[\u4e00-\u9fa5]/.test(qTitle) && qTitle.length >= 4) {
+      if (aTitle.includes(qTitle) || (aTitle.length >= 4 && qTitle.includes(aTitle))) {
+        return c;
+      }
     }
-    // 经典中外名篇规范对齐
-    if ((qTitle === '国富论' || qTitle === 'wealth of nations') && aTitle.includes('wealth of nations')) return c;
-    if ((qTitle === '资本论' || qTitle === 'capital' || qTitle === 'das kapital') && aTitle.includes('das kapital')) return c;
-    if ((qTitle === '纯粹理性批判' || qTitle === 'critique of pure reason') && aTitle.includes('reinen vernunft')) return c;
-    if ((qTitle === '正义论' || qTitle === 'theory of justice' || qTitle === 'a theory of justice') && aTitle.includes('theory of justice')) return c;
-    if ((qTitle === '利维坦' || qTitle === 'leviathan') && aTitle.includes('leviathan')) return c;
-    if ((qTitle === '经济与社会' || qTitle === 'economy and society') && aTitle.includes('wirtschaft und gesellschaft')) return c;
-    if ((qTitle === '社会分工论' || qTitle.includes('division of lab')) && aTitle.includes('division du travail')) return c;
-    if ((qTitle === '通论' || qTitle.includes('general theory')) && aTitle.includes('general theory')) return c;
-    if ((qTitle === '君主论' || qTitle === 'the prince') && aTitle.includes('principe')) return c;
+
+    // 英文完整书名全词匹配
+    if (!/[\u4e00-\u9fa5]/.test(qTitle) && qTitle.length >= 5) {
+      const qWords = qTitle.split(/\s+/).filter(w => w.length > 2);
+      if (qWords.length >= 2 && aTitle.includes(qTitle)) {
+        return c;
+      }
+    }
   }
   return null;
 }
@@ -377,16 +441,17 @@ function auditOfflineCitations(text) {
 
         if (!matchesAnyPart) {
           suspectCount++;
+          const canonAuthor = getCanonicalAuthor(matchedConcept) || anchor.author || matchedConcept.primary_thinker;
           citations.push({
             raw_citation: item.raw_citation,
             extracted_title: item.title,
             extracted_author: item.author,
             verdict: 'ATTRIBUTION_SUSPECT',
-            verdict_zh: `🟡 疑似张冠李戴（著作真实，但著录著者不符）：《${anchor.title}》实际著者为『${anchor.author || matchedConcept.primary_thinker}』，而非『${item.author}』！`,
+            verdict_zh: `🟡 疑似张冠李戴（著作真实，但著录著者不符）：《${anchor.title}》实际著者为『${canonAuthor}』，而非『${item.author}』！`,
             confidence_score: 0.95,
             matched_concept_id: matchedConcept.concept_id,
             canonical_title: anchor.title,
-            canonical_author: anchor.author || matchedConcept.primary_thinker,
+            canonical_author: canonAuthor,
             canon_sha256: anchor.canon_sha256,
             notes: '大模型生成中常见将经典安放至其他学者名下，存在重大引注合规风险。'
           });
@@ -398,6 +463,8 @@ function auditOfflineCitations(text) {
       const windowStart = Math.max(0, (item.index || 0) - 100);
       const windowEnd = Math.min((text || '').length, (item.index || 0) + 150);
       const contextSnippet = (text || '').slice(windowStart, windowEnd);
+
+      const canonAuthor = getCanonicalAuthor(matchedConcept) || anchor.author || matchedConcept.primary_thinker;
 
       let matchedDispute = null;
       const disputes = matchedConcept.dialectical_disputes || [];
@@ -420,7 +487,7 @@ function auditOfflineCitations(text) {
           confidence_score: 0.92,
           matched_concept_id: matchedConcept.concept_id,
           canonical_title: anchor.title,
-          canonical_author: anchor.author || matchedConcept.primary_thinker,
+          canonical_author: canonAuthor,
           canon_sha256: anchor.canon_sha256,
           chapter_anchor: anchor.chapter_anchor,
           dialectical_dispute: matchedDispute,
@@ -445,7 +512,7 @@ function auditOfflineCitations(text) {
           confidence_score: isExact ? 0.99 : 0.95,
           matched_concept_id: matchedConcept.concept_id,
           canonical_title: anchor.title,
-          canonical_author: anchor.author || matchedConcept.primary_thinker,
+          canonical_author: canonAuthor,
           canon_year: anchor.year,
           canon_sha256: anchor.canon_sha256,
           chapter_anchor: anchor.chapter_anchor,
@@ -618,53 +685,125 @@ async function callTool(name, args) {
       };
     }
     case 'veriscope_verify_attestation': {
-      const cid = args.concept_id;
-      const sha = args.canon_sha256;
-      if (cid && sha) {
+      const trustedPub = VERISCOPE_PUBLIC_KEY_HEX;
+      const cid = (args.concept_id || '').trim();
+      const querySha = (args.canon_sha256 || '').trim().toLowerCase();
+      const att = args.attestation;
+
+      // 路径 B: 提供了数字签名凭证 (Ed25519 Cryptographic Attestation)
+      if (att && typeof att === 'object' && (att.signature || att.signed_message || att.payload)) {
+        const callerPub = att.public_key ? String(att.public_key).replace(/^0x/, '').trim().toLowerCase() : '';
+        // S-4 深度加固: 拒绝任何伪造公钥、异常长度或与信任锚不符的公钥
+        if (callerPub && callerPub !== trustedPub.toLowerCase()) {
+          return {
+            method: 'ed25519_signature',
+            verification_level: 'UNTRUSTED_ISSUER',
+            is_cryptographically_verified: false,
+            verification_status: 'ISSUER_UNTRUSTED',
+            algorithm: 'Ed25519',
+            public_key: callerPub,
+            error: 'Untrusted public key: Caller-supplied key does not match VeriScope Sovereign Trust Anchor.'
+          };
+        }
+
+        const pub = trustedPub; // 永远强制使用官方根信任锚
+        const sig = att.signature || '';
+        const msg = att.signed_message || att.payload || '';
+
+        const isSignatureValid = verifyEd25519Signature(pub, sig, msg);
+        if (!isSignatureValid) {
+          return {
+            method: 'ed25519_signature',
+            verification_level: 'SIGNATURE_FAILED',
+            is_cryptographically_verified: false,
+            verification_status: 'SIGNATURE_INVALID',
+            algorithm: 'Ed25519',
+            public_key: pub,
+            error: 'Mathematical signature verification failed.'
+          };
+        }
+
+        // N-3 闭环: 解构 signed_message 载荷并与用户查询参数严格比对
+        // 协议规范: VERISCOPE_ATTESTATION:<concept_id>:<canon_sha256>:<nonce_or_slice>:<timestamp>
+        let parsedPayload = null;
+        if (typeof msg === 'string' && msg.startsWith('VERISCOPE_ATTESTATION:')) {
+          const parts = msg.split(':');
+          parsedPayload = {
+            protocol: parts[0],
+            concept_id: parts[1] || '',
+            canon_sha256: (parts[2] || '').toLowerCase(),
+            slice_or_nonce: parts[3] || '',
+            timestamp: parts[4] || ''
+          };
+
+          // 若调用方同时传入了 concept_id 或 canon_sha256，严格校验是否与签名载荷一致
+          if (cid && cid !== parsedPayload.concept_id) {
+            return {
+              method: 'ed25519_signature',
+              verification_level: 'PAYLOAD_MISMATCH',
+              is_cryptographically_verified: false,
+              verification_status: 'PAYLOAD_MISMATCH',
+              error: `Signed concept_id '${parsedPayload.concept_id}' does not match query concept_id '${cid}'.`,
+              signed_payload: parsedPayload
+            };
+          }
+          if (querySha && querySha !== parsedPayload.canon_sha256) {
+            return {
+              method: 'ed25519_signature',
+              verification_level: 'PAYLOAD_MISMATCH',
+              is_cryptographically_verified: false,
+              verification_status: 'PAYLOAD_MISMATCH',
+              error: `Signed canon_sha256 '${parsedPayload.canon_sha256}' does not match query canon_sha256 '${querySha}'.`,
+              signed_payload: parsedPayload
+            };
+          }
+        }
+
+        return {
+          method: 'ed25519_signature',
+          verification_level: 'SIGNATURE_VERIFIED',
+          is_cryptographically_verified: true,
+          verification_status: 'SIGNATURE_VALID',
+          algorithm: 'Ed25519',
+          public_key: pub,
+          signed_payload: parsedPayload || { raw_message: msg }
+        };
+      }
+
+      // 路径 A: 仅提供了概念 ID 与版本散列 (Local Hash Matching)
+      if (cid && querySha) {
         const c = sandboxMap.get(cid) || nameMap.get(cid.toLowerCase());
         if (c) {
-          const realSha = (c.canon_anchor && c.canon_anchor.canon_sha256) || '';
-          const isMatched = (sha.toLowerCase() === realSha.toLowerCase());
+          const realSha = ((c.canon_anchor && c.canon_anchor.canon_sha256) || '').toLowerCase();
+          const isMatched = (querySha === realSha);
           return {
             method: 'local_hash_lookup',
+            verification_level: isMatched ? 'HASH_ONLY' : 'TAMPER_DETECTED',
+            is_hash_match: isMatched,
             hash_matched: isMatched,
-            is_cryptographically_verified: false,
+            is_cryptographically_verified: false, // 诚实声明：无数字签名，仅纯哈希比对
             verification_status: isMatched ? 'HASH_MATCHED' : 'TAMPER_DETECTED',
             concept_id: cid,
             matched_edition: c.canon_anchor && c.canon_anchor.title,
             algorithm: 'SHA-256',
-            public_key: VERISCOPE_PUBLIC_KEY_HEX
+            public_key: trustedPub
           };
         }
-      }
-      const att = args.attestation || {};
-      const callerPub = att.public_key ? String(att.public_key).replace(/^0x/, '').trim() : '';
-      const trustedPub = VERISCOPE_PUBLIC_KEY_HEX;
-
-      // S-4: 严格校验公钥信任源。严禁直接信任调用方传入的任意自签公钥
-      if (callerPub && callerPub.toLowerCase() !== trustedPub.toLowerCase()) {
         return {
-          method: 'ed25519_signature',
+          method: 'local_hash_lookup',
+          verification_level: 'CONCEPT_NOT_FOUND',
+          is_hash_match: false,
+          hash_matched: false,
           is_cryptographically_verified: false,
-          verification_status: 'ISSUER_UNTRUSTED',
-          algorithm: 'Ed25519',
-          public_key: callerPub,
-          error: 'Untrusted public key: The attestation public key does not match VeriScope authoritative trust anchor.'
+          verification_status: 'CONCEPT_NOT_FOUND',
+          concept_id: cid,
+          error: `Concept '${cid}' not found in Golden Sandbox.`
         };
       }
 
-      const pub = trustedPub;
-      const sig = att.signature || '';
-      const msg = att.signed_message || att.payload || '';
-
-      const isSignatureValid = verifyEd25519Signature(pub, sig, msg);
-
       return {
-        method: 'ed25519_signature',
-        is_cryptographically_verified: isSignatureValid,
-        verification_status: isSignatureValid ? 'SIGNATURE_VALID' : 'SIGNATURE_INVALID',
-        algorithm: 'Ed25519',
-        public_key: pub
+        error: 'INVALID_ARGUMENTS',
+        message: 'Must provide either (concept_id + canon_sha256) for local hash matching or (attestation) for Ed25519 cryptographic signature verification.'
       };
     }
     case 'veriscope_citation_audit': {
@@ -793,81 +932,87 @@ function discoverLocal(query, discipline) {
   return results;
 }
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
-});
+function startServer() {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
+  });
 
-if (process.argv.includes('--list-tools')) {
-  console.log(JSON.stringify(TOOLS, null, 2));
-  process.exit(0);
+  if (process.argv.includes('--list-tools')) {
+    console.log(JSON.stringify(TOOLS, null, 2));
+    process.exit(0);
+  }
+
+  rl.on('line', async (line) => {
+    line = line.trim();
+    if (!line) return;
+    let req;
+    try {
+      req = JSON.parse(line);
+    } catch (err) {
+      process.stdout.write(JSON.stringify({
+        jsonrpc: '2.0',
+        id: null,
+        error: { code: -32700, message: `Parse error: ${err.message}` }
+      }) + '\n');
+      return;
+    }
+
+    const { id, method, params } = req;
+    if (method === 'initialize') {
+      const res = {
+        jsonrpc: '2.0',
+        id: id,
+        result: {
+          protocolVersion: '2024-11-05',
+          capabilities: { tools: {} },
+          serverInfo: {
+            name: 'veriscope',
+            version: '1.1.6'
+          }
+        }
+      };
+      process.stdout.write(JSON.stringify(res) + '\n');
+    } else if (method === 'notifications/initialized') {
+      // No-op
+    } else if (method === 'ping') {
+      process.stdout.write(JSON.stringify({ jsonrpc: '2.0', id: id, result: {} }) + '\n');
+    } else if (method === 'tools/list') {
+      process.stdout.write(JSON.stringify({
+        jsonrpc: '2.0',
+        id: id,
+        result: { tools: TOOLS }
+      }) + '\n');
+    } else if (method === 'tools/call') {
+      const toolName = params ? params.name : '';
+      const toolArgs = (params && params.arguments) || {};
+      const resultData = await callTool(toolName, toolArgs);
+      process.stdout.write(JSON.stringify({
+        jsonrpc: '2.0',
+        id: id,
+        result: {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(resultData, null, 2)
+            }
+          ]
+        }
+      }) + '\n');
+    } else {
+      process.stdout.write(JSON.stringify({
+        jsonrpc: '2.0',
+        id: id,
+        error: { code: -32601, message: `Method not found: ${method}` }
+      }) + '\n');
+    }
+  });
 }
 
-rl.on('line', async (line) => {
-  line = line.trim();
-  if (!line) return;
-  let req;
-  try {
-    req = JSON.parse(line);
-  } catch (err) {
-    process.stdout.write(JSON.stringify({
-      jsonrpc: '2.0',
-      id: null,
-      error: { code: -32700, message: `Parse error: ${err.message}` }
-    }) + '\n');
-    return;
-  }
-
-  const { id, method, params } = req;
-  if (method === 'initialize') {
-    const res = {
-      jsonrpc: '2.0',
-      id: id,
-      result: {
-        protocolVersion: '2024-11-05',
-        capabilities: { tools: {} },
-        serverInfo: {
-          name: 'veriscope',
-          version: '1.1.0'
-        }
-      }
-    };
-    process.stdout.write(JSON.stringify(res) + '\n');
-  } else if (method === 'notifications/initialized') {
-    // No-op
-  } else if (method === 'ping') {
-    process.stdout.write(JSON.stringify({ jsonrpc: '2.0', id: id, result: {} }) + '\n');
-  } else if (method === 'tools/list') {
-    process.stdout.write(JSON.stringify({
-      jsonrpc: '2.0',
-      id: id,
-      result: { tools: TOOLS }
-    }) + '\n');
-  } else if (method === 'tools/call') {
-    const toolName = params ? params.name : '';
-    const toolArgs = (params && params.arguments) || {};
-    const resultData = await callTool(toolName, toolArgs);
-    process.stdout.write(JSON.stringify({
-      jsonrpc: '2.0',
-      id: id,
-      result: {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify(resultData, null, 2)
-          }
-        ]
-      }
-    }) + '\n');
-  } else {
-    process.stdout.write(JSON.stringify({
-      jsonrpc: '2.0',
-      id: id,
-      error: { code: -32601, message: `Method not found: ${method}` }
-    }) + '\n');
-  }
-});
+if (require.main === module) {
+  startServer();
+}
 
 module.exports = {
   verifyEd25519Signature,

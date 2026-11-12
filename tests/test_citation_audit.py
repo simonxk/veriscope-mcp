@@ -65,9 +65,11 @@ class TestCitationAudit(unittest.TestCase):
 
     def test_s2_path_a_honest_crypto_flag(self):
         """S-2 regression: Local hash lookup must set is_cryptographically_verified to False."""
+        c = self.server.sandbox_map.get("VS-PHIL-001")
+        target_sha = c["canon_anchor"]["canon_sha256"]
         res = self.server.verify_attestation(
             concept_id="VS-PHIL-001",
-            canon_sha256="8d3e2365bf029e24699059f31b4028ec4b95bc58e0a3249fe379c3ef71911aa1"
+            canon_sha256=target_sha
         )
         self.assertEqual(res["method"], "local_hash_lookup")
         self.assertTrue(res["hash_matched"])

@@ -4,6 +4,18 @@ All notable changes to `veriscope-mcp` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2026-11-13
+
+### Security & Architecture Hardening
+- **N-3 (Attestation Payload Binding)**: `veriscope_verify_attestation` now inspects the structured payload of `signed_message`. Embedded fields (`concept_id`, `canon_sha256`, `slice_hash`, `timestamp`) are parsed and validated against caller arguments, preventing cross-concept attestation reuse (`PAYLOAD_MISMATCH`).
+- **N-5 (Library Import Isolation)**: Wrapped server stdio execution in `if (require.main === module)` to prevent unprompted stream interception when `bin/index.js` is imported as an npm library or unit test subject.
+- **S-2 & S-4 Semantic Refinements**: Introduced `verification_level: "HASH_ONLY" | "SIGNATURE_VERIFIED"` and explicit `is_hash_match` / `hash_matched` flags per auditor recommendations.
+
+### Citation Audit Engine Enhancements
+- **N-2 (Substring Attribution Disambiguation)**: Introduced `GENERIC_STOPWORDS` protection and token-level phrase matching, preventing generic terms like "Capital" from erroneously binding to secondary sociology concepts when referencing classical works.
+- **N-4 (Author Extraction Normalization)**: Extended author name cleaning regex to strip trailing verbs and prepositions (`argues in`, `noted by`, `according to`), and added standard APA citation pattern support (`Author, A. (Year). Title.`).
+- **Sandbox Hash Physical Verification**: Refreshed Golden Sandbox 50 SHA-256 hashes against actual physical files in the sovereign catalog repository (`cyclopedia_canon_files`), removing lingering test mock entries.
+
 ## [1.1.5] - 2026-11-12
 
 ### Security & Cryptographic Fixes

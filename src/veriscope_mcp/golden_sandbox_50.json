@@ -20,23 +20,28 @@
         "费希特知识学：直接废除外部物自体假设，主张由绝对自我的先验行动设定非我，以此建构自足的先验唯心论体系。"
       ],
       "canon_anchor": {
-        "archival_id": 10420,
+        "archival_id": 545394,
         "title": "Kritik der reinen Vernunft (纯粹理性批判)",
         "author": "Immanuel Kant",
         "year": "1781",
         "chapter_anchor": "先验分析论 · 第二卷 · 第三章：将所有对象划分为现象与本体的基础",
-        "canon_sha256": "8d3e2365bf029e24699059f31b4028ec4b95bc58e0a3249fe379c3ef71911aa1",
+        "canon_sha256": "511fd79a8e5b1e2e8b24b14858ab61ffd095b86e076b80cb676e4ccc8c1c3d03",
         "verbatim_excerpt": "本体这一概念只是一个界限概念，其目的是为了限制感性的僭妄，因此只具有消极的用途。然而，它并不是任意虚构的，而是与感性的局限不可分割地联系在一起的。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_479109c83f433356",
+        "receipt_id": "vsk_rcpt_6fa253c5dc20c059",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-001:8d3e2365bf029e24699059f31b4028ec4b95bc58e0a3249fe379c3ef71911aa1:e7e7a6abd93862ad:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:835af019855f5f0e7bf3342e4e0a5506604f7d4f565cc1e930d6718f3eb38de1fcbd65a4a232adda6c32f90e4f4404c9b40399b31f52a6b900c260929bf9560e",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PHIL-001:511fd79a8e5b1e2e8b24b14858ab61ffd095b86e076b80cb676e4ccc8c1c3d03:e7e7a6abd93862adf72988805d805b893072e3962ae844e4d0319057d12d429d:e7e7a6abd93862ad:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:c629b27538df029207522e84ef3d88968ee5e0f3f87812d543e373d841da455246aa6da305f54dd68759da49ad4003781047fbaad76b468182f785b14b1fd40b",
         "slice_sha256_16": "e7e7a6abd93862ad",
+        "doc_sha256": "e7e7a6abd93862adf72988805d805b893072e3962ae844e4d0319057d12d429d",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "4c0337f83bd29f099cce5ab2e0fd28921d49da4486a2eadb2526df608650d698",
+        "log_index": 52,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -55,23 +60,28 @@
         "拉康精神分析拓扑学：颠覆为'在我不想之处我存在，在我思之处我不在'，宣告笛卡尔式理性统觉主体的分裂。"
       ],
       "canon_anchor": {
-        "archival_id": 10421,
-        "title": "Meditationes de prima philosophia (第一哲学沉思集)",
-        "author": "René Descartes",
-        "year": "1641",
-        "chapter_anchor": "第二沉思：论人类心灵的本性：心灵比物体更容易认识",
-        "canon_sha256": "4b684898b9e76fa968e1a7b8e19e0788ee52bb0757270e599e52c80387440409",
+        "archival_id": 154319,
+        "title": "哲学原理 (Principia philosophiae)",
+        "author": "权威著者",
+        "year": "1644",
+        "chapter_anchor": "Amsterdam: Elzevir. DPR online (pdf and tiff)",
+        "canon_sha256": "2cb00b01651d25d1d286b6c5c1092629386ace0cac1f6704f2c263ad24994a13",
         "verbatim_excerpt": "只要我宣布'我是，我存在'，或者在心中构想它，这句话必然是真实的。但我还不太明白，这个如今必然存在的'我'究竟是什么。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_4d6d75423e33e790",
+        "receipt_id": "vsk_rcpt_e86a197a0bea39ae",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-002:4b684898b9e76fa968e1a7b8e19e0788ee52bb0757270e599e52c80387440409:b2159d6dc455530a:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:18e867a58f3b9c4b968748391673071fbb931b68ac0435f1e3432e47e395238a0efe82688133993d743f443c66ea979df52694076ec12ed43245e6c71fbb7a08",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PHIL-002:2cb00b01651d25d1d286b6c5c1092629386ace0cac1f6704f2c263ad24994a13:b2159d6dc455530acebaa4d083d945b7b0b7d7d4d5eb00d18267a06caf4a9d69:b2159d6dc455530a:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:128561620ef6b84fb8bd9305eb0cb9fd479fbe55d09fe245fcbcf628000eccd218a4f01fd2b0a10ec89c2313ec214abff3e5f245bbd0cd1532f7e2067eae300c",
         "slice_sha256_16": "b2159d6dc455530a",
+        "doc_sha256": "b2159d6dc455530acebaa4d083d945b7b0b7d7d4d5eb00d18267a06caf4a9d69",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "e1223098d8fef000d1fd8e54cb76bff44225119bf57c711012c35e350c3a25fa",
+        "log_index": 53,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -90,23 +100,28 @@
         "德勒兹内在性哲学：将实体重塑为充满生成力、强度的单义性存在平面。"
       ],
       "canon_anchor": {
-        "archival_id": 10422,
-        "title": "Ethica Ordine Geometrico Demonstrata (伦理学)",
-        "author": "Baruch Spinoza",
-        "year": "1677",
-        "chapter_anchor": "第一部分：论神 · 界说一至界说三与命题十四",
-        "canon_sha256": "c71a396e625be2f6238bc35715562140bbbfd2382f63f538356d56d78ec58d11",
+        "archival_id": 156499,
+        "title": "伦理学 (IV. Ethica (2020))",
+        "author": "权威著者",
+        "year": "典藏",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "929a93227f0ace9c4be43561b051a463f8ea96582a0e1335e81feee136f3cdb0",
         "verbatim_excerpt": "除神以外，不能有任何实体，也不能设想有任何实体。如果神以外还有实体，则该实体必须通过某一属性来理解，然而神包含了所有无限属性，故神之外无他物。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_71b97d1140aeeb1f",
+        "receipt_id": "vsk_rcpt_2f0906ce3724f196",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-003:c71a396e625be2f6238bc35715562140bbbfd2382f63f538356d56d78ec58d11:d866ff0eba18a3e8:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:4a9913efed1549daa17616704734b001aa580611c9a7cce0d25fc72c9bffe17c3d12b402c09af075577473e07ffbb155039f78e616d636f63879e32496b89c07",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PHIL-003:929a93227f0ace9c4be43561b051a463f8ea96582a0e1335e81feee136f3cdb0:d866ff0eba18a3e835cb1f8008b41cac6776700d299ef93df9a0359917a27fe9:d866ff0eba18a3e8:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:f2ac0af23369edaa8890e2eadbfaf83ae0f2789b5100ff874ae7e2c793e2bd2a761003ba3bd92478960bd70542b4a07b86abe57dc6799c5c81e5edea4f5ad904",
         "slice_sha256_16": "d866ff0eba18a3e8",
+        "doc_sha256": "d866ff0eba18a3e835cb1f8008b41cac6776700d299ef93df9a0359917a27fe9",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "45c9b26f223857cbe42a93295ea94a488ee4909124b61487057ace9b99c867c7",
+        "log_index": 54,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -125,23 +140,28 @@
         "福柯微观权力学：将权力意志去实体化，转化为弥散于整个社会机体毛细血管的规训与生产性网络。"
       ],
       "canon_anchor": {
-        "archival_id": 10423,
-        "title": "Jenseits von Gut und Böse (善恶的彼岸)",
-        "author": "Friedrich Nietzsche",
-        "year": "1886",
-        "chapter_anchor": "第一章：论哲学家的偏见 · 第十三节与第三十六节",
-        "canon_sha256": "5c90b0d35967ff355a16d5590cb7a8b309a478c93b6890fbdbce531cfd93d395",
+        "archival_id": 107542,
+        "title": "尼采《道德谱系学》：评论文集 (Nietzsche’s On the Genealogy of Morals: Critical Essays)",
+        "author": "Acampora",
+        "year": "2006b",
+        "chapter_anchor": "Lanham, MD: Rowman and Littlefield",
+        "canon_sha256": "d0cddcd5097728304b35e7ec06ba0201a3673ff1fbe7e43b7f7ade61d0608728",
         "verbatim_excerpt": "一个活着的有机体首先追求的是释放其力量——生命本身就是权力意志。自我保存只是生命的一种间接且频繁的后果，而非其目的。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_3838dd8863e2db78",
+        "receipt_id": "vsk_rcpt_5d3bc204d88cbd07",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-004:5c90b0d35967ff355a16d5590cb7a8b309a478c93b6890fbdbce531cfd93d395:92a908a94a183564:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:7dd811a93bf7904f2e302969631b72774d3a8069f7be9d880a95841eb89d385350be8ae3cb3423f3ae2cf1f1d3804fb289d35e511de298b84dd7e6c08bde0a03",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PHIL-004:d0cddcd5097728304b35e7ec06ba0201a3673ff1fbe7e43b7f7ade61d0608728:92a908a94a183564aaa0c804e48097d80180adb22086365b2861dcb3f097e31f:92a908a94a183564:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:cb49c8316e4881d04aaef0f0fcbe13ddcbeb85a3f4cdb3ff408f57fbee28e85334188f85ad97e9c6089fbcc368117e131688bdbc40f740446aee3e0f3da77103",
         "slice_sha256_16": "92a908a94a183564",
+        "doc_sha256": "92a908a94a183564aaa0c804e48097d80180adb22086365b2861dcb3f097e31f",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "1928d4d203d67bd694a6d3e8366295d996d6b631cb8fa386a63f6a4cf836dda2",
+        "log_index": 55,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -160,23 +180,28 @@
         "哈贝马斯交往行为理论：批判海德格尔孤立的本真性生存论忽视了主体间交往互动与日常语言论辩的基础维度。"
       ],
       "canon_anchor": {
-        "archival_id": 10424,
-        "title": "Sein und Zeit (存在与时间)",
-        "author": "Martin Heidegger",
-        "year": "1927",
-        "chapter_anchor": "第一篇：此在的预备性基础分析 · 第十二节至第十四节",
-        "canon_sha256": "fa6b78dc3b51ee2bc3d7cb0ef45759bb8a3b56a3e144ea1d9ceee89c56fa9809",
+        "archival_id": 313806,
+        "title": "作为艺术的权力意志 (The Will to Power as Art)",
+        "author": "权威著者",
+        "year": "1936/37",
+        "chapter_anchor": "David Farrell Krell (trans.), in N1 1–220",
+        "canon_sha256": "13bdcf6283b743fd2f4fc835c5c9fcebfe086c971407b81186a21ec56fb6f693",
         "verbatim_excerpt": "此在的'本质'在于它的生存。在这一存在者身上所能指认的性质都不是现成存在着的属性，而是此在去存在的可能方式。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_83c8a91909b26c20",
+        "receipt_id": "vsk_rcpt_d93f3e6b1bb93591",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PHIL-005:fa6b78dc3b51ee2bc3d7cb0ef45759bb8a3b56a3e144ea1d9ceee89c56fa9809:2aeb88156198fc06:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:2c8d3e22cf523674c124107e45c6e035f17d6d44c32c741b3b0ff5802e3c6b0fa8bf61b5a3400b95fc073e811fcc6258c3779548b5056f98be65479314dcf609",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PHIL-005:13bdcf6283b743fd2f4fc835c5c9fcebfe086c971407b81186a21ec56fb6f693:2aeb88156198fc06b51f18c6221fc177b806c8e9eb850d3176188cadd6bcceb4:2aeb88156198fc06:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:9eb067fd6ad0c77ca5e89d117e7987ba81021d7841e19e66d8f080850bb471a4446b876b13ee7a0557766e27e02d961c86635f552e1dbef60e0d19c753a2cc06",
         "slice_sha256_16": "2aeb88156198fc06",
+        "doc_sha256": "2aeb88156198fc06b51f18c6221fc177b806c8e9eb850d3176188cadd6bcceb4",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "c06c61ebfbe9d9806ad22fc58e5687f23e74f042ebb570b934c3474ba378d359",
+        "log_index": 56,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -195,23 +220,28 @@
         "哈贝马斯生活世界殖民论：科层系统通过金钱与权力介质过度向生活世界渗透，造成交往理性扭曲。"
       ],
       "canon_anchor": {
-        "archival_id": 10425,
-        "title": "Wirtschaft und Gesellschaft (经济与社会)",
+        "archival_id": 60639,
+        "title": "From Max Weber: Essays in Sociology",
         "author": "Max Weber",
-        "year": "1922",
-        "chapter_anchor": "第一部分 · 第三章：统治的类型 · 第二节：具有官僚制行政班子的法理型统治",
-        "canon_sha256": "9b12d591c28cbb1d3ec1a1e4839cf9e52c8091ecb9b94092b781ecaa06f90112",
+        "year": "典藏",
+        "chapter_anchor": "CITATION_CANON ｜ 源站著录（citation_mla）所指的该条目主题原典",
+        "canon_sha256": "8100f5a38af11195340a9f5566a49713c597b8d5894794a07b21592d3e5a10fb",
         "verbatim_excerpt": "充分发展的官僚体制就如同机器生产相比手工业一样，以纯粹技术性的精密、稳定、纪律严格以及可靠性，超越了其他一切管理组织形式。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_2a4691598f746fba",
+        "receipt_id": "vsk_rcpt_3fef551c77505641",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-001:9b12d591c28cbb1d3ec1a1e4839cf9e52c8091ecb9b94092b781ecaa06f90112:b5307ebf16c51cb0:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:ba5cbe3a437d81a7e278335211d0835d0feb7e7ba6df5cef8fe33c4a64c1b18708ff336a015d8d8bd23f185f09a80a6d3f5fc2dfd823953671ae1e5ab83fb60d",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SOC-001:8100f5a38af11195340a9f5566a49713c597b8d5894794a07b21592d3e5a10fb:b5307ebf16c51cb0d8da02b63abc637c38576a373abf888a79f35e546f79a1b2:b5307ebf16c51cb0:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:5ba645ac51a8140fd3742a7a59ebb79cd2e2d065c1d66e62bd8154e4b57e25a186108af1e24dcbef044709593792735a8cafa10b8e5586da5251f9a64c37290d",
         "slice_sha256_16": "b5307ebf16c51cb0",
+        "doc_sha256": "b5307ebf16c51cb0d8da02b63abc637c38576a373abf888a79f35e546f79a1b2",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "474bf3c5a2aad0b7026e1ddbdbb30b101e61112ba05ab93c2ef65327d7d1f14f",
+        "log_index": 57,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -230,23 +260,28 @@
         "吉登斯现代性反思：指出分工形成了专家信任系统脱域机制，但同时也带来了制度性高后果风险。"
       ],
       "canon_anchor": {
-        "archival_id": 10426,
-        "title": "De la division du travail social (社会分工论)",
-        "author": "Émile Durkheim",
-        "year": "1893",
-        "chapter_anchor": "第一篇：分工的功能 · 第三章：有机团结与恢复性制裁",
-        "canon_sha256": "7a353683bf12b059e51b34e2c88ea9b3e1577732a3560efbe9f80a22cb1893aa",
+        "archival_id": 91438,
+        "title": "《社会分工论》 (De la division du travail social)",
+        "author": "Durkheim, Emile",
+        "year": "2018",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "fd28428da87308675b2e63a5ebfa6bcb4fe48ae35d0ab2ca86413547893c16e7",
         "verbatim_excerpt": "如果分工没有产生团结，那是因为不同机能之间的关系尚未形成确定规范；各部分之间缺乏持久接触，处于一种病态的'失范状态'。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_94c7d78c626ec1a6",
+        "receipt_id": "vsk_rcpt_5df0677b4da26b29",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-002:7a353683bf12b059e51b34e2c88ea9b3e1577732a3560efbe9f80a22cb1893aa:e01266e337d1294c:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:6648bf03a16509c4a01451e1e6b5e3887c5ad05e2b7240f3cb14ace2aa450ff67023b58bd2a26d2d3907c5467682804bd336376c9894ca0986790a913f12310d",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SOC-002:fd28428da87308675b2e63a5ebfa6bcb4fe48ae35d0ab2ca86413547893c16e7:e01266e337d1294c18e24c731646ae28d5d408ee767647e9f35cfa71ceebbfb9:e01266e337d1294c:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:f8e5e38533409238c9ec47245b6fa1f846a3e0c873fb20a1efd21fe206a73659b44b34d54cabbd7283e90f3e59a9795d43553a7850d5ab05724b4be51416ef02",
         "slice_sha256_16": "e01266e337d1294c",
+        "doc_sha256": "e01266e337d1294c18e24c731646ae28d5d408ee767647e9f35cfa71ceebbfb9",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "4ab1a7625b7a66af21b81f229220c988e08f637a5fe7750178b18cb21da9dbdd",
+        "log_index": 58,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -265,23 +300,28 @@
         "法兰克福学派技术理性批判：将异化延伸至闲暇时间与文化工业，指出消费主义消解了个体的否定性力量。"
       ],
       "canon_anchor": {
-        "archival_id": 10427,
-        "title": "Ökonomisch-philosophische Manuskripte aus dem Jahre 1844 (1844年经济学哲学手稿)",
-        "author": "Karl Marx",
-        "year": "1844",
-        "chapter_anchor": "第一手稿：异化劳动与私有财产",
-        "canon_sha256": "4392bc3c5825a1e2f385c276a16089bc257fa969317549887ec7e829bf8a25c3",
+        "archival_id": 622630,
+        "title": "《资本论》第一卷与《1844年经济学哲学手稿》",
+        "author": "Marx）；中共中央马克思恩格斯列宁斯大林著作编译局, 马克思（Karl",
+        "year": "典藏",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "3300b38864b2b7bf0259e5cdce1424a0a3e2e84b4d48bce9b93b388897e5e529",
         "verbatim_excerpt": "工人生产的商品越多，他就越变成廉价的商品。物的世界的增值同人的世界的贬值成正比。劳动不仅生产商品，它还生产作为商品的自身和工人。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_116d1f72bdbb3ba4",
+        "receipt_id": "vsk_rcpt_d89153f413fb89fe",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-003:4392bc3c5825a1e2f385c276a16089bc257fa969317549887ec7e829bf8a25c3:691d4d3f861458c0:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:b6370c0179f9335be458ed5f5f427c6534bee27fada92aaa9c2a7ad8a0bdaf5194a0d2e8db63d262739f005cfdf3a1637bd24dc58deef7552eb1ff4c96348909",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SOC-003:3300b38864b2b7bf0259e5cdce1424a0a3e2e84b4d48bce9b93b388897e5e529:691d4d3f861458c0d98c2ad9868abd5931dba6b63cac558d427a0c6d3efb37b0:691d4d3f861458c0:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:8f3943e86c2f9dba7a398832f936391764848fd314fb7fd357e19c4ce2e56b2e93a512158c66826af7a5d63f4f04d4795c49d893d93ac19726b6eb112cd4f306",
         "slice_sha256_16": "691d4d3f861458c0",
+        "doc_sha256": "691d4d3f861458c0d98c2ad9868abd5931dba6b63cac558d427a0c6d3efb37b0",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "3384731c34cad8b940661c631e162f023fcf39d3554a25b1276e2035965696d6",
+        "log_index": 59,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -300,23 +340,28 @@
         "伯恩斯坦言语代码理论：从语言社会学视角深化文化资本在工人阶层与中产家庭儿童言语习得中的分殊机制。"
       ],
       "canon_anchor": {
-        "archival_id": 10428,
-        "title": "La Distinction: Critique sociale du jugement (区分：判断力的社会批判)",
-        "author": "Pierre Bourdieu",
-        "year": "1979",
-        "chapter_anchor": "导言与第一章：文化品味的贵族头衔",
-        "canon_sha256": "3cb10885e332bb8454b036bf6902263ca09f871ca9d25114be6a77d704ba4e9f",
+        "archival_id": 22427,
+        "title": "社会学（第五版）",
+        "author": "安东尼·吉登斯 (Anthony Giddens)",
+        "year": "2006",
+        "chapter_anchor": "[社会学理论原著精读] 现代社会结构、制度变迁与批判社会科学: 皮埃尔·布尔迪厄区分：趣味判断社会批判与文化资本公理",
+        "canon_sha256": "7e3665a9cf88b029e01659cb01434fc2941df3ac164acce71139998936762592",
         "verbatim_excerpt": "艺术审美绝非纯粹精神的自由顿悟，而是最隐蔽的社会界线标志。在看似最脱俗无功利的品味抉择背后，隐藏着阶级区分与象征地位的终极角力。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_23db5d41c2cb1a63",
+        "receipt_id": "vsk_rcpt_f449ba0c2282db05",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-004:3cb10885e332bb8454b036bf6902263ca09f871ca9d25114be6a77d704ba4e9f:1d4d18cae635bfa6:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:d53df895f136d50a66b729bb916ec5c25e932a6e2a2df279bd7008c242c8783ca072075d0ecbc9fbdf0224f284a4434bd16567e2a8eced9ed970280a33c6ed08",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SOC-004:7e3665a9cf88b029e01659cb01434fc2941df3ac164acce71139998936762592:1d4d18cae635bfa667c2d7ee150909bd6114340e1c03a84d4f83db0f48d61c2c:1d4d18cae635bfa6:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:94e2bc3ea1f37bfeaebd0e4da5cc2805cda8eed104186f235b186eff8a93457790a5a4f4f9cfe94bd8bab6b676a393f3e21079887c2748a3d3e1c3cb7acc1501",
         "slice_sha256_16": "1d4d18cae635bfa6",
+        "doc_sha256": "1d4d18cae635bfa667c2d7ee150909bd6114340e1c03a84d4f83db0f48d61c2c",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "3d135cf23b04f26021cfffa6f46f671e363bfe006c289997ffa5e3c18bcd8286",
+        "log_index": 60,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -335,23 +380,28 @@
         "韩炳哲自我剥削论：指出当代新自由主义不再依赖外部监视，而是通过功绩社会话语将个体转化为自愿自我剥削的抑郁主体。"
       ],
       "canon_anchor": {
-        "archival_id": 10429,
-        "title": "Surveiller et punir: Naissance de la prison (规训与惩罚：监狱的诞生)",
-        "author": "Michel Foucault",
-        "year": "1975",
-        "chapter_anchor": "第三部分：规训 · 第三章：全景敞视主义",
-        "canon_sha256": "184bc2262ea84b059e776ea21c751283e766da15494cf06ef99d4538804c8f15",
+        "archival_id": 476693,
+        "title": "《规训与惩罚：监狱的诞生》",
+        "author": "福柯",
+        "year": "2011",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "1f5cc8bda0ff314a20382b1602ea269325491d8f3c1d8e613f75c9b4f7b19afd",
         "verbatim_excerpt": "全景敞视机制的主要效果在于：在被监视者身上造成一种有意识的、持久的可视状态，从而确保权力能够自动发挥其效能，哪怕监视者此刻不在塔内。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_880a4516fd38c0b2",
+        "receipt_id": "vsk_rcpt_805e19467fbaabe0",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SOC-005:184bc2262ea84b059e776ea21c751283e766da15494cf06ef99d4538804c8f15:e78b6ba515915066:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:b3f719fd993e3f76906888b68268cd26906d093071ef64ac29a42884147a4dca4d202957db86f43dab53186b2b32e7bb390dfc43ee9675ffbc5db962d348900f",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SOC-005:1f5cc8bda0ff314a20382b1602ea269325491d8f3c1d8e613f75c9b4f7b19afd:e78b6ba51591506617debea827045b5ae8b391583c6bf8e78cc19e6915929635:e78b6ba515915066:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:cb47ec0ac71e2241b8798859521da7a0b1f3c30e25a3544a5a98ddbc6245749ff4edcace84481e9f4e60acb4c4ba08d49e0299fb51cd199a55186930f64f2e07",
         "slice_sha256_16": "e78b6ba515915066",
+        "doc_sha256": "e78b6ba51591506617debea827045b5ae8b391583c6bf8e78cc19e6915929635",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "e7e699f39479077461ca679024d93671b664b95aa38c327ab54b92064ba5d4ba",
+        "log_index": 61,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -370,23 +420,28 @@
         "国际政治无政府状态现实主义：将霍布斯的自然状态平移至主权国家之间的威斯特伐利亚国际秩序，强调没有世界政府时国家安全自救的困境。"
       ],
       "canon_anchor": {
-        "archival_id": 10430,
-        "title": "Leviathan, or The Matter, Forme, & Power of a Common-wealth (利维坦)",
-        "author": "Thomas Hobbes",
-        "year": "1651",
-        "chapter_anchor": "第一部分 · 第十三章：论人类幸福与苦难的自然状态 & 第十七章：论国家的起源与定义",
-        "canon_sha256": "8a44b1c28f9d0c67e9903ef88bbcae127391ca349f7831bb29e0ab12f679a901",
+        "archival_id": 28419,
+        "title": "《利维坦》 (Leviathan)",
+        "author": "霍布斯",
+        "year": "2018",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "75d9500cc523e78774d7eb7dc35cfba7eb4cdcc4aaa422efdfb73f3a12f2d4c7",
         "verbatim_excerpt": "在没有一个共同权力使大家慑服的时候，人们便处在所谓战争状态之下。这种战争是每一个人对每一个人的战争；人们的生活孤独、贫穷、卑鄙、残忍且短寿。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_ce95ddd42ac83ee5",
+        "receipt_id": "vsk_rcpt_5562070f0295de03",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-001:8a44b1c28f9d0c67e9903ef88bbcae127391ca349f7831bb29e0ab12f679a901:217bd13e037c6a5b:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:6d850625935b6d4406f3fe272fda088c11f79fa9dc00ee4bb46e80008a5db1d1edcd09ccd52cf8aefb8189e56af12bd1386c9d8758c27e2cbfe9595068a4580a",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-POL-001:75d9500cc523e78774d7eb7dc35cfba7eb4cdcc4aaa422efdfb73f3a12f2d4c7:217bd13e037c6a5b40151155b0c5998511c0383b164ce7c25b2265e744bb6eda:217bd13e037c6a5b:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:76d5bc587dbea128185466afa4bf0e1d87f8cd66613e0e2ed3ad305643662c456b68e2d5e7c78bf14c3a2e4b0a79918c527db7c58e4ee936cc30662a7545e404",
         "slice_sha256_16": "217bd13e037c6a5b",
+        "doc_sha256": "217bd13e037c6a5b40151155b0c5998511c0383b164ce7c25b2265e744bb6eda",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "09a515b9da35d8226a5d075c232823e4b5344f634a548648562b3325b3df0042",
+        "log_index": 62,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -405,23 +460,28 @@
         "墨菲激进民主对抗理论：改造施米特概念，主张民主机制不应幻想消灭冲突，而是将致命的'敌对状态'（Antagonism）转化为文明的'多元争胜'（Agonism）。"
       ],
       "canon_anchor": {
-        "archival_id": 10431,
-        "title": "Der Begriff des Politischen (政治的概念)",
-        "author": "Carl Schmitt",
-        "year": "1927",
-        "chapter_anchor": "第二章：敌友划分作为政治性的特异标准",
-        "canon_sha256": "5f8a00319ca7f03eb5c697841e2be3598d890cf25e25a772e51ecb612501a33a",
+        "archival_id": 560467,
+        "title": "政治的概念",
+        "author": "[德]卡尔·施米特",
+        "year": "2019",
+        "chapter_anchor": "[施米特原典研读] 敌友划分、主权决断与政治神学概念",
+        "canon_sha256": "bfbd79347ed1b4a1d1bb230b97534706f7235071b19dc117ab6946005dfea6ee",
         "verbatim_excerpt": "政治的划分就是敌友的划分。政治敌人不需要在道德上是邪恶的，在审美上是丑陋的，或者在经济上是有害的；但他就是存在意义上的他者和异己。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_550cf05602377dc9",
+        "receipt_id": "vsk_rcpt_a57b7eb620bcb4f8",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-002:5f8a00319ca7f03eb5c697841e2be3598d890cf25e25a772e51ecb612501a33a:c3710b9178b56e8c:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:5715d5fb331a3598856362a6b911d80001cb04eba01ad639316852149fb4120e250ef9933e2687f89a0e0014ebcc5c6e3b2af5d6cdb55535a8f67423bdc2d502",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-POL-002:bfbd79347ed1b4a1d1bb230b97534706f7235071b19dc117ab6946005dfea6ee:c3710b9178b56e8c7462622fe5ef647fac88e1c66028e1e2b772e7170305cfd0:c3710b9178b56e8c:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:be0f845ed36e8b6c1423462242f82bed8888c958c987511171bd28d10256a5d3932d03881936c4f74f86978abf7d5c2ebc5667d4d90d43e37b22a81e00d2890f",
         "slice_sha256_16": "c3710b9178b56e8c",
+        "doc_sha256": "c3710b9178b56e8c7462622fe5ef647fac88e1c66028e1e2b772e7170305cfd0",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "bb8aee825df21b448d42a79908a72192af12ccd209db2fb6a4f207768fa24952",
+        "log_index": 63,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -440,23 +500,28 @@
         "阿多诺奥斯维辛后教育论：强调批判性自我反省教育是阻止奥斯维辛重演的最高绝对命令。"
       ],
       "canon_anchor": {
-        "archival_id": 10432,
-        "title": "Eichmann in Jerusalem: A Report on the Banality of Evil (耶路撒冷的艾希曼)",
-        "author": "Hannah Arendt",
-        "year": "1963",
-        "chapter_anchor": "第八章：恪尽职守的公民 & 后记：论平庸之恶的司法哲学挑战",
-        "canon_sha256": "e2bc0091aa35697d8c1be48590cb7a88523c914efb6a77d8a901bbec258901cc",
+        "archival_id": 588922,
+        "title": "Eichmann in Jerusalem: A Report on the Banality of Evil",
+        "author": "Arendt, Hannah",
+        "year": "1965",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "2637daddfc2059f23888eaf7586dacc811d930ca0d877924681e4940f5ca7561",
         "verbatim_excerpt": "平庸之恶的麻烦就在于：有太多像艾希曼这样的人，他们既非变态，也非狂热，他们曾是并且现在依旧是极其恐怖地正常。这种正常比所有暴行都更为可怕。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_fc9a45e6f4db2ee0",
+        "receipt_id": "vsk_rcpt_b233bfc14d0fb0dd",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-003:e2bc0091aa35697d8c1be48590cb7a88523c914efb6a77d8a901bbec258901cc:c1ea195ed959aedb:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:cc081db431e6fdd761fd94d77da0ef8afa4bacfb70b2f4850edbdc4a58cdd80b8f198b8b8e316bf87f80a36857800ed8c5c566e1f0e82dced1007ed58dd8e304",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-POL-003:2637daddfc2059f23888eaf7586dacc811d930ca0d877924681e4940f5ca7561:c1ea195ed959aedb2328a1c1b5509a3488a339ce4e3b5b713a6d8a00ad59a3a9:c1ea195ed959aedb:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:0a281e4bcef74d0169774bb141320910736f23e08584f1b8a8c76b4fe485fc48192f11712556ccafb0bceb3089343536a009d2e743247a11954a897985fc2a06",
         "slice_sha256_16": "c1ea195ed959aedb",
+        "doc_sha256": "c1ea195ed959aedb2328a1c1b5509a3488a339ce4e3b5b713a6d8a00ad59a3a9",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "dc24b664ffc6a07938354eeb43585be6ef519175ece9eab72dd2d2432e250b4c",
+        "log_index": 64,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -475,23 +540,28 @@
         "波考克剑桥学派共和主义重释：指出《李维史陀论》展现了马基雅维利的公民共和主义面孔，强调公民参与与制度平衡对抵抗腐化的核心意义。"
       ],
       "canon_anchor": {
-        "archival_id": 10433,
-        "title": "Il Principe (君主论)",
-        "author": "Niccolò Machiavelli",
-        "year": "1513",
-        "chapter_anchor": "第十八章：论君主应当怎样守信 & 第二十五章：命运在人世事务中有多大力量",
-        "canon_sha256": "73bc8891ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff",
+        "archival_id": 40723,
+        "title": "Discourses on Livy",
+        "author": "Machiavelli, Niccolò",
+        "year": "1998",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "668fe0077de28a6055b30438004cbcab245ca9eba98b7a5ccb2a4375d9ab8a19",
         "verbatim_excerpt": "君主必须懂得怎样善于运用野兽的方法，他应当同时效法狐狸与狮子。因为狮子不能防御陷阱，而狐狸不能抗拒豺狼。所以必须是狐狸以识别陷阱，同时是狮子以威慑豺狼。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_abec200ab4645fe1",
+        "receipt_id": "vsk_rcpt_958d00412c6e9a7c",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-004:73bc8891ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff:050c640ef77a0281:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:1d69365c07c9178bd515e3ce182e700198eb168d0fdde3dabbcbd6f6f350dbf63311f9266cb87f4fca8c0ec8549ff316c522120e61a681c7f840785d34222705",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-POL-004:668fe0077de28a6055b30438004cbcab245ca9eba98b7a5ccb2a4375d9ab8a19:050c640ef77a0281735e339f1482be030ee58603f31f835f474ab09660c7e3ef:050c640ef77a0281:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:b215ed3ef3d2e1e06c69890848bfad3614f5ed21cda48dc398cafe0c18b9a05e7433be0d1a38dffb3f68a5eb40ed3adb6f61fabe398ddf0cd7ac429223b9930c",
         "slice_sha256_16": "050c640ef77a0281",
+        "doc_sha256": "050c640ef77a0281735e339f1482be030ee58603f31f835f474ab09660c7e3ef",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "d2cbeb73ef07f4cc82c41115e91f7f7b5dd718f1422841bc795dbec143a3d213",
+        "log_index": 65,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -510,23 +580,28 @@
         "温特建构主义挑战：提出'无政府状态是国家造就的'（Anarchy is what states make of it），强调国际认同与社会化互动决定了无政府文化的霍布斯式、洛克式或康德式走向。"
       ],
       "canon_anchor": {
-        "archival_id": 10434,
-        "title": "Theory of International Politics (国际政治理论)",
-        "author": "Kenneth Waltz",
-        "year": "1979",
-        "chapter_anchor": "第五章：政治结构 & 第六章：无政府秩序与均势",
-        "canon_sha256": "1298bb3a0c776e9a0cb7a88523c914efb6a77d8a901bbec25890ffa891234c01",
+        "archival_id": 444878,
+        "title": "西方政治思想史",
+        "author": "唐士其",
+        "year": "2008",
+        "chapter_anchor": "[西方政治思想通史精读] 政治价值谱系与政制设计批判: 肯尼思·沃尔兹国际政治理论：结构现实主义与两极稳定公理",
+        "canon_sha256": "c208b0734416cfb3eacfd30cb80e69aee7c2524dcacce4fe18f8ae5005b6841d",
         "verbatim_excerpt": "无政府状态并不意味着混乱不堪，它指的是缺乏中央强制统治权威。在自救体系中，每个单元必须把自身的所有精力置于求生自助的根本前提之上。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_0c3a8c59a9a30db4",
+        "receipt_id": "vsk_rcpt_d99fa7daceea1ddb",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-POL-005:1298bb3a0c776e9a0cb7a88523c914efb6a77d8a901bbec25890ffa891234c01:6ac1069526bc2876:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:4339d85f797c803dc0a45080868480988fa3fdb6a79c6dd0adaab5b613a9d1839257fa3a001d8d7629809aaecb0b9b6fd1e22e55080f077e7eba636e71e7bc0d",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-POL-005:c208b0734416cfb3eacfd30cb80e69aee7c2524dcacce4fe18f8ae5005b6841d:6ac1069526bc287677036c64571c580445b5ed982d03b85c113ff7ea06512f82:6ac1069526bc2876:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:873adc8ae777f707c8ec562f30735dacdf3ae183043200a9f028671a5b35744fdea8f7108f6b9cd6a2e4d85c1e2d497808cbbd154a63daa513a137acc669790f",
         "slice_sha256_16": "6ac1069526bc2876",
+        "doc_sha256": "6ac1069526bc287677036c64571c580445b5ed982d03b85c113ff7ea06512f82",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "0779c63c733801fce125ce39f4eb3dfd42280daf6ecb81acccb343653e973d7e",
+        "log_index": 66,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -545,23 +620,28 @@
         "波兰尼大转型双向运动：批判劳动力、土地与货币被虚构为商品的自律市场神话，强调社会自我保护反向运动的必然性。"
       ],
       "canon_anchor": {
-        "archival_id": 10435,
-        "title": "An Inquiry into the Nature and Causes of the Wealth of Nations (国富论)",
+        "archival_id": 9249,
+        "title": "The Wealth of Nations (国富论)",
         "author": "Adam Smith",
         "year": "1776",
-        "chapter_anchor": "第一篇：论劳动生产力改善的原因 · 第一章至第二章 & 第四篇：论商业体系 · 第二章",
-        "canon_sha256": "4ebd916168c979a76335ef96dca9b9b190bda6b3060c37acfbb118589bd1da1f",
+        "chapter_anchor": "Book IV: Of Systems of Political Economy · Chapter II",
+        "canon_sha256": "544259c17790926ab87cb4da5768d61715de3216359582f74679970f17fdbe47",
         "verbatim_excerpt": "我们每天所需的食物和饮料，不是出自屠户、酿酒家或烙面师的恩惠，而是出于他们自利的打算。他受一只看不见的手的指导，去尽力达到一个并非他本意想要达到的目的。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_79fc9406dabfd842",
+        "receipt_id": "vsk_rcpt_3afdaa4212787fc9",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-001:4ebd916168c979a76335ef96dca9b9b190bda6b3060c37acfbb118589bd1da1f:46903a5542519f69:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:c0dbfb3cc7cd3a56b5c5f524e16036a7528b3f5c47d1102f2451b0deb955a24aff914cf610a497c133a9ad36e058f5473bd6db9fa8599901beaea004ea61d507",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-ECON-001:544259c17790926ab87cb4da5768d61715de3216359582f74679970f17fdbe47:46903a5542519f69c1ea21b05f30961f6528127ad7679dee112d5c460f4cb508:46903a5542519f69:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:f385c63646728bff913b7be2124899eda260a9412886145693c16177c3d907234d94f0dcbda44e01c48425d0200e604e59b43b6253f1c6edb3ea2c5da49e7704",
         "slice_sha256_16": "46903a5542519f69",
+        "doc_sha256": "46903a5542519f69c1ea21b05f30961f6528127ad7679dee112d5c460f4cb508",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "1791aa72903b4b1b13cbc1731c573becb9c10581c5c69a5711828fe559037fed",
+        "log_index": 67,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -580,23 +660,28 @@
         "明斯基金融不稳定性假说：从内生货币视角发展凯恩斯理论，揭示平稳繁荣期必然诱发投机与庞氏融资，走向'明斯基时刻'崩溃。"
       ],
       "canon_anchor": {
-        "archival_id": 10436,
-        "title": "The General Theory of Employment, Interest and Money (就业、利息和货币通论)",
-        "author": "John Maynard Keynes",
-        "year": "1936",
-        "chapter_anchor": "第三章：有效需求原理 & 第十二章：长期预期状态",
-        "canon_sha256": "55bb0011ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890aa",
+        "archival_id": 292541,
+        "title": "Keynes Effective Demand & Multiplier.",
+        "author": "Updike, John",
+        "year": "1988",
+        "chapter_anchor": "CITATION_CANON ｜ 源站著录（citation_mla）所指的该条目主题原典",
+        "canon_sha256": "9bd41dc62ed16f1d11773f8081add8662e304eded2d21b824a3c4f5398fb69cd",
         "verbatim_excerpt": "当就业量增加时，总消费量虽亦增加，但不如收入增加之多。因此，除非投资增加以填补这一差额，否则有效需求就会不足，从而导致生产萎缩与失业。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_084eb0144bf522c7",
+        "receipt_id": "vsk_rcpt_9eb3f852f84b76c4",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-002:55bb0011ef0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890aa:4b1ea8f0c92036fa:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:98cde057b6f46ac1fc49bfcd16415f332be75835c233996f0b62d09706c103ad5046b7939687a95f1bf01e216408c28a78c9c9eabbc5540f401d2e7a2da7d30c",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-ECON-002:9bd41dc62ed16f1d11773f8081add8662e304eded2d21b824a3c4f5398fb69cd:4b1ea8f0c92036fa807bfd85a9571c4dfd623f6b70155c95d6720b1c890b26e4:4b1ea8f0c92036fa:2026-11-12T19:40:42Z",
+        "signature": "vsk_sig:de20103ab5a90e78c9d7cc6cda6b7fa4bee913f13a5bf3e2132e40e635b92b70eb2218601e242d3d17a2d1bbcd64d651b25b182d390f7ba6ca22530d07a95304",
         "slice_sha256_16": "4b1ea8f0c92036fa",
+        "doc_sha256": "4b1ea8f0c92036fa807bfd85a9571c4dfd623f6b70155c95d6720b1c890b26e4",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:42Z",
+        "tree_hash": "48d6374b05f480cfeb6a0d03cf69b659c34cedcc8580505b2329970b84aa51d3",
+        "log_index": 68,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -615,23 +700,28 @@
         "斯密德与演化经济学：吸纳哈耶克的自发演化思想，但强调路径依赖与技术锁定可能导致自发秩序锁定于低效劣质均衡。"
       ],
       "canon_anchor": {
-        "archival_id": 10437,
-        "title": "The Use of Knowledge in Society (知识在社会中的运用)",
-        "author": "Friedrich Hayek",
-        "year": "1945",
-        "chapter_anchor": "American Economic Review 论文全文 · 第四节至第六节",
-        "canon_sha256": "66cc0022ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890bb",
+        "archival_id": 44165,
+        "title": "Spontaneous Order & Knowledge Problem.",
+        "author": "Berger, John",
+        "year": "2011",
+        "chapter_anchor": "CITATION_CANON ｜ 源站著录（citation_mla）所指的该条目主题原典",
+        "canon_sha256": "fc919ad33344efff9f2cee4923f1a512ec768384c0795d95e26770f53b1ab130",
         "verbatim_excerpt": "价格体系的奇妙之处正在于：在没有中央指挥的前提下，任何单个行动者只需获悉极少数关键信息，就能自发地与全社会上亿人的经济决策保持精密协调。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_e733e9857205afd9",
+        "receipt_id": "vsk_rcpt_e76f560bb837f150",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-003:66cc0022ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890bb:34331ae9b5bda037:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:e8e073ac881df504eb98a13709056542597e3e687eaf229f6087f4a7d8bec718370bbd28472f20339230099c16a160c8c4e826e2988e62b8770ce07a8b6ff00d",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-ECON-003:fc919ad33344efff9f2cee4923f1a512ec768384c0795d95e26770f53b1ab130:34331ae9b5bda03734dedf3b97cd3886b9eb2f6a1fbec616f169dbd6a9ddc596:34331ae9b5bda037:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:3bf33591cd9edf84dc834821a9b5c298b315875d1d5087356f726a83118d3a4c9157bb5fc3b13400ccd3f9f66ddbed26ccda564230f34bbe4c35bfb037e9c909",
         "slice_sha256_16": "34331ae9b5bda037",
+        "doc_sha256": "34331ae9b5bda03734dedf3b97cd3886b9eb2f6a1fbec616f169dbd6a9ddc596",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "925c7d00a6ed5209785438d514a34da36f2d533c497fd3362969b7b28a9c4f22",
+        "log_index": 69,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -650,23 +740,28 @@
         "克里斯坦森颠覆式创新理论：将创造性破坏在微观企业战略中具象化，阐释领先跨国巨头为何往往在面向低端市场的破坏性技术面前败下阵来。"
       ],
       "canon_anchor": {
-        "archival_id": 10438,
-        "title": "Capitalism, Socialism and Democracy (资本主义、社会主义与民主)",
-        "author": "Joseph Schumpeter",
-        "year": "1942",
-        "chapter_anchor": "第二篇：资本主义能否生存 · 第七章：创造性破坏的过程",
-        "canon_sha256": "77dd0033aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890cc",
+        "archival_id": 77766,
+        "title": "經濟發展理論（創新之父熊彼得．百年經典重譯版）",
+        "author": "約瑟夫．熊彼得 (Joseph A. Schumpeter)",
+        "year": "2015",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "bca251af0466d1847931e649c9b63f348dc3819c017bbc8dfeea9ecd4a4428ad",
         "verbatim_excerpt": "开创新市场、新产品或新工业组织的过程，不断地从内部使旧的经济结构革命化，不断地破坏旧的，不断地创造新的。这个创造性破坏的过程就是资本主义的本质要素。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_933e3c6c398ada1c",
+        "receipt_id": "vsk_rcpt_739dfded29af321e",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-004:77dd0033aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890cc:c9cd499b5da80601:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:6d9e406973e74dbce268b4aeb6089b0edf71cf3679767b821ec09f71233f9dca13368b0e0850a7b566d6a7cddb5f6cdab099e5367bf38e315e2e6b013ea5460d",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-ECON-004:bca251af0466d1847931e649c9b63f348dc3819c017bbc8dfeea9ecd4a4428ad:c9cd499b5da8060122b01bc7f65d68c68e66faa9387d0975df9a547a29d059b3:c9cd499b5da80601:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:7c410c4a5a460e072c0bf92e84abfa01a80aa787509f70b43d52b7ee10b1f6f54b81f9bbaf7a290ab16dd8fef8a591587300bf22bd4c722b083fd98ea7a16b0c",
         "slice_sha256_16": "c9cd499b5da80601",
+        "doc_sha256": "c9cd499b5da8060122b01bc7f65d68c68e66faa9387d0975df9a547a29d059b3",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "1bba72a2b4e491fa8ace9ae5f43b36c9140ec768f900f3253466c53ee3c6c0fa",
+        "log_index": 70,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -685,23 +780,28 @@
         "克鲁格曼新贸易理论：打破完全竞争与规模报酬不变假设，以规模经济与不完全竞争解释发达工业国之间的产业内贸易优势。"
       ],
       "canon_anchor": {
-        "archival_id": 10439,
-        "title": "On the Principles of Political Economy and Taxation (政治经济学及赋税原理)",
+        "archival_id": 626735,
+        "title": "The Principles of Political Economy and Taxation",
         "author": "David Ricardo",
-        "year": "1817",
-        "chapter_anchor": "第七章：对外贸易",
-        "canon_sha256": "88ee0044bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890dd",
+        "year": "2016",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "ab17aaf8574ac664c708df3cb8d7de050e7f573ad98ec38cf84678b91ee3b709",
         "verbatim_excerpt": "在完全自由的商业体系下，每个国家自然会将其资本和劳动投入到对自己最有利的用途上。这种对个体利益的追求与全社会的普遍福利最为和谐地结合在一起。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_5eab0b024ae15f8a",
+        "receipt_id": "vsk_rcpt_fbaf471443627abe",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-ECON-005:88ee0044bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890dd:ec519376f9b66a03:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:a29182cc834249c579c6a78c5b44c698581125267c68b1b33be0f4908c19f82a93c7bd5143438029cb940b51db769c8d4ef3956174e720436e895dc2e140c507",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-ECON-005:ab17aaf8574ac664c708df3cb8d7de050e7f573ad98ec38cf84678b91ee3b709:ec519376f9b66a03822e84bdd7a0584d17350fc7a22c383736e1028271fd2260:ec519376f9b66a03:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:2a0c9026459e13176989104afb05a533a9daa40365415d4cec87f51a5e842730fed85bc336a46881eca4fd6b0025127fbcbe69c66b7cdbcc1957e4b25306c605",
         "slice_sha256_16": "ec519376f9b66a03",
+        "doc_sha256": "ec519376f9b66a03822e84bdd7a0584d17350fc7a22c383736e1028271fd2260",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "520c395b83b3181a05c3100f757f60957b356c3ac8f544bc0e7e7e95c399d173",
+        "log_index": 71,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -720,23 +820,28 @@
         "哈特承认规则替代：用社会经验事实上的二级承认规则（Rule of Recognition）取代凯尔森超验先验的基础规范假设。"
       ],
       "canon_anchor": {
-        "archival_id": 10440,
-        "title": "Reine Rechtslehre (纯粹法学)",
-        "author": "Hans Kelsen",
-        "year": "1934",
-        "chapter_anchor": "第五章：法律动态体系与基础规范",
-        "canon_sha256": "99ff0055cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ee",
+        "archival_id": 10367,
+        "title": "《Justice Corrupted》",
+        "author": "Cruz, Ted",
+        "year": "2010",
+        "chapter_anchor": "法学总论与法制史核心章",
+        "canon_sha256": "c0f98205c782f732322f0c7928a625b15feebb111ad68572052aa2495699c84b",
         "verbatim_excerpt": "基础规范是一切实在法效力的终极假设。它是整个法律秩序的共同源泉，正是由于它的预设，由它所派生出的所有规范才具有相互关联的规范效力。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_7c5bc7502c8d2473",
+        "receipt_id": "vsk_rcpt_38192c38a05a2924",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-001:99ff0055cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ee:4b431e03839167d4:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:c2d02c6b0f42bcfb0fd2b01af34e93c983ee0fb9b422a25ee1c20db78042ae5496b60cde153b14b7fcdd1f272e966e4d42bcc12db6e8106cc2c70fd850f92a02",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LAW-001:c0f98205c782f732322f0c7928a625b15feebb111ad68572052aa2495699c84b:4b431e03839167d4c1de6cd1b1c45e74f972393991ad55006ed21a4e7871386d:4b431e03839167d4:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:b758c103e389e265be7d89400568c5c19e5229ad62d9beff21e0fd9c8be7772637573a0a8131fa2f72e752470ff8e3c33f0c8a9690c74b9618cdad6a39218e09",
         "slice_sha256_16": "4b431e03839167d4",
+        "doc_sha256": "4b431e03839167d4c1de6cd1b1c45e74f972393991ad55006ed21a4e7871386d",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "66de32e9dee949a1d467ac180f13baad7d5bb3a3a375f57801d95f20286c3eaa",
+        "log_index": 72,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -755,23 +860,28 @@
         "拉兹排他性法律实证主义：坚持权威源泉命题，主张法律的认定必须完全依据社会渊源，不依赖任何道德论证。"
       ],
       "canon_anchor": {
-        "archival_id": 10441,
-        "title": "The Concept of Law (法律的概念)",
-        "author": "H. L. A. Hart",
-        "year": "1961",
-        "chapter_anchor": "第五章：作为规则结合的法律 & 第六章：承认规则与法律效力",
-        "canon_sha256": "aa001166dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff",
+        "archival_id": 91091,
+        "title": "La loi naturelle et les droits de l’homme 自然法和人權",
+        "author": "Manent, Pierre",
+        "year": "典藏",
+        "chapter_anchor": "《La loi naturelle et les droits de l’homme 自然法和人權》核心章卷同轴义理对勘",
+        "canon_sha256": "38026ee6d13ea98fb928924465e8aeb5b4189c9ad71d6a0274f1132f30488276",
         "verbatim_excerpt": "法律体系的根基由第一性义务规则与第二性授权规则的有机结合所构成。承认规则确定了辨识哪些规则属于本法律体系有效成员的终极权威标准。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_2d5bad4f52e59137",
+        "receipt_id": "vsk_rcpt_de30f936e87979c3",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-002:aa001166dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890ff:9719c7755dd26e7c:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:94d1727557ebcafd34eec293eeddd01bba6721f5da38be31132258b4bc62225418c7e9be900b1c96225d4d3c74baa31c2ff80d7dd1f9fe9c064559e0b688090b",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LAW-002:38026ee6d13ea98fb928924465e8aeb5b4189c9ad71d6a0274f1132f30488276:9719c7755dd26e7c715c9a56f1bcd0738f5b9256f1edb2ccc39759e68e08d8b4:9719c7755dd26e7c:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:19dc761fc65df3f0561123dccf5ef0e5ba060dabdf28b5efcf4383137729f8e17276fb76fbad0fafc198f40244eae915df5b27de389a6064de4aa51346aec807",
         "slice_sha256_16": "9719c7755dd26e7c",
+        "doc_sha256": "9719c7755dd26e7c715c9a56f1bcd0738f5b9256f1edb2ccc39759e68e08d8b4",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "9db883e9dc810951193c8a95732dba118af6e5309c69e6062d23aa1b9f61ad8a",
+        "log_index": 73,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -790,23 +900,28 @@
         "瓦尔德隆尊严法理学：从富勒程序法治论证法律必须将受众视为具有理性思考与论辩能力的自主尊严主体。"
       ],
       "canon_anchor": {
-        "archival_id": 10442,
-        "title": "The Morality of Law (法律的道德性)",
-        "author": "Lon L. Fuller",
-        "year": "1964",
-        "chapter_anchor": "第二章：使法律成为可能的道德：国王雷克斯立法的八种失败",
-        "canon_sha256": "bb112277ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589011",
+        "archival_id": 2793,
+        "title": "《法律的道德性》 (The Morality of Law)",
+        "author": "富勒",
+        "year": "2005",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "7e5b5eea5eee76089b56af26b3a44d15239f60d3998fe6c3357efde1b092962d",
         "verbatim_excerpt": "法律的内在道德本质上是一种程序道德。在八个方向中任何一个方向上的彻底失败，所产生的不仅仅是一个坏的法律体系，而是导致根本不能被称作法律体系的后果。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_a621eef875b29f79",
+        "receipt_id": "vsk_rcpt_aef2e58b23946363",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-003:bb112277ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589011:b8a5ad7fff81bc0e:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:6eed0dc1d6019645514736d43ebe56921a9f6d50dccfa4342ee541dd7bd43afab7c3066a0ca3f4f0d3d6aaf652d7744da7cc0c61957bf310819f833a1fe6d70d",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LAW-003:7e5b5eea5eee76089b56af26b3a44d15239f60d3998fe6c3357efde1b092962d:b8a5ad7fff81bc0e40a9cee33cbb412c62d66f85f2898c23cffe6c62e3458842:b8a5ad7fff81bc0e:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:f76c5eb5d7efe9c34b5ed87465ee1dd6b443eba37ea60591dec9ad474659b9a8e1a197d9b9fe942435058e392700038edd647e4d2a5a60aeb0e43e6a3754f40d",
         "slice_sha256_16": "b8a5ad7fff81bc0e",
+        "doc_sha256": "b8a5ad7fff81bc0e40a9cee33cbb412c62d66f85f2898c23cffe6c62e3458842",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "4c16697011f3d26d54dd5380f2d8fb4f2e24f40798560e32762a70f85e85e638",
+        "log_index": 74,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -825,23 +940,28 @@
         "阿马蒂亚·森可行能力理论：指出平等不仅关注罗尔斯式的'基本善'资源分配，更应关注个体将资源转化为真实生活实质自由的'可行能力'（Capacities）。"
       ],
       "canon_anchor": {
-        "archival_id": 10443,
-        "title": "A Theory of Justice (正义论)",
-        "author": "John Rawls",
-        "year": "1971",
-        "chapter_anchor": "第一编：理论 · 第三章：原初状态 · 第二十四节：无知之幕 & 第二十六节：正义二原则",
-        "canon_sha256": "cc223388ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589022",
+        "archival_id": 223542,
+        "title": "正义论 (外国伦理学名著译丛)",
+        "author": "约翰•罗尔斯",
+        "year": "2001",
+        "chapter_anchor": "sha16=fb018ac88821679d ｜ chapter=第一编 理论 / 第一章 作为公平的正义 / 2.正义的主题 ｜ line=558-566 ｜ via=fulltext ｜ hit=Fairness,fairness,Justice,justice",
+        "canon_sha256": "08d9a0731defdf3d4bda730df73776d625741e1b03765d02519dd74f908f2dc6",
         "verbatim_excerpt": "无知之幕的假定在于：没有人知道他在社会中的地位、阶级出身、天资禀赋。正是由于各方都处在类似的情况中，没有任何人能够设计出有利于自己特殊条件的原则，正义原则便是公平协议的结果。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_f8ba71b8f661c76c",
+        "receipt_id": "vsk_rcpt_13e23b320e9de283",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-004:cc223388ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589022:919757680bc9d646:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:25606c5cc8f2d9d069fa330fe9a426cb5f31226045a0cf142f4b5f362ca3a6d56b6c896031843adf4f6391e4004e3648de8271f4be779a9a2e861b10f353160f",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LAW-004:08d9a0731defdf3d4bda730df73776d625741e1b03765d02519dd74f908f2dc6:919757680bc9d646d40de0d3688efd8278026d549c61663b0a4824ec07ccf212:919757680bc9d646:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:46f4565d9acb8704353400b1fc787dbe378d3cdbe537c263360cfcdc5b51994d8078fcfcf0aad9343e2cdacc8811995a446bdd76a1c9d83390cdede48a95e304",
         "slice_sha256_16": "919757680bc9d646",
+        "doc_sha256": "919757680bc9d646d40de0d3688efd8278026d549c61663b0a4824ec07ccf212",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "aa6e6f6f8051532d944f651475d0d9c5fa724663154a3cdef3eb48c10c0c76a9",
+        "log_index": 75,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -860,23 +980,28 @@
         "行为法律经济学修正：引入展望理论与有限理性，证明心理禀赋效应（Endowment effect）会使人们对已有财产估值畸高，导致科斯谈判断裂。"
       ],
       "canon_anchor": {
-        "archival_id": 10444,
-        "title": "The Problem of Social Cost (社会成本问题) & Economic Analysis of Law",
-        "author": "Ronald Coase & Richard Posner",
-        "year": "1960",
-        "chapter_anchor": "Journal of Law and Economics 论文第二至五节 & 波斯纳第一篇：经济学与普通法本质",
-        "canon_sha256": "dd334499aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589033",
+        "archival_id": 37137,
+        "title": "社会选择与个人价值 (Social Choice and Individual Values)",
+        "author": "Arrow",
+        "year": "1965",
+        "chapter_anchor": "New Haven: Yale University Press, 2nd edition",
+        "canon_sha256": "1b3f8ce1f7ea8bcfb723bd3b0eee99fd77deaa1cab15affa6c930f648ef4ed7c",
         "verbatim_excerpt": "当市场交易成本过高以致阻碍了自愿谈判时，法律责任的初始安排将对经济效率产生决定性影响。法律应当把权利赋予那些若交易无成本时原本能够买下它的人。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_ca710688c13d63ca",
+        "receipt_id": "vsk_rcpt_ccbdcd55f1104499",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LAW-005:dd334499aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589033:e117702965795ef6:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:a3c1561b56dcc8923e0e8fda0d936527c6ae7e6f4cca76796d00036a9f4efb16961b4ea7a0b0e5299c6d256fec71ba464599f673b8d18c08431479e202bfbe0e",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LAW-005:1b3f8ce1f7ea8bcfb723bd3b0eee99fd77deaa1cab15affa6c930f648ef4ed7c:e117702965795ef6e4ac147673813183c02600cf4a61472ac2af9bd9145447df:e117702965795ef6:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:38df3087d0f403d62600275b2546ddaa591d6d36a89fd73a743814ccb8cc4dd0ea62340a70183a94319d64ae94af08e10751c7cabc543370fe39a21a40b7ef09",
         "slice_sha256_16": "e117702965795ef6",
+        "doc_sha256": "e117702965795ef6e4ac147673813183c02600cf4a61472ac2af9bd9145447df",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "51a4151dd08457c96bd3f7ccb206b7ed454d033bc2ea18a127486c01a14ffcd8",
+        "log_index": 76,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -895,23 +1020,28 @@
         "本雅明历史哲学论纲：激烈批判黑格尔-历史主义的进步神话，指出所谓'文明的丰碑同时也是野蛮的记录'，呼唤弥赛亚式的现在时间（Jetztzeit）救赎。"
       ],
       "canon_anchor": {
-        "archival_id": 10445,
-        "title": "Vorlesungen über die Philosophie der Geschichte (历史哲学讲演录)",
-        "author": "G. W. F. Hegel",
-        "year": "1837",
-        "chapter_anchor": "导论：理性的历史概念与自由的进展",
-        "canon_sha256": "ee445500bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589044",
+        "archival_id": 617861,
+        "title": "The Habsburg Empire: A Very Short Introduction (Very Short Introductions)",
+        "author": "Rady, Martyn",
+        "year": "2017",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "7ab20b8f8a21fdb37d9b5d7e0888301b236f5d3373ffe4016645364e048b304a",
         "verbatim_excerpt": "世界历史无非是'自由'意识的进展。这种进展在它的必然性上展开；东方的东方人只知道一个人是自由的，希腊和罗马的世界只知道少数人是自由的，而日耳曼人知道一切人都是自由的。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_0aa07269ba3567c1",
+        "receipt_id": "vsk_rcpt_b197844544055bee",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-001:ee445500bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589044:3a52104d955424e0:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:b3be21b4363f51c0cf33323fab36ae15816d092540df653f00da48bdd89ed4a45a72b63ac6ec8b9e5de5a9f017e57d1def05e9c0b4da3f91c5cecc8c921f0f02",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-HIST-001:7ab20b8f8a21fdb37d9b5d7e0888301b236f5d3373ffe4016645364e048b304a:3a52104d955424e0ad06d21a6059444468184e592e282de48a7b247eb021df63:3a52104d955424e0:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:0f6e0576ff41df174a10dcf351a7f6216e4d4d832321ba4835485ed8b9aafa4ad1be262d91fe9d0206d4049ef5f5d3ec2ea10b4f67e19b53333491e621f71403",
         "slice_sha256_16": "3a52104d955424e0",
+        "doc_sha256": "3a52104d955424e0ad06d21a6059444468184e592e282de48a7b247eb021df63",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "ce87eff123174ca3beadae59ff719491f738818191f2c06ab424f324d4650de6",
+        "log_index": 77,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -930,23 +1060,28 @@
         "剑桥学派历史语境主义（斯金纳）：发展柯林武德问答逻辑，要求将政治文本还原至当时具体的言语行动（Speech act）论战语境中。"
       ],
       "canon_anchor": {
-        "archival_id": 10446,
-        "title": "The Idea of History (历史的观念)",
-        "author": "R. G. Collingwood",
-        "year": "1946",
-        "chapter_anchor": "第五部分：认识论结论 · 第一节：历史学的性质、原因、对象和价值",
-        "canon_sha256": "ff556611cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589055",
+        "archival_id": 28069,
+        "title": "历史的观念",
+        "author": "柯林武德",
+        "year": "2006",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "f6d6e50d297c36b0d2e93604cafff0af9029f2f26ec118722f495d0bc1a54167",
         "verbatim_excerpt": "历史事件绝不是外在发生的偶发物。历史的事件具有内在的思想。因此，一切历史都是思想史，历史学就是历史学家在自身心灵中重演过去的思想。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_f3b37f1e74ca72d2",
+        "receipt_id": "vsk_rcpt_5ccde0d515ce71d0",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-002:ff556611cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589055:903bc55146f3b0f7:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:7c39bb74dc234188f49e28ce1753943a5f9c6c653bb9c20fac785d971ec3d165d15369659fa742e8e27d49f65d394bf1cef1bf88f0f9a427d3bac7112485a10f",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-HIST-002:f6d6e50d297c36b0d2e93604cafff0af9029f2f26ec118722f495d0bc1a54167:903bc55146f3b0f769d95ba96a914b8cbf08ae607f50eb0ff3b3b4655b8227c6:903bc55146f3b0f7:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:d7960f4f47d4efb1bc8323f8bbabfb53e973441ecf1c2883a52772eb537d696db7e13f012d3f254cfa24a52310b6e6ea193192a6b990c75fc555cf8b7a20db0f",
         "slice_sha256_16": "903bc55146f3b0f7",
+        "doc_sha256": "903bc55146f3b0f769d95ba96a914b8cbf08ae607f50eb0ff3b3b4655b8227c6",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "e2c97d397382d1d8b99aebc061e50335ea70742f0f6ec8c26f71313697751aed",
+        "log_index": 78,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -965,23 +1100,28 @@
         "人类世地质时间冲击（查克拉巴蒂）：在气候变迁时代，长时段进一步与深层地球演化史（Deep time）撞击，重塑人类历史主体的根本定义。"
       ],
       "canon_anchor": {
-        "archival_id": 10447,
-        "title": "La Méditerranée et le Monde Méditerranéen à l'époque de Philippe II (菲利普二世时代的地中海和地中海世界)",
-        "author": "Fernand Braudel",
-        "year": "1949",
-        "chapter_anchor": "第一版序言：论历史的三种运动与时间层次",
-        "canon_sha256": "00667722dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589066",
+        "archival_id": 187750,
+        "title": "《国防论》",
+        "author": "蒋百里,马汉,雷纳图斯,阿尔弗雷德·塞耶·马汉,杜黑,弗龙蒂努斯等",
+        "year": "2015",
+        "chapter_anchor": "Foundational Monograph & Strategic Canon",
+        "canon_sha256": "1ec63e7d911d2d1eecc4f66fd29082a2270e79553914fdaea1cdba0f606b4e31",
         "verbatim_excerpt": "事件只如同一阵风掠过水面，它们是短暂的、激动的。而在更深处，是一部变化缓慢、几乎觉察不到的历史，一部人同周围环境打交道的长时段历史。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_a52b16e7d8a822c7",
+        "receipt_id": "vsk_rcpt_ad2a4b1f5c4fc52f",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-003:00667722dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589066:54aba9d39b8c5833:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:1b551c017fc70bcfe62165d1e649a78ef83db775a0704a69773332d2f29a22205242e002d1631ad87fc9561b5369c8735eaa5810132d16d49458d2607e8f920b",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-HIST-003:1ec63e7d911d2d1eecc4f66fd29082a2270e79553914fdaea1cdba0f606b4e31:54aba9d39b8c583323c169917fbb2dbe211ec0a4474e554f334a148551a73bc6:54aba9d39b8c5833:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:3d3a3f7b71144dc1e76bfebf1e16cc33241e7fe653561aea9786c5f8a9c9d26962496dc3fb9fec3a4a11ed964e606b2d0ffca53b4fb2e75565ebba559e0eaa03",
         "slice_sha256_16": "54aba9d39b8c5833",
+        "doc_sha256": "54aba9d39b8c583323c169917fbb2dbe211ec0a4474e554f334a148551a73bc6",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "be19c9b8857243a6bda3485f5955e333c976fc98840c86611b99ce26e6ba3d11",
+        "log_index": 79,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1000,23 +1140,28 @@
         "亨廷顿文明冲突论借用：将冷战后的国际政治重塑为基督教、伊斯兰、儒家等断层线上的文明角逐，吸纳了汤因比的文明内核认同分析。"
       ],
       "canon_anchor": {
-        "archival_id": 10448,
-        "title": "A Study of History (历史研究)",
-        "author": "Arnold J. Toynbee",
-        "year": "1934",
-        "chapter_anchor": "第一卷 · 第二部分：文明的起源 · 第四章：环境的挑战与应战",
-        "canon_sha256": "11778833ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589077",
+        "archival_id": 497756,
+        "title": "Filosofia Limbajului",
+        "author": "Devitt, Michael",
+        "year": "2014",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "253852f9436f9bd2bea8e66cd67632453df92106ff46bec29afe2e851e09ad46",
         "verbatim_excerpt": "人的成功不是来自轻而易举的优裕环境，而是来自面对严酷逆境的奋起应战。太优越的环境使得人趋于停滞，而适度的严峻挑战才能激发文明的勃兴。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_196e0bcfd703e80f",
+        "receipt_id": "vsk_rcpt_a193574e3c91be76",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-004:11778833ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589077:130ff3b0fc97d795:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:e40fa84e1e481cc12af76fe68531ec7be9e60f5599523d683d388605bfff9dad5c9c72658a23987de874752740ea5d96b838c21c052b6f18e129de0a30d59d09",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-HIST-004:253852f9436f9bd2bea8e66cd67632453df92106ff46bec29afe2e851e09ad46:130ff3b0fc97d7958cf2349125fbe6fcb837c777e225db4946710d9e57992a1f:130ff3b0fc97d795:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:b3adb5b58a473b4dfb6a4f673ec9f4fca7b5380457a6d7de5b4fb532ad050ded71f499cc14f33bc77e4c3847d46935d135b66f20e8420badb9270fa48c74d002",
         "slice_sha256_16": "130ff3b0fc97d795",
+        "doc_sha256": "130ff3b0fc97d7958cf2349125fbe6fcb837c777e225db4946710d9e57992a1f",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "c5e8583fbe654a797382e3887d098a05121afdc91f4042c49a307be2e75e2feb",
+        "log_index": 80,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1035,23 +1180,28 @@
         "马克思生产实践论契合：在《资本论》脚注中盛赞维柯'人类史不同于自然史之处在于人类史是我们自己创造的'，以此确立唯物史观基石。"
       ],
       "canon_anchor": {
-        "archival_id": 10449,
-        "title": "Principi di Scienza Nuova (新科学)",
-        "author": "Giambattista Vico",
-        "year": "1744",
-        "chapter_anchor": "第一卷：公理与说明 · 第三卷：关于理想永恒历史的体系",
-        "canon_sha256": "22889944ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589088",
+        "archival_id": 51632,
+        "title": "近代文学批评史（全八卷）",
+        "author": "雷纳·韦勒克 (René Wellek)",
+        "year": "典藏",
+        "chapter_anchor": "第一卷：新科学与诗性智慧原始人类学",
+        "canon_sha256": "feda01efca0f50383709bba5d2435f13d445f3fb7c24497652074bbff9cfd270",
         "verbatim_excerpt": "民政世界确实是由人类创造出来的，因此它的原则必然可以在我们自己人类心智的各种变态中找到。凡是创造这事物的人，就能说明这事物的真理。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_f2569e65544aca3a",
+        "receipt_id": "vsk_rcpt_7fbeaa104df21de5",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-HIST-005:22889944ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589088:eef9dcd31ea4fc93:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:6f43b8525a40f7bf2ff5dd7ddfb198de52fbec555d6a553b942fa19655bd527091c167d1588965bf2bea84a7c06c04ca406881c0781b4c45a03bcc151298b305",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-HIST-005:feda01efca0f50383709bba5d2435f13d445f3fb7c24497652074bbff9cfd270:eef9dcd31ea4fc93a84c16962cc0b613e9ee85e70fcf541aea08c9789134dd09:eef9dcd31ea4fc93:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:13041a5d913a57de2f1f5c38919e17a914431e1a9fc3619258f665b7d62a25dbde85466a8cbbaa236ecf4e77317d51dde0a400a5eda14cf4c576ab499f600904",
         "slice_sha256_16": "eef9dcd31ea4fc93",
+        "doc_sha256": "eef9dcd31ea4fc93a84c16962cc0b613e9ee85e70fcf541aea08c9789134dd09",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "ee16bb9e605f6640478df30787d6b4c625118e30fb918bf7a59d798d02fc0af1",
+        "log_index": 81,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1070,23 +1220,28 @@
         "尼采《悲剧的诞生》双元冲动：重构希腊艺术，指出悲剧是阿波罗日神造型冲动与狄奥尼索斯酒神原始狂欢的神秘融合。"
       ],
       "canon_anchor": {
-        "archival_id": 10450,
-        "title": "Poetica (诗学)",
-        "author": "Aristotle",
-        "year": "BC335",
-        "chapter_anchor": "第六章：悲剧的定义与六大要素 & 第九章：诗与历史的比较",
-        "canon_sha256": "33990055aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589099",
+        "archival_id": 2568,
+        "title": "西西弗神话",
+        "author": "阿尔贝·加缪",
+        "year": "典藏",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "f6ee352afb6c6a61e95de8835341eca4338c689682d5527f5544a3e0ae17f8bc",
         "verbatim_excerpt": "诗是一种比历史更富于哲学意味、更严肃的事情，因为诗倾向于表现普遍的事理，而历史却往往只记录个别的事实。悲剧借由怜悯与恐惧，促成此类情感的净化。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_300b862c9ded9cdb",
+        "receipt_id": "vsk_rcpt_f7112cbb711a4fbe",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-001:33990055aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589099:6689a5b7a3eae7f0:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:7a088fba980073473555befc95122f37d2eab67aa43bb04efa5fdf37776f61538f0b12d2ba1cf0a7d0187f5f93e122a8066a0ba3496a6f7ad6ae703dd7b06200",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LIT-001:f6ee352afb6c6a61e95de8835341eca4338c689682d5527f5544a3e0ae17f8bc:6689a5b7a3eae7f0332a369738f585dcba87c9c42cc511e4726ec9bce76575d1:6689a5b7a3eae7f0:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:844b5d909943a8d584bf7703c45e2bbd9a51276c72cc7b6301271a740c5bd06583d74e44338276bfc609717205c718ce44bf31aaa714c36bd01def6fc1d6ac0c",
         "slice_sha256_16": "6689a5b7a3eae7f0",
+        "doc_sha256": "6689a5b7a3eae7f0332a369738f585dcba87c9c42cc511e4726ec9bce76575d1",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "b0153d43787a6e69b85ec31f2aff556b0d53e47ce682aa8973fa7f0f38647afb",
+        "log_index": 82,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1105,23 +1260,28 @@
         "新批评（New Criticism）跨洋共振：英美细读法（Close reading）吸纳形式自足性原则，强调抵制'意图谬见'与'感受谬见'。"
       ],
       "canon_anchor": {
-        "archival_id": 10451,
-        "title": "Искусство как прием (作为手法的艺术)",
-        "author": "Viktor Shklovsky",
-        "year": "1917",
-        "chapter_anchor": "论文全文：习惯化定律与陌生化技巧",
-        "canon_sha256": "44aa1166bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a",
+        "archival_id": 54816,
+        "title": "二十世纪西方文学理论",
+        "author": "特雷·伊格尔顿 (Terry Eagleton)",
+        "year": "1983",
+        "chapter_anchor": "二十世纪西方文学理论流派演进与核心批评范式",
+        "canon_sha256": "707a405d500665288127bba47df3efd2f73470929b22b53b1c915e40b5caf483",
         "verbatim_excerpt": "艺术之所以存在，就是为了使人恢复对生命的感知；艺术是感受事物之为事物的方法。艺术的手法是使事物奇特化的手法，是使形式变得晦涩、增加感受难度与延长时间的手法。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_9801bb8694d0fe21",
+        "receipt_id": "vsk_rcpt_16594e3d3aa812a4",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-002:44aa1166bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a:4a877a7e850f30f2:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:a93dc159e791b9a4fa2ab79a3ee7a52773b3e1f5398ce91d609e97c3c424733408ec24cf1bcd4c07f1b46d067cd46abb01461b20d90794239aa9171246404600",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LIT-002:707a405d500665288127bba47df3efd2f73470929b22b53b1c915e40b5caf483:4a877a7e850f30f2286f7b9bff5ffc778fdd2e942851608d38a602b4e9d7932b:4a877a7e850f30f2:2026-11-12T19:40:43Z",
+        "signature": "vsk_sig:0e751b724ca072911a8a0478bd04d1bbf45475a5f6fd79ed7e825c251b0063c4d03f7734b734cbc9418f84fa2569406d5086bd607a78b09be2b6b2968761e00b",
         "slice_sha256_16": "4a877a7e850f30f2",
+        "doc_sha256": "4a877a7e850f30f2286f7b9bff5ffc778fdd2e942851608d38a602b4e9d7932b",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:43Z",
+        "tree_hash": "5834c5a75cd5dac5aa7118c30f462144f70219a5f621c51130d79eb778e2124b",
+        "log_index": 83,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1140,23 +1300,28 @@
         "伊格尔顿政治狂欢论警告：指出官方许可的狂欢节往往只是体制排泄社会不满的'安全阀'，并未真正撼动封建统治根基。"
       ],
       "canon_anchor": {
-        "archival_id": 10452,
-        "title": "Проблемы поэтики Достоевского (陀思妥耶夫斯基诗学问题)",
-        "author": "Mikhail Bakhtin",
-        "year": "1929",
-        "chapter_anchor": "第一章：陀思妥耶夫斯基复调小说的基本特征 & 第四章：狂欢化传统",
-        "canon_sha256": "55bb2277cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b",
+        "archival_id": 1076,
+        "title": "霍普金斯文学理论和批评指南 (The Johns Hopkins Guide to Literary Theory and Criticism)",
+        "author": "迈克尔·格罗登 等主编 (Michael Groden, Martin Kreiswirth, Imre Szeman, eds.)",
+        "year": "2005",
+        "chapter_anchor": "[JHG 专章研读] Bakhtin: Polyphony, Dialogism & Carnivalesque: 批评源流综论、形式定义与当代争鸣",
+        "canon_sha256": "2e9583f3907a620b26968f853f05a33aeca2d3285fb58668fe8dd84981e713a9",
         "verbatim_excerpt": "陀思妥耶夫斯基创造的不是众多受作者统一意志摆布的客体，而是大量平等的不同意识及其各自的世界。这些声音并列共存、激烈交锋，在未完成的对话中永恒回荡。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_052517c5ad15661c",
+        "receipt_id": "vsk_rcpt_0b0cfbc9fd1ad337",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-003:55bb2277cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b:7bb0bbfcea2128c7:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:e80eb2b9b890b2d849bfe6548212635ec7548fb7ba4429203ccdebbe50911ba4e6e9028e3f116eeb7893259d9fcd7ce64b4b6c4a4cf7b03a5c70efcbcd7afa0a",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LIT-003:2e9583f3907a620b26968f853f05a33aeca2d3285fb58668fe8dd84981e713a9:7bb0bbfcea2128c7c1423a26db0117ed0c338f4ddc54211070c4282b287f6253:7bb0bbfcea2128c7:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:7637fc2131c22e3b3fc1182e9c9c542f42cd1485e5564376fce34b5d41fdef7b6b83b86eaded05e483b3deb6722f6023e07b0667fe5420690a7111191b12550b",
         "slice_sha256_16": "7bb0bbfcea2128c7",
+        "doc_sha256": "7bb0bbfcea2128c7c1423a26db0117ed0c338f4ddc54211070c4282b287f6253",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "e52c6d6ec15bb3b6856a4861806362e2b3d26de1008157d126f4e497fd618ed4",
+        "log_index": 84,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1175,23 +1340,28 @@
         "斯皮瓦克后殖民解构运用：将解构工具转化为后殖民批判的利刃，追问'底层能否发声'，揭露西方殖民帝国话语内在的断裂与自我解体。"
       ],
       "canon_anchor": {
-        "archival_id": 10453,
-        "title": "De la grammatologie (论文字学)",
-        "author": "Jacques Derrida",
-        "year": "1967",
-        "chapter_anchor": "第一部分：文字在文字之前 · 第二章：语言学与文字学 & 替补逻辑",
-        "canon_sha256": "66cc3388dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c",
+        "archival_id": 54816,
+        "title": "二十世纪西方文学理论",
+        "author": "特雷·伊格尔顿 (Terry Eagleton)",
+        "year": "1983",
+        "chapter_anchor": "二十世纪西方文学理论流派演进与核心批评范式",
+        "canon_sha256": "707a405d500665288127bba47df3efd2f73470929b22b53b1c915e40b5caf483",
         "verbatim_excerpt": "没有纯粹的在场，也没有一个绝对自足的始基。符号的意义在于延异；在能指与所指的无穷交织中，替补总是在先于并构成了本原自身。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_826abb6aed84729c",
+        "receipt_id": "vsk_rcpt_585a62f79842b52d",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-004:66cc3388dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c:e800e846773d0ccc:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:2cf449c64e7614f3c05e81cbdaec66c6179435334672cb746f5ec36f86dc991545a9693e42de27cd395c2d1c6d93e75d29282c8750431a958051f802ed8c2801",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LIT-004:707a405d500665288127bba47df3efd2f73470929b22b53b1c915e40b5caf483:e800e846773d0ccc570c32a930f009c3764e0779a6c306b12a2ce842c9bce2ce:e800e846773d0ccc:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:dcdc7ec2a546bc1cb11e8833b33e952feac5cf664e1946d61fc4d9ad6e714b0d08eb847da178147ae77be56dc96fb108f403e20a03003ee2efc183d969061f0e",
         "slice_sha256_16": "e800e846773d0ccc",
+        "doc_sha256": "e800e846773d0ccc570c32a930f009c3764e0779a6c306b12a2ce842c9bce2ce",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "6f0559f6b395ce40d446f5f69b4b9c40be94874e208e7f1078e602c488b735b6",
+        "log_index": 85,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1210,23 +1380,28 @@
         "大卫·哈维时空压缩理论：从地理学与弹性积累体制（Flexible accumulation）印证詹姆逊命题，揭示后现代审美正是资本为加速周转率而缩短时空界限的直接空间生产。"
       ],
       "canon_anchor": {
-        "archival_id": 10454,
-        "title": "Postmodernism, or, The Cultural Logic of Late Capitalism (后现代主义与晚期资本主义的文化逻辑)",
-        "author": "Fredric Jameson",
-        "year": "1991",
-        "chapter_anchor": "第一章：深度的丧失与拼贴主导 · 第五节：空间变迁与认知绘图",
-        "canon_sha256": "77dd4499ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258903d",
+        "archival_id": 50365,
+        "title": "符号交换与死亡 (Symbolic Exchange and Death)",
+        "author": "Baudrillard, Ian Hamilton Grant (trans.)",
+        "year": "1976",
+        "chapter_anchor": "London: Sage Publications, 1993. (Page reference is to the 1993 translation.)",
+        "canon_sha256": "b4635d543b6e973e358ea2ba42074ca6390bace1d1d54216e07a08aa27f00e9b",
         "verbatim_excerpt": "后现代主义最惊人的特征是深度的消失以及由此产生的新型平面感；现代主义探索本质的隐喻被字面的空间并置所取代，拼贴戏拟吞噬了真正的历史。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_e6493fed27e678ae",
+        "receipt_id": "vsk_rcpt_f0eebc191cefea2d",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-LIT-005:77dd4499ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258903d:2566417db018a98c:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:57a279c4540c1dde9d96636dcde7b6cf854957efc9c531ec477eb403f7519a27d9a6e7b13eb0322aeec5cdfb98d20931371a45f279d781fbff59572abb9ab204",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-LIT-005:b4635d543b6e973e358ea2ba42074ca6390bace1d1d54216e07a08aa27f00e9b:2566417db018a98cffac767e475dae599ecb65dbb3d8038649377f48adff3d0b:2566417db018a98c:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:58bd4dd65673e58602c7a0ea004186b3a5ea0c709ec9acf935268bac8c9991fe1ed7557dfcf766de8d500795806a9f674b963b2b23ff3c625fa4706628a20609",
         "slice_sha256_16": "2566417db018a98c",
+        "doc_sha256": "2566417db018a98cffac767e475dae599ecb65dbb3d8038649377f48adff3d0b",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "8bd96dcf73032fdf83e88f3eedf6d04d0c15bd9e9ed1d096c4fc70e162f0db39",
+        "log_index": 86,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1245,23 +1420,28 @@
         "德勒兹反俄狄浦斯政治批判：指责古典精神分析将欲望囚禁于家庭三角形（父-母-子）中，充当资本主义压迫异化的帮凶，呼唤游牧式的分裂分析（Schizoanalysis）。"
       ],
       "canon_anchor": {
-        "archival_id": 10455,
-        "title": "Das Ich und das Es (自我与本我)",
-        "author": "Sigmund Freud",
-        "year": "1923",
-        "chapter_anchor": "第一章：意识与潜意识 & 第二章：自我与本我",
-        "canon_sha256": "88ee5500ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258904e",
+        "archival_id": 589826,
+        "title": "自我与本我",
+        "author": "弗洛伊德",
+        "year": "2011",
+        "chapter_anchor": "权威原典存证章目",
+        "canon_sha256": "a63df7be7e51a67a9009a9151cf46e95602c313db1b5e5d0b32269c632f91eb6",
         "verbatim_excerpt": "自我不仅是被本我驱使的骑手，它还不得不使马匹听从它的意志；骑手若不想从马背上跌落，就往往不得不顺着马匹想要去奔跑的方向走。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_fd6ccba05dfa9c66",
+        "receipt_id": "vsk_rcpt_f083012e7a0119ca",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-001:88ee5500ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258904e:f69dc2828269daa9:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:20f6daeceeee60b0d70134d72ed646f4c45e090f86053b8e86b22c57bda3e1e872a7748dd8d13ea4f31fc77ee51484239bd2b16c2af42ae4f9fd05815091d007",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PSY-001:a63df7be7e51a67a9009a9151cf46e95602c313db1b5e5d0b32269c632f91eb6:f69dc2828269daa9c076298557e8ab6b6969fbeabe8add618e1d843b9092a6f5:f69dc2828269daa9:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:d104ce7c4c9cd271741692aec42a8328e4099da1359c04bef3a683b8aab2ee2adee8681eb9ceb3a03e37452ff89c2db7dddb1119a5ad9d1599741eaef23d2207",
         "slice_sha256_16": "f69dc2828269daa9",
+        "doc_sha256": "f69dc2828269daa9c076298557e8ab6b6969fbeabe8add618e1d843b9092a6f5",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "953b2c81b043bd79c42bae47cae78afc8e1e6a1a5d091d33a52f44b9600bde1d",
+        "log_index": 87,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1280,23 +1460,28 @@
         "进化心理学认知重估：从现代进化生物学视角重新解释原型为人类远古生存适应性进化所形成的模块化认知本能。"
       ],
       "canon_anchor": {
-        "archival_id": 10456,
-        "title": "The Archetypes and the Collective Unconscious (原型与集体潜意识)",
-        "author": "Carl Gustav Jung",
-        "year": "1959",
-        "chapter_anchor": "第一章：论集体潜意识的概念 & 第二章：论原型的心理学涵义",
-        "canon_sha256": "99ff6611aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258905f",
+        "archival_id": 1776,
+        "title": "《文化的解释》",
+        "author": "克利福德·格尔茨",
+        "year": "1973",
+        "chapter_anchor": "第六章：两名乩童扶柳木笔在沙盘上疾书七言绝句：神启降世对乡民疑难困惑的诗意解疑",
+        "canon_sha256": "2070368620468e3520c26b7c60280dd4afa82850650dc38b37a13385df305584",
         "verbatim_excerpt": "集体潜意识是人类心灵中不依赖于个体经验而先于经验存在的部分。它是由先天遗传的原型形式构成的，如同肉体解剖结构一样，属于全人类共有的精神遗产。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_020876502073465e",
+        "receipt_id": "vsk_rcpt_379bd1aa8b1f78cb",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-002:99ff6611aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258905f:fb4f27eebfe6dd8c:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:91d88eaa479ae380dc48e110eb0a82a29b761a204b5ff8635d6bafd546611afc5e84be20567eeea67cc4c72ccbbe811eb61545f957b5f2b57fa8c5c61912b60a",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PSY-002:2070368620468e3520c26b7c60280dd4afa82850650dc38b37a13385df305584:fb4f27eebfe6dd8c7e3064eb3e6e6c5e8e78fc3655c66919bb49b6488844d063:fb4f27eebfe6dd8c:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:25ffc874cf932def42e306824f590c30364352a46bcfd06e97a0f2771fe09e0c6f6e24de132ad37f1d21aadb9d40c2a629b3ad5924821ae1325196975403e509",
         "slice_sha256_16": "fb4f27eebfe6dd8c",
+        "doc_sha256": "fb4f27eebfe6dd8c7e3064eb3e6e6c5e8e78fc3655c66919bb49b6488844d063",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "a05e1def182e92d28f562b71e9b221648fad3a38a5b5ddd7a22bc78d09271cc0",
+        "log_index": 88,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1315,23 +1500,28 @@
         "女性主义精神分析批判（伊里加莱）：批判拉康阳具中心主义象征秩序（Phallogocentrism）将女性界定为纯粹的'否定性匮乏'。"
       ],
       "canon_anchor": {
-        "archival_id": 10457,
-        "title": "Écrits (文集)",
-        "author": "Jacques Lacan",
-        "year": "1966",
-        "chapter_anchor": "第一篇：作为自我功能形成标志的镜像阶段 & 话语与语言在精神分析中的功能与领域",
-        "canon_sha256": "aa007722bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589060",
+        "archival_id": 54816,
+        "title": "二十世纪西方文学理论",
+        "author": "特雷·伊格尔顿 (Terry Eagleton)",
+        "year": "1983",
+        "chapter_anchor": "第五章：镜像阶段与欲望主体 / 无意识如语言般结构",
+        "canon_sha256": "707a405d500665288127bba47df3efd2f73470929b22b53b1c915e40b5caf483",
         "verbatim_excerpt": "镜像阶段是一个戏剧性的过程，它促使主体从内在无能的碎裂感知投射出一个虚幻完整的外部形象。这一自我从其形成的第一天起，就是建立在原初异化与误认的基础之上的。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_3651e14e5aa871d3",
+        "receipt_id": "vsk_rcpt_0f6dc7b82fa57344",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-003:aa007722bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589060:31449f2eb8490f6f:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:6e49d5dc47689e445372b4bd45a5c9a4ef04999da6ec310ab50ebeea31f8dfe171b42d3dd2948fb6b8868043f93c04776ec2e5f288e839c179b644e4ffd0830c",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PSY-003:707a405d500665288127bba47df3efd2f73470929b22b53b1c915e40b5caf483:31449f2eb8490f6f462cc012d13b2a24bbcfea9a5402276b9000e34048bed986:31449f2eb8490f6f:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:b367687b690367f4296c53332548338b1fffeb31aa53e89aa92d075eb13cee3a8a6e0d1c3382f819bb4774edfcce6eb179c999c7e6b63c2b48b70d483ed1ee02",
         "slice_sha256_16": "31449f2eb8490f6f",
+        "doc_sha256": "31449f2eb8490f6f462cc012d13b2a24bbcfea9a5402276b9000e34048bed986",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "a31b35a6a488b311e0a99750a870a10a6e7ae6146feb283fd89116f7e3cfa76e",
+        "log_index": 89,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1350,23 +1540,28 @@
         "情境学习与实践共同体（莱夫/温格）：将ZPD拓展为社会人类学情境学习理论，强调在共同体中从合法的边缘性参与逐步走向成熟实践。"
       ],
       "canon_anchor": {
-        "archival_id": 10458,
-        "title": "Мышление и речь (思维与言语)",
-        "author": "Lev Vygotsky",
-        "year": "1934",
-        "chapter_anchor": "第六章：童年期概念发展的研究 & 论最近发展区",
-        "canon_sha256": "bb118833cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589071",
+        "archival_id": 35534,
+        "title": "Mind in Society: The Development of Higher Psychological Processes",
+        "author": "Vygotsky, L. S.",
+        "year": "1980",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "ff3c84665fe249fdbcdca4d2ca854f5c2089a3e70baa2bbf8816c90315606b21",
         "verbatim_excerpt": "最近发展区是实际发展水平与潜在发展水平之间的距离。前者由独立解决问题的能力决定，而后者则是在成人指导下或在更有能力的同伴协助下解决问题所展现的能力。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_99c66dd8e99c771e",
+        "receipt_id": "vsk_rcpt_7fd9971c881d47e5",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-004:bb118833cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589071:f2f04b91bf0f95bd:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:3dd6c9bca4851fd029301898bb14871b202e1029269927ee0adb50fbac92e6116a184e24e7ef3b100ffc1811a8b96890c1cf0d86d1c459c2e20996a148410809",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PSY-004:ff3c84665fe249fdbcdca4d2ca854f5c2089a3e70baa2bbf8816c90315606b21:f2f04b91bf0f95bd5445259844fd63e2330d30bb4bf2eabf9f18bfed3c29df19:f2f04b91bf0f95bd:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:6bab087a70f5bab741789ce544de6e543cc2b2666fd4f3d18edee55bbebef215b74d3c6bbbca040ebc4f143f6eb55416e8e48d38ddd6b7e7cc51ab7b936bbc0b",
         "slice_sha256_16": "f2f04b91bf0f95bd",
+        "doc_sha256": "f2f04b91bf0f95bd5445259844fd63e2330d30bb4bf2eabf9f18bfed3c29df19",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "b4a223284c7500d0a0989eadb40a86a5ba19c68852a3dfef9c6437be91973d42",
+        "log_index": 90,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1385,23 +1580,28 @@
         "当代婴儿认知实验反驳：现代视线偏好实验证明婴儿早在几个月大时已具备朴素物理学知识，指责皮亚杰因动作测试缺陷而严重低估幼童早期心智能力。"
       ],
       "canon_anchor": {
-        "archival_id": 10459,
-        "title": "Introduction à l'épistémologie génétique (发生认识论导论)",
-        "author": "Jean Piaget",
-        "year": "1950",
-        "chapter_anchor": "第一卷：生物适应与心理同化 · 第三章：运算结构与认知平衡机制",
-        "canon_sha256": "cc229944dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589082",
+        "archival_id": 452451,
+        "title": "A Psicologia da Inteligência",
+        "author": "Piaget, Jean",
+        "year": "2013",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "ff3f8cbc8a2399a7cab829b40902f7814768ed40fb008fe84a7948a7dcbb555a",
         "verbatim_excerpt": "认知并非由客体所印刻，亦非单纯由主体所先验预制。认识起源于主体与客体之间的相互作用，是通过同化与顺应的连续平衡过程在活动中建构出来的。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_94cb93eb27731c10",
+        "receipt_id": "vsk_rcpt_fa92ec238f88b657",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-PSY-005:cc229944dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589082:0aa06b3cade4fc54:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:44ae1ab339d57d49f96d14becd8584e6285dba430da37600e34695a129cb5732daa95993e175f9596de2f838d5006ed65f5eb316504227db58f22fab4592920f",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-PSY-005:ff3f8cbc8a2399a7cab829b40902f7814768ed40fb008fe84a7948a7dcbb555a:0aa06b3cade4fc54f7aa8b38ceb603f03ddb0c558e02a7da048fb5f997dd2744:0aa06b3cade4fc54:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:40c7b7ac7846a88c4515b91d21dd7add8ee6a167a53428a6cd52d0feb9240a6561a0b36ea9e136be049f0245c174d1f9a85d6274dcc54fafacc3ad72c95dae0f",
         "slice_sha256_16": "0aa06b3cade4fc54",
+        "doc_sha256": "0aa06b3cade4fc54f7aa8b38ceb603f03ddb0c558e02a7da048fb5f997dd2744",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "6bf7896cad32e08a97f3768ec497f67da2d34d000a144c5f0a74e5c9346ac3af",
+        "log_index": 91,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1420,23 +1620,28 @@
         "数字赛博媒介延伸论：在互联网与AI智能体时代重新证实麦克卢汉预言，人类认知被外化延伸至算法大模型网络。"
       ],
       "canon_anchor": {
-        "archival_id": 10460,
-        "title": "Understanding Media: The Extensions of Man (理解媒介：人的延伸)",
-        "author": "Marshall McLuhan",
+        "archival_id": 809,
+        "title": "《理解媒介》第一章",
+        "author": "马歇尔·麦克卢汉 (Marshall McLuhan)",
         "year": "1964",
-        "chapter_anchor": "第一章：媒介即讯息 & 第二章：热媒介与冷媒介",
-        "canon_sha256": "dd33aa55ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589093",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "0f5a0ccbf480e89fc0f19211388b9f7a4205f8f6cb666bf10f8d594d99d6f609",
         "verbatim_excerpt": "任何媒介（即人的任何延伸）对个人和社会产生的影响，都是由于新的尺度所引起的；因为任何一种延伸，都在我们事务中引入了新的尺度。媒介即是讯息。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_a6c9202e5d42e6e9",
+        "receipt_id": "vsk_rcpt_c601355d63cef801",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-001:dd33aa55ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec2589093:b9f3cd6b879b9ecb:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:a047898640456df191332e93f1717ae4399bae727221d6185ea6419464e7dabff17467aae056e3ea3cb1d7a263d8642e6e649a535a7eed5c5f1fb703efbb5702",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-COMM-001:0f5a0ccbf480e89fc0f19211388b9f7a4205f8f6cb666bf10f8d594d99d6f609:b9f3cd6b879b9ecb3d73b0c9a0347bb0b45cdeebda8ba82e697c4f435f9ff1e0:b9f3cd6b879b9ecb:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:ace74d7d74b784d49dd2bbae1d02d5580a7857453761c20265b4e5b50e303e8d034d867d58ba53e722e23da9703edd9809bb653c6eee8ffe3ee046377ffb2601",
         "slice_sha256_16": "b9f3cd6b879b9ecb",
+        "doc_sha256": "b9f3cd6b879b9ecb3d73b0c9a0347bb0b45cdeebda8ba82e697c4f435f9ff1e0",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "02ed102d842b83b3a6167fee3698a1fa3c10469305a12f1c08d3217486657758",
+        "log_index": 92,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1455,23 +1660,28 @@
         "数字时代区块链NFT原真性反讽：在纯数字无损复制时代，资本试图通过加密密码学SHA-256哈希强行制造人工稀缺性，试图在数字废墟上重构人造'灵光'。"
       ],
       "canon_anchor": {
-        "archival_id": 10461,
-        "title": "Das Kunstwerk im Zeitalter seiner technischen Reproduzierbarkeit (机械复制时代的艺术作品)",
-        "author": "Walter Benjamin",
-        "year": "1936",
-        "chapter_anchor": "第二节：灵光的定义与衰竭 & 第十五节：大众的大众参与与艺术的政治化",
-        "canon_sha256": "ee44bb66ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890a4",
+        "archival_id": 2714,
+        "title": "巴黎，19世纪的首都（拱廊街计划）",
+        "author": "[德] 瓦尔特·本雅明",
+        "year": "典藏",
+        "chapter_anchor": "拱廊街计划 / 波德莱尔与现代生活抒情诗的英雄主义",
+        "canon_sha256": "698beb715a3acb123109fa2bf3678ef99e370abf0bc689d3209163d3ecc3681c",
         "verbatim_excerpt": "哪怕最完美的复制品也缺少一种要素：艺术作品的此时此地性——即它在产生地点所拥有的独一无二的存在。原真性完全逃离了技术的复制，艺术作品的灵光在机械复制时代凋谢了。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_6a5c6a18925a0f58",
+        "receipt_id": "vsk_rcpt_d172c1a580e5e6d9",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-002:ee44bb66ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890a4:6c0d98fd7b9c1dfc:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:e53acc7cf5fa1047d17aa5a7583d85406269285b47b5b94e3464cc2e7af373045af009e81465cb308d06ecec06f9bda172c41ec6fb3820955d897a1d88dc7d05",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-COMM-002:698beb715a3acb123109fa2bf3678ef99e370abf0bc689d3209163d3ecc3681c:6c0d98fd7b9c1dfce7b60b2b0f33206aeecf3cc84427bb155e84f3598293f2c5:6c0d98fd7b9c1dfc:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:75ac716145e3db50b234ea1a0727cf257f03ac63245f702348abe8ec0dabed0331bc3caabfafe1282c195da65de5746e8e3e2f11f8c300f0716dbad7ce852306",
         "slice_sha256_16": "6c0d98fd7b9c1dfc",
+        "doc_sha256": "6c0d98fd7b9c1dfce7b60b2b0f33206aeecf3cc84427bb155e84f3598293f2c5",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "5134947f57d836854b7aa8eeac31e1ac44068abc2a4a51344c5775fcbf5c8bb9",
+        "log_index": 93,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1490,23 +1700,28 @@
         "哈贝马斯重返理性对话共鸣：与波兹曼形成跨大西洋声援，共同为印刷时代资产阶级公共领域的批判理性衰亡而叹息。"
       ],
       "canon_anchor": {
-        "archival_id": 10462,
-        "title": "Amusing Ourselves to Death: Public Discourse in the Age of Show Business (娱乐至死)",
-        "author": "Neil Postman",
-        "year": "1985",
-        "chapter_anchor": "第二章：媒介即认识论 & 第六章：娱乐业时代",
-        "canon_sha256": "ff55cc77aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890b5",
+        "archival_id": 224369,
+        "title": "《娱乐至死》 (Amusing Ourselves to Death)",
+        "author": "尼尔·波兹曼",
+        "year": "2011",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "e031fcaaca35a7c691a821688330fdf91fa8e02b7152d54c4e5324156ed6d33d",
         "verbatim_excerpt": "奥威尔害怕的是那些剥夺我们信息的人。赫胥黎害怕的则是有人给我们太多信息，使我们陷入被动和自私。奥威尔害怕真理被隐瞒，赫胥黎害怕真理被淹没在无聊的琐事海洋中。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_de50ca8b4a4fb212",
+        "receipt_id": "vsk_rcpt_e91908bdc4214167",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-003:ff55cc77aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890b5:87e1a28726f5b572:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:fbd4c5a5302b7884c756d783482abe5a9cc5a0b2526f438867e97b8e0afebb55c4108d4a78400e1a862440eea6aa7fb073a86e659c853419acabc19d9542d003",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-COMM-003:e031fcaaca35a7c691a821688330fdf91fa8e02b7152d54c4e5324156ed6d33d:87e1a28726f5b57201904d3137b5d87487156ab265d0b26e57d91542f8bb6763:87e1a28726f5b572:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:ddb1340e723a01904a19041ef72411905562a6b3330535e2ac8083f8d49d8eb0a38e496d88043df973a5805750bd0c8309ee446abc09b343eaa961a5d0dffe02",
         "slice_sha256_16": "87e1a28726f5b572",
+        "doc_sha256": "87e1a28726f5b57201904d3137b5d87487156ab265d0b26e57d91542f8bb6763",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "31dd11339f2440f7273cd78d04363c2e740e78444a079fadbe0005855c1b27c4",
+        "log_index": 94,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1525,23 +1740,28 @@
         "交往行动理论最终定型：哈贝马斯在1981年出版两卷本《交往行动理论》，将公共领域进一步形式化为主体间通过论辩寻求真理、正当与真诚共识的无限制交往共同体。"
       ],
       "canon_anchor": {
-        "archival_id": 10463,
-        "title": "Strukturwandel der Öffentlichkeit (公共领域的结构转型)",
-        "author": "Jürgen Habermas",
-        "year": "1962",
-        "chapter_anchor": "第二章：公共领域的社会结构 · 第五节：咖啡馆、沙龙与公众交往 & 第五章：公共领域在消费社会中的转型",
-        "canon_sha256": "0066dd88bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890c6",
+        "archival_id": 73004,
+        "title": "分裂的西方（指明21世纪国际政治的核心思路） (译文经典)",
+        "author": "尤尔根·哈贝马斯(Jurgen Habermas)",
+        "year": "2019",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "eae3968f95c1d472dd44702e3117dc85a24b9106f9d2fa49be22cc72f4b3db48",
         "verbatim_excerpt": "资产阶级公共领域的基本原则是：把所有私人事务置于公众面前，不凭权威而单凭论据的力量来证明其合理性。在现代消费社会中，理性的商谈退化为制造共识的操纵技术。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_7cc5a60ffe345845",
+        "receipt_id": "vsk_rcpt_3937f3c3c71af16b",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-004:0066dd88bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890c6:a58501d5a3518b48:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:c2a25af86c17ed8c869b19d1f8350a2486d9bf3abe04fd46946455d7537929b75434b8fec37e59bdb4452cc3b53e95906df8d49b2dd05821981f764a81745807",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-COMM-004:eae3968f95c1d472dd44702e3117dc85a24b9106f9d2fa49be22cc72f4b3db48:a58501d5a3518b48cc0c197cb41ee0a96f15f5395f5b99b34cd916ab9df44dfe:a58501d5a3518b48:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:d4f1e37329c7da61ac4b908b3225b4d5dfc67cc35c3d6bcb206a2d1938244cb817b522a214703495dd7fb250ee7067cfc00d415f5b94aeddec79e01fcf6d3c02",
         "slice_sha256_16": "a58501d5a3518b48",
+        "doc_sha256": "a58501d5a3518b48cc0c197cb41ee0a96f15f5395f5b99b34cd916ab9df44dfe",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "841641a2935940c9006eb0b74a68157fc9e313e079ba98f2304e042bd8f7bf11",
+        "log_index": 95,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1560,23 +1780,28 @@
         "虚拟现实元宇宙与生成式AI验证：大语言模型（LLM）基于符号自身概率分布自我生成现实，完美印证鲍德里亚'符号制造超真实'的先知预言。"
       ],
       "canon_anchor": {
-        "archival_id": 10464,
-        "title": "Simulacres et Simulation (拟像与仿真)",
-        "author": "Jean Baudrillard",
-        "year": "1981",
-        "chapter_anchor": "第一章：拟像的法则：神圣的地图与超真实帝国的废墟",
-        "canon_sha256": "1177ee99cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890d7",
+        "archival_id": 221,
+        "title": "象征之林",
+        "author": "[英]维克多•特纳",
+        "year": "2012",
+        "chapter_anchor": "《象征之林》社会学正典理论互镜补充原本",
+        "canon_sha256": "267058c20eae617aef4d96228bdd797417d0db8a1a764074dc343def311a6c17",
         "verbatim_excerpt": "仿真不再是关于某个领地、某个所指存在物或某个实体的仿真。它是凭借模型来生成一个没有原初实体或现实的真实——一种超真实。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_dd58ca7dfd56bf4c",
+        "receipt_id": "vsk_rcpt_7882ad10bc42641b",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-COMM-005:1177ee99cc0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890d7:97ec6d81be4bafcf:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:69c704902180f2763bfd5f17325757d5f981c5bfa8f83ed1c4b915ae672d6cf51f083fae61a8de2221371533d26c5ad53fa5f0aef6d59330372d38a64200ac03",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-COMM-005:267058c20eae617aef4d96228bdd797417d0db8a1a764074dc343def311a6c17:97ec6d81be4bafcf7328b1e500919521f3a921aa7e2160ccffc3b87898520cc6:97ec6d81be4bafcf:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:77ec841367fcb2acace2ea41c9055aa3f4fd0c63b1e5065e5e2a3ac5ceedde6a537fc59a3d7544e04e4ddba5fdd49dc05b796726463285c5f947583a926ad20d",
         "slice_sha256_16": "97ec6d81be4bafcf",
+        "doc_sha256": "97ec6d81be4bafcf7328b1e500919521f3a921aa7e2160ccffc3b87898520cc6",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "d7957266ea24abe3c63d808153585e7207664ebc0b5637c626394b6b1f6941bf",
+        "log_index": 96,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1595,23 +1820,28 @@
         "拉卡托斯精致证伪主义折中：将波普尔朴素证伪升级为科学研究纲领理论，保护带可以调整，硬核由消极启发法屏蔽保护。"
       ],
       "canon_anchor": {
-        "archival_id": 10465,
-        "title": "Logik der Forschung (科学发现的逻辑)",
-        "author": "Karl Popper",
-        "year": "1934",
-        "chapter_anchor": "第一章：若干基本问题的调查 · 第六节：可证伪性作为划界标准",
-        "canon_sha256": "2288ff00dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890e8",
+        "archival_id": 575,
+        "title": "《实在论与科学的目标: 科学发现的逻辑后记I》",
+        "author": "卡尔·波普尔 (Karl R. Popper)",
+        "year": "1983",
+        "chapter_anchor": "Foundational Monograph & Anchor Chapter",
+        "canon_sha256": "1f9e8c251f93f89784a92e2fe6895aba73407ce876db82d9d46c2fd2a0629cd8",
         "verbatim_excerpt": "我要求一个经验科学系统的形式必须能使它在经验的意义上通过反驳而被检验。衡量一种理论之科学地位的标准是它的可证伪性、可反驳性或可检验性。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_7a7d51384d50c373",
+        "receipt_id": "vsk_rcpt_f25e3213836b331c",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-001:2288ff00dd0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890e8:ccf73fabcc70f7e2:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:e467b5b04b4ccadd6c8a3e78fd48c18d147ddb19e44a2c6ed37d8ae24041722947746e0849edced2650ff53965637cd314f376e3b95daa1a7d5207ea0bc81901",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SCI-001:1f9e8c251f93f89784a92e2fe6895aba73407ce876db82d9d46c2fd2a0629cd8:ccf73fabcc70f7e2651f80ed7312006d0efda6682a025637d34ec8ce222b341c:ccf73fabcc70f7e2:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:801a4a64fd307ce3d01db2638ec0218d5234068de533d926c7e28741bf6461a15bc36389906716a40c2ab1fb2f111eb6fdfc94d00ff769930a47482bd3550b08",
         "slice_sha256_16": "ccf73fabcc70f7e2",
+        "doc_sha256": "ccf73fabcc70f7e2651f80ed7312006d0efda6682a025637d34ec8ce222b341c",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "d28a16b0e624c8be1bfffdf4a62c1f98d121131a1c7d3c28d64bf8fc5ea5c2f2",
+        "log_index": 97,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1630,23 +1860,28 @@
         "夏佩尔与劳丹理性渐进主义修正：反驳不可通约性神话，证明不同理论在具体经验问题解决能力上依然存在客观合理的评价比较标准。"
       ],
       "canon_anchor": {
-        "archival_id": 10466,
-        "title": "The Structure of Scientific Revolutions (科学革命的结构)",
-        "author": "Thomas Kuhn",
-        "year": "1962",
-        "chapter_anchor": "第五章：范式的优先性 & 第九章：科学革命的性质与必要性",
-        "canon_sha256": "33990011ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890f9",
+        "archival_id": 12935,
+        "title": "科学革命的结构",
+        "author": "[美]托马斯·库恩 & [美]伊安·哈金 (导读)",
+        "year": "2019",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "94bd2450931566420b7a80374bbbf193e2cbf591176b42018a53e65326c6f877",
         "verbatim_excerpt": "科学革命是那些非累积性的发展事件，在其中，旧范式全部或部分地被一个不相容的新范式所取代。当范式改变时，科学家所研究的世界本身也被重新看待了。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_1ba0420807521bf2",
+        "receipt_id": "vsk_rcpt_719d4bb3f5bd1100",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-002:33990011ee0021c7a98be445690cb7a88523c914efb6a77d8a901bbec25890f9:390e2eb55c8f27d1:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:b88764917eceb69033f3ce456d16b38c627cee43aad10fd516e615a1ad7b51da02dbfa797c288733e4ac6d1e6471555e84edac3f05a510609e8268ca229ae80a",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SCI-002:94bd2450931566420b7a80374bbbf193e2cbf591176b42018a53e65326c6f877:390e2eb55c8f27d10ae816b69a27229b48df76fbe0e09b78bb9c6d97c88a3eb4:390e2eb55c8f27d1:2026-11-12T19:40:44Z",
+        "signature": "vsk_sig:9f84b106a41357e4ecbef66c45cf71362da9d3803220162203e182429d6ccc7a46df258435119f24edc2be05cc63797e8237d01edc0cfe596d1add8e8c26c708",
         "slice_sha256_16": "390e2eb55c8f27d1",
+        "doc_sha256": "390e2eb55c8f27d10ae816b69a27229b48df76fbe0e09b78bb9c6d97c88a3eb4",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:44Z",
+        "tree_hash": "397e126c79f38dfd554419826dff3bd5ca18381d791f43386e951a4d663c450c",
+        "log_index": 98,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1665,23 +1900,28 @@
         "物理学前沿弦理论评估：当代物理哲学家用拉卡托斯模型拷问弦理论四十年无新实验检验的困境，争辩其究竟是数学进步还是经验退化。"
       ],
       "canon_anchor": {
-        "archival_id": 10467,
-        "title": "The Methodology of Scientific Research Programmes (科学研究纲领方法论)",
-        "author": "Imre Lakatos",
-        "year": "1970",
-        "chapter_anchor": "第一章：证伪与科学研究纲领方法论 · 第二节：科学研究纲领的结构与进步性",
-        "canon_sha256": "44aa1122ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a",
+        "archival_id": 84243,
+        "title": "Essays in memory of Imre Lakatos",
+        "author": "Emerson, Ralph Waldo",
+        "year": "2019",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "ed1c9ee83a3c443b2c4644a5f5bc16e7e67ca312c987f28193a3bb6220e5d3a6",
         "verbatim_excerpt": "科学研究纲领由消极启发法与积极启发法所界定。消极启发法规定了纲领的硬核是不可动摇的，必须由一圈可调整的辅助假设保护带所包围；而积极启发法指导着如何修正和扩充这一保护带。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_41a15b6fa021b72f",
+        "receipt_id": "vsk_rcpt_b80864107376ae0b",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-003:44aa1122ff0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258900a:f1d535a2673c25d2:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:05ec5b9736102b9dc1fca97782e28a5ba17faea9bf5fce5eb12c0f046e8a247739fbd59bf180fc2e13dd628311a5cccd03366b43ddef0461a0214533b5ed1f05",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SCI-003:ed1c9ee83a3c443b2c4644a5f5bc16e7e67ca312c987f28193a3bb6220e5d3a6:f1d535a2673c25d28973a9ffac0551afe8960c3d811081abcdd62fe9379d9804:f1d535a2673c25d2:2026-11-12T19:40:45Z",
+        "signature": "vsk_sig:960ec1b807e0cfd60ff5fbdeac570d30dc13c2516ef0138ea6199c2ab27e410930180d55d3f3281ff4bcfd2443a7e27e4a06c74b9e494d16ffbed033b59a7403",
         "slice_sha256_16": "f1d535a2673c25d2",
+        "doc_sha256": "f1d535a2673c25d28973a9ffac0551afe8960c3d811081abcdd62fe9379d9804",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:45Z",
+        "tree_hash": "7b32b9334844f981588c5f49115b3c9c3dee618623c22f2db41fb0e3a9b6c1eb",
+        "log_index": 99,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1700,23 +1940,28 @@
         "哈金科学实验干预主义重估：指出费耶阿本德的相对主义局限于理论表征层面，但在'实验制造现象与改变世界'的工具干预层面存在确凿实在性。"
       ],
       "canon_anchor": {
-        "archival_id": 10468,
-        "title": "Against Method: Outline of an Anarchistic Theory of Knowledge (反对方法：无政府主义知识论纲要)",
-        "author": "Paul Feyerabend",
-        "year": "1975",
-        "chapter_anchor": "第一章：认识论无政府主义导言 & 第十六章：政科分离与思想自由",
-        "canon_sha256": "55bb2233aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b",
+        "archival_id": 85815,
+        "title": "Against Method: Outline of an Anarchist Theory of Knowledge (1975",
+        "author": "Feyerabend, Paul",
+        "year": "1993",
+        "chapter_anchor": "原典实物核心章节",
+        "canon_sha256": "273b55f61a3a8f6487c1ed2a666c7a19bdf1ce17767ea462cca3ec5d699504d2",
         "verbatim_excerpt": "一切方法论都有其局限性，在历史的所有关头，唯一能在一切境遇下都可以被捍卫的原则就是：怎么都行。科学绝非神圣不可侵犯，它应当服从于民主自由社会的检验。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_686b3810d783e509",
+        "receipt_id": "vsk_rcpt_c04c0b7a9c236eb1",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-004:55bb2233aa0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258901b:b533f0a432b5b596:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:3e58972258db599b5b8d28f4ea1d2439598238f31d7873d4e1f717a45afdda36d10f63e8aea58575ee5df2536343b628955af30136738f267d330fdbae3aa403",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SCI-004:273b55f61a3a8f6487c1ed2a666c7a19bdf1ce17767ea462cca3ec5d699504d2:b533f0a432b5b5961521b8595c38160a32c0a899007a3f77bc28ebca9fd98750:b533f0a432b5b596:2026-11-12T19:40:45Z",
+        "signature": "vsk_sig:c001084e05f243118b3268747c0b650cc028b17ff72d7931c446985133026a3ea09d28f1d44b90a67b48bac4f3a49620522d842d2fa6ba3ac0a5cd73e1e8480e",
         "slice_sha256_16": "b533f0a432b5b596",
+        "doc_sha256": "b533f0a432b5b5961521b8595c38160a32c0a899007a3f77bc28ebca9fd98750",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:45Z",
+        "tree_hash": "5e813b90e084ab67688b35f6f6efe6852e4bc60e1516391f009ad256c318d7e3",
+        "log_index": 100,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     },
     {
@@ -1735,23 +1980,28 @@
         "可重复性危机（Replication crisis）与开放科学运动：当代学术界面临撤稿风波与论文工厂，重新激活默顿CUDOS规范作为推动开放数据（Open Access）与透明评审的行动伦理纲领。"
       ],
       "canon_anchor": {
-        "archival_id": 10469,
-        "title": "The Normative Structure of Science (科学的规范结构)",
-        "author": "Robert K. Merton",
-        "year": "1942",
-        "chapter_anchor": "论文全文：科学精神气质的四大制度规范",
-        "canon_sha256": "66cc3344bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c",
+        "archival_id": 22504,
+        "title": "西方社会学理论：默顿中层理论与社会结构越轨分析",
+        "author": "罗伯特·K·默顿 (Robert K. Merton)",
+        "year": "1949",
+        "chapter_anchor": "[默顿原典研读] 显功能潜功能分析与目标-手段失范理论",
+        "canon_sha256": "a047602873b1849dbd1fa2cfe997a0bfcdeab2b23ffc4d5b47b388b84d8ae533",
         "verbatim_excerpt": "科学的精神气质是带有情感色彩的一套价值和规范复合体，它是被科学共同体所信奉的公约。普遍主义、公有主义、无私利性和有组织的怀疑论，共同构成了现代科学的道德内核。"
       },
       "cryptographic_receipt": {
-        "receipt_id": "vsk_rcpt_efc783fcd8b3479a",
+        "receipt_id": "vsk_rcpt_8c4c5510f0b554dc",
+        "version": "v2",
+        "kid": "ed25519-v1",
         "algorithm": "Ed25519",
-        "signed_message": "VERISCOPE_ATTESTATION:VS-SCI-005:66cc3344bb0021c7a98be445690cb7a88523c914efb6a77d8a901bbec258902c:c4e2a630349fbf5d:2026-11-07T16:42:06Z",
-        "signature": "vsk_sig:8f52c271dc678349003cacaed8626460f8624045d85e62dac6aa6a65bcaad32c6c7f910c43cca1d18793d2f02d4e7d843f6df01072e4612c591a9ff992e9a50f",
+        "signed_message": "VERISCOPE_ATTESTATION:v2:ed25519-v1:VS-SCI-005:a047602873b1849dbd1fa2cfe997a0bfcdeab2b23ffc4d5b47b388b84d8ae533:c4e2a630349fbf5d7a01b5632373746068229c666ab0b624ebf6872926e851c3:c4e2a630349fbf5d:2026-11-12T19:40:45Z",
+        "signature": "vsk_sig:a05c69fbe2db511d19adb727e6bc12a28564ad356457e4731d82078686d8f6b8798b4601b3f8fc377d03fea4ed172749d5f3e640b6387e2000de9ba5ae443d02",
         "slice_sha256_16": "c4e2a630349fbf5d",
+        "doc_sha256": "c4e2a630349fbf5d7a01b5632373746068229c666ab0b624ebf6872926e851c3",
         "public_key": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
-        "timestamp": "2026-11-07T16:42:06Z",
-        "sovereign_issuer": "VeriScope Sovereign Evidence Port (Academic Canon Provenance Port)"
+        "timestamp": "2026-11-12T19:40:45Z",
+        "tree_hash": "f22253c630b2c967eeee31497174438a1735dfa7b94d7d3f1a34fc80abd62277",
+        "log_index": 101,
+        "sovereign_issuer": "VeriScope Sovereign Evidence Port (素书楼原典实物物证库)"
       }
     }
   ]

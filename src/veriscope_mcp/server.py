@@ -669,29 +669,63 @@ class VeriScopeMCPServer:
                     "index": m.start()
                 })
 
+        GENERIC_STOPWORDS = {
+            "资本", "理论", "方法", "社会", "哲学", "经济", "历史", "正义", "批判", "原理", "通论",
+            "capital", "theory", "method", "society", "philosophy", "economy", "history", "justice", "critique"
+        }
+
+        def get_canonical_author(c: Dict[str, Any]) -> str:
+            if not c:
+                return ""
+            pt = c.get("primary_thinker") or ""
+            m = re.search(r"\(([^)]+)\)", pt)
+            if m and m.group(1).strip():
+                return m.group(1).strip()
+            if pt:
+                return pt.strip()
+            ca = c.get("canon_anchor") or {}
+            return ca.get("author") or ""
+
         def match_c(t_str: str):
-            q = t_str.lower()
+            q = t_str.lower().strip()
+            if q in GENERIC_STOPWORDS or len(q) < 2:
+                return None
             for c in self.sandbox_concepts:
                 ca = c.get("canon_anchor") or {}
                 at = (ca.get("title") or "").lower()
-                cz = (c.get("name_zh") or "").lower()
-                ce = (c.get("name_en") or "").lower()
-                if q in at or at in q or q in cz or q in ce:
+                cid = c.get("concept_id")
+                if (q == "资本论" or q == "capital" or q == "das kapital") and (cid == "VS-SOC-003" or "资本论" in at or "kapital" in at):
                     return c
-                if (q == "国富论" or q == "wealth of nations") and "wealth of nations" in at:
+                if (q == "国富论" or q == "wealth of nations") and (cid == "VS-ECON-001" or "wealth of nations" in at or "国富论" in at):
                     return c
-                if (q == "资本论" or q == "capital" or q == "das kapital") and "das kapital" in at:
+                if (q == "纯粹理性批判" or q == "critique of pure reason") and (cid == "VS-PHIL-001" or "reinen vernunft" in at or "纯粹理性批判" in at or "pure reason" in at):
                     return c
-                if (q == "纯粹理性批判" or q == "critique of pure reason") and "reinen vernunft" in at:
+                if (q == "正义论" or q == "theory of justice" or q == "a theory of justice") and (cid == "VS-LAW-004" or "theory of justice" in at or "正义论" in at):
                     return c
-                if (q == "正义论" or q == "theory of justice" or q == "a theory of justice") and "theory of justice" in at:
+                if (q == "利维坦" or q == "leviathan") and (cid == "VS-POL-001" or "leviathan" in at):
                     return c
-                if (q == "利维坦" or q == "leviathan") and "leviathan" in at:
+                if (q == "经济与社会" or q == "economy and society") and (cid == "VS-SOC-001" or "wirtschaft" in at or "经济与社会" in at):
                     return c
-                if (q == "经济与社会" or q == "economy and society") and "wirtschaft und gesellschaft" in at:
+                if (q == "社会分工论" or q == "the division of labour in society") and (cid == "VS-SOC-002" or "division du travail" in at or "社会分工论" in at):
                     return c
-                if (q == "君主论" or q == "the prince") and "principe" in at:
+                if (q == "就业、利息和货币通论" or q == "the general theory of employment, interest and money") and (cid == "VS-ECON-002" or "general theory" in at or "通论" in at):
                     return c
+                if (q == "君主论" or q == "the prince") and (cid == "VS-POL-004" or "principe" in at or "君主论" in at):
+                    return c
+            for c in self.sandbox_concepts:
+                ca = c.get("canon_anchor") or {}
+                at = (ca.get("title") or "").lower()
+                if not at:
+                    continue
+                if at == q:
+                    return c
+                if any('\u4e00' <= ch <= '\u9fa5' for ch in q) and len(q) >= 4:
+                    if q in at or (len(at) >= 4 and at in q):
+                        return c
+                if not any('\u4e00' <= ch <= '\u9fa5' for ch in q) and len(q) >= 5:
+                    q_words = [w for w in q.split() if len(w) > 2]
+                    if len(q_words) >= 2 and q in at:
+                        return c
             return None
 
         results = []
@@ -720,6 +754,8 @@ class VeriScopeMCPServer:
             ca = matched_c.get("canon_anchor") or {}
             true_author = ((ca.get("author") or "") + " " + (matched_c.get("primary_thinker") or "")).lower()
 
+            canon_author = get_canonical_author(matched_c) or ca.get('author') or matched_c.get('primary_thinker')
+
             if item["author"]:
                 a_norm = item["author"].lower()
                 parts = re.split(r"[·•\s]+", a_norm)
@@ -731,11 +767,11 @@ class VeriScopeMCPServer:
                         "extracted_title": item["title"],
                         "extracted_author": item["author"],
                         "verdict": "ATTRIBUTION_SUSPECT",
-                        "verdict_zh": f"🟡 疑似张冠李戴（著作真实，但著录著者不符）：《{ca.get('title')}》实际著者为『{ca.get('author') or matched_c.get('primary_thinker')}』，而非『{item['author']}』！",
+                        "verdict_zh": f"🟡 疑似张冠李戴（著作真实，但著录著者不符）：《{ca.get('title')}》实际著者为『{canon_author}』，而非『{item['author']}』！",
                         "confidence_score": 0.95,
                         "matched_concept_id": matched_c.get("concept_id"),
                         "canonical_title": ca.get("title"),
-                        "canonical_author": ca.get("author") or matched_c.get("primary_thinker"),
+                        "canonical_author": canon_author,
                         "canon_sha256": ca.get("canon_sha256"),
                         "notes": "大模型生成中常见将经典安放至其他学者名下，存在重大引注合规风险。"
                     })
@@ -763,7 +799,7 @@ class VeriScopeMCPServer:
                     "confidence_score": 0.92,
                     "matched_concept_id": matched_c.get("concept_id"),
                     "canonical_title": ca.get("title"),
-                    "canonical_author": ca.get("author") or matched_c.get("primary_thinker"),
+                    "canonical_author": canon_author,
                     "canon_sha256": ca.get("canon_sha256"),
                     "chapter_anchor": ca.get("chapter_anchor"),
                     "dialectical_dispute": matched_dispute,
@@ -786,7 +822,7 @@ class VeriScopeMCPServer:
                     "confidence_score": 0.99 if is_exact else 0.95,
                     "matched_concept_id": matched_c.get("concept_id"),
                     "canonical_title": ca.get("title"),
-                    "canonical_author": ca.get("author") or matched_c.get("primary_thinker"),
+                    "canonical_author": canon_author,
                     "canon_year": ca.get("year"),
                     "canon_sha256": ca.get("canon_sha256"),
                     "chapter_anchor": ca.get("chapter_anchor"),
