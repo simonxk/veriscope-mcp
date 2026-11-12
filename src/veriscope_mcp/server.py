@@ -116,8 +116,8 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_locate_evidence",
                 "description": (
-                    "[De-Slop Grounding & Primary Source Proof] Locate ironclad fair-use verbatim excerpts (<=300 chars) "
-                    "with exact chapter coordinates, 64-bit SHA-256 hash, and Ed25519 cryptographic receipt for high-stakes reports."
+                    "[De-Slop Grounding & Primary Source Proof] Locate fair-use verbatim excerpts (<=300 chars) "
+                    "with exact chapter coordinates, SHA-256 edition hash, and Ed25519 cryptographic receipt for high-stakes reports."
                 ),
                 "inputSchema": {
                     "type": "object",
@@ -137,8 +137,8 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_verify_attestation",
                 "description": (
-                    "[Zero-Hallucination Compliance Receipt Verification] Mathematically verify the 64-bit SHA-256 hash "
-                    "and Ed25519 cryptographic receipt of a cited quote to guarantee text integrity."
+                    "[Cryptographic Receipt Verification] Mathematically verify the SHA-256 hash "
+                    "and Ed25519 cryptographic receipt of a cited quote to check text integrity."
                 ),
                 "inputSchema": {
                     "type": "object",
@@ -149,7 +149,7 @@ class VeriScopeMCPServer:
                         },
                         "canon_sha256": {
                             "type": "string",
-                            "description": "64-bit SHA-256 hash to verify against sovereign ledger."
+                            "description": "SHA-256 edition hash to verify against canonical records."
                         },
                         "attestation": {
                             "type": "object",
@@ -177,9 +177,9 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_citation_audit",
                 "description": (
-                    "[AI Citation Health Check & Hallucination Auditor] Fast-scan draft articles or AI generated "
-                    "text to extract and verify book titles, authors, and citations against physical holdings and "
-                    "64-bit SHA-256 hashes to eradicate fabricated AI citations and misattributions."
+                    "[Academic Citation Health Check & Attribution Auditor] Fast-scan draft articles or AI generated "
+                    "text to extract and verify book titles, authors, and citations against canonical editions and "
+                    "SHA-256 hashes to detect misattributions and phantom references."
                 ),
                 "inputSchema": {
                     "type": "object",
@@ -361,7 +361,7 @@ class VeriScopeMCPServer:
                     "chapter_anchor": anchor.get("chapter_anchor", ""),
                     "canon_sha256": anchor.get("canon_sha256", ""),
                     "verbatim_excerpt": anchor.get("verbatim_excerpt", ""),
-                    "provenance": "素书楼馆藏实体学术原本 · 原典实物存证"
+                    "provenance": "VeriScope 权威学术原典库 · 规范版本存证"
                 },
                 "cryptographic_receipt": c.get("cryptographic_receipt"),
                 "access_mode": "GOLDEN_SANDBOX_OFFLINE_VERIFIED"
@@ -387,14 +387,13 @@ class VeriScopeMCPServer:
                 "canon_sha256_prefix": f"{sha_prefix}...",
                 "chapter_anchor": "Canonical Treatise Anchor [Locked]",
                 "verbatim_excerpt": (
-                    "[🔒 已精准锁定素书楼原典实物存证，包含学术公理与判词。全本切片（≤300字）与 "
+                    "[🔒 已精准锁定权威学术原典存证，包含学术公理与判词。全本切片（≤300字）与 "
                     "Ed25519 密码学签名需配置 VERISCOPE_API_KEY：https://veriscope.cc/pricing]"
                 )
             },
             "pricing_options": {
-                "scholar_pro": "国内学者/幕僚个人版 ¥128/月 或 Global Scholar Pro $19/mo (每月 5,000 次存证切片)",
-                "credits_pack": "弹性点数包 ¥68 / 500点 ($10 / 500 credits，按需充值免月费)",
-                "enterprise": "机构白名单版 ¥5,000/年 或 $800/yr (免除 F8 熔断)"
+                "scholar_pro": "个人专业版 (Scholar Pro) ¥98/月 或 $19/mo (年付 ¥880/年)",
+                "enterprise": "机构专线版 ¥9,800起/年 或 $1,500/yr (包含高并发 API 与私有知识库支持)"
             },
             "is_teaser_mode": True,
             "access_mode": "TEASER_PREVIEW"
@@ -413,11 +412,13 @@ class VeriScopeMCPServer:
                 real_sha = c.get("canon_anchor", {}).get("canon_sha256", "")
                 is_valid = (canon_sha256.lower() == real_sha.lower())
                 return {
+                    "method": "local_hash_lookup",
+                    "hash_matched": is_valid,
                     "is_cryptographically_verified": is_valid,
-                    "verification_status": "VERIFIED_AUTHENTIC" if is_valid else "TAMPER_DETECTED",
+                    "verification_status": "HASH_MATCHED" if is_valid else "TAMPER_DETECTED",
                     "concept_id": concept_id,
                     "matched_edition": c.get("canon_anchor", {}).get("title"),
-                    "algorithm": "Ed25519",
+                    "algorithm": "SHA-256",
                     "public_key": VERISCOPE_PUBLIC_KEY_HEX
                 }
 
@@ -429,26 +430,42 @@ class VeriScopeMCPServer:
 
             if not sig or not msg:
                 return {
+                    "method": "ed25519_signature",
                     "is_cryptographically_verified": False,
                     "verification_status": "TAMPER_DETECTED",
                     "error": "Missing signature or signed_message"
                 }
 
-            sig_clean = sig.replace("vsk_sig:", "")
+            sig_clean = sig.replace("vsk_sig:", "").strip()
+
+            if not _HAS_ED25519:
+                return {
+                    "method": "ed25519_signature",
+                    "is_cryptographically_verified": False,
+                    "verification_status": "UNABLE_TO_VERIFY_DEPENDENCY_MISSING",
+                    "error": "Cryptographic verification library (cryptography) is not installed in the environment."
+                }
+
+            if len(sig_clean) != 128 or len(pub) != 64:
+                return {
+                    "method": "ed25519_signature",
+                    "is_cryptographically_verified": False,
+                    "verification_status": "SIGNATURE_INVALID",
+                    "error": "Invalid signature or public key length"
+                }
+
             is_valid = False
-            if _HAS_ED25519 and len(sig_clean) == 128:
-                try:
-                    pub_key = ed25519.Ed25519PublicKey.from_public_bytes(bytes.fromhex(pub))
-                    pub_key.verify(bytes.fromhex(sig_clean), msg.encode("utf-8"))
-                    is_valid = True
-                except Exception:
-                    is_valid = False
-            elif len(sig_clean) in (64, 128):
-                is_valid = (pub.lower() == VERISCOPE_PUBLIC_KEY_HEX.lower())
+            try:
+                pub_key = ed25519.Ed25519PublicKey.from_public_bytes(bytes.fromhex(pub))
+                pub_key.verify(bytes.fromhex(sig_clean), msg.encode("utf-8"))
+                is_valid = True
+            except Exception:
+                is_valid = False
 
             return {
+                "method": "ed25519_signature",
                 "is_cryptographically_verified": is_valid,
-                "verification_status": "VERIFIED_AUTHENTIC" if is_valid else "TAMPER_DETECTED",
+                "verification_status": "SIGNATURE_VALID" if is_valid else "SIGNATURE_INVALID",
                 "algorithm": "Ed25519",
                 "public_key": pub
             }
@@ -539,7 +556,7 @@ class VeriScopeMCPServer:
                 anchor = matched_c.get("canon_anchor") or {}
                 verdict = "AUTHENTIC_GROUNDED"
                 confidence = 0.99
-                notes = "精准锁定实体学术原本，64位物理 SHA-256 存证齐备"
+                notes = "精确匹配权威学术典籍，SHA-256 版本哈希完备"
 
                 if raw_author:
                     a_norm = raw_author.lower()

@@ -45,6 +45,24 @@ function loadSandbox() {
 }
 loadSandbox();
 
+function verifyEd25519Signature(pubHex, sigHex, msg) {
+  try {
+    if (!pubHex || !sigHex || !msg) return false;
+    const cleanSig = String(sigHex).replace(/^vsk_sig:/, '').trim();
+    if (cleanSig.length !== 128) return false;
+    const cleanPub = String(pubHex).replace(/^0x/, '').trim();
+    if (cleanPub.length !== 64) return false;
+
+    const spkiPrefix = Buffer.from('302a300506032b6570032100', 'hex');
+    const spkiDer = Buffer.concat([spkiPrefix, Buffer.from(cleanPub, 'hex')]);
+    const keyObj = crypto.createPublicKey({ key: spkiDer, format: 'der', type: 'spki' });
+
+    return crypto.verify(null, Buffer.from(msg, 'utf8'), keyObj, Buffer.from(cleanSig, 'hex'));
+  } catch (err) {
+    return false;
+  }
+}
+
 const BUSINESS_SYNONYM_BRIDGE = [
   [['部门推诿', '跨部门协同', '周报', '报表负担', '流程繁琐', '大厂黑话', '体制内', '官僚', '执行变形'], '科层制'],
   [['价格战', '内卷', '补贴', '恶意降价', '渠道窜货', '同质化', '商业竞争', '毛利'], '看不见的手'],
@@ -89,7 +107,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_locate_evidence',
-    description: '[De-Slop Grounding & Primary Source Proof] Locate ironclad fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, 64-bit SHA-256 hash, and Ed25519 cryptographic receipt for high-stakes reports.',
+    description: '[De-Slop Grounding & Primary Source Proof] Locate fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, SHA-256 edition hash, and Ed25519 cryptographic receipt for high-stakes reports.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -107,7 +125,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_verify_attestation',
-    description: '[Zero-Hallucination Compliance Receipt Verification] Mathematically verify the 64-bit SHA-256 hash and Ed25519 cryptographic receipt of a cited quote to guarantee text integrity.',
+    description: '[Cryptographic Receipt Verification] Mathematically verify the SHA-256 hash and Ed25519 cryptographic receipt of a cited quote to check text integrity.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -117,7 +135,7 @@ const TOOLS = [
         },
         canon_sha256: {
           type: 'string',
-          description: '64-bit SHA-256 hash to verify against sovereign ledger.'
+          description: 'SHA-256 edition hash to verify against canonical records.'
         },
         attestation: {
           type: 'object',
@@ -141,7 +159,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_citation_audit',
-    description: '[AI Citation Health Check & Hallucination Auditor] Fast-scan draft articles or AI generated text to extract and verify book titles, authors, and citations against physical holdings and 64-bit SHA-256 hashes to eradicate fabricated AI citations and misattributions.',
+    description: '[Academic Citation Health Check & Attribution Auditor] Fast-scan draft articles or AI generated text to extract and verify book titles, authors, and citations against canonical editions and SHA-256 hashes to detect misattributions and phantom references.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -192,7 +210,7 @@ function auditOfflineCitations(text) {
       const anchor = matchedConcept.canon_anchor || {};
       let verdict = 'AUTHENTIC_GROUNDED';
       let confidence = 0.99;
-      let notes = '精准锁定实体学术原本，64位物理 SHA-256 存证齐备';
+      let notes = '精确匹配权威学术典籍，SHA-256 版本哈希完备';
 
       if (rawAuthor) {
         const aNorm = rawAuthor.toLowerCase();
@@ -375,12 +393,11 @@ async function callTool(name, args) {
         canon_anchor_preview: {
           canon_sha256_prefix: `${prefix}...`,
           chapter_anchor: 'Canonical Treatise Anchor [Locked]',
-          verbatim_excerpt: '[🔒 已精准锁定素书楼原典实物存证，包含学术公理与判词。全本切片（≤300字）与 Ed25519 密码学签名需配置 VERISCOPE_API_KEY：https://veriscope.cc/pricing]'
+          verbatim_excerpt: '[🔒 已精准锁定权威学术原典存证，包含学术公理与判词。全本切片（≤300字）与 Ed25519 密码学签名需配置 VERISCOPE_API_KEY：https://veriscope.cc/pricing]'
         },
         pricing_options: {
-          scholar_pro: '国内学者/幕僚个人版 ¥128/月 或 Global Scholar Pro $19/mo (每月 5,000 次存证切片)',
-          credits_pack: '弹性点数包 ¥68 / 500点 ($10 / 500 credits，按需充值免月费)',
-          enterprise: '机构白名单版 ¥5,000/年 或 $800/yr (免除 F8 熔断)'
+          scholar_pro: '个人专业版 (Scholar Pro) ¥98/月 或 $19/mo (年付 ¥880/年)',
+          enterprise: '机构专线版 ¥9,800起/年 或 $1,500/yr (包含高并发 API 与私有知识库支持)'
         },
         is_teaser_mode: true,
         access_mode: 'TEASER_PREVIEW'
@@ -393,25 +410,30 @@ async function callTool(name, args) {
         const c = sandboxMap.get(cid) || nameMap.get(cid.toLowerCase());
         if (c) {
           const realSha = (c.canon_anchor && c.canon_anchor.canon_sha256) || '';
-          const isValid = (sha.toLowerCase() === realSha.toLowerCase());
+          const isMatched = (sha.toLowerCase() === realSha.toLowerCase());
           return {
-            is_cryptographically_verified: isValid,
-            verification_status: isValid ? 'VERIFIED_AUTHENTIC' : 'TAMPER_DETECTED',
+            method: 'local_hash_lookup',
+            hash_matched: isMatched,
+            is_cryptographically_verified: isMatched,
+            verification_status: isMatched ? 'HASH_MATCHED' : 'TAMPER_DETECTED',
             concept_id: cid,
-            algorithm: 'Ed25519',
+            matched_edition: c.canon_anchor && c.canon_anchor.title,
+            algorithm: 'SHA-256',
             public_key: VERISCOPE_PUBLIC_KEY_HEX
           };
         }
       }
       const att = args.attestation || {};
       const pub = att.public_key || VERISCOPE_PUBLIC_KEY_HEX;
-      const sig = (att.signature || '').replace('vsk_sig:', '');
+      const sig = att.signature || '';
       const msg = att.signed_message || att.payload || '';
-      const isValid = (pub.toLowerCase() === VERISCOPE_PUBLIC_KEY_HEX.toLowerCase()) && sig.length === 128 && Boolean(msg);
+
+      const isSignatureValid = verifyEd25519Signature(pub, sig, msg);
 
       return {
-        is_cryptographically_verified: isValid,
-        verification_status: isValid ? 'VERIFIED_AUTHENTIC' : 'TAMPER_DETECTED',
+        method: 'ed25519_signature',
+        is_cryptographically_verified: isSignatureValid,
+        verification_status: isSignatureValid ? 'SIGNATURE_VALID' : 'SIGNATURE_INVALID',
         algorithm: 'Ed25519',
         public_key: pub
       };
@@ -482,7 +504,7 @@ function locateConcept(c) {
       chapter_anchor: anchor.chapter_anchor || '',
       canon_sha256: anchor.canon_sha256 || '',
       verbatim_excerpt: anchor.verbatim_excerpt || '',
-      provenance: '素书楼馆藏实体学术原本 · 原典实物存证'
+      provenance: 'VeriScope 权威学术原典库 · 规范版本存证'
     },
     cryptographic_receipt: c.cryptographic_receipt || null,
     access_mode: 'GOLDEN_SANDBOX_OFFLINE_VERIFIED'

@@ -1,6 +1,6 @@
-# VeriScope MCP Server (@veriscope/mcp-server)
+# VeriScope MCP Server (veriscope-mcp)
 
-> **VeriScope** is a sovereign cryptographic bibliographic index and citation verification engine for AI Agents. It anchors AI Task Planners in verified scholarly editions across 24 disciplines with **exact chapter coordinates**, **verbatim fair-use excerpts (<=300 chars)**, **64-bit SHA-256 edition hashes**, and **Ed25519 tamper-proof digital receipts (`vsk_sig`)**.
+> **VeriScope** is a sovereign cryptographic bibliographic index and citation verification engine for AI Agents. It anchors AI Task Planners in verified scholarly editions across 24 disciplines with **exact chapter coordinates**, **verbatim fair-use excerpts (<=300 chars)**, **256-bit SHA-256 edition hashes**, and **Ed25519 tamper-proof digital receipts (`vsk_sig`)**.
 
 [![MCP Standard](https://img.shields.io/badge/MCP-1.1.0-blue.svg)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -74,8 +74,8 @@ When AI Agents conduct research or draft strategic memos, general-purpose LLMs g
 | :--- | :--- | :--- | :--- |
 | `veriscope_discover_concepts`<br>*(Alias: `veriscope_business_frame`)* | `query: str`, `discipline_hint?: str` | Standardized canonical ontology, formal definition, Sino-Western comparative counterpart | Elevate colloquial concepts, workplace pain points, or news metaphors into formal academic & strategic frameworks |
 | `veriscope_inspect_topography`<br>*(Alias: `veriscope_redteam_audit`)* | `concept_id: str` | `formal_kernel`, Wikidata QIDs, and 3+ structured `dialectical_disputes` | Pre-mortem red-teaming; prevent shallow syntheses; ground the agent in rival axioms and blind spots |
-| `veriscope_locate_evidence`<br>*(Alias: `veriscope_deslop_and_ground`)* | `concept_id: str`, `proposition?: str` | Verbatim fair-use slice (**<=300 chars**), chapter coordinate, 64-bit SHA-256, Ed25519 receipt | Replace synthetic AI filler with attested primary editions and peer-reviewable cryptographic proof |
-| `veriscope_verify_attestation` | `concept_id: str`, `claimed_sha256: str`, `verbatim_slice?: str` | `is_valid: bool`, `verification_status: "VERIFIED_AUTHENTIC" \| "TAMPER_DETECTED"` | Zero-knowledge cryptographic check for citations, journal peer review, and compliance fact auditing |
+| `veriscope_locate_evidence`<br>*(Alias: `veriscope_deslop_and_ground`)* | `concept_id: str`, `proposition?: str` | Verbatim fair-use slice (**<=300 chars**), chapter coordinate, 256-bit SHA-256, Ed25519 receipt | Replace synthetic AI filler with attested primary editions and peer-reviewable cryptographic proof |
+| `veriscope_verify_attestation` | `concept_id: str`, `claimed_sha256: str`, `verbatim_slice?: str` | `is_valid: bool`, `verification_status: "SIGNATURE_VALID" \| "SIGNATURE_INVALID"` | Cryptographic Ed25519 signature & SHA-256 edition hash check for citations, peer review, and compliance auditing |
 | `veriscope_probe_radar` | `concept_id: str` | Cross-disciplinary synaptic radar links, epistemological blind spots | Interdisciplinary research, cognitive blind spot alerts, and synthetic conceptual discovery |
 | `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | Extracted citations, author alignment, SHA-256 grounding, health score (0-100), hallucination detection | **AI Citation Health Check**: Fast-scan drafts to detect fabricated AI citations and misattributions |
 
@@ -95,12 +95,11 @@ VeriScope ships with a **built-in 50-Canon Golden Sandbox** (`golden_sandbox_50.
 
 VeriScope utilizes a **hybrid subscription and credit-pack model** designed to eliminate per-call micro-payment anxiety for automated research pipelines:
 
-| Plan / Tier | Target Audience | Domestic Pricing (WeChat / Alipay) | Global Pricing (Payoneer Checkout) | Included Quota / Benefits |
+| Plan / Tier | Target Audience | Domestic Pricing (CNY) | Global Pricing (USD) | Included Quota / Benefits |
 | :--- | :--- | :--- | :--- | :--- |
-| **Community Sandbox** | Developers & Evaluators | **Free (¥0)** | **Free ($0)** | 50 Golden Canons full access + Teaser previews for all long-tail concepts |
-| **Scholar Pro** | Researchers & PhD Candidates | **¥128 / month** | **$19 / month** | Unlimited standard queries, 5,000 evidence slices/mo, full Ed25519 attestation receipts |
-| **Power Credit Pack** | Agent Builders & Automated Pipelines | **¥68 / 500 credits** | **$10 / 500 credits** | Flexible top-up for high-frequency automated batch synthesis |
-| **Enterprise / Institution** | Academic Labs & Law Firms | **¥5,000 / year** | **$800 / year** | Dedicated rate limits, IP whitelist, institutional co-signing keys, SLA guarantee |
+| **Community Sandbox** | Developers & Evaluators | **Free (¥0)** | **Free ($0)** | 50 Golden Canons full access + Teaser previews for long-tail concepts |
+| **Scholar Pro** | Researchers & PhD Candidates | **¥98 / mo (¥880/yr)** | **$19 / mo** | Unlimited standard queries, 5,000 evidence slices/mo, full Ed25519 attestation receipts |
+| **Enterprise / Institution** | Academic Labs & Institutions | **¥9,800 / year** | **$1,500 / year** | High-concurrency dedicated rate limits, IP whitelist, institutional keys, SLA guarantee |
 
 *To activate your key, visit [https://veriscope.cc/pricing](https://veriscope.cc/pricing) or configure `VERISCOPE_API_KEY`.*
 
@@ -115,7 +114,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "veriscope": {
       "command": "npx",
-      "args": ["-y", "@veriscope/mcp-server"],
+      "args": ["-y", "veriscope-mcp"],
       "env": {
         "VERISCOPE_API_KEY": "vsk_live_optional_your_key_here"
       }
@@ -127,7 +126,7 @@ Add to your `claude_desktop_config.json`:
 ### Cursor & Windsurf
 Add as a new stdio MCP server:
 - **Command**: `npx`
-- **Arguments**: `-y @veriscope/mcp-server`
+- **Arguments**: `-y veriscope-mcp`
 
 ### Python / uvx Alternative
 ```json

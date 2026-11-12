@@ -17,7 +17,7 @@
 2. **正文静默篡改（Silent Tampering）**：报告出具后，中间人修改了核心数据、结论或制度条款，原有的原典引证仍然存在，导致依赖方被误导；
 3. **幻觉编造引文（Hallucinated Citation Fraud）**：大模型信口开河虚构书名、卷次与著者，导致全篇论据崩塌。
 
-**Cognitive SSL v2.0** 将**「权威原典引证回执（Citation Receipt）」**与**「文档正文内容指纹（Document Seal）」**进行密码学二分绑定，实现**全流程零知识验真与单字篡改即刻报警**。
+**Cognitive SSL v2.0** 将**「权威原典引证回执（Citation Receipt）」**与**「文档正文内容指纹（Document Seal）」**进行密码学二分绑定，实现**全流程 Ed25519 密码学签名验真与单字篡改即刻报警**。
 
 ---
 
@@ -80,16 +80,16 @@ def canonicalize_document_text(text: str) -> str:
 
 ---
 
-## 五、 只追加透明日志结构 (Rekor-Style Merkle Transparency Log)
+## 五、 只追加哈希链透明日志结构 (Append-only Hash Chain Transparency Log)
 
-为防止签发者事后伪造凭证或单方面抵赖，每一张签发的 Cognitive SSL v2 凭证均自动登记入**只追加 Merkle 树哈希链表（Transparency Log）**：
+为防止签发者事后伪造凭证或单方面抵赖，每一张签发的 Cognitive SSL v2 凭证均自动登记入**只追加哈希链透明日志（Append-only Hash Chain Transparency Log）**：
 
 1. **单项哈希（Entry Hash）**：  
    $$\text{entry\_hash} = \text{SHA-256}(\text{signed\_message} \parallel \text{"|"} \parallel \text{signature})$$
-2. **树哈希累加（Running Tree Hash）**：  
-   $$\text{tree\_hash}_n = \text{SHA-256}(\text{tree\_hash}_{n-1} \parallel \text{"|"} \parallel \text{entry\_hash}_n)$$
+2. **链哈希递推（Running Chain Hash）**：  
+   $$H_n = \text{SHA-256}(H_{n-1} \parallel \text{"|"} \parallel \text{entry\_hash}_n)$$
 3. **公开展布接口**：  
-   第三方审稿人、合规机构或企业客户可通过 `GET /api/copilot/transparency-log?limit=50` 随时导出与对账整条 Merkle 链，确证凭证的存在性与不可篡改性。
+   第三方审稿人、合规机构或企业客户可通过 `GET /api/copilot/transparency-log?limit=50` 随时导出与对账整条追加式哈希链，确证凭证的存在性与时间序列不可篡改性。后续进阶版本规划升级为支持 Merkle Inclusion Proof 的 Merkle Tree 结构。
 
 ---
 

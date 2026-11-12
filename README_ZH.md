@@ -36,7 +36,7 @@
   > **版本著录**：*The Protestant Ethic and the Spirit of Capitalism*  
   > **章节坐标**：Section 2: "The Spirit of Capitalism", Paragraph 12  
   > **版本 SHA-256**：`d7a8fbb5628549...3984e1`  
-  > **数字凭证**：`vsk_sig:ed25519_8f0a2e...`（支持零知识防伪校验）
+  > **数字凭证**：`vsk_sig:ed25519_8f0a2e...`（支持 Ed25519 密码学签名校验）
 
 ---
 
@@ -50,7 +50,7 @@
 ### 场景 4：凯恩斯流动性陷阱边界核查（《就业、利息和货币通论》）
 * **任务指令**：“核查凯恩斯流动性陷阱的制度成立边界与原著对应章节。”
 * ✅ **真镜 MCP（`veriscope_locate_evidence` & `veriscope_verify_attestation`）**：
-  > 锁定《通论》第 15 章第 2 节，返回 `VERIFIED_AUTHENTIC` 64 位哈希验真状态。
+  > 锁定《通论》第 15 章第 2 节，返回 `SIGNATURE_VALID` 256 位版本哈希与签名验真状态。
 
 ---
 
@@ -60,8 +60,8 @@
 | :--- | :--- | :--- | :--- |
 | `veriscope_discover_concepts`<br>*(别名: `veriscope_business_frame`)* | `query: str`, `discipline_hint?: str` | 24 学科标准概念本体、形式核定义、中西范畴互勘 | **立意升维 / 祛 AI 味**：将口语痛点、商业提案或新闻热词升维为第一性原理学术锚点 |
 | `veriscope_inspect_topography`<br>*(别名: `veriscope_redteam_audit`)* | `concept_id: str` | `formal_kernel`、Wikidata QID、3+ 组正反学派 `dialectical_disputes` | **魔鬼质询 / 红蓝军压力测试**：暴露方案隐含假设盲区，获取正反两造交锋弹药 |
-| `veriscope_locate_evidence`<br>*(别名: `veriscope_deslop_and_ground`)* | `concept_id: str`, `query_proposition?: str` | 合理使用原文切片（**≤300 字**）、章节坐标、64 位 SHA-256、Ed25519 签名 | **硬核引文坐实**：用不可篡改的权威著作切片替换空洞套话，生成免责数字回执 |
-| `veriscope_verify_attestation` | `concept_id: str`, `canon_sha256: str` | `is_cryptographically_verified: bool`, `VERIFIED_AUTHENTIC \| TAMPER_DETECTED` | **合规与审稿验真**：零知识校验引文哈希或 Ed25519 签名是否被篡改 |
+| `veriscope_locate_evidence`<br>*(别名: `veriscope_deslop_and_ground`)* | `concept_id: str`, `query_proposition?: str` | 合理使用原文切片（**≤300 字**）、章节坐标、256 位 SHA-256、Ed25519 签名 | **硬核引文坐实**：用规范的权威著作切片替换空洞套话，生成防篡改数字回执 |
+| `veriscope_verify_attestation` | `concept_id: str`, `canon_sha256: str` | `is_cryptographically_verified: bool`, `SIGNATURE_VALID \| SIGNATURE_INVALID` | **合规与审稿验真**：Ed25519 签名与 256 位版本哈希密码学校验 |
 | `veriscope_probe_radar` | `topic: str` | 跨学科突触连接（`babel_synapses`）、认知盲区诊断 | **跨界策展与盲区探测**：打通哲学、经济、法学、社会学等跨学科高维连接 |
 | `veriscope_citation_audit` | `text: str`, `discipline_hint?: str` | 引用书目提取、著者对勘、实物 SHA-256 吻合度、健康度评分（0-100）、幻觉查杀判定 | **AI 引文真伪体检**：毫秒级查杀大模型幻觉虚构的书目引文与张冠李戴，杜绝学术伪证 |
 
@@ -75,14 +75,13 @@
 
 ---
 
-## 💳 双轨接入与定价体系（告别按次微支付焦虑）
+## 💳 接入与服务体系
 
-| 方案档位 | 适用人群与场景 | 国内通道（微信 / 支付宝） | 国际通道（Payoneer Checkout） | 包含权益与额度 |
+| 方案档位 | 适用人群与场景 | 国内标准费率 (CNY) | 国际标准费率 (USD) | 包含权益与额度 |
 | :--- | :--- | :--- | :--- | :--- |
 | **Community Sandbox** | 开发者评测与基础体验 | **免费 (¥0)** | **Free ($0)** | 50 篇黄金经典沙盒全量解锁 + 全库长尾概念 Teaser 预览 |
-| **Scholar Pro** | 个人研究者 / 高阶幕僚 / 博士生 | **¥128 / 月** | **$19 / month** | 标准检索不限次，每月 5,000 次原典切片锚定 + Ed25519 数字签名 |
-| **Power Credit Pack** | 自动化工作流 / 批量立项与审稿管线 | **¥68 / 500 点** | **$10 / 500 credits** | 按需充值点数包，无月费压力，适合 Agent 批量任务调度 |
-| **Enterprise / 机构版** | 智库实验室 / 律所 / 咨询与投研机构 | **¥5,000 / 年** | **$800 / year** | 独立高并发配额、IP 白名单、机构联署签名密钥与 SLA 保障 |
+| **Scholar Pro** | 个人研究者 / 博士生 / 独立学者 | **¥98 / 月 (年付 ¥880)** | **$19 / month** | 标准检索不限次，每月 5,000 次原典切片锚定 + Ed25519 数字签名 |
+| **Enterprise / 机构版** | 智库实验室 / 律所 / 高等院校研究组 | **¥9,800 / 年起** | **$1,500 / year起** | 独立高并发配额、IP 白名单、机构联署签名密钥与 SLA 保障 |
 
 *获取与激活 API Key：[https://veriscope.cc/pricing](https://veriscope.cc/pricing)*
 
