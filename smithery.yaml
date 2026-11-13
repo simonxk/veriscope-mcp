@@ -1,7 +1,7 @@
 # Smithery.ai configuration for VeriScope MCP Server
 name: "veriscope-mcp"
 description: "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents"
-version: "1.1.7"
+version: "1.1.8"
 runtime: "node"
 command: "npx"
 args:
