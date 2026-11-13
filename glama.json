@@ -1,8 +1,11 @@
 {
-  "$schema": "https://glama.ai/mcp/manifest/v1/schema.json",
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
   "name": "veriscope",
   "displayName": "VeriScope Citation Verification",
   "description": "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents across 24 disciplines.",
+  "maintainers": [
+    "simonxk"
+  ],
   "version": "1.1.9",
   "icon": "https://veriscope.cc/assets/icon.png",
   "repository": {
