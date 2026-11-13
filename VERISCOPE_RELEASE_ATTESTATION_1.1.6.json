@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "package": "veriscope-mcp",
+  "version": "1.1.6",
+  "git_commit": "55ff1b5",
+  "parent_commit": "fd54144",
+  "release_timestamp": "2026-11-13T02:11:53Z",
+  "npm_registry": {
+    "tarball": "https://registry.npmjs.org/veriscope-mcp/-/veriscope-mcp-1.1.6.tgz",
+    "shasum": "30f11ede6307656b8968b4fb1c8cf95265563fa7",
+    "integrity": "sha512-E95dN2ekeyFX+T+UCb72mWg2rBJoPgW10RDDkGgPOOl2kfRu8uTzHFubwiZ8fmARqzNBZ28xA74rP9iIsbN+Iw==",
+    "unpacked_size": 260785
+  },
+  "files": {
+    "bin/index.js": {
+      "sha256": "ade73ec8aa082f0e52cb996ec2c4f395fefa6f4f9ebda13cac71c91eef93ae08",
+      "size": 41523
+    },
+    "package.json": {
+      "sha256": "9fb134d8fc9e52ec27df280833e2b78b22889d734ae18c6f921c9b2a30a724b0",
+      "size": 1294
+    },
+    "golden_sandbox_50.json": {
+      "sha256": "2a7af6af3f8db177a3b5dbba4281513e9d56f15b5735db15265e68351ad2d984",
+      "size": 181915
+    },
+    "SECURITY.md": {
+      "sha256": "88752c26b81d1245894a37aa85775c5e3a2ff7aa72e00507b22c9a4ba890cdae",
+      "size": 3562
+    },
+    "CHANGELOG.md": {
+      "sha256": "91a54a3363d37a51d58aba13f8257a1744c956e4cfe5d48dc58ce8a245e0e393",
+      "size": 4261
+    }
+  },
+  "mcp_tools": [
+    "veriscope_discover_concepts",
+    "veriscope_inspect_topography",
+    "veriscope_locate_evidence",
+    "veriscope_verify_attestation",
+    "veriscope_probe_radar",
+    "veriscope_citation_audit"
+  ],
+  "security_regression": {
+    "s1": "PASS: Native Ed25519 signature enforcement",
+    "s2": "PASS: Honest HASH_ONLY local lookup labeling",
+    "s3": "PASS: Strict dependency degradation guard",
+    "s4": "PASS: Public key substitution trust-anchor rejection",
+    "n1": "PASS: Scaffolding stripped & objective scholarly framing",
+    "n2": "PASS: Stopword guard against false substring attribution",
+    "n3": "PASS: Signed message parameter binding check",
+    "n4": "PASS: APA format & author preposition cleanup",
+    "n5": "PASS: CJS module import isolation without stdin side-effects",
+    "n6": "PASS: Static OpenAPI 3.0.3 cleanup with zero 405 paths"
+  },
+  "signing_authority": {
+    "key_id": "veriscope-ed25519-v2-2026",
+    "algorithm": "Ed25519",
+    "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+    "fingerprint_sha256": "aa87d0cff6aa7f8fad101f2441f911070bb6f80ff361873e442422e430f73363"
+  },
+  "attestation_signature": "vsk_sig:ca0ce31b4ed358f91db005ec837825ae7302222868a8420e1fc31e01756988274eadd8a0dd34423cdde59044736cb9cf2e6a90de77d5df8c2eb2e5c3c34be805",
+  "manifest_sha256": "250bb7cf40f31f3922cf7da1333f6cd14c13e4d7b1688fbdf3f19792a9fe9fee"
+}
