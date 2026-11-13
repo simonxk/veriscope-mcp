@@ -24,7 +24,6 @@ jobs:
   publish-pypi:
     name: Build & Publish to PyPI
     needs: test
-    if: "${{ secrets.PYPI_API_TOKEN != '' }}"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -47,6 +46,9 @@ jobs:
         run: python -m build
 
       - name: Publish to PyPI
+        if: "${{ env.PYPI_TOKEN != '' }}"
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
@@ -54,7 +56,6 @@ jobs:
   publish-npm:
     name: Publish to npm
     needs: test
-    if: "${{ secrets.NPM_TOKEN != '' }}"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -69,6 +70,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Publish to npm
+        if: "${{ env.NPM_TOKEN != '' }}"
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
