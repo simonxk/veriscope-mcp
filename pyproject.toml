@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "veriscope-mcp"
-version = "1.1.8"
+version = "1.1.9"
 description = "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents"
 readme = "README.md"
 license = { text = "MIT" }

@@ -75,7 +75,7 @@ const BUSINESS_SYNONYM_BRIDGE = [
 const TOOLS = [
   {
     name: 'veriscope_discover_concepts',
-    description: `[Concept Discovery & Axiomatic Grounding] Maps informal business problems, workplace colloquialisms, or policy metaphors into canonical first-principles ontologies across 24 academic disciplines.
+    description: `Maps informal business problems, workplace colloquialisms, or policy metaphors into canonical first-principles ontologies across 24 academic disciplines.
 
 ### When to Use:
 - Use when the user presents colloquial questions (e.g. 'office politics', 'price wars', 'algorithmic filter bubbles', '跨部门推诿') and you need formal theoretical frameworks.
@@ -84,10 +84,19 @@ const TOOLS = [
 ### When NOT to Use:
 - Do NOT use if you already possess a canonical concept ID (e.g. 'VS-SOC-001'); call veriscope_inspect_topography directly.
 - Do NOT use for verbatim quotation retrieval or snippet proofs; call veriscope_locate_evidence instead.
-- Do NOT use for auditing full draft text for hallucinated citations; call veriscope_citation_audit instead.
+- Do NOT use for auditing full draft text for hallucinated citations; call veriscope_audit_citations instead.
 
 ### Execution Behavior:
-- Read-only; deterministically resolves via semantic bridge against the built-in golden sandbox or live sovereign attestation graph. Zero external side effects.`,
+- Read-only; deterministically resolves via semantic bridge against the built-in golden sandbox or live sovereign attestation graph. Zero external side effects.
+
+### Returns:
+Returns a JSON object containing:
+- query: The normalized query string.
+- total_matches: Integer count of matched canonical concepts (typically 1 to 5).
+- matched_concepts: Array of candidate ontology objects, each with concept_id (e.g. 'VS-SOC-001'), name_zh, name_en, discipline (e.g. 'SOC'), and axiomatic_summary.
+
+### Edge Cases & Errors:
+- If no academic concept matches the input, returns total_matches: 0 and an empty matched_concepts: [] list alongside suggested 3-letter discipline codes for manual filtering.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -105,7 +114,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_inspect_topography',
-    description: `[Red-Team Pre-Mortem & Dialectical Audit] Stress-tests proposals, memos, or papers by retrieving axiomatic formal kernels, Wikidata QIDs, and 3+ opposing dialectical disputes for a canonical concept.
+    description: `Stress-tests proposals, memos, or papers by retrieving axiomatic formal kernels, Wikidata QIDs, and 3+ opposing dialectical disputes for a canonical concept.
 
 ### When to Use:
 - Use before finalizing business proposals, investment memos, or academic papers to uncover blind spots and stress-test core arguments.
@@ -114,10 +123,22 @@ const TOOLS = [
 ### When NOT to Use:
 - Do NOT use with raw natural language queries; if you only have a colloquial phrase or topic, use veriscope_discover_concepts first to obtain the concept ID.
 - Do NOT use for verifying cryptographic hashes or Ed25519 signatures; use veriscope_verify_attestation.
-- Do NOT use for extracting or validating quotations from full draft text; use veriscope_citation_audit.
+- Do NOT use for extracting or validating quotations from full draft text; use veriscope_audit_citations.
 
 ### Execution Behavior:
-- Read-only, deterministic retrieval. Pulls axiomatic kernels, dispute structures, and Wikidata entity mappings from verified canonical records. Zero side effects.`,
+- Read-only, deterministic retrieval. Pulls axiomatic kernels, dispute structures, and Wikidata entity mappings from verified canonical records. Zero side effects.
+
+### Returns:
+Returns a JSON object containing:
+- concept_id: The canonical concept identifier (e.g. 'VS-SOC-001').
+- name_zh & name_en: Bilingual concept titles.
+- axiomatic_kernel: Rigorous formal definition, thesis, and core theoretical formulation.
+- wikidata_qid: Canonical Wikidata entity identifier (e.g. 'Q131154').
+- dialectical_disputes: Array of 3+ opposing historical disputes, contrasting schools of thought, and counter-theses.
+- canonical_works: Array of seminal treatises and foundational monograph citations.
+
+### Edge Cases & Errors:
+- If an invalid or unindexed concept_id is provided, returns status: 'error' with message: "Concept '{concept_id}' not found in Golden Sandbox. Please check concept_id via veriscope_discover_concepts."`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -131,7 +152,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_locate_evidence',
-    description: `[De-Slop Grounding & Primary Source Proof] Locates fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, 64-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts.
+    description: `Locates fair-use verbatim excerpts (between 1 and 3 excerpts, strictly <=300 characters each) with exact chapter coordinates, 64-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts.
 
 ### When to Use:
 - Use when preparing high-stakes reports, legal briefs, or executive papers requiring zero-hallucination primary source backing.
@@ -139,11 +160,22 @@ const TOOLS = [
 
 ### When NOT to Use:
 - Do NOT use for exploratory topic browsing; call veriscope_discover_concepts to discover relevant concepts first.
-- Do NOT use for batch-scanning an entire document for cited sources; call veriscope_citation_audit instead.
+- Do NOT use for batch-scanning an entire document for cited sources; call veriscope_audit_citations instead.
 - Do NOT use to verify whether an existing hash or receipt is mathematically intact; call veriscope_verify_attestation instead.
 
 ### Execution Behavior:
-- Read-only, deterministic retrieval. Excerpts strictly adhere to fair-use length limits (<=300 chars) bound to real physical volume SHA-256 editions. Zero side effects.`,
+- Read-only, deterministic retrieval. Excerpts strictly adhere to fair-use length limits (<=300 chars) bound to real physical volume SHA-256 editions. Zero side effects.
+
+### Returns:
+Returns a JSON object containing:
+- concept_id: The canonical concept identifier.
+- total_excerpts: Integer count of returned evidence snippets (typically 1 to 3).
+- excerpts: Array of excerpt records, each containing verbatim_text (<= 300 chars), book_title, author, chapter_coordinate, and canon_sha256.
+- attestation: Complete cryptographic receipt object with ed25519_signature and verification timestamp.
+
+### Edge Cases & Errors:
+- If concept_id is not found, returns status: 'error' with guidance to query veriscope_discover_concepts.
+- If optional query_context finds no specific sub-paragraph alignment, falls back to returning the concept's primary canonical anchor excerpt.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -161,7 +193,7 @@ const TOOLS = [
   },
   {
     name: 'veriscope_verify_attestation',
-    description: `[Cryptographic Receipt Verification] Mathematically verifies the 64-bit SHA-256 edition hash and Ed25519 digital signature of cited quotes against verified canonical records.
+    description: `Mathematically verifies the 64-bit SHA-256 edition hash and Ed25519 digital signature of cited quotes against verified canonical records.
 
 ### When to Use:
 - Use to verify the cryptographic authenticity, integrity, and non-tampering of an attestation receipt received from veriscope_locate_evidence.
@@ -170,10 +202,27 @@ const TOOLS = [
 ### When NOT to Use:
 - Do NOT use to discover or search for concepts; use veriscope_discover_concepts.
 - Do NOT use to retrieve new evidence snippets; use veriscope_locate_evidence.
-- Do NOT use for checking unformatted bibliography lists in draft papers; use veriscope_citation_audit.
+- Do NOT use for checking unformatted bibliography lists in draft papers; use veriscope_audit_citations.
+
+### Parameter Combination Modes:
+Provide either of the following two parameter combinations:
+1. Path A (Local Hash Verification): Provide concept_id and canon_sha256 to verify against the local verified library ledger.
+2. Path B (Ed25519 Cryptographic Verification): Provide the full attestation object (and optional concept_id) to verify the digital signature against the sovereign public key.
 
 ### Execution Behavior:
-- Read-only, pure cryptographic verification. Performs constant-time hash and signature checks against public verification keys. Zero state modification.`,
+- Read-only, pure cryptographic verification. Performs constant-time hash and signature checks against public verification keys. Zero state modification.
+
+### Returns:
+Returns a JSON object containing:
+- is_valid: Boolean (true if hash matches and signature is verified; false if tampered).
+- verification_mode: String ('ed25519_signature' for signed receipts or 'local_hash_lookup' for edition checks).
+- concept_id: Verified concept ID.
+- status: String status code ('OK', 'TAMPER_DETECTED', 'PAYLOAD_MISMATCH', or 'ISSUER_UNTRUSTED').
+- message: Human-readable verification explanation.
+
+### Edge Cases & Errors:
+- If neither canon_sha256 nor attestation is provided, returns status: 'error' explaining that at least one verification payload must be supplied.
+- If a signature is forged or hash is tampered, returns is_valid: false with status: 'TAMPER_DETECTED'.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -183,18 +232,18 @@ const TOOLS = [
         },
         canon_sha256: {
           type: 'string',
-          description: '64-character SHA-256 edition hash to verify against the canonical physical volume record.'
+          description: '64-character SHA-256 edition hash to verify against canonical physical volume records. Used for Path A local verification.'
         },
         attestation: {
           type: 'object',
-          description: 'Optional full attestation receipt object containing signature, timestamp, and coordinates returned by veriscope_locate_evidence.'
+          description: 'Full attestation receipt object containing signature, timestamp, and coordinates returned by veriscope_locate_evidence. Used for Path B cryptographic verification.'
         }
       }
     }
   },
   {
     name: 'veriscope_probe_radar',
-    description: `[Cross-Domain Blindspot & Innovation Radar] Probes cross-disciplinary matrix coverage, discipline distribution, and structural conceptual bridges across all 24 academic disciplines.
+    description: `Probes cross-disciplinary matrix coverage, discipline distribution, and structural conceptual bridges across all 24 academic disciplines.
 
 ### When to Use:
 - Use when exploring interdisciplinary connections, structural analogies, or conceptual bridges between distant fields (e.g. Physics and Sociology).
@@ -203,10 +252,21 @@ const TOOLS = [
 ### When NOT to Use:
 - Do NOT use to find specific definitions or dialectical disputes for a single concept; use veriscope_inspect_topography.
 - Do NOT use for primary source quotation retrieval; use veriscope_locate_evidence.
-- Do NOT use for auditing draft citations; use veriscope_citation_audit.
+- Do NOT use for auditing draft citations; use veriscope_audit_citations.
 
 ### Execution Behavior:
-- Read-only statistical and topology analysis. Returns high-dimensional synaptic radar metrics and discipline distribution matrices. Zero side effects.`,
+- Read-only statistical and topology analysis. Returns high-dimensional synaptic radar metrics and discipline distribution matrices. Zero side effects.
+
+### Returns:
+Returns a JSON object containing:
+- total_disciplines: Integer count (24 disciplines).
+- discipline_filter: The requested discipline filter (e.g. 'SOC') or 'ALL'.
+- coverage_matrix: Key-value map of discipline codes to concept counts and verified treatise coverage percentages.
+- interdisciplinary_bridges: Array of conceptual bridges mapping structural analogies between distinct disciplines (e.g. Thermodynamic Entropy to Social Anomie).
+- epistemic_blindspots: List of cross-domain intersections with sparse coverage to guide deeper research.
+
+### Edge Cases & Errors:
+- If an unrecognized discipline code is provided, gracefully falls back to aggregating across all 24 disciplines without failing.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -218,8 +278,8 @@ const TOOLS = [
     }
   },
   {
-    name: 'veriscope_citation_audit',
-    description: `[Academic Citation Health Check & Attribution Auditor] Fast-scans draft articles, research papers, or AI-generated text to extract book citations, cross-check canonical bibliographies, and detect hallucinations or misattributions.
+    name: 'veriscope_audit_citations',
+    description: `Fast-scans draft articles, research papers, or AI-generated text to extract book citations, cross-check canonical bibliographies, and detect hallucinations or misattributions.
 
 ### When to Use:
 - Use to audit draft articles, research proposals, or AI outputs for fabricated, distorted, or phantom citations before publication.
@@ -231,7 +291,18 @@ const TOOLS = [
 - Do NOT use to generate new dialectical arguments; use veriscope_inspect_topography.
 
 ### Execution Behavior:
-- Read-only forensic analysis. Parses text, identifies bibliographic references, and evaluates citation validity against canonical databases. Zero side effects and zero external data retention.`,
+- Read-only forensic analysis. Parses text, identifies bibliographic references, and evaluates citation validity against canonical databases. Zero side effects and zero external data retention.
+
+### Returns:
+Returns a JSON object containing:
+- total_citations_extracted: Integer count of scholarly book and author citations identified in the text.
+- citation_health_score: Float or integer (0-100) reflecting percentage of verified canonical citations (or null if no citations found).
+- verdict: Primary summary verdict ('ALL_CITATIONS_VERIFIED', 'PARTIAL_ATTRIBUTION_RISK', 'HALLUCINATED_OR_UNINDEXED', or 'NO_CITATIONS_FOUND').
+- citations: Array of detailed citation audit records, each with raw_citation, extracted_author, extracted_title, matched_edition, canon_sha256, and individual status (EXACT_MATCH, SUPPORTS, QUALIFIES, ATTRIBUTION_SUSPECT, UNINDEXED_OR_HALLUCINATED).
+
+### Edge Cases & Errors:
+- Citation-Free Input: If the input text contains no academic book citations or author references, returns total_citations_extracted: 0, citation_health_score: null, and verdict: 'NO_CITATIONS_FOUND' without throwing an error.
+- Empty or whitespace-only input returns a descriptive validation error.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -744,7 +815,7 @@ async function callTool(name, args) {
       if (c) return locateConcept(c);
       return await forwardToGateway(name, args);
     }
-    if (name === 'veriscope_probe_radar' || name === 'veriscope_citation_audit') {
+    if (name === 'veriscope_probe_radar' || name === 'veriscope_audit_citations' || name === 'veriscope_citation_audit') {
       return await forwardToGateway(name, args);
     }
   }
@@ -940,6 +1011,7 @@ async function callTool(name, args) {
         message: 'Must provide either (concept_id + canon_sha256) for local hash matching or (attestation) for Ed25519 cryptographic signature verification.'
       };
     }
+    case 'veriscope_audit_citations':
     case 'veriscope_citation_audit': {
       const txt = args.text || args.document_text || args.draft_text || '';
       return auditOfflineCitations(txt);
