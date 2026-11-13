@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "package": "veriscope-mcp",
+  "version": "1.1.7",
+  "git_commit": "5a755e6",
+  "parent_commit": "0bb9a4b",
+  "release_timestamp": "2026-11-13T05:30:36Z",
+  "npm_registry": {
+    "tarball": "https://registry.npmjs.org/veriscope-mcp/-/veriscope-mcp-1.1.7.tgz",
+    "shasum": "b3a24764ed2167ba987b02bdfb7852adbae5b425",
+    "integrity": "sha512-YU1kyl1ZcJYkKH5jQBD9iyfEvho77dfHJn1AhQwjYh5AB/urTUsExRI9wbO2WVGi+bfuRWMUOhNwgvV1uMvBKA==",
+    "unpacked_size": 285046
+  },
+  "files": {
+    "bin/index.js": {
+      "sha256": "af0b12164da409e909d311f84abc8ac4feeb6b9d04ce76c3d482a4241b0351d4",
+      "size": 44205
+    },
+    "package.json": {
+      "sha256": "a46938e58c8ffadc2d1cae79a24042eb91a79fc6fae2f4a8d68909ce94138f73",
+      "size": 1307
+    },
+    "golden_sandbox_50.json": {
+      "sha256": "f0aacbb5fb6d245dd34a6aebd329b93d18eb8f269289443ec5db5ed7629a9664",
+      "size": 182165
+    },
+    "SECURITY.md": {
+      "sha256": "1e21ea7c947394a78e5ef68ebb75a22a7acfdf2a33f07252dddcbf150e1b3f49",
+      "size": 4831
+    },
+    "CHANGELOG.md": {
+      "sha256": "5a9164b6e5566a48dbcc7c98ff5ce66fbe4819d53315658e5410872b27626b5b",
+      "size": 7201
+    }
+  },
+  "mcp_tools": [
+    "veriscope_discover_concepts",
+    "veriscope_inspect_topography",
+    "veriscope_locate_evidence",
+    "veriscope_verify_attestation",
+    "veriscope_probe_radar",
+    "veriscope_citation_audit"
+  ],
+  "security_regression": {
+    "s1": "PASS: Native Ed25519 signature enforcement",
+    "s2": "PASS: Honest local_hash_lookup labeling with public_key cleanly omitted",
+    "s3": "PASS: Strict dependency degradation guard",
+    "s4": "PASS: Public key substitution trust-anchor rejection",
+    "n1": "PASS: Scaffolding stripped & objective scholarly framing",
+    "n2": "PASS: Stopword guard against false substring attribution",
+    "n3": "PASS: v2 protocol array offset corrected (50/50 golden sandbox receipts bound & verified)",
+    "n4": "PASS: APA format & author preposition cleanup with Chinese pronoun support",
+    "n5": "PASS: CJS module import isolation without stdin side-effects",
+    "n6": "PASS: Static OpenAPI 3.0.3 cleanup with zero 405 paths",
+    "n7": "PASS: Reverse proposition verbatim quote guard (EXACT_MATCH requires quotes & len>=15)",
+    "n8": "PASS: Zero citations fail-open remediation (verdict=NO_CITATIONS_FOUND, score=null)"
+  },
+  "signing_authority": {
+    "key_id": "veriscope-ed25519-v2-2026",
+    "algorithm": "Ed25519",
+    "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+    "fingerprint_sha256": "aa87d0cff6aa7f8fad101f2441f911070bb6f80ff361873e442422e430f73363"
+  },
+  "attestation_signature": "vsk_sig:29f3addb3f6fd7634111a881efae13154a41b2ed131b99f9b1a0d8953ce83ff381a03f667def14b2df65e8719f48646b87a5b302f62b1de80cf8cd7ebf7c0a08",
+  "manifest_sha256": "b0813898471c264002d1902a128bf0e9d0602229195b9682207332b09cd8b043"
+}

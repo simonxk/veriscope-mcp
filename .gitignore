@@ -32,4 +32,5 @@ build/
 Thumbs.db
 
 mcp-publisher*
+*.tgz
 
