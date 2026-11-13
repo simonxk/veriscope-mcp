@@ -78,20 +78,28 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_discover_concepts",
                 "description": (
-                    "[Executive Framing & Concept Discovery] Elevate colloquial workplace/business pain points "
-                    "(e.g. bureaucracy, price wars, AI hype, executive briefings) or news metaphors into rigorous "
-                    "first-principles concepts across 24 disciplines to eliminate generic AI slop."
+                    "[Concept Discovery & Axiomatic Grounding] Maps informal business problems, workplace colloquialisms, "
+                    "or policy metaphors into canonical first-principles ontologies across 24 academic disciplines.\n\n"
+                    "### When to Use:\n"
+                    "- Use when the user presents colloquial questions (e.g. 'office politics', 'price wars', 'algorithmic filter bubbles', '跨部门推诿') and you need formal theoretical frameworks.\n"
+                    "- Use as the initial entry point to locate canonical concept identifiers (e.g. 'VS-SOC-001') before inspecting topography or locating primary evidence.\n\n"
+                    "### When NOT to Use:\n"
+                    "- Do NOT use if you already possess a canonical concept ID (e.g. 'VS-SOC-001'); call `veriscope_inspect_topography` directly.\n"
+                    "- Do NOT use for verbatim quotation retrieval or snippet proofs; call `veriscope_locate_evidence` instead.\n"
+                    "- Do NOT use for auditing full draft text for hallucinated citations; call `veriscope_citation_audit` instead.\n\n"
+                    "### Execution Behavior:\n"
+                    "- Read-only; deterministically resolves via semantic bridge against the built-in golden sandbox or live sovereign attestation graph. Zero external side effects."
                 ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "query": {
                             "type": "string",
-                            "description": "Colloquial business/workplace problem, metaphor, or scholarly topic (e.g. '跨部门推诿', '价格战', 'iron cage', 'panopticon')."
+                            "description": "Colloquial business/workplace problem, metaphor, or scholarly inquiry to map (e.g. '跨部门推诿', '价格战', 'iron cage', 'panopticon'). Max 300 characters."
                         },
                         "discipline_hint": {
                             "type": "string",
-                            "description": "Optional discipline hint (e.g. 'SOC', 'PHIL', 'LAW', 'ECON')."
+                            "description": "Optional 3-4 letter academic discipline code to constrain candidate resolution (e.g. 'SOC' for Sociology, 'PHIL' for Philosophy, 'LAW' for Legal Studies, 'ECON' for Economics). Defaults to scanning all 24 disciplines."
                         }
                     },
                     "required": ["query"]
@@ -100,15 +108,24 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_inspect_topography",
                 "description": (
-                    "[Red-Team Pre-Mortem & Dialectical Audit] Stress-test business proposals, policy drafts, or papers "
-                    "by retrieving axiomatic formal kernels, scholar lineages with Wikidata QIDs, and 3+ opposing dialectical disputes."
+                    "[Red-Team Pre-Mortem & Dialectical Audit] Stress-tests proposals, memos, or papers by retrieving "
+                    "axiomatic formal kernels, Wikidata QIDs, and 3+ opposing dialectical disputes for a canonical concept.\n\n"
+                    "### When to Use:\n"
+                    "- Use before finalizing business proposals, investment memos, or academic papers to uncover blind spots and stress-test core arguments.\n"
+                    "- Use to retrieve formal foundational kernels, opposing historical disputes, and intellectual lineages for a known concept ID.\n\n"
+                    "### When NOT to Use:\n"
+                    "- Do NOT use with raw natural language queries; if you only have a colloquial phrase or topic, use `veriscope_discover_concepts` first to obtain the concept ID.\n"
+                    "- Do NOT use for verifying cryptographic hashes or Ed25519 signatures; use `veriscope_verify_attestation`.\n"
+                    "- Do NOT use for extracting or validating quotations from full draft text; use `veriscope_citation_audit`.\n\n"
+                    "### Execution Behavior:\n"
+                    "- Read-only, deterministic retrieval. Pulls axiomatic kernels, dispute structures, and Wikidata entity mappings from verified canonical records. Zero side effects."
                 ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "concept_id": {
                             "type": "string",
-                            "description": "Canonical concept identifier (e.g. 'VS-PHIL-001', 'VS-SOC-001')."
+                            "description": "Canonical concept identifier obtained from veriscope_discover_concepts (e.g. 'VS-SOC-001' for 科层制/Bureaucracy, 'VS-PHIL-001' for 洞穴之喻/Allegory of the Cave)."
                         }
                     },
                     "required": ["concept_id"]
@@ -117,19 +134,28 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_locate_evidence",
                 "description": (
-                    "[De-Slop Grounding & Primary Source Proof] Locate fair-use verbatim excerpts (<=300 chars) "
-                    "with exact chapter coordinates, SHA-256 edition hash, and Ed25519 cryptographic receipt for high-stakes reports."
+                    "[De-Slop Grounding & Primary Source Proof] Locates fair-use verbatim excerpts (<=300 chars) "
+                    "with exact chapter coordinates, 64-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts.\n\n"
+                    "### When to Use:\n"
+                    "- Use when preparing high-stakes reports, legal briefs, or executive papers requiring zero-hallucination primary source backing.\n"
+                    "- Use to retrieve authoritative textual evidence with exact chapter coordinates and cryptographic attestation receipts for a canonical concept.\n\n"
+                    "### When NOT to Use:\n"
+                    "- Do NOT use for exploratory topic browsing; call `veriscope_discover_concepts` to discover relevant concepts first.\n"
+                    "- Do NOT use for batch-scanning an entire document for cited sources; call `veriscope_citation_audit` instead.\n"
+                    "- Do NOT use to verify whether an existing hash or receipt is mathematically intact; call `veriscope_verify_attestation` instead.\n\n"
+                    "### Execution Behavior:\n"
+                    "- Read-only, deterministic retrieval. Excerpts strictly adhere to fair-use length limits (<=300 chars) bound to real physical volume SHA-256 editions. Zero side effects."
                 ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "concept_id": {
                             "type": "string",
-                            "description": "Canonical concept identifier."
+                            "description": "Canonical concept identifier (e.g. 'VS-SOC-001', 'VS-ECON-001')."
                         },
                         "query_context": {
                             "type": "string",
-                            "description": "Optional sentence context to guide snippet anchor selection."
+                            "description": "Optional sentence or topical context from your draft to guide snippet anchor selection within the canonical work."
                         }
                     },
                     "required": ["concept_id"]
@@ -138,23 +164,32 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_verify_attestation",
                 "description": (
-                    "[Cryptographic Receipt Verification] Mathematically verify the SHA-256 hash "
-                    "and Ed25519 cryptographic receipt of a cited quote to check text integrity."
+                    "[Cryptographic Receipt Verification] Mathematically verifies the 64-bit SHA-256 edition hash "
+                    "and Ed25519 digital signature of cited quotes against verified canonical records.\n\n"
+                    "### When to Use:\n"
+                    "- Use to verify the cryptographic authenticity, integrity, and non-tampering of an attestation receipt received from `veriscope_locate_evidence`.\n"
+                    "- Use in compliance checks to mathematically confirm whether a cited text snippet matches the genuine canonical edition.\n\n"
+                    "### When NOT to Use:\n"
+                    "- Do NOT use to discover or search for concepts; use `veriscope_discover_concepts`.\n"
+                    "- Do NOT use to retrieve new evidence snippets; use `veriscope_locate_evidence`.\n"
+                    "- Do NOT use for checking unformatted bibliography lists in draft papers; use `veriscope_citation_audit`.\n\n"
+                    "### Execution Behavior:\n"
+                    "- Read-only, pure cryptographic verification. Performs constant-time hash and signature checks against public verification keys. Zero state modification."
                 ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "concept_id": {
                             "type": "string",
-                            "description": "Canonical concept identifier (e.g. 'VS-SOC-001')."
+                            "description": "Canonical concept identifier corresponding to the attestation (e.g. 'VS-SOC-001')."
                         },
                         "canon_sha256": {
                             "type": "string",
-                            "description": "SHA-256 edition hash to verify against canonical records."
+                            "description": "64-character SHA-256 edition hash to verify against the canonical physical volume record."
                         },
                         "attestation": {
                             "type": "object",
-                            "description": "Optional full attestation receipt object."
+                            "description": "Optional full attestation receipt object containing signature, timestamp, and coordinates returned by veriscope_locate_evidence."
                         }
                     }
                 }
@@ -162,15 +197,24 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_probe_radar",
                 "description": (
-                    "[Cross-Domain Blindspot & Innovation Radar] Probe matrix coverage, discipline distribution, "
-                    "and cross-disciplinary conceptual bridges across all 24 academic disciplines."
+                    "[Cross-Domain Blindspot & Innovation Radar] Probes cross-disciplinary matrix coverage, "
+                    "discipline distribution, and structural conceptual bridges across all 24 academic disciplines.\n\n"
+                    "### When to Use:\n"
+                    "- Use when exploring interdisciplinary connections, structural analogies, or conceptual bridges between distant fields (e.g. Physics and Sociology).\n"
+                    "- Use to audit the distribution of canonical coverage and discover epistemic blind spots in a knowledge domain.\n\n"
+                    "### When NOT to Use:\n"
+                    "- Do NOT use to find specific definitions or dialectical disputes for a single concept; use `veriscope_inspect_topography`.\n"
+                    "- Do NOT use for primary source quotation retrieval; use `veriscope_locate_evidence`.\n"
+                    "- Do NOT use for auditing draft citations; use `veriscope_citation_audit`.\n\n"
+                    "### Execution Behavior:\n"
+                    "- Read-only statistical and topology analysis. Returns high-dimensional synaptic radar metrics and discipline distribution matrices. Zero side effects."
                 ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "discipline": {
                             "type": "string",
-                            "description": "Optional discipline code to filter radar statistics."
+                            "description": "Optional 3-4 letter discipline code to filter radar statistics (e.g. 'SOC', 'PHIL', 'ECON', 'HIST', 'LAW', 'PHYS'). If omitted, aggregates across all 24 disciplines."
                         }
                     }
                 }
@@ -178,20 +222,28 @@ class VeriScopeMCPServer:
             {
                 "name": "veriscope_citation_audit",
                 "description": (
-                    "[Academic Citation Health Check & Attribution Auditor] Fast-scan draft articles or AI generated "
-                    "text to extract and verify book titles, authors, and citations against canonical editions and "
-                    "SHA-256 hashes to detect misattributions and phantom references."
+                    "[Academic Citation Health Check & Attribution Auditor] Fast-scans draft articles, research papers, "
+                    "or AI-generated text to extract book citations, cross-check canonical bibliographies, and detect hallucinations or misattributions.\n\n"
+                    "### When to Use:\n"
+                    "- Use to audit draft articles, research proposals, or AI outputs for fabricated, distorted, or phantom citations before publication.\n"
+                    "- Use to check whether cited authors and book titles match genuine historical editions and physical volume records.\n\n"
+                    "### When NOT to Use:\n"
+                    "- Do NOT use with single colloquial keywords or queries; use `veriscope_discover_concepts` for keyword concept mapping.\n"
+                    "- Do NOT use to verify an Ed25519 cryptographic receipt object; use `veriscope_verify_attestation`.\n"
+                    "- Do NOT use to generate new dialectical arguments; use `veriscope_inspect_topography`.\n\n"
+                    "### Execution Behavior:\n"
+                    "- Read-only forensic analysis. Parses text, identifies bibliographic references, and evaluates citation validity against canonical databases. Zero side effects and zero external data retention."
                 ),
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "text": {
                             "type": "string",
-                            "description": "Draft article, proposal, research brief, or AI-generated text containing book citations to audit."
+                            "description": "Draft article, proposal, research brief, or AI-generated text containing book citations and author references to audit. Max 10,000 characters."
                         },
                         "discipline_hint": {
                             "type": "string",
-                            "description": "Optional discipline hint (e.g. 'SOC', 'PHIL', 'ECON', 'LAW')."
+                            "description": "Optional discipline hint (e.g. 'SOC', 'PHIL', 'ECON', 'LAW') to accelerate bibliographic entity resolution."
                         }
                     },
                     "required": ["text"]

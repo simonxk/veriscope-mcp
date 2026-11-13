@@ -23,27 +23,27 @@
   "tools": [
     {
       "name": "veriscope_discover_concepts",
-      "description": "Elevate colloquial topics or news into canonical scholarly ontologies across 24 disciplines."
+      "description": "[Concept Discovery & Axiomatic Grounding] Maps informal business problems, workplace colloquialisms, or policy metaphors into canonical first-principles ontologies across 24 academic disciplines. Use when you need formal theoretical frameworks for colloquial queries (e.g. 'office politics', 'price wars', 'algorithmic filter bubbles', '跨部门推诿'). Do NOT use if you already have a canonical concept ID (use veriscope_inspect_topography) or need full-text citation auditing (use veriscope_citation_audit). Read-only; deterministically resolves via built-in golden sandbox or live sovereign gateway."
     },
     {
       "name": "veriscope_inspect_topography",
-      "description": "Retrieve formal axiomatic definitions, Wikidata QIDs, and 3+ historical dialectical disputes."
+      "description": "[Red-Team Pre-Mortem & Dialectical Audit] Stress-tests proposals, memos, or papers by retrieving axiomatic formal kernels, Wikidata QIDs, and 3+ opposing dialectical disputes for a canonical concept. Use before submitting proposals to uncover blind spots and examine opposing schools of thought. Do NOT use with raw colloquial queries (use veriscope_discover_concepts first) or for Ed25519 signature checks (use veriscope_verify_attestation). Read-only, deterministic retrieval with zero side effects."
     },
     {
       "name": "veriscope_locate_evidence",
-      "description": "Locate fair-use verbatim citations (<=300 chars) with chapter coordinates, 64-bit SHA-256 hashes, and Ed25519 receipts."
+      "description": "[De-Slop Grounding & Primary Source Proof] Locates fair-use verbatim excerpts (<=300 chars) with exact chapter coordinates, 64-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts. Use when an agent requires ironclad, zero-hallucination primary source evidence and compliance receipts. Do NOT use for document-wide citation scanning (use veriscope_citation_audit) or exploratory topic discovery (use veriscope_discover_concepts). Read-only, fair-use bounded retrieval."
     },
     {
       "name": "veriscope_verify_attestation",
-      "description": "Cryptographically verify whether a cited quote or hash matches genuine verified editions."
+      "description": "[Cryptographic Receipt Verification] Mathematically verifies the 64-bit SHA-256 edition hash and Ed25519 digital signature of cited quotes against verified canonical records. Use to confirm the cryptographic authenticity and tamper-evidence of receipts from veriscope_locate_evidence. Do NOT use to search concepts or retrieve evidence. Read-only, constant-time cryptographic verification with zero state modification."
     },
     {
       "name": "veriscope_probe_radar",
-      "description": "Probe cross-disciplinary synaptic radar connections and epistemic blind spots."
+      "description": "[Cross-Domain Blindspot & Innovation Radar] Probes cross-disciplinary matrix coverage, discipline distribution, and structural conceptual bridges across all 24 academic disciplines. Use to discover non-obvious epistemic blind spots and interdisciplinary connections (e.g. Sociology to Physics). Do NOT use for single concept inspection (use veriscope_inspect_topography) or draft text checking (use veriscope_citation_audit). Read-only statistical and topology analysis."
     },
     {
       "name": "veriscope_citation_audit",
-      "description": "Fast-scan draft text or AI responses to extract scholarly citations, cross-check against 50 canonical editions, and detect attribution errors or hallucinations."
+      "description": "[Academic Citation Health Check & Attribution Auditor] Fast-scans draft articles, research papers, or AI-generated text to extract book citations, cross-check canonical bibliographies, and detect hallucinations or misattributions. Use before publication to catch phantom references or misattributed authors. Do NOT use for single concept discovery (use veriscope_discover_concepts) or cryptographic signature checks (use veriscope_verify_attestation). Read-only forensic analysis with zero external data retention."
     }
   ]
 }
