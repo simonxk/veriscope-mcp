@@ -74,6 +74,46 @@ class TestCitationAudit(unittest.TestCase):
         self.assertEqual(res["method"], "local_hash_lookup")
         self.assertTrue(res["hash_matched"])
         self.assertFalse(res["is_cryptographically_verified"])
+        self.assertNotIn("public_key", res)
+
+    def test_western_prefix_stripping(self):
+        """Test stripping of prefixes like 'As noted by Kant'."""
+        txt = 'As noted by Kant in "Critique of Pure Reason", space and time are pure forms of intuition...'
+        res = self.server.audit_citations(txt)
+        self.assertEqual(res["total_citations_extracted"], 1)
+        self.assertEqual(res["citations"][0]["extracted_author"], "Kant")
+        self.assertEqual(res["citations"][0]["verdict"], "SUPPORTS")
+
+    def test_chinese_pronoun_reference(self):
+        """Test that pronouns like '他在《...》' do not trigger false ATTRIBUTION_SUSPECT."""
+        txt = "他在《纯粹理性批判》中探讨了先验感性论与范畴演绎..."
+        res = self.server.audit_citations(txt)
+        self.assertEqual(res["total_citations_extracted"], 1)
+        self.assertEqual(res["citations"][0]["verdict"], "SUPPORTS")
+        self.assertEqual(res["suspect_count"], 0)
+
+    def test_reverse_proposition_discrimination(self):
+        """Test that unquoted text gets SUPPORTS (0.85), not EXACT_MATCH (0.99)."""
+        txt_unquoted = "在《纯粹理性批判》中，有人声称物自体不可知并主张怀疑论..."
+        res_unquoted = self.server.audit_citations(txt_unquoted)
+        self.assertEqual(res_unquoted["citations"][0]["verdict"], "SUPPORTS")
+        self.assertEqual(res_unquoted["citations"][0]["confidence_score"], 0.85)
+
+        c = self.server.sandbox_map.get("VS-PHIL-001")
+        excerpt = c["canon_anchor"]["verbatim_excerpt"]
+        slice_str = excerpt[:20]
+        txt_quoted = f'在《纯粹理性批判》中，康德写道：“{slice_str}”'
+        res_quoted = self.server.audit_citations(txt_quoted)
+        self.assertEqual(res_quoted["citations"][0]["verdict"], "EXACT_MATCH")
+        self.assertEqual(res_quoted["citations"][0]["confidence_score"], 0.99)
+
+    def test_zero_citations_fail_open_remediation(self):
+        """Test that 0 citations returns verdict='NO_CITATIONS_FOUND' and citation_health_score=None."""
+        txt = "今天天气很好，这是一篇随笔，完全不涉及任何学术引文。"
+        res = self.server.audit_citations(txt)
+        self.assertEqual(res["total_citations_extracted"], 0)
+        self.assertEqual(res["verdict"], "NO_CITATIONS_FOUND")
+        self.assertIsNone(res["citation_health_score"])
 
 
 if __name__ == "__main__":

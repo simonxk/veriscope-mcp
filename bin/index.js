@@ -185,23 +185,33 @@ const AUTHOR_NOISE_WORDS = [
   '认为', '强调', '指出', '提出', '声称', '根据', '按照'
 ];
 
+const CHINESE_PRONOUNS = new Set([
+  '他', '她在', '他在', '她', '它', '他们', '她们', '它们', '该作者', '此作者', '作者', '笔者', '本文', '在此', '其'
+]);
+
 function cleanAuthorName(raw) {
   let s = (raw || '').trim();
   for (const w of AUTHOR_NOISE_WORDS) {
     s = s.replace(w, '').trim();
   }
-  // 清洗英文动词与引导介词（解决 "Kant argues in" -> "Kant", "As noted by Kant" -> "Kant", "According to Hobbes" -> "Hobbes"）
-  s = s.replace(/^(?:as|in|according to|as noted by|noted by|by)\s+/i, '');
+  // 清洗英文动词与引导介词（最长前缀优先匹配，避免 "as" 截断 "as noted by"）
+  s = s.replace(/^(?:as noted by|according to|noted by|as|in|by)\s+/i, '');
   s = s.replace(/\s+(?:argues(?:\s+in)?|states(?:\s+in)?|claims(?:\s+in)?|writes(?:\s+in)?|shows|in)$/i, '');
 
   s = s.replace(/^[\s，,、“”"'（(：:【\[]+/, '').replace(/[\s，,、“”"'）)：:】\]]+$/, '');
+  s = s.replace(/(?:在|于|中|里)$/, '').trim();
   if (s.includes('·')) {
     const parts = s.split('·');
     if (parts.length >= 2) {
       s = parts[parts.length - 2].trim().slice(-3) + '·' + parts[parts.length - 1].trim().slice(0, 6);
     }
   }
-  return s.trim();
+  s = s.trim();
+  // 中文代词识别（如“他在《纯粹理性批判》中”）：不作为著者姓名比对，避免误报张冠李戴
+  if (CHINESE_PRONOUNS.has(s) || CHINESE_PRONOUNS.has(s + '在')) {
+    return '';
+  }
+  return s;
 }
 
 function cleanBookTitle(raw) {
@@ -495,9 +505,20 @@ function auditOfflineCitations(text) {
         });
       } else {
         const excerpt = anchor.verbatim_excerpt || '';
-        const isExact = excerpt && contextSnippet.split(/[,，。；;]/).some(seg => seg.length >= 6 && excerpt.includes(seg));
+        // 严格字句级引文确证：必须带有双引号包裹且长度>=15字连续匹配，防止命题反转短片段弱匹配误判
+        const quoteRegex = /["“'‘]([^"”'’]{15,})["”'’]/g;
+        let isVerbatimQuote = false;
+        let qm;
+        if (excerpt) {
+          while ((qm = quoteRegex.exec(contextSnippet)) !== null) {
+            if (excerpt.includes(qm[1].trim())) {
+              isVerbatimQuote = true;
+              break;
+            }
+          }
+        }
 
-        if (isExact) {
+        if (isVerbatimQuote) {
           exactCount++;
         } else {
           supportsCount++;
@@ -507,9 +528,9 @@ function auditOfflineCitations(text) {
           raw_citation: item.raw_citation,
           extracted_title: item.title,
           extracted_author: item.author,
-          verdict: isExact ? 'EXACT_MATCH' : 'SUPPORTS',
-          verdict_zh: isExact ? '🟢 权威原典字句确证（256 位 SHA-256 版本存证）' : '🟢 权威正典出处吻合（著录与篇章坐标确证，命题语义待研读）',
-          confidence_score: isExact ? 0.99 : 0.95,
+          verdict: isVerbatimQuote ? 'EXACT_MATCH' : 'SUPPORTS',
+          verdict_zh: isVerbatimQuote ? '🟢 权威原典字句确证（256 位 SHA-256 版本存证）' : '🟢 权威正典著录吻合（书目与著者坐标确证，命题语义待深入研读）',
+          confidence_score: isVerbatimQuote ? 0.99 : 0.85,
           matched_concept_id: matchedConcept.concept_id,
           canonical_title: anchor.title,
           canonical_author: canonAuthor,
@@ -517,7 +538,7 @@ function auditOfflineCitations(text) {
           canon_sha256: anchor.canon_sha256,
           chapter_anchor: anchor.chapter_anchor,
           verbatim_excerpt: anchor.verbatim_excerpt,
-          notes: isExact ? '原文切片字句高度匹配，出处坐标与 256 位 SHA-256 版本哈希完备。' : '著作与著者著录核对吻合，已定位馆藏权威版本；命题语义核实建议深入研读原典章节。'
+          notes: isVerbatimQuote ? '原文切片字句高度匹配，出处坐标与 256 位 SHA-256 版本哈希完备。' : '著作与著者著录核对吻合，已定位馆藏权威版本；命题语义核实建议深入研读原典章节。'
         });
       }
     } else {
@@ -535,8 +556,27 @@ function auditOfflineCitations(text) {
   }
 
   const total = citations.length;
+  if (total === 0) {
+    return {
+      status: 'ok',
+      mode: 'offline_golden_sandbox_50',
+      total_citations_extracted: 0,
+      exact_matches_count: 0,
+      supports_count: 0,
+      qualifies_count: 0,
+      contradicts_count: 0,
+      suspect_count: 0,
+      unindexed_count: 0,
+      citation_health_score: null,
+      verdict: 'NO_CITATIONS_FOUND',
+      summary: '未在输入文本中抽取到有效学术文献引用格式。',
+      citations: [],
+      notice: '离线模式基于 50 篇经典学术正典沙盒初筛。如需对勘 24 学科全量学术正典与章节定位，请配置 VERISCOPE_API_KEY。'
+    };
+  }
+
   const groundedTotal = exactCount + supportsCount + qualifiesCount;
-  const healthScore = total > 0 ? Math.round(((groundedTotal * 100) + (suspectCount * 30)) / total) : 100;
+  const healthScore = Math.round(((groundedTotal * 100) + (suspectCount * 30)) / total);
 
   return {
     status: 'ok',
@@ -559,6 +599,12 @@ function forwardToGateway(toolName, args) {
   return new Promise((resolve) => {
     try {
       const url = new URL(DEFAULT_GATEWAY_URL);
+      // 安全加固: 远端网关强制使用 HTTPS，杜绝明文传输 Bearer 令牌 (仅本地开发允许 http://localhost)
+      if (url.protocol !== 'https:' && url.hostname !== 'localhost' && url.hostname !== '127.0.0.1') {
+        resolve({ error: 'Insecure gateway rejected: Remote VERISCOPE_GATEWAY_URL must use https:// to protect credentials.' });
+        return;
+      }
+
       const postData = JSON.stringify({ tool: toolName, arguments: args });
       const options = {
         hostname: url.hostname,
@@ -569,7 +615,7 @@ function forwardToGateway(toolName, args) {
           'Content-Type': 'application/json',
           'Content-Length': Buffer.byteLength(postData),
           'Authorization': `Bearer ${API_KEY}`,
-          'User-Agent': 'VeriScope-MCP-Node/1.0.0'
+          'User-Agent': 'VeriScope-MCP-Node/1.1.7'
         },
         timeout: 10000
       };
@@ -622,7 +668,7 @@ async function callTool(name, args) {
     }
     if (name === 'veriscope_locate_evidence') {
       const cid = (args.concept_id || '').trim();
-      const c = sandboxMap.get(cid) || nameMap.get(cid.lower());
+      const c = sandboxMap.get(cid) || nameMap.get(cid.toLowerCase());
       if (c) return locateConcept(c);
       return await forwardToGateway(name, args);
     }
@@ -655,7 +701,7 @@ async function callTool(name, args) {
       if (c) return inspectConcept(c, args.include_disputes !== false);
       return {
         error: 'CONCEPT_NOT_FOUND',
-        message: `Concept '${args.concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 77,984 conceptual matrix: https://veriscope.cc/pricing`,
+        message: `Concept '${args.concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 24-discipline conceptual matrix.`,
         available_sandbox_concepts: Array.from(sandboxMap.keys()).slice(0, 10)
       };
     }
@@ -665,23 +711,12 @@ async function callTool(name, args) {
       const c = sandboxMap.get(cid) || nameMap.get(cid.toLowerCase());
       if (c) return locateConcept(c);
 
-      // Teaser preview
-      const h = crypto.createHash('sha256').update(`SOVEREIGN_CANON:${cid}`).digest('hex');
-      const prefix = h.slice(0, 16);
       return {
-        status: 'TEASER_PREVIEW',
+        status: 'NOT_FOUND_IN_SANDBOX',
         concept_id: cid,
-        canon_anchor_preview: {
-          canon_sha256_prefix: `${prefix}...`,
-          chapter_anchor: 'Canonical Treatise Anchor [Locked]',
-          verbatim_excerpt: '[🔒 已精准锁定权威学术原典存证，包含学术公理与判词。全本切片（≤300字）与 Ed25519 密码学签名需配置 VERISCOPE_API_KEY：https://veriscope.cc/pricing]'
-        },
-        pricing_options: {
-          scholar_pro: '个人专业版 (Scholar Pro) ¥98/月 或 $19/mo (年付 ¥880/年)',
-          enterprise: '机构专线版 ¥9,800起/年 或 $1,500/yr (包含高并发 API 与私有知识库支持)'
-        },
-        is_teaser_mode: true,
-        access_mode: 'TEASER_PREVIEW'
+        canon_anchor: null,
+        is_offline_sandbox: true,
+        notice: `Concept '${cid}' not found in built-in 50-canon offline sandbox. To query all 24 disciplines, configure VERISCOPE_API_KEY.`
       };
     }
     case 'veriscope_verify_attestation': {
@@ -724,20 +759,48 @@ async function callTool(name, args) {
         }
 
         // N-3 闭环: 解构 signed_message 载荷并与用户查询参数严格比对
-        // 协议规范: VERISCOPE_ATTESTATION:<concept_id>:<canon_sha256>:<nonce_or_slice>:<timestamp>
+        // 协议规范:
+        // v2 格式: VERISCOPE_ATTESTATION:v2:<key_id>:<concept_id>:<canon_sha256>:<doc_sha256>:<slice16>:<timestamp>
+        // v1 格式: VERISCOPE_ATTESTATION:<concept_id>:<canon_sha256>:<nonce_or_slice>:<timestamp>
         let parsedPayload = null;
         if (typeof msg === 'string' && msg.startsWith('VERISCOPE_ATTESTATION:')) {
           const parts = msg.split(':');
-          parsedPayload = {
-            protocol: parts[0],
-            concept_id: parts[1] || '',
-            canon_sha256: (parts[2] || '').toLowerCase(),
-            slice_or_nonce: parts[3] || '',
-            timestamp: parts[4] || ''
-          };
+          if (parts.length >= 8 && parts[1] === 'v2') {
+            parsedPayload = {
+              protocol: parts[0],
+              version: parts[1],
+              key_id: parts[2],
+              concept_id: parts[3] || '',
+              canon_sha256: (parts[4] || '').toLowerCase(),
+              doc_sha256: (parts[5] || '').toLowerCase(),
+              slice_or_nonce: parts[6] || '',
+              timestamp: parts[7] || ''
+            };
+          } else if (parts.length >= 5) {
+            parsedPayload = {
+              protocol: parts[0],
+              version: 'v1',
+              concept_id: parts[1] || '',
+              canon_sha256: (parts[2] || '').toLowerCase(),
+              slice_or_nonce: parts[3] || '',
+              timestamp: parts[4] || ''
+            };
+          }
+        }
 
-          // 若调用方同时传入了 concept_id 或 canon_sha256，严格校验是否与签名载荷一致
-          if (cid && cid !== parsedPayload.concept_id) {
+        // 防伪造绕过检查 (Anti-Bypass Guard):
+        // 若调用方传入了 concept_id 或 canon_sha256，签名载荷必须是合规的 VERISCOPE_ATTESTATION 凭证
+        if (cid || querySha) {
+          if (!parsedPayload) {
+            return {
+              method: 'ed25519_signature',
+              verification_level: 'MALFORMED_ATTESTATION',
+              is_cryptographically_verified: false,
+              verification_status: 'MALFORMED_ATTESTATION',
+              error: 'Signed message does not follow canonical VERISCOPE_ATTESTATION protocol format, cannot bind to requested concept_id/canon_sha256.'
+            };
+          }
+          if (cid && cid.toUpperCase() !== parsedPayload.concept_id.toUpperCase()) {
             return {
               method: 'ed25519_signature',
               verification_level: 'PAYLOAD_MISMATCH',
@@ -747,7 +810,7 @@ async function callTool(name, args) {
               signed_payload: parsedPayload
             };
           }
-          if (querySha && querySha !== parsedPayload.canon_sha256) {
+          if (querySha && querySha.toLowerCase() !== parsedPayload.canon_sha256.toLowerCase()) {
             return {
               method: 'ed25519_signature',
               verification_level: 'PAYLOAD_MISMATCH',
@@ -761,12 +824,12 @@ async function callTool(name, args) {
 
         return {
           method: 'ed25519_signature',
-          verification_level: 'SIGNATURE_VERIFIED',
+          verification_level: parsedPayload ? 'SIGNATURE_VERIFIED' : 'ARBITRARY_MESSAGE_SIGNED',
           is_cryptographically_verified: true,
-          verification_status: 'SIGNATURE_VALID',
+          verification_status: parsedPayload ? 'SIGNATURE_VALID' : 'ARBITRARY_PAYLOAD_VALID',
           algorithm: 'Ed25519',
           public_key: pub,
-          signed_payload: parsedPayload || { raw_message: msg }
+          signed_payload: parsedPayload || { raw_message: msg, note: 'Valid cryptographic signature on non-attestation message payload.' }
         };
       }
 
@@ -785,8 +848,7 @@ async function callTool(name, args) {
             verification_status: isMatched ? 'HASH_MATCHED' : 'TAMPER_DETECTED',
             concept_id: cid,
             matched_edition: c.canon_anchor && c.canon_anchor.title,
-            algorithm: 'SHA-256',
-            public_key: trustedPub
+            algorithm: 'SHA-256'
           };
         }
         return {

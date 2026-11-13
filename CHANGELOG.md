@@ -4,6 +4,27 @@ All notable changes to `veriscope-mcp` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.7] - 2026-11-13
+
+### Security & Protocol Engineering
+- **N-3 Protocol Alignment & Payload Parsing Fix**: Corrected protocol array slicing when validating `v2` receipts (`VERISCOPE_ATTESTATION:v2:<key_id>:<concept_id>:<canon_sha256>:<doc_sha256>:<slice_sha16>:<timestamp>`). Resolves the critical offset bug where `parts[1]` was compared against `concept_id`, causing 50/50 authentic sandbox receipts to return `PAYLOAD_MISMATCH`. Parameter-bound attestation verification now succeeds 50/50.
+- **N-3 Anti-Bypass Guard**: Enforced strict validation requiring that any verification call supplying `concept_id` or `canon_sha256` must accompany a canonical `VERISCOPE_ATTESTATION:` structured payload. Non-conforming arbitrary signed messages are strictly rejected with `MALFORMED_ATTESTATION`.
+- **Path A Public Key Cleanliness**: Removed `public_key` field from Path A (`local_hash_lookup`) return dictionary, eliminating confusion between symmetric database hash matching and asymmetric digital signatures.
+- **Gateway Transport Security**: Enforced HTTPS for remote gateway connections (`url.protocol === 'https:'`) to protect Bearer tokens from plaintext transport leakage.
+- **Runtime Typo Fix**: Corrected JavaScript method call `cid.lower()` to `cid.toLowerCase()` in `bin/index.js`, preventing runtime `TypeError`.
+
+### Citation Audit Engine Hardening
+- **Author Normalization & Chinese Pronoun Handling**: Extended `cleanAuthorName` / `clean_au` with greedy prefix stripping (`as noted by`, `according to`, `written by`, `as stated by`) and Chinese pronoun filtering (`他`, `她`, `他们`, `该作者`, etc.), eliminating false-positive `ATTRIBUTION_SUSPECT` warnings.
+- **Reverse Proposition Defense**: `EXACT_MATCH` (0.99) now strictly requires quotation marks with verbatim excerpt substring of length >= 15; general unquoted citations are labeled as `SUPPORTS` (0.85).
+- **Fail-Open Remediation**: When 0 citations are detected, returns `verdict: "NO_CITATIONS_FOUND"` and `citation_health_score: null` instead of falsely returning 100% health.
+- **Clean Academic Fallbacks**: Replaced commercial teaser pricing prompts in open-source fallback handlers with clean scholarly notifications.
+
+### Distribution & Supply Chain Alignment
+- **Ed25519 SPKI Encoding Fix**: Corrected SPKI Base64 representation in `.well-known/veriscope-keys.json` to `MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M=`, establishing mathematical consistency with public key hex `be55d985d7...`.
+- **Tarball Testability**: Included `"test"` in `package.json`'s `"files"` array, enabling `npm test` to run out of the box inside unpacked npm tarballs.
+- **Manifest Synchronization**: Aligned version numbers to `1.1.7` across `package.json`, `server.json`, `glama.json`, `smithery.yaml`, `pyproject.toml`, `cli.py`, and `__init__.py`.
+- **Glama Tool Registry**: Added missing `veriscope_citation_audit` tool declaration in `glama.json`.
+
 ## [1.1.6] - 2026-11-13
 
 ### Security & Architecture Hardening

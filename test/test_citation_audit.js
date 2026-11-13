@@ -64,4 +64,41 @@ assert.strictEqual(t7.total_citations_extracted, 1);
 assert.strictEqual(t7.citations[0].canonical_title, 'Kritik der reinen Vernunft (纯粹理性批判)');
 console.log('  [✓] Test 7: English standard citation format PASS');
 
+// Test 8: Western citation prefix stripping (as noted by / according to)
+const cleanedKant = cleanAuthorName('As noted by Kant');
+assert.strictEqual(cleanedKant, 'Kant', `cleanAuthorName must strip prefix 'As noted by', got: ${cleanedKant}`);
+const t8 = auditOfflineCitations('As noted by Kant in "Critique of Pure Reason", space and time are pure forms of intuition...');
+assert.strictEqual(t8.total_citations_extracted, 1);
+assert.strictEqual(t8.citations[0].extracted_author, 'Kant');
+assert.strictEqual(t8.citations[0].verdict, 'SUPPORTS');
+console.log('  [✓] Test 8: Western prefix stripping & attribution PASS');
+
+// Test 9: Chinese pronoun reference (他在《...》does not trigger false ATTRIBUTION_SUSPECT)
+const t9 = auditOfflineCitations('他在《纯粹理性批判》中探讨了先验感性论与范畴演绎...');
+assert.strictEqual(t9.total_citations_extracted, 1);
+assert.strictEqual(t9.citations[0].verdict, 'SUPPORTS');
+assert.strictEqual(t9.suspect_count, 0, 'Pronoun "他在" must not trigger false ATTRIBUTION_SUSPECT');
+console.log('  [✓] Test 9: Chinese pronoun reference handled honestly (SUPPORTS) PASS');
+
+// Test 10: Reverse proposition & Verbatim quote discrimination
+const t10_general = auditOfflineCitations('在《纯粹理性批判》中，有人声称物自体不可知并主张怀疑论...');
+assert.strictEqual(t10_general.citations[0].verdict, 'SUPPORTS', 'Unquoted proposition must be SUPPORTS (0.85), not EXACT_MATCH (0.99)');
+assert.strictEqual(t10_general.citations[0].confidence_score, 0.85);
+
+const c_phil = matchSandboxConceptByTitle('纯粹理性批判');
+const excerpt = c_phil.canon_anchor.verbatim_excerpt;
+assert.ok(excerpt && excerpt.length >= 15, 'Verbatim excerpt must exist in sandbox');
+const verbatimSlice = excerpt.slice(0, 20);
+const t10_verbatim = auditOfflineCitations(`在《纯粹理性批判》中，康德写道：“${verbatimSlice}”`);
+assert.strictEqual(t10_verbatim.citations[0].verdict, 'EXACT_MATCH', 'Quoted verbatim string >= 15 chars must yield EXACT_MATCH');
+assert.strictEqual(t10_verbatim.citations[0].confidence_score, 0.99);
+console.log('  [✓] Test 10: Reverse proposition guard & exact quote discrimination PASS');
+
+// Test 11: Fail-open fix (0 citations returns null score and NO_CITATIONS_FOUND)
+const t11 = auditOfflineCitations('今天讨论一下现代哲学与科技伦理的发展趋势，这里没有任何书目引用。');
+assert.strictEqual(t11.total_citations_extracted, 0);
+assert.strictEqual(t11.verdict, 'NO_CITATIONS_FOUND');
+assert.strictEqual(t11.citation_health_score, null, 'Score must be null when 0 citations are found');
+console.log('  [✓] Test 11: Zero citations fail-open fix (verdict=NO_CITATIONS_FOUND, score=null) PASS');
+
 console.log('All Citation Audit unit tests passed 100% against published module!');

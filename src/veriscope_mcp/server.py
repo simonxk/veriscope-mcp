@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional
 import urllib.request
 import urllib.error
+import urllib.parse
 
 try:
     from cryptography.hazmat.primitives.asymmetric import ed25519
@@ -302,7 +303,7 @@ class VeriScopeMCPServer:
             "matched_count": 0,
             "concepts": [],
             "matches": [],
-            "notice": "Query not found in 50 offline sandbox concepts. Configure VERISCOPE_API_KEY to search 77,984 scholarly concepts across 24 disciplines: https://veriscope.cc/pricing"
+            "notice": "Query not found in 50 offline sandbox concepts. Configure VERISCOPE_API_KEY to search 77,984 scholarly concepts across 24 disciplines."
         }
 
     def inspect_topography(self, concept_id: str, include_disputes: bool = True) -> Dict[str, Any]:
@@ -331,7 +332,7 @@ class VeriScopeMCPServer:
 
         return {
             "error": "CONCEPT_NOT_FOUND",
-            "message": f"Concept '{concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 77,984 conceptual matrix: https://veriscope.cc/pricing",
+            "message": f"Concept '{concept_id}' not found in Golden Sandbox. Configure VERISCOPE_API_KEY for the full 77,984 conceptual matrix.",
             "available_sandbox_concepts": list(self.sandbox_map.keys())[:10]
         }
 
@@ -375,28 +376,13 @@ class VeriScopeMCPServer:
                 "query_proposition": query_proposition
             })
 
-        # 3. Non-sandbox & No API Key: return Teaser Preview Mode
-        # Generate stable mock 16-hex hash prefix derived from concept_id (not empty hash)
-        h = hashlib.sha256(f"SOVEREIGN_CANON:{cid}".encode("utf-8")).hexdigest()
-        sha_prefix = h[:16]
-
+        # 3. Non-sandbox & No API Key: return clean scholarly fallback
         return {
-            "status": "TEASER_PREVIEW",
+            "status": "NOT_FOUND_IN_SANDBOX",
             "concept_id": cid,
-            "canon_anchor_preview": {
-                "canon_sha256_prefix": f"{sha_prefix}...",
-                "chapter_anchor": "Canonical Treatise Anchor [Locked]",
-                "verbatim_excerpt": (
-                    "[🔒 已精准锁定权威学术原典存证，包含学术公理与判词。全本切片（≤300字）与 "
-                    "Ed25519 密码学签名需配置 VERISCOPE_API_KEY：https://veriscope.cc/pricing]"
-                )
-            },
-            "pricing_options": {
-                "scholar_pro": "个人专业版 (Scholar Pro) ¥98/月 或 $19/mo (年付 ¥880/年)",
-                "enterprise": "机构专线版 ¥9,800起/年 或 $1,500/yr (包含高并发 API 与私有知识库支持)"
-            },
-            "is_teaser_mode": True,
-            "access_mode": "TEASER_PREVIEW"
+            "canon_anchor": None,
+            "is_offline_sandbox": True,
+            "notice": f"Concept '{cid}' not found in built-in 50-canon offline sandbox. To query all 24 disciplines, configure VERISCOPE_API_KEY."
         }
 
     def verify_attestation(
@@ -406,7 +392,7 @@ class VeriScopeMCPServer:
         attestation: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         # Path A: Verify by concept_id + canon_sha256 against sandbox
-        if concept_id and canon_sha256:
+        if concept_id and canon_sha256 and not attestation:
             c = self.sandbox_map.get(concept_id) or self.name_map.get(concept_id.lower())
             if c:
                 real_sha = c.get("canon_anchor", {}).get("canon_sha256", "")
@@ -418,8 +404,7 @@ class VeriScopeMCPServer:
                     "verification_status": "HASH_MATCHED" if is_valid else "TAMPER_DETECTED",
                     "concept_id": concept_id,
                     "matched_edition": c.get("canon_anchor", {}).get("title"),
-                    "algorithm": "SHA-256",
-                    "public_key": VERISCOPE_PUBLIC_KEY_HEX
+                    "algorithm": "SHA-256"
                 }
 
         # Path B: Verify attestation receipt payload & signature
@@ -429,10 +414,11 @@ class VeriScopeMCPServer:
 
             # S-4: 严格校验公钥信任源。严禁直接信任调用方传入的任意自签公钥
             if caller_pub:
-                clean_caller_pub = caller_pub.replace("0x", "").strip().lower()
+                clean_caller_pub = str(caller_pub).replace("0x", "").strip().lower()
                 if clean_caller_pub != trusted_pub.lower():
                     return {
                         "method": "ed25519_signature",
+                        "verification_level": "UNTRUSTED_ISSUER",
                         "is_cryptographically_verified": False,
                         "verification_status": "ISSUER_UNTRUSTED",
                         "algorithm": "Ed25519",
@@ -447,16 +433,18 @@ class VeriScopeMCPServer:
             if not sig or not msg:
                 return {
                     "method": "ed25519_signature",
+                    "verification_level": "TAMPER_DETECTED",
                     "is_cryptographically_verified": False,
                     "verification_status": "TAMPER_DETECTED",
                     "error": "Missing signature or signed_message"
                 }
 
-            sig_clean = sig.replace("vsk_sig:", "").strip()
+            sig_clean = str(sig).replace("vsk_sig:", "").strip()
 
             if not _HAS_ED25519:
                 return {
                     "method": "ed25519_signature",
+                    "verification_level": "UNABLE_TO_VERIFY",
                     "is_cryptographically_verified": False,
                     "verification_status": "UNABLE_TO_VERIFY_DEPENDENCY_MISSING",
                     "error": "Cryptographic verification library (cryptography) is not installed in the environment."
@@ -465,25 +453,94 @@ class VeriScopeMCPServer:
             if len(sig_clean) != 128 or len(pub) != 64:
                 return {
                     "method": "ed25519_signature",
+                    "verification_level": "SIGNATURE_FAILED",
                     "is_cryptographically_verified": False,
                     "verification_status": "SIGNATURE_INVALID",
                     "error": "Invalid signature or public key length"
                 }
 
-            is_valid = False
             try:
                 pub_key = ed25519.Ed25519PublicKey.from_public_bytes(bytes.fromhex(pub))
                 pub_key.verify(bytes.fromhex(sig_clean), msg.encode("utf-8"))
-                is_valid = True
             except Exception:
-                is_valid = False
+                return {
+                    "method": "ed25519_signature",
+                    "verification_level": "SIGNATURE_FAILED",
+                    "is_cryptographically_verified": False,
+                    "verification_status": "SIGNATURE_INVALID",
+                    "algorithm": "Ed25519",
+                    "public_key": pub,
+                    "error": "Mathematical signature verification failed."
+                }
+
+            # N-3 闭环: 解构 signed_message 载荷并与用户查询参数严格比对
+            parsed_payload = None
+            if isinstance(msg, str) and msg.startswith("VERISCOPE_ATTESTATION:"):
+                parts = msg.split(":")
+                if len(parts) >= 8 and parts[1] == "v2":
+                    parsed_payload = {
+                        "protocol": parts[0],
+                        "version": parts[1],
+                        "key_id": parts[2],
+                        "concept_id": parts[3] or "",
+                        "canon_sha256": (parts[4] or "").lower(),
+                        "doc_sha256": (parts[5] or "").lower(),
+                        "slice_or_nonce": parts[6] or "",
+                        "timestamp": parts[7] or ""
+                    }
+                elif len(parts) >= 5:
+                    parsed_payload = {
+                        "protocol": parts[0],
+                        "version": "v1",
+                        "concept_id": parts[1] or "",
+                        "canon_sha256": (parts[2] or "").lower(),
+                        "slice_or_nonce": parts[3] or "",
+                        "timestamp": parts[4] or ""
+                    }
+
+            # 防伪造绕过检查 (Anti-Bypass Guard):
+            # 若调用方传入了 concept_id 或 canon_sha256，签名载荷必须是合规的 VERISCOPE_ATTESTATION 凭证
+            query_cid = (concept_id or "").strip()
+            query_sha = (canon_sha256 or "").strip().lower()
+            if query_cid or query_sha:
+                if not parsed_payload:
+                    return {
+                        "method": "ed25519_signature",
+                        "verification_level": "MALFORMED_ATTESTATION",
+                        "is_cryptographically_verified": False,
+                        "verification_status": "MALFORMED_ATTESTATION",
+                        "error": "Signed message does not follow canonical VERISCOPE_ATTESTATION protocol format, cannot bind to requested concept_id/canon_sha256."
+                    }
+                if query_cid and query_cid.upper() != parsed_payload["concept_id"].upper():
+                    return {
+                        "method": "ed25519_signature",
+                        "verification_level": "PAYLOAD_MISMATCH",
+                        "is_cryptographically_verified": False,
+                        "verification_status": "PAYLOAD_MISMATCH",
+                        "error": f"Signed concept_id '{parsed_payload['concept_id']}' does not match query concept_id '{query_cid}'.",
+                        "signed_payload": parsed_payload
+                    }
+                if query_sha and query_sha.lower() != parsed_payload["canon_sha256"].lower():
+                    return {
+                        "method": "ed25519_signature",
+                        "verification_level": "PAYLOAD_MISMATCH",
+                        "is_cryptographically_verified": False,
+                        "verification_status": "PAYLOAD_MISMATCH",
+                        "error": f"Signed canon_sha256 '{parsed_payload['canon_sha256']}' does not match query canon_sha256 '{query_sha}'.",
+                        "signed_payload": parsed_payload
+                    }
 
             return {
                 "method": "ed25519_signature",
-                "is_cryptographically_verified": is_valid,
-                "verification_status": "SIGNATURE_VALID" if is_valid else "SIGNATURE_INVALID",
+                "verification_level": "SIGNATURE_VERIFIED" if parsed_payload else "ARBITRARY_MESSAGE_SIGNED",
+                "is_cryptographically_verified": True,
+                "verification_status": "SIGNATURE_VALID" if parsed_payload else "ARBITRARY_PAYLOAD_VALID",
                 "algorithm": "Ed25519",
-                "public_key": pub
+                "public_key": pub,
+                "signed_payload": parsed_payload or {
+                    "raw_message": msg,
+                    "note": "Valid cryptographic signature on non-attestation message payload."
+                }
             }
 
         return {
@@ -523,6 +580,10 @@ class VeriScopeMCPServer:
         }
 
     def _forward_remote(self, tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
+        parsed_url = urllib.parse.urlparse(self.gateway_url)
+        if parsed_url.scheme != "https" and parsed_url.hostname not in ("localhost", "127.0.0.1"):
+            return {"error": "Insecure gateway rejected: Remote VERISCOPE_GATEWAY_URL must use https:// to protect credentials."}
+
         payload = json.dumps({"tool": tool_name, "arguments": arguments}).encode("utf-8")
         req = urllib.request.Request(
             self.gateway_url,
@@ -530,7 +591,7 @@ class VeriScopeMCPServer:
             headers={
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.api_key}",
-                "User-Agent": "VeriScope-MCP-Client/1.0.0"
+                "User-Agent": "VeriScope-MCP-Python/1.1.7"
             }
         )
         try:
@@ -546,19 +607,30 @@ class VeriScopeMCPServer:
         """
         import re
 
-        author_noise = [
+        CHINESE_PRONOUNS = {"他", "她", "它", "他们", "她们", "它们", "该作者", "此人", "作者", "著者", "译者"}
+        AUTHOR_NOISE_PREFIXES = sorted([
+            "正如", "按照", "参见", "根据", "由", "著名学者", "当代哲学家", "古典哲学家",
             "德意志哲学家", "德国哲学家", "法国哲学家", "英国经济学家", "美国社会学家",
             "古希腊哲学家", "古典政治学家", "社会学先驱", "法学先驱", "经济学大师",
             "著名哲学家", "学者", "教授", "先生", "作家", "部分学者", "然而", "但是",
-            "认为", "强调", "指出", "提出", "声称", "根据", "按照"
-        ]
+            "认为", "强调", "指出", "提出", "声称"
+        ], key=len, reverse=True)
 
         def clean_au(raw_s: str) -> str:
-            s = (raw_s or "").strip()
-            for w in author_noise:
-                s = s.replace(w, "").strip()
-            s = re.sub(r"^[\s，,、“”\"'（(：:【\[]+", "", s)
-            s = re.sub(r"[\s，,、“”\"'）)：:】\]]+$", "", s)
+            if not raw_s:
+                return ""
+            s = str(raw_s).strip()
+            # 剥除西文引用引导前缀与尾部动词/介词
+            s = re.sub(r"^(?:as noted by|according to|as argued by|noted by|argued by|written by|as stated by|as|in|by)\s+", "", s, flags=re.IGNORECASE)
+            s = re.sub(r"\s+(?:argues(?:\s+in)?|states(?:\s+in)?|claims(?:\s+in)?|writes(?:\s+in)?|shows|in)$", "", s, flags=re.IGNORECASE)
+            for p in AUTHOR_NOISE_PREFIXES:
+                if s.startswith(p):
+                    s = s[len(p):].strip()
+            s = re.sub(r"^[·\s，,、“”\"'（(：:【\[]+", "", s)
+            s = re.sub(r"[·\s，,、“”\"'）)：:】\]]+$", "", s)
+            s = re.sub(r"(?:在|于|中|里)$", "", s).strip()
+            if s in CHINESE_PRONOUNS or (s + "在") in CHINESE_PRONOUNS:
+                return ""
             if "·" in s:
                 parts = s.split("·")
                 if len(parts) >= 2:
@@ -807,7 +879,14 @@ class VeriScopeMCPServer:
                 })
             else:
                 excerpt = ca.get("verbatim_excerpt") or ""
-                is_exact = bool(excerpt and any(len(seg) >= 6 and seg in excerpt for seg in re.split(r"[,，。；;]", context)))
+                quote_regex = re.compile(r'["“\'‘]([^"”\'’]{15,})["”\'’]')
+                is_verbatim_quote = False
+                if excerpt:
+                    for qm in quote_regex.finditer(context):
+                        if qm.group(1).strip() in excerpt:
+                            is_verbatim_quote = True
+                            break
+                is_exact = is_verbatim_quote
                 if is_exact:
                     exact_cnt += 1
                 else:
@@ -819,7 +898,7 @@ class VeriScopeMCPServer:
                     "extracted_author": item["author"],
                     "verdict": "EXACT_MATCH" if is_exact else "SUPPORTS",
                     "verdict_zh": "🟢 权威原典字句确证（256 位 SHA-256 版本存证）" if is_exact else "🟢 权威正典出处吻合（著录与篇章坐标确证，命题语义待研读）",
-                    "confidence_score": 0.99 if is_exact else 0.95,
+                    "confidence_score": 0.99 if is_exact else 0.85,
                     "matched_concept_id": matched_c.get("concept_id"),
                     "canonical_title": ca.get("title"),
                     "canonical_author": canon_author,
@@ -831,8 +910,20 @@ class VeriScopeMCPServer:
                 })
 
         total = len(results)
+        if total == 0:
+            return {
+                "status": "ok",
+                "mode": "offline_golden_sandbox_50",
+                "total_citations_extracted": 0,
+                "verdict": "NO_CITATIONS_FOUND",
+                "citation_health_score": None,
+                "summary": "未在提交的文本中提取到结构化学术引注（请提供《书名》或标准 Academic Citation 引号格式）。",
+                "citations": [],
+                "notice": "离线模式基于 50 篇经典学术正典沙盒初筛。如需对勘 24 学科全量学术正典与章节定位，请配置 VERISCOPE_API_KEY。"
+            }
+
         grounded_total = exact_cnt + supports_cnt + qualifies_cnt
-        health_score = round(((grounded_total * 100) + (suspect_cnt * 30)) / total) if total > 0 else 100
+        health_score = round(((grounded_total * 100) + (suspect_cnt * 30)) / total)
 
         return {
             "status": "ok",

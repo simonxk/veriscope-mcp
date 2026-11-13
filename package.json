@@ -1,6 +1,6 @@
 {
   "name": "veriscope-mcp",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "mcpName": "io.github.simonxk/veriscope-mcp",
   "description": "Cryptographic Bibliographic Index and Fair-Use Citation Verification Engine for AI Agents",
   "main": "bin/index.js",
@@ -14,6 +14,7 @@
   "files": [
     "bin",
     "golden_sandbox_50.json",
+    "test",
     "SECURITY.md",
     "CHANGELOG.md",
     "README.md",

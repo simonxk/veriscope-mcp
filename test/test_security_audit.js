@@ -102,6 +102,64 @@ sendRequest(6, 'tools/call', {
   }
 });
 
+// 7. N-3 Negative Test: Payload concept_id mismatch
+sendRequest(7, 'tools/call', {
+  name: 'veriscope_verify_attestation',
+  arguments: {
+    concept_id: 'VS-PHIL-002', // Mismatch! Receipt is for VS-PHIL-001
+    canon_sha256: c0.canon_anchor.canon_sha256,
+    attestation: {
+      signature: c0.cryptographic_receipt.signature,
+      signed_message: c0.cryptographic_receipt.signed_message,
+      public_key: c0.cryptographic_receipt.public_key
+    }
+  }
+});
+
+// 8. N-3 Negative Test: Payload canon_sha256 mismatch
+sendRequest(8, 'tools/call', {
+  name: 'veriscope_verify_attestation',
+  arguments: {
+    concept_id: 'VS-PHIL-001',
+    canon_sha256: 'deadbeef'.repeat(8), // Mismatch!
+    attestation: {
+      signature: c0.cryptographic_receipt.signature,
+      signed_message: c0.cryptographic_receipt.signed_message,
+      public_key: c0.cryptographic_receipt.public_key
+    }
+  }
+});
+
+// 9. Anti-Bypass Guard Test: Non-canonical signed message with concept_id
+sendRequest(9, 'tools/call', {
+  name: 'veriscope_verify_attestation',
+  arguments: {
+    concept_id: 'VS-PHIL-001',
+    attestation: {
+      signature: 'vsk_sig:' + '0'.repeat(128),
+      signed_message: 'RELEASE_ATTESTATION: Not a concept attestation',
+      public_key: 'be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93'
+    }
+  }
+});
+
+// 10..59: Positive N-3 Full 50-Concept Golden Sandbox Verification Loop
+sandbox.concepts.forEach((c, idx) => {
+  const reqId = 100 + idx;
+  sendRequest(reqId, 'tools/call', {
+    name: 'veriscope_verify_attestation',
+    arguments: {
+      concept_id: c.concept_id,
+      canon_sha256: c.canon_anchor.canon_sha256,
+      attestation: {
+        signature: c.cryptographic_receipt.signature,
+        signed_message: c.cryptographic_receipt.signed_message,
+        public_key: c.cryptographic_receipt.public_key
+      }
+    }
+  });
+});
+
 setTimeout(() => {
   child.stdin.end();
 
@@ -121,7 +179,7 @@ setTimeout(() => {
   assert.strictEqual(d3.verification_status, 'SIGNATURE_VALID', 'Status must be SIGNATURE_VALID');
   console.log('  [✓] Ed25519 PASS: Legitimate golden sandbox signature verified');
 
-  // Test 3: S-2 Path A Honest Labeling (is_cryptographically_verified: false)
+  // Test 3: S-2 Path A Honest Labeling (is_cryptographically_verified: false, public_key: undefined)
   const r4 = responses.get(4);
   assert(r4, 'Response for request 4 missing');
   const d4 = JSON.parse(r4.result.content[0].text);
@@ -129,7 +187,8 @@ setTimeout(() => {
   assert.strictEqual(d4.algorithm, 'SHA-256', 'S-2 FAIL: Algorithm must be SHA-256 (not Ed25519)');
   assert.strictEqual(d4.hash_matched, true);
   assert.strictEqual(d4.is_cryptographically_verified, false, 'S-2 FAIL: Local hash lookup is not asymmetric crypto verification, must be false');
-  console.log('  [✓] S-2 PASS: Path A accurately labeled as local_hash_lookup & is_cryptographically_verified: false');
+  assert.strictEqual(d4.public_key, undefined, 'Path A must NOT return public_key');
+  console.log('  [✓] S-2 PASS: Path A accurately labeled as local_hash_lookup, is_cryptographically_verified: false, and public_key cleanly omitted');
 
   // Test 4: Tampered Hash Rejection
   const r5 = responses.get(5);
@@ -147,8 +206,48 @@ setTimeout(() => {
   assert.strictEqual(d6.verification_status, 'ISSUER_UNTRUSTED', 'S-4 FAIL: Status must be ISSUER_UNTRUSTED');
   console.log('  [✓] S-4 PASS: Attacker custom public key strictly rejected as ISSUER_UNTRUSTED');
 
+  // Test 6: N-3 Payload concept_id Mismatch Rejection
+  const r7 = responses.get(7);
+  assert(r7, 'Response for request 7 missing');
+  const d7 = JSON.parse(r7.result.content[0].text);
+  assert.strictEqual(d7.is_cryptographically_verified, false);
+  assert.strictEqual(d7.verification_status, 'PAYLOAD_MISMATCH');
+  console.log('  [✓] N-3 PASS: Mismatched concept_id strictly rejected as PAYLOAD_MISMATCH');
+
+  // Test 7: N-3 Payload canon_sha256 Mismatch Rejection
+  const r8 = responses.get(8);
+  assert(r8, 'Response for request 8 missing');
+  const d8 = JSON.parse(r8.result.content[0].text);
+  assert.strictEqual(d8.is_cryptographically_verified, false);
+  assert.strictEqual(d8.verification_status, 'PAYLOAD_MISMATCH');
+  console.log('  [✓] N-3 PASS: Mismatched canon_sha256 strictly rejected as PAYLOAD_MISMATCH');
+
+  // Test 8: Anti-Bypass Guard
+  const r9 = responses.get(9);
+  assert(r9, 'Response for request 9 missing');
+  const d9 = JSON.parse(r9.result.content[0].text);
+  assert.strictEqual(d9.is_cryptographically_verified, false);
+  assert.ok(d9.verification_status === 'SIGNATURE_INVALID' || d9.verification_status === 'MALFORMED_ATTESTATION');
+  console.log('  [✓] Anti-Bypass PASS: Non-canonical signed message rejected');
+
+  // Test 9: Full 50-Concept Golden Sandbox Verification Loop
+  let sandboxPassed = 0;
+  for (let idx = 0; idx < sandbox.concepts.length; idx++) {
+    const r = responses.get(100 + idx);
+    assert(r, `Response for request ${100 + idx} missing`);
+    const d = JSON.parse(r.result.content[0].text);
+    const expectedC = sandbox.concepts[idx];
+    assert.strictEqual(d.is_cryptographically_verified, true, `Sandbox #${idx} (${expectedC.concept_id}) failed signature verification`);
+    assert.strictEqual(d.verification_status, 'SIGNATURE_VALID');
+    assert.strictEqual(d.signed_payload.concept_id, expectedC.concept_id, `Sandbox #${idx} concept_id mismatch`);
+    assert.strictEqual(d.signed_payload.canon_sha256, expectedC.canon_anchor.canon_sha256.toLowerCase(), `Sandbox #${idx} sha mismatch`);
+    sandboxPassed++;
+  }
+  assert.strictEqual(sandboxPassed, 50, 'All 50 sandbox concepts must pass');
+  console.log(`  [✓] N-3 Full Loop PASS: 50/50 Golden Sandbox concepts verified with parameter binding!`);
+
   console.log('\n===========================================');
   console.log('ALL NODE.JS SECURITY REGRESSION TESTS PASS!');
   console.log('===========================================');
   process.exit(0);
-}, 600);
+}, 1200);

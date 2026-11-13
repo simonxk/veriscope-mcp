@@ -3,7 +3,7 @@
   "name": "veriscope",
   "displayName": "VeriScope Citation Verification",
   "description": "Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents across 24 disciplines.",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "icon": "https://veriscope.cc/assets/icon.png",
   "repository": {
     "type": "git",
@@ -40,6 +40,10 @@
     {
       "name": "veriscope_probe_radar",
       "description": "Probe cross-disciplinary synaptic radar connections and epistemic blind spots."
+    },
+    {
+      "name": "veriscope_citation_audit",
+      "description": "Fast-scan draft text or AI responses to extract scholarly citations, cross-check against 50 canonical editions, and detect attribution errors or hallucinations."
     }
   ]
 }

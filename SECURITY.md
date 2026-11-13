@@ -4,8 +4,8 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.1.6   | :white_check_mark: |
-| < 1.1.6 | :x:                |
+| 1.1.7   | :white_check_mark: |
+| < 1.1.7 | :x:                |
 
 ## Reporting a Vulnerability
 
@@ -17,6 +17,21 @@ If you discover a security vulnerability within VeriScope MCP or Cognitive SSL a
 Please do NOT file public GitHub issues for undisclosed vulnerabilities. We adhere to responsible disclosure and typically acknowledge reports within 24 hours.
 
 ## Security Advisories
+
+### VSK-SEC-2026-006: Protocol Array Offset, Anti-Bypass Guard & Citation Engine Hardening
+- **Affected Versions**: `<= 1.1.6`
+- **Fixed In**: `1.1.7`
+- **Severity**: High
+- **Description**: 
+  1. In version 1.1.6, the N-3 payload parser checked array index 1 instead of index 3 for concept_id in v2 attestation tokens, causing authentic receipts to fail parameter binding with `PAYLOAD_MISMATCH`.
+  2. Non-attestation arbitrary signed messages paired with concept_id bypassed format enforcement.
+  3. SPKI Base64 representation in key registry contained a transcription error.
+  4. Citation engine awarded `EXACT_MATCH` on short unquoted substrings and failed open when 0 citations were detected.
+- **Remediation**: 
+  1. Version 1.1.7 correctly maps `parts[3]` to concept_id and `parts[4]` to canon_sha256 in v2 protocol tokens; 50/50 official receipts verify successfully.
+  2. Enforced strict `VERISCOPE_ATTESTATION` envelope validation (`MALFORMED_ATTESTATION` on bypass attempt).
+  3. Corrected SPKI Base64 encoding to `MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M=`.
+  4. Enforced quotes and >= 15 chars verbatim excerpt requirement for `EXACT_MATCH`, and set `verdict: "NO_CITATIONS_FOUND"` with null health score when 0 citations are detected.
 
 ### VSK-SEC-2026-005: Attestation Payload Semantic Binding & Isolation (N-3 & N-5)
 - **Affected Versions**: `<= 1.1.5`
