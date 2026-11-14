@@ -24,6 +24,7 @@ Please do NOT file public GitHub issues for undisclosed vulnerabilities. We adhe
 - **Attestation Scope**: A VeriScope Ed25519 attestation receipt deterministically binds a canonical concept (`concept_id`), the authoritative archival edition hash (`canon_sha256`), document excerpt hash (`doc_sha256`), and excerpt slice (`slice16`) to the VeriScope Sovereign Root Trust Anchor (`veriscope-ed25519-v2-2026`).
 - **Nonce Semantics**: The receipt includes a timestamp and slice hash token (`slice_or_nonce`) that establishes the cryptographic existence and integrity of the cited excerpt at issuance time. 
 - **Limitations & Replay Boundaries**: The attestation receipts are deterministic proofs of archival authenticity; they do NOT provide real-time interactive session nonces or replay freshness guarantees. Applications requiring replay mitigation across interactive client-server sessions should pair the receipt with application-level challenge nonces or TLS transport timestamps.
+- **Key Revocation & Expiration Boundaries**: The local client-side verifiers (`bin/index.js` and `server.py`) embed the sovereign root public key (`be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93`) as an immutable trust anchor for pure offline zero-dependency execution. Consequently, client-side verifiers do NOT perform runtime network lookups against Certificate Revocation Lists (CRL) or enforce `valid_until` expiration timestamps from `.well-known/veriscope-keys.json`. Deployments requiring active revocation monitoring should query the live key registry over HTTPS before passing receipts to the local verifier.
 
 ## Security Advisories
 
@@ -54,7 +55,7 @@ Please do NOT file public GitHub issues for undisclosed vulnerabilities. We adhe
 
 ### VSK-SEC-2026-005: Attestation Payload Semantic Binding & Isolation (N-3 & N-5)
 - **Affected Versions**: `<= 1.1.5`
-- **Fixed In**: `1.1.6`
+- **Fixed In**: `1.1.7 (initial schema in 1.1.6, full v2 parameter binding operational in 1.1.7)`
 - **Severity**: Medium-High
 - **Description**: 
   1. In version 1.1.5, `veriscope_verify_attestation` verified the digital signature over `signed_message`, but did not parse and cross-validate whether the concept ID, canon SHA-256, or caller parameters matched the signed payload.
