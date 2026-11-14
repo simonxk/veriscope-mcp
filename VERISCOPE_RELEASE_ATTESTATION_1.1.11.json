@@ -1,0 +1,108 @@
+{
+  "schema_version": "2.0.0",
+  "package": "veriscope-mcp",
+  "version": "1.1.11",
+  "canonicalization": "RFC 8785 (JCS)",
+  "git_commit": "18cdaf6ff47448a1376374b23fa4097201dffe2f",
+  "parent_commit": "d8bef632e7d753f87f6983efa6988981d618b37d",
+  "release_timestamp": "2026-11-14T07:45:00Z",
+  "npm_registry": {
+    "tarball": "https://registry.npmjs.org/veriscope-mcp/-/veriscope-mcp-1.1.11.tgz",
+    "shasum": "65886e732bb71221b00916ab92c991d10bfb9d11",
+    "integrity": "sha512-09SXw4zjYtg3DvQ4s9B2BIczZLfUGDl6K7u38YlDux53e1PsMrrtLsPgJJkYdpAp7qCN40r5hq5IsnX25bYeMA==",
+    "tarball_size": 108584,
+    "unpacked_size": 304746,
+    "file_count": 13
+  },
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "size": 10118,
+      "sha256": "a1497c6b73e1ed8430fbd166db39e2b85fc454c5c64b94f7a07893ce19617860"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1083,
+      "sha256": "9b2986c3e673204881f6e963a83fb2d0419ceb76d6f5c732bf5182bb982cf7cf"
+    },
+    {
+      "path": "README.md",
+      "size": 12929,
+      "sha256": "8f2c6f74d109c7729292abeedfd66a5f2502e8b7473a1b573f23d9ac4051f81f"
+    },
+    {
+      "path": "README_ZH.md",
+      "size": 10780,
+      "sha256": "14f91bb5238cfe3d283e59ba6492232f580f7a9bae98a7287f09550dfebf1946"
+    },
+    {
+      "path": "SECURITY.md",
+      "size": 7446,
+      "sha256": "6a4690f80028623714c48b13647124e97c18ac435a2f37ccc157c142139f1bb3"
+    },
+    {
+      "path": "bin/index.js",
+      "size": 57361,
+      "sha256": "e28b7e614ba7776d35965a24d1218bfb15ef893ec638c9767cc5005164b6f1ed"
+    },
+    {
+      "path": "glama.json",
+      "size": 5360,
+      "sha256": "6740da14168776780a1716a20cf4490e0eb8ac7e4297106d739a697ac3767d2d"
+    },
+    {
+      "path": "golden_sandbox_50.json",
+      "size": 180158,
+      "sha256": "41706f87b7864ed2f233ef2639a0080aec4c22190af9d7c1bc66972fd5782f78"
+    },
+    {
+      "path": "package.json",
+      "size": 1257,
+      "sha256": "7732189596de13a95f2a260cd8eea87843afc3beccfe0f175c2d5f0e9bb820f5"
+    },
+    {
+      "path": "server.json",
+      "size": 903,
+      "sha256": "c5144e44daf90d9b6068676b02b4607ef03dd4112b57eb394a1fdcc2f85ab61f"
+    },
+    {
+      "path": "smithery.yaml",
+      "size": 530,
+      "sha256": "a77373f1b36314d85e2d54727f31c93a44e38f6a5b7b35ee027e6a60ea22bfee"
+    },
+    {
+      "path": "test/test_citation_audit.js",
+      "size": 6629,
+      "sha256": "cc02e67e5c27210776ea03adf977ffebe022389449cb02b8c107953de0c01777"
+    },
+    {
+      "path": "test/test_security_audit.js",
+      "size": 10192,
+      "sha256": "f89ea98a5c23fc0edd8998523b579668b73f1e00b9120450375219c4be246715"
+    }
+  ],
+  "mcp_tools": [
+    "veriscope_discover_concepts",
+    "veriscope_inspect_topography",
+    "veriscope_locate_evidence",
+    "veriscope_verify_attestation",
+    "veriscope_probe_radar",
+    "veriscope_audit_citations"
+  ],
+  "security_regression": {
+    "all_tests_passed": true,
+    "node_security_tests": "100% PASS",
+    "anti_bypass_precedence": "ENFORCED",
+    "malformed_attestation_status": "ACTIVE",
+    "require_main_isolation": "VERIFIED"
+  },
+  "signing_authority": {
+    "algorithm": "Ed25519",
+    "fingerprint_sha256": "aa87d0cff6aa7f8fad101f2441f911070bb6f80ff361873e442422e430f73363",
+    "key_id": "veriscope-ed25519-v2-2026",
+    "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+    "spki_base64": "MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M="
+  },
+  "manifest_sha256": "86ea3f6d840d2db2f644bfead1b80e1e469956d50fab0b4c0945b22c8ccd5dd4",
+  "attestation_signature": "vsk_sig:560a6f05ba8b6e34b3ff5f08e50639f14ff2742d79ddcc45babbab412adc4373f4f80b8c6f840a084a480a6e6c53100abbe69d6a5c3cc5af0a7a020e37c47302"
+}
