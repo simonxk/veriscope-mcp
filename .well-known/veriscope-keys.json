@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "protocol": "CognitiveSSL/2.0",
+  "root_key_id": "veriscope-ed25519-v2-2026",
+  "algorithm": "Ed25519",
+  "issuer": "VeriScope Sovereign Trust Anchor",
+  "keys": [
+    {
+      "key_id": "veriscope-ed25519-v2-2026",
+      "algorithm": "Ed25519",
+      "curve": "edwards25519",
+      "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+      "public_key_spki_base64": "MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M=",
+      "fingerprint_sha256": "aa87d0cff6aa7f8fad101f2441f911070bb6f80ff361873e442422e430f73363",
+      "status": "ACTIVE",
+      "valid_from": "2026-11-01T00:00:00Z",
+      "valid_until": "2028-12-31T23:59:59Z",
+      "purpose": "AttestationReceiptSigning"
+    }
+  ],
+  "trust_anchors": [
+    {
+      "key_id": "veriscope-ed25519-v2-2026",
+      "algorithm": "Ed25519",
+      "curve": "edwards25519",
+      "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+      "public_key_spki_base64": "MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M=",
+      "fingerprint_sha256": "aa87d0cff6aa7f8fad101f2441f911070bb6f80ff361873e442422e430f73363",
+      "status": "ACTIVE",
+      "valid_from": "2026-11-01T00:00:00Z",
+      "valid_until": "2028-12-31T23:59:59Z",
+      "purpose": "AttestationReceiptSigning"
+    }
+  ],
+  "revoked_keys": [],
+  "previous_manifest_sha256": null,
+  "key_rotation_policy": "Keys are rotated bi-annually. Historical keys remain verifiable via the trust_anchors log. Revocation immediately marks key_id as REVOKED and ceases signature acceptance.",
+  "manifest_sha256": "1d7560f7ea03c5a73550fe72dbd45b4d1053c62dba74c80087673e62299468a2",
+  "manifest_signature": "vsk_sig:432c75a9ffbc6b48a91b10998489fb72d5d648a4255ade13181cdee485839a2ea17b4a13b059067ee00daae2f2fbafe5bb987a522f1d689eae70e974037dcf03"
+}
