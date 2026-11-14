@@ -810,7 +810,7 @@ function forwardToGateway(toolName, args) {
           'Content-Type': 'application/json',
           'Content-Length': Buffer.byteLength(postData),
           'Authorization': `Bearer ${API_KEY}`,
-          'User-Agent': 'VeriScope-MCP-Node/1.1.10'
+          'User-Agent': 'VeriScope-MCP-Node/1.1.11'
         },
         timeout: 10000
       };
@@ -1244,7 +1244,7 @@ function startServer() {
           capabilities: { tools: {} },
           serverInfo: {
             name: 'veriscope',
-            version: '1.1.10'
+            version: '1.1.11'
           }
         }
       };

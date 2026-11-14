@@ -4,6 +4,13 @@ All notable changes to `veriscope-mcp` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.11] - 2026-11-14
+
+### Atomic Supply Chain Provenance & Immutability Closure
+- **Single Atomic Release Commit**: Synchronized git tag, npm registry `gitHead`, and sovereign attestation `git_commit` into a unified, zero-drift atomic commit.
+- **Source Tree Verification**: Verified 13/13 package files byte-identical between npm distribution and git tag checkout with zero file drift.
+- **Release Material Hardening**: Published immutable release assets (`VERISCOPE_RELEASE_ATTESTATION_1.1.11.json`, `veriscope-keys.json`, `verify_1.1.11.py`) with Ed25519 root trust anchor signatures.
+
 ## [1.1.10] - 2026-11-14
 
 ### Tool Schema & Runtime Output Precision Alignment

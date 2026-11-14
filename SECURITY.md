@@ -4,6 +4,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 1.1.11  | :white_check_mark: |
 | 1.1.10  | :white_check_mark: |
 | 1.1.9   | :white_check_mark: |
 | 1.1.8   | :white_check_mark: |

@@ -42,7 +42,7 @@ def main():
                     "capabilities": {"tools": {}},
                     "serverInfo": {
                         "name": "veriscope",
-                        "version": "1.1.10"
+                        "version": "1.1.11"
                     }
                 }
             }
