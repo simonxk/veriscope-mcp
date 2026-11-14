@@ -5,7 +5,7 @@
   "canonicalization": "RFC 8785 (JSON Canonicalization Scheme - JCS)",
   "git_commit": "d717a3773e198e57a758dd9536f8aba9a6808b4d",
   "parent_commit": "788a08a3c835c87f00e4fb9f8cdc182ca636bc38",
-  "release_timestamp": "2026-11-14T06:15:24Z",
+  "release_timestamp": "2026-11-14T06:15:23Z",
   "npm_registry": {
     "tarball": "https://registry.npmjs.org/veriscope-mcp/-/veriscope-mcp-1.1.10.tgz",
     "shasum": "14d104b98e72c2d9a1c2230c549e46e9eb114ade",
@@ -100,6 +100,6 @@
     "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
     "spki_base64": "MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M="
   },
-  "manifest_sha256": "f1313e2208e111f0e29cf519436450d85ec1a8af3793237a87af7b49fc5915f8",
-  "attestation_signature": "vsk_sig:d5d21b4980985b6aa8f27127d84704e27742f739bc6e5be1a230f0b2fd994efb7d4f3b750f19fa3060aa9377cab97c8593224875ff05dd35c79da9031878f308"
+  "manifest_sha256": "17cf276a0030ca065a1904467997750983b4f495fe30da3892efcde3228578c8",
+  "attestation_signature": "vsk_sig:22a7c24d61b8eef2f3d49361c39c8d41b0070b3d2094c80606522cade9532bf9ead59200a7977f674a1ed10497c9369718bbdce079af9a3b6f3f4657f938d701"
 }
