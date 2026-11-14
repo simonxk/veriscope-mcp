@@ -92,11 +92,14 @@ const TOOLS = [
 ### Returns:
 Returns a JSON object containing:
 - query: The normalized query string.
-- total_matches: Integer count of matched canonical concepts (typically 1 to 5).
-- matched_concepts: Array of candidate ontology objects, each with concept_id (e.g. 'VS-SOC-001'), name_zh, name_en, discipline (e.g. 'SOC'), and axiomatic_summary.
+- total_matched: Integer count of matched canonical concepts.
+- matched_count: Integer alias for total_matched.
+- concepts: Array of candidate ontology objects, each with concept_id (e.g. 'VS-SOC-001'), name_zh, name_en, discipline, discipline_code, primary_thinker, historical_period, core_thesis, formal_kernel, and canon_anchor.
+- matches: Array alias for concepts.
+- sandbox_status: String status of loaded offline sandbox.
 
 ### Edge Cases & Errors:
-- If no academic concept matches the input, returns total_matches: 0 and an empty matched_concepts: [] list alongside suggested 3-letter discipline codes for manual filtering.`,
+- If no academic concept matches the input, returns total_matched: 0 and an empty concepts: [] list.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -132,13 +135,17 @@ Returns a JSON object containing:
 Returns a JSON object containing:
 - concept_id: The canonical concept identifier (e.g. 'VS-SOC-001').
 - name_zh & name_en: Bilingual concept titles.
-- axiomatic_kernel: Rigorous formal definition, thesis, and core theoretical formulation.
-- wikidata_qid: Canonical Wikidata entity identifier (e.g. 'Q131154').
+- discipline: Academic discipline name.
+- primary_thinker: Primary scholar/theorist name.
+- historical_period: Intellectual history era.
+- formal_kernel: Rigorous formal definition, thesis, and core theoretical formulation.
+- authoritative_edition: Seminal treatise title.
+- canon_sha256: Canonical archive edition SHA-256 hash.
+- is_sandbox_concept: Boolean (true for sandbox concepts).
 - dialectical_disputes: Array of 3+ opposing historical disputes, contrasting schools of thought, and counter-theses.
-- canonical_works: Array of seminal treatises and foundational monograph citations.
 
 ### Edge Cases & Errors:
-- If an invalid or unindexed concept_id is provided, returns status: 'error' with message: "Concept '{concept_id}' not found in Golden Sandbox. Please check concept_id via veriscope_discover_concepts."`,
+- If an invalid or unindexed concept_id is provided, returns error: 'CONCEPT_NOT_FOUND' with message and available_sandbox_concepts list.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -152,7 +159,7 @@ Returns a JSON object containing:
   },
   {
     name: 'veriscope_locate_evidence',
-    description: `Locates fair-use verbatim excerpts (between 1 and 3 excerpts, strictly <=300 characters each) with exact chapter coordinates, 64-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts.
+    description: `Locates fair-use verbatim excerpts (strictly <=300 characters each) with exact chapter coordinates, 256-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts.
 
 ### When to Use:
 - Use when preparing high-stakes reports, legal briefs, or executive papers requiring zero-hallucination primary source backing.
@@ -164,18 +171,35 @@ Returns a JSON object containing:
 - Do NOT use to verify whether an existing hash or receipt is mathematically intact; call veriscope_verify_attestation instead.
 
 ### Execution Behavior:
-- Read-only, deterministic retrieval. Excerpts strictly adhere to fair-use length limits (<=300 chars) bound to real physical volume SHA-256 editions. Zero side effects.
+- Read-only, deterministic retrieval. Excerpts strictly adhere to fair-use length limits (<=300 chars) bound to canonical digital archive editions and edition SHA-256 hashes. Zero side effects.
 
 ### Returns:
 Returns a JSON object containing:
+- status: String ('ATTESTED_FULL' when located).
 - concept_id: The canonical concept identifier.
-- total_excerpts: Integer count of returned evidence snippets (typically 1 to 3).
-- excerpts: Array of excerpt records, each containing verbatim_text (<= 300 chars), book_title, author, chapter_coordinate, and canon_sha256.
-- attestation: Complete cryptographic receipt object with ed25519_signature and verification timestamp.
+- name_zh: Chinese concept name.
+- discipline: Academic discipline name.
+- primary_thinker: Authoritative scholar/thinker name.
+- canon_anchor: Object containing primary source coordinates:
+  - title: Authoritative treatise/book title.
+  - author: Author name.
+  - year: Historical publication year.
+  - chapter_anchor: Exact section or chapter coordinate.
+  - canon_sha256: 256-bit SHA-256 hash (64 hex characters) of the canonical archive edition.
+  - verbatim_excerpt: Fair-use excerpt string (strictly <=300 characters).
+  - provenance: Archive provenance declaration.
+- cryptographic_receipt: Complete cryptographic attestation object:
+  - receipt_id: Unique receipt identifier.
+  - version: Protocol version ('v2').
+  - algorithm: Digital signature algorithm ('Ed25519').
+  - signed_message: Canonical attestation string ('VERISCOPE_ATTESTATION:v2:<kid>:<concept_id>:<canon_sha256>:<doc_sha256>:<slice_sha16>:<timestamp>').
+  - signature: Sovereign Ed25519 digital signature hex prefixed with 'vsk_sig:'.
+  - public_key: Sovereign trust anchor public key hex.
+  - timestamp: ISO 8601 creation timestamp.
+- access_mode: String ('GOLDEN_SANDBOX_OFFLINE_VERIFIED').
 
 ### Edge Cases & Errors:
-- If concept_id is not found, returns status: 'error' with guidance to query veriscope_discover_concepts.
-- If optional query_context finds no specific sub-paragraph alignment, falls back to returning the concept's primary canonical anchor excerpt.`,
+- If concept_id is not found in sandbox, returns status: 'NOT_FOUND_IN_SANDBOX' with guidance to query veriscope_discover_concepts.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -193,10 +217,10 @@ Returns a JSON object containing:
   },
   {
     name: 'veriscope_verify_attestation',
-    description: `Mathematically verifies the 64-bit SHA-256 edition hash and Ed25519 digital signature of cited quotes against verified canonical records.
+    description: `Mathematically verifies the 256-bit SHA-256 edition hash and Ed25519 digital signature of cited quotes against verified canonical records.
 
 ### When to Use:
-- Use to verify the cryptographic authenticity, integrity, and non-tampering of an attestation receipt received from veriscope_locate_evidence.
+- Use to verify the cryptographic authenticity, integrity, and parameter binding of an attestation receipt received from veriscope_locate_evidence.
 - Use in compliance checks to mathematically confirm whether a cited text snippet matches the genuine canonical edition.
 
 ### When NOT to Use:
@@ -207,22 +231,31 @@ Returns a JSON object containing:
 ### Parameter Combination Modes:
 Provide either of the following two parameter combinations:
 1. Path A (Local Hash Verification): Provide concept_id and canon_sha256 to verify against the local verified library ledger.
-2. Path B (Ed25519 Cryptographic Verification): Provide the full attestation object (and optional concept_id) to verify the digital signature against the sovereign public key.
+2. Path B (Ed25519 Cryptographic Verification): Provide the full attestation object (and optional concept_id/canon_sha256) to verify the digital signature against the sovereign public key.
 
 ### Execution Behavior:
-- Read-only, pure cryptographic verification. Performs constant-time hash and signature checks against public verification keys. Zero state modification.
+- Read-only, pure cryptographic verification. Performs native Ed25519 digital signature verification and SHA-256 hash checks against public verification keys. Zero state modification.
 
 ### Returns:
 Returns a JSON object containing:
-- is_valid: Boolean (true if hash matches and signature is verified; false if tampered).
-- verification_mode: String ('ed25519_signature' for signed receipts or 'local_hash_lookup' for edition checks).
-- concept_id: Verified concept ID.
-- status: String status code ('OK', 'TAMPER_DETECTED', 'PAYLOAD_MISMATCH', or 'ISSUER_UNTRUSTED').
-- message: Human-readable verification explanation.
+- is_cryptographically_verified: Boolean (true if mathematically verified by sovereign Ed25519 key and bound to parameters; false otherwise).
+- verification_status: String status code ('SIGNATURE_VALID', 'SIGNATURE_INVALID', 'PAYLOAD_MISMATCH', 'MALFORMED_ATTESTATION', 'ISSUER_UNTRUSTED', 'HASH_MATCHED', 'TAMPER_DETECTED', or 'CONCEPT_NOT_FOUND').
+- verification_level: String detailed level ('SIGNATURE_VERIFIED', 'SIGNATURE_FAILED', 'PAYLOAD_MISMATCH', 'MALFORMED_ATTESTATION', 'UNTRUSTED_ISSUER', 'HASH_ONLY', 'TAMPER_DETECTED').
+- method: String ('ed25519_signature' for signed receipts or 'local_hash_lookup' for edition hash checks).
+- algorithm: String ('Ed25519' or 'SHA-256').
+- public_key: String (sovereign trust anchor public key hex for Ed25519 verification).
+- signed_payload: Object (parsed canonical parameters: concept_id, canon_sha256, doc_sha256, timestamp).
+- is_hash_match / hash_matched: Boolean (for Path A local hash verification).
+- concept_id: String (verified concept identifier).
+- error: String (present on verification failures explaining rejection reason).
 
 ### Edge Cases & Errors:
-- If neither canon_sha256 nor attestation is provided, returns status: 'error' explaining that at least one verification payload must be supplied.
-- If a signature is forged or hash is tampered, returns is_valid: false with status: 'TAMPER_DETECTED'.`,
+- If neither canon_sha256 nor attestation is provided, returns error: 'INVALID_ARGUMENTS'.
+- If a signature is mathematically invalid, returns is_cryptographically_verified: false with verification_status: 'SIGNATURE_INVALID'.
+- If signed payload concept_id/canon_sha256 does not match caller query, returns verification_status: 'PAYLOAD_MISMATCH'.
+- If non-canonical message payload is supplied with concept_id/canon_sha256, returns verification_status: 'MALFORMED_ATTESTATION'.
+- If caller supplies an untrusted public key, returns verification_status: 'ISSUER_UNTRUSTED'.
+- If local hash lookup differs from verified ledger, returns verification_status: 'TAMPER_DETECTED'.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -232,11 +265,11 @@ Returns a JSON object containing:
         },
         canon_sha256: {
           type: 'string',
-          description: '64-character SHA-256 edition hash to verify against canonical physical volume records. Used for Path A local verification.'
+          description: '256-bit SHA-256 edition hash (64 hex characters) to verify against canonical records. Used for Path A local verification.'
         },
         attestation: {
           type: 'object',
-          description: 'Full attestation receipt object containing signature, timestamp, and coordinates returned by veriscope_locate_evidence. Used for Path B cryptographic verification.'
+          description: 'Full attestation receipt object containing signature, signed_message, and public_key returned by veriscope_locate_evidence. Used for Path B cryptographic verification.'
         }
       }
     }
@@ -255,18 +288,20 @@ Returns a JSON object containing:
 - Do NOT use for auditing draft citations; use veriscope_audit_citations.
 
 ### Execution Behavior:
-- Read-only statistical and topology analysis. Returns high-dimensional synaptic radar metrics and discipline distribution matrices. Zero side effects.
+- Read-only statistical and topology analysis. Returns high-dimensional radar metrics and discipline distribution matrices. Zero side effects.
 
 ### Returns:
 Returns a JSON object containing:
-- total_disciplines: Integer count (24 disciplines).
-- discipline_filter: The requested discipline filter (e.g. 'SOC') or 'ALL'.
-- coverage_matrix: Key-value map of discipline codes to concept counts and verified treatise coverage percentages.
-- interdisciplinary_bridges: Array of conceptual bridges mapping structural analogies between distinct disciplines (e.g. Thermodynamic Entropy to Social Anomie).
-- epistemic_blindspots: List of cross-domain intersections with sparse coverage to guide deeper research.
+- status: String ('healthy').
+- mode: String ('offline_golden_sandbox_50').
+- active_disciplines: Integer count of active disciplines represented in the current index.
+- sandbox_concept_count: Total concept count in current index.
+- disciplines_distribution: Map of discipline codes to concept counts.
+- babel_synapses: Array of conceptual bridges mapping structural analogies between distinct disciplines.
+- notice: Guidance note on local sandbox vs full matrix access.
 
 ### Edge Cases & Errors:
-- If an unrecognized discipline code is provided, gracefully falls back to aggregating across all 24 disciplines without failing.`,
+- Always executes reliably offline over the built-in golden sandbox topology.`,
     inputSchema: {
       type: 'object',
       properties: {
@@ -283,7 +318,7 @@ Returns a JSON object containing:
 
 ### When to Use:
 - Use to audit draft articles, research proposals, or AI outputs for fabricated, distorted, or phantom citations before publication.
-- Use to check whether cited authors and book titles match genuine historical editions and physical volume records.
+- Use to check whether cited authors and book titles match genuine historical editions and canonical library edition records.
 
 ### When NOT to Use:
 - Do NOT use with single colloquial keywords or queries; use veriscope_discover_concepts for keyword concept mapping.
@@ -295,10 +330,27 @@ Returns a JSON object containing:
 
 ### Returns:
 Returns a JSON object containing:
+- status: String ('ok').
+- mode: String ('offline_golden_sandbox_50').
 - total_citations_extracted: Integer count of scholarly book and author citations identified in the text.
-- citation_health_score: Float or integer (0-100) reflecting percentage of verified canonical citations (or null if no citations found).
-- verdict: Primary summary verdict ('ALL_CITATIONS_VERIFIED', 'PARTIAL_ATTRIBUTION_RISK', 'HALLUCINATED_OR_UNINDEXED', or 'NO_CITATIONS_FOUND').
-- citations: Array of detailed citation audit records, each with raw_citation, extracted_author, extracted_title, matched_edition, canon_sha256, and individual status (EXACT_MATCH, SUPPORTS, QUALIFIES, ATTRIBUTION_SUSPECT, UNINDEXED_OR_HALLUCINATED).
+- exact_matches_count: Integer count of verbatim quotes verified against canonical texts (0.99 confidence).
+- supports_count: Integer count of citations where author and book match canonical editions without verbatim quote (0.85 confidence).
+- qualifies_count: Integer count of dialectically qualified citations.
+- contradicts_count: Integer count of citations contradicting canonical thesis.
+- suspect_count: Integer count of suspect misattributions.
+- unindexed_count: Integer count of unindexed references not in sandbox.
+- citation_health_score: Float or integer (0-100) reflecting percentage of verified canonical citations (or null if 0 citations found).
+- verdict: Present when no citations are found ('NO_CITATIONS_FOUND').
+- summary: Human-readable forensic summary string.
+- citations: Array of detailed citation audit records, each containing:
+  - raw_citation: Extracted raw text fragment.
+  - author: Cleaned author name.
+  - title: Cleaned book title.
+  - pattern: Detection pattern string ('AUTHOR_IN_BOOK', 'BOOK_WITH_META', 'BARE_BOOK', 'ENGLISH_QUOTE', 'ENGLISH_STD', 'ENGLISH_ARGUES').
+  - status: Status code ('EXACT_MATCH', 'SUPPORTS', 'QUALIFIES', 'ATTRIBUTION_SUSPECT', 'UNINDEXED').
+  - confidence: Confidence float (0.99 for EXACT_MATCH, 0.85 for SUPPORTS, etc.).
+  - matched_canon: Matched canonical book record if found.
+  - reason: Human-readable attribution explanation.
 
 ### Edge Cases & Errors:
 - Citation-Free Input: If the input text contains no academic book citations or author references, returns total_citations_extracted: 0, citation_health_score: null, and verdict: 'NO_CITATIONS_FOUND' without throwing an error.
@@ -758,7 +810,7 @@ function forwardToGateway(toolName, args) {
           'Content-Type': 'application/json',
           'Content-Length': Buffer.byteLength(postData),
           'Authorization': `Bearer ${API_KEY}`,
-          'User-Agent': 'VeriScope-MCP-Node/1.1.9'
+          'User-Agent': 'VeriScope-MCP-Node/1.1.10'
         },
         timeout: 10000
       };
@@ -887,6 +939,23 @@ async function callTool(name, args) {
         const pub = trustedPub; // 永远强制使用官方根信任锚
         const sig = att.signature || '';
         const msg = att.signed_message || att.payload || '';
+
+        // S-5 防伪造载荷前置检查 (Anti-Bypass Guard):
+        // 若调用方传入了 concept_id 或 canon_sha256，载荷必须具备 VERISCOPE_ATTESTATION 规范前缀，
+        // 否则立即熔断拒绝，防止非标准载荷穿透或签名旁路
+        if (cid || querySha) {
+          if (typeof msg !== 'string' || !msg.startsWith('VERISCOPE_ATTESTATION:')) {
+            return {
+              method: 'ed25519_signature',
+              verification_level: 'MALFORMED_ATTESTATION',
+              is_cryptographically_verified: false,
+              verification_status: 'MALFORMED_ATTESTATION',
+              algorithm: 'Ed25519',
+              public_key: pub,
+              error: 'Signed message does not follow canonical VERISCOPE_ATTESTATION protocol format, cannot bind to requested concept_id/canon_sha256.'
+            };
+          }
+        }
 
         const isSignatureValid = verifyEd25519Signature(pub, sig, msg);
         if (!isSignatureValid) {
@@ -1175,7 +1244,7 @@ function startServer() {
           capabilities: { tools: {} },
           serverInfo: {
             name: 'veriscope',
-            version: '1.1.9'
+            version: '1.1.10'
           }
         }
       };

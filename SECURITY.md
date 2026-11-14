@@ -4,6 +4,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 1.1.10  | :white_check_mark: |
 | 1.1.9   | :white_check_mark: |
 | 1.1.8   | :white_check_mark: |
 | 1.1.7   | :white_check_mark: |
@@ -18,7 +19,23 @@ If you discover a security vulnerability within VeriScope MCP or Cognitive SSL a
 
 Please do NOT file public GitHub issues for undisclosed vulnerabilities. We adhere to responsible disclosure and typically acknowledge reports within 24 hours.
 
+## Cryptographic Attestation Scope, Nonce Semantics & Limitations
+
+- **Attestation Scope**: A VeriScope Ed25519 attestation receipt deterministically binds a canonical concept (`concept_id`), the authoritative archival edition hash (`canon_sha256`), document excerpt hash (`doc_sha256`), and excerpt slice (`slice16`) to the VeriScope Sovereign Root Trust Anchor (`veriscope-ed25519-v2-2026`).
+- **Nonce Semantics**: The receipt includes a timestamp and slice hash token (`slice_or_nonce`) that establishes the cryptographic existence and integrity of the cited excerpt at issuance time. 
+- **Limitations & Replay Boundaries**: The attestation receipts are deterministic proofs of archival authenticity; they do NOT provide real-time interactive session nonces or replay freshness guarantees. Applications requiring replay mitigation across interactive client-server sessions should pair the receipt with application-level challenge nonces or TLS transport timestamps.
+
 ## Security Advisories
+
+### VSK-SEC-2026-007: Anti-Bypass Error Precedence & Schema Precision Alignment
+- **Affected Versions**: `<= 1.1.9`
+- **Fixed In**: `1.1.10`
+- **Severity**: Low-Medium
+- **Description**: 
+  1. In version 1.1.9, if a non-canonical payload was supplied with `concept_id` or `canon_sha256` alongside a forged or broken signature, `SIGNATURE_INVALID` could take precedence over `MALFORMED_ATTESTATION`.
+  2. MCP initialization `serverInfo.version` was aligned to 1.1.10.
+  3. Tool parameter and return schemas were strictly aligned between implementation, `glama.json`, and runtime responses.
+- **Remediation**: Version 1.1.10 enforces upfront format validation for targeted attestation queries before cryptographic execution, immediately terminating non-canonical attempts with `MALFORMED_ATTESTATION`.
 
 ### VSK-SEC-2026-006: Protocol Array Offset, Anti-Bypass Guard & Citation Engine Hardening
 - **Affected Versions**: `<= 1.1.6`

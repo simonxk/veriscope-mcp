@@ -4,6 +4,14 @@ All notable changes to `veriscope-mcp` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.10] - 2026-11-14
+
+### Tool Schema & Runtime Output Precision Alignment
+- **Runtime JSON Schema Precision**: Completely synchronized tool Returns documentation across `bin/index.js`, `glama.json`, and runtime responses. Replaced misnomers ("64-bit SHA-256" -> "256-bit SHA-256 (64 hex characters)", "physical volume" -> "canonical digital archive editions", removed "constant-time").
+- **Anti-Bypass Error Precedence**: Enforced upfront format inspection in `veriscope_verify_attestation` for queries with `concept_id` / `canon_sha256`. Malformed or non-canonical payloads immediately trigger `MALFORMED_ATTESTATION` prior to cryptographic signature evaluation, preventing any verification short-circuiting.
+- **Server Version Synchronization**: Aligned MCP initialization `serverInfo.version` and client `User-Agent` headers to `1.1.10`.
+- **Security & Attestation Scope Disclosure**: Added dedicated cryptographic attestation scope, nonce semantics, and replay boundary disclosures to `SECURITY.md`.
+
 ## [1.1.9] - 2026-11-13
 
 ### Glama TDQS 5.0 Alignment & Protocol Governance

@@ -9,7 +9,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { spawn } = require('child_process');
 
-console.log('=== VeriScope MCP Security & Integrity Test Suite (v1.1.9) ===');
+console.log('=== VeriScope MCP Security & Integrity Test Suite (v1.1.10) ===');
 
 const binPath = path.join(__dirname, '..', 'bin', 'index.js');
 const sandboxPath = path.join(__dirname, '..', 'golden_sandbox_50.json');
@@ -227,7 +227,7 @@ setTimeout(() => {
   assert(r9, 'Response for request 9 missing');
   const d9 = JSON.parse(r9.result.content[0].text);
   assert.strictEqual(d9.is_cryptographically_verified, false);
-  assert.ok(d9.verification_status === 'SIGNATURE_INVALID' || d9.verification_status === 'MALFORMED_ATTESTATION');
+  assert.strictEqual(d9.verification_status, 'MALFORMED_ATTESTATION');
   console.log('  [✓] Anti-Bypass PASS: Non-canonical signed message rejected');
 
   // Test 9: Full 50-Concept Golden Sandbox Verification Loop

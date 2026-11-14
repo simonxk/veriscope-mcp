@@ -6,7 +6,7 @@
   "maintainers": [
     "simonxk"
   ],
-  "version": "1.1.9",
+  "version": "1.1.10",
   "icon": "https://veriscope.cc/assets/icon.png",
   "repository": {
     "type": "git",
@@ -26,27 +26,27 @@
   "tools": [
     {
       "name": "veriscope_discover_concepts",
-      "description": "Maps informal business problems, workplace colloquialisms, or policy metaphors into canonical first-principles ontologies across 24 academic disciplines. Use when you need formal theoretical frameworks for colloquial queries (e.g. 'office politics', 'price wars', 'algorithmic filter bubbles', '跨部门推诿'). Do NOT use if you already have a canonical concept ID (use veriscope_inspect_topography) or need full-text citation auditing (use veriscope_audit_citations). Read-only; deterministically resolves via built-in golden sandbox or live sovereign gateway. Returns query, total_matches, and matched_concepts array with IDs and summaries."
+      "description": "Maps informal business problems, workplace colloquialisms, or policy metaphors into canonical first-principles ontologies across 24 academic disciplines. Use when you need formal theoretical frameworks for colloquial queries (e.g. 'office politics', 'price wars', 'algorithmic filter bubbles', '跨部门推诿'). Do NOT use if you already have a canonical concept ID (use veriscope_inspect_topography) or need full-text citation auditing (use veriscope_audit_citations). Read-only; deterministically resolves via built-in golden sandbox or live sovereign gateway. Returns query, total_matched, matched_count, concepts array with IDs and formal kernels, and sandbox_status."
     },
     {
       "name": "veriscope_inspect_topography",
-      "description": "Stress-tests proposals, memos, or papers by retrieving axiomatic formal kernels, Wikidata QIDs, and 3+ opposing dialectical disputes for a canonical concept. Use before submitting proposals to uncover blind spots and examine opposing schools of thought. Do NOT use with raw colloquial queries (use veriscope_discover_concepts first) or for Ed25519 signature checks (use veriscope_verify_attestation). Read-only, deterministic retrieval. Returns axiomatic_kernel, wikidata_qid, and dialectical_disputes array. If invalid concept_id is given, returns error with discovery guidance."
+      "description": "Stress-tests proposals, memos, or papers by retrieving axiomatic formal kernels, historical period, authoritative edition, and 3+ opposing dialectical disputes for a canonical concept. Use before submitting proposals to uncover blind spots and examine opposing schools of thought. Do NOT use with raw colloquial queries (use veriscope_discover_concepts first) or for Ed25519 signature checks (use veriscope_verify_attestation). Read-only, deterministic retrieval. Returns concept_id, name_zh, name_en, discipline, primary_thinker, formal_kernel, authoritative_edition, canon_sha256, and dialectical_disputes array. If invalid concept_id is given, returns error: 'CONCEPT_NOT_FOUND'."
     },
     {
       "name": "veriscope_locate_evidence",
-      "description": "Locates fair-use verbatim excerpts (between 1 and 3 excerpts, strictly <=300 characters each) with exact chapter coordinates, 64-bit SHA-256 edition hashes, and Ed25519 cryptographic receipts. Use when an agent requires ironclad, zero-hallucination primary source evidence and compliance receipts. Do NOT use for document-wide citation scanning (use veriscope_audit_citations) or exploratory topic discovery (use veriscope_discover_concepts). Read-only, fair-use bounded retrieval. Returns concept_id, total_excerpts count, excerpts array, and attestation receipt object."
+      "description": "Locates fair-use verbatim excerpts (strictly <=300 characters each) with exact chapter coordinates, 256-bit SHA-256 edition hashes (64 hex characters), and Ed25519 cryptographic receipts. Use when an agent requires ironclad, zero-hallucination primary source evidence and compliance receipts. Do NOT use for document-wide citation scanning (use veriscope_audit_citations) or exploratory topic discovery (use veriscope_discover_concepts). Read-only, fair-use bounded retrieval bound to canonical digital archive editions. Returns status ('ATTESTED_FULL'), concept_id, name_zh, discipline, primary_thinker, canon_anchor (title, author, year, chapter_coordinate, canon_sha256, verbatim_text), and cryptographic_receipt (signature, signed_message, public_key, timestamp)."
     },
     {
       "name": "veriscope_verify_attestation",
-      "description": "Mathematically verifies the 64-bit SHA-256 edition hash and Ed25519 digital signature of cited quotes against verified canonical records. Provide either concept_id + canon_sha256 for Path A local hash verification, or full attestation object for Path B Ed25519 cryptographic signature verification. Do NOT use to search concepts or retrieve evidence. Read-only, constant-time verification. Returns is_valid boolean, verification_mode, status code, and verification message."
+      "description": "Mathematically verifies the 256-bit SHA-256 edition hash (64 hex characters) and Ed25519 digital signature of cited quotes against verified canonical records. Provide either concept_id + canon_sha256 for Path A local hash verification, or full attestation object for Path B Ed25519 cryptographic signature verification. Do NOT use to search concepts or retrieve evidence. Read-only verification. Returns is_cryptographically_verified boolean, verification_status ('SIGNATURE_VALID', 'TAMPER_DETECTED', etc.), verification_level, method, algorithm, public_key, signed_payload, and hash_matched."
     },
     {
       "name": "veriscope_probe_radar",
-      "description": "Probes cross-disciplinary matrix coverage, discipline distribution, and structural conceptual bridges across all 24 academic disciplines. Use to discover non-obvious epistemic blind spots and interdisciplinary connections (e.g. Sociology to Physics). Do NOT use for single concept inspection (use veriscope_inspect_topography) or draft text checking (use veriscope_audit_citations). Read-only statistical and topology analysis. Returns total_disciplines, coverage_matrix, interdisciplinary_bridges, and epistemic_blindspots."
+      "description": "Probes cross-disciplinary matrix coverage, discipline distribution, and structural conceptual bridges across academic disciplines. Use to discover non-obvious epistemic blind spots and interdisciplinary connections (e.g. Sociology to Physics). Do NOT use for single concept inspection (use veriscope_inspect_topography) or draft text checking (use veriscope_audit_citations). Read-only statistical and topology analysis. Returns status ('healthy'), mode, active_disciplines count, sandbox_concept_count, disciplines_distribution map, babel_synapses array, and notice."
     },
     {
       "name": "veriscope_audit_citations",
-      "description": "Fast-scans draft articles, research papers, or AI-generated text to extract book citations, cross-check canonical bibliographies, and detect hallucinations or misattributions. Use before publication to catch phantom references or misattributed authors. Do NOT use for single concept discovery (use veriscope_discover_concepts) or cryptographic signature checks (use veriscope_verify_attestation). Read-only forensic analysis. Returns total_citations_extracted, citation_health_score (0-100), verdict, and detailed citations array. If no citations are found, gracefully returns total_citations_extracted: 0, citation_health_score: null, and verdict: 'NO_CITATIONS_FOUND'."
+      "description": "Fast-scans draft articles, research papers, or AI-generated text to extract book citations, cross-check canonical bibliographies, and detect hallucinations or misattributions. Use before publication to catch phantom references or misattributed authors. Do NOT use for single concept discovery (use veriscope_discover_concepts) or cryptographic signature checks (use veriscope_verify_attestation). Read-only forensic analysis against canonical library edition records. Returns status ('ok'), mode, total_citations_extracted, exact_matches_count, supports_count, qualifies_count, contradicts_count, suspect_count, unindexed_count, citation_health_score (0-100), summary, and detailed citations array. If no citations are found, returns total_citations_extracted: 0, citation_health_score: null, and verdict: 'NO_CITATIONS_FOUND'."
     }
   ]
 }

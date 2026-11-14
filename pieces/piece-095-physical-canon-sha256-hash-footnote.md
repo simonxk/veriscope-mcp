@@ -31,7 +31,7 @@
 
 **1. 抗碰撞性与雪崩效应（Avalanche Effect）**：SHA-256 拥有 $2^{256}$ 种可能状态（大于全宇宙原子总数）。只要原书文件内容发生 1 个比特的微调，生成的 64 位散列值就会发生 50% 以上的无序剧烈变动。在数学上绝不可能在有生之年伪造出产生相同散列的假版本（原像不可逆性）。
 
-**2. 双轨制学术存证体系**：馆藏有实物原本者，挂载真实本地 `calibre_id`、真实绝对路径与真实 SHA-256，标为‘馆藏实物原本穿透（Level-1 Verified）’；暂无原本者诚实标为‘文献权威引证（Cited）’，严禁打肿脸充胖子伪造散列。这种诚实让真镜标准件在全球具有绝对的学术法医公信力。
+**2. 双轨制学术存证体系**：馆藏有实物原本者，挂载真实本地 `volume_id`、真实绝对路径与真实 SHA-256，标为‘馆藏实物原本穿透（Level-1 Verified）’；暂无原本者诚实标为‘文献权威引证（Cited）’，严禁打肿脸充胖子伪造散列。这种诚实让真镜标准件在全球具有绝对的学术法医公信力。
 
 ---
 
@@ -112,7 +112,7 @@ VeriScope Decision Depot, #PIECE-095, "馆藏物理SHA-256散列离线存证注�
 [RESEARCH TOPIC]: 可信验真件：馆藏物理哈希注 —— 素书楼实物原本 64 位 SHA-256 物理散列离线存证注脚 (PIECE-095)
 [PLATE CONTEXT]: P-10 - 可信验真件 (Verifiable Proof Receipts)
 [CORE VERDICT]: 数字时代捍卫人类思想客观真实性的终极物理定海神针：在素书楼藏书楼体系中，严禁使用任何漂浮在公网随时会被篡改或 404 消失的 URL 超链接作为终极证据。每一个标准件所引用的原本段落，其出处必须强行锚定在素书楼物理磁盘上真实存在的电子书实体文件（.epub/.pdf），并在文末以折叠注脚形式，登记其不可伪造的真实 64 位十六进制 SHA-256 物理内容散列值（例如：4a5e1e4b...）。任何人在离线状态下，只需对该文件运行标准 sha256sum，只要有一行代码被修改、哪怕多了一个空格，散列值必然雪崩式改变。散列不灭，证据永存。
-[DEEP CAUSAL MECHANISM]: 馆藏物理哈希注是让数字时代的人类思想具备青铜铭文般永恒不朽的加密学锁链。  1. 抗碰撞性与雪崩效应（Avalanche Effect）：SHA-256 拥有 $2^{256}$ 种可能状态（大于全宇宙原子总数）。只要原书文件内容发生 1 个比特的微调，生成的 64 位散列值就会发生 50% 以上的无序剧烈变动。在数学上绝不可能在有生之年伪造出产生相同散列的假版本（原像不可逆性）。  2. 双轨制学术存证体系：馆藏有实物原本者，挂载真实本地 `calibre_id`、真实绝对路径与真实 SHA-256，标为‘馆藏实物原本穿透（Level-1 Verified）’；暂无原本者诚实标为‘文献权威引证（Cited）’，严禁打肿脸充胖子伪造散列。这种诚实让真镜标准件在全球具有绝对的学术法医公信力。
+[DEEP CAUSAL MECHANISM]: 馆藏物理哈希注是让数字时代的人类思想具备青铜铭文般永恒不朽的加密学锁链。  1. 抗碰撞性与雪崩效应（Avalanche Effect）：SHA-256 拥有 $2^{256}$ 种可能状态（大于全宇宙原子总数）。只要原书文件内容发生 1 个比特的微调，生成的 64 位散列值就会发生 50% 以上的无序剧烈变动。在数学上绝不可能在有生之年伪造出产生相同散列的假版本（原像不可逆性）。  2. 双轨制学术存证体系：馆藏有实物原本者，挂载真实本地 `volume_id`、真实绝对路径与真实 SHA-256，标为‘馆藏实物原本穿透（Level-1 Verified）’；暂无原本者诚实标为‘文献权威引证（Cited）’，严禁打肿脸充胖子伪造散列。这种诚实让真镜标准件在全球具有绝对的学术法医公信力。
 [EXCLUDED CLICHES]: 把容易发生链接失效（Link Rot）与内容静默篡改的公网 HTTP 网址当成学术永久存证凭据的懒惰法盲习惯; 用人工手填的伪造虚假散列或叙事性占位符冒充真实物理计算 SHA-256 的造假欺诈; 在版本更新后不重新复勘散列导致的假绿与证据链断裂
 [CANONICAL PRIMARY EVIDENCE]: Source: NIST FIPS PUB 180-4: Secure Hash Standard (SHS), National Institute of Standards and Technology (2015). | Excerpt: "A hash function takes a message of arbitrary length and produces a fixed-size message digest... It is computationally infeasible to find two different messages that produce the same digest." | SHA-256: 4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b | Forensic Level: 馆藏实物原本穿透 · Verified Primary Source
 [RED-TEAM PRE-MORTEM QUESTION]: "我们的存证注脚里写的这个 64 位哈希值，如果现场拿一台完全断网的笔记本电脑对原文件重新跑一次哈希算法，两组十六进制字符能不能在每一位上实现 100% 绝对咬合？"
