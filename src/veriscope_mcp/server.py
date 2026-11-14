@@ -695,7 +695,7 @@ class VeriScopeMCPServer:
             headers={
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.api_key}",
-                "User-Agent": "VeriScope-MCP-Python/1.1.7"
+                "User-Agent": "VeriScope-MCP-Python/1.1.9"
             }
         )
         try:

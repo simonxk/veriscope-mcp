@@ -9,7 +9,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { spawn } = require('child_process');
 
-console.log('=== VeriScope MCP Security & Integrity Test Suite (v1.1.5) ===');
+console.log('=== VeriScope MCP Security & Integrity Test Suite (v1.1.9) ===');
 
 const binPath = path.join(__dirname, '..', 'bin', 'index.js');
 const sandboxPath = path.join(__dirname, '..', 'golden_sandbox_50.json');

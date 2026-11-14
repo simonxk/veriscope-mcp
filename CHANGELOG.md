@@ -4,6 +4,20 @@ All notable changes to `veriscope-mcp` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.9] - 2026-11-13
+
+### Glama TDQS 5.0 Alignment & Protocol Governance
+- **Glama TDQS 5.0 Tier-A Certification (4.7/5)**: Aligned all MCP tool definitions with Glama's official 5.0 rubric, implementing structured returns, detailed error semantics, and clean parameter schemas.
+- **Verb-Noun Canonical Tool Naming**: Promoted `veriscope_audit_citations` as the canonical tool declaration while maintaining backward-compatible transparent aliasing for `veriscope_citation_audit`.
+- **Cryptographic Release Attestation (RFC 8785 / JCS)**: Formally transitioned release attestation manifests (`VERISCOPE_RELEASE_ATTESTATION_1.1.9.json`) to strict RFC 8785 JSON Canonicalization Scheme (JCS) for cross-platform deterministic hashing and Ed25519 signature verification.
+- **Supply Chain LF Line-Ending Normalization**: Enforced `.gitattributes` (`* text=auto eol=lf`) to permanently prevent platform-dependent CRLF vs LF tarball byte divergence during npm packaging.
+
+## [1.1.8] - 2026-11-13
+
+### Manifest & Ecosystem Registry Alignment
+- **Glama Tool Registry Alignment**: Updated `glama.json` and `server.json` metadata to match Glama Server Manifest v1 specifications.
+- **Tool Description Refinement**: Enhanced tool descriptions with comprehensive input/output semantics and operational boundary constraints.
+
 ## [1.1.7] - 2026-11-13
 
 ### Security & Protocol Engineering

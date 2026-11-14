@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "package": "veriscope-mcp",
+  "version": "1.1.9",
+  "canonicalization": "RFC 8785 (JSON Canonicalization Scheme - JCS)",
+  "git_commit": "44f0ca6a3d0442c08c485a9d1b04b12296a2491c",
+  "parent_commit": "89072663a3e2f2519d845a10ab458a4ea625c356",
+  "release_timestamp": "2026-11-13T09:40:24Z",
+  "npm_registry": {
+    "tarball": "https://registry.npmjs.org/veriscope-mcp/-/veriscope-mcp-1.1.9.tgz",
+    "shasum": "508682942665d9ce612cf9f5167c69e0fe12965c",
+    "integrity": "sha512-Z1Dx4Wyi7vlUptXuxKdubCkB3jnj1EiUNBAUvAn044TIctKr8G1eIIcpa09hExqU0bHpTue0Bp7oJmxCH3pnfg==",
+    "tarball_size": 105457,
+    "unpacked_size": 294712,
+    "file_count": 13
+  },
+  "files": {
+    "LICENSE": {
+      "sha256": "9b2986c3e673204881f6e963a83fb2d0419ceb76d6f5c732bf5182bb982cf7cf",
+      "size": 1083
+    },
+    "bin/index.js": {
+      "sha256": "4b23962d105940976e9859faa0ee654164744157945fd81d11c8ba1fbd55b8f3",
+      "size": 53502
+    },
+    "test/test_citation_audit.js": {
+      "sha256": "cc02e67e5c27210776ea03adf977ffebe022389449cb02b8c107953de0c01777",
+      "size": 6629
+    },
+    "test/test_security_audit.js": {
+      "sha256": "4584a73af6b5f32580a755bc576e31c4a52719a2ef827c283bfbc133014886fc",
+      "size": 10235
+    },
+    "glama.json": {
+      "sha256": "25ca45c0fc4433c370530109eb1a6ba4c05ebb98df1722c96e220bf83024e09e",
+      "size": 4678
+    },
+    "golden_sandbox_50.json": {
+      "sha256": "41706f87b7864ed2f233ef2639a0080aec4c22190af9d7c1bc66972fd5782f78",
+      "size": 180158
+    },
+    "package.json": {
+      "sha256": "dcea34a398ced103b74bd534433af21f0bf286576959a6f3d54cee755ecdac4f",
+      "size": 1256
+    },
+    "server.json": {
+      "sha256": "a00e06df9a5194f31d4761724d3a9765a086afa853e0818cff4cfa84897f857a",
+      "size": 901
+    },
+    "CHANGELOG.md": {
+      "sha256": "5a9164b6e5566a48dbcc7c98ff5ce66fbe4819d53315658e5410872b27626b5b",
+      "size": 7201
+    },
+    "README_ZH.md": {
+      "sha256": "14f91bb5238cfe3d283e59ba6492232f580f7a9bae98a7287f09550dfebf1946",
+      "size": 10780
+    },
+    "README.md": {
+      "sha256": "8f2c6f74d109c7729292abeedfd66a5f2502e8b7473a1b573f23d9ac4051f81f",
+      "size": 12929
+    },
+    "SECURITY.md": {
+      "sha256": "1e21ea7c947394a78e5ef68ebb75a22a7acfdf2a33f07252dddcbf150e1b3f49",
+      "size": 4831
+    },
+    "smithery.yaml": {
+      "sha256": "ea216c6170b04bf5a52b2b055f7b3076217277875fbefe93e89b567918ba8a12",
+      "size": 529
+    }
+  },
+  "mcp_tools": [
+    "veriscope_discover_concepts",
+    "veriscope_inspect_topography",
+    "veriscope_locate_evidence",
+    "veriscope_verify_attestation",
+    "veriscope_probe_radar",
+    "veriscope_audit_citations"
+  ],
+  "security_regression": {
+    "s1": "PASS: Native Ed25519 signature enforcement",
+    "s2": "PASS: Honest local_hash_lookup labeling with public_key cleanly omitted",
+    "s3": "PASS: Strict dependency degradation guard",
+    "s4": "PASS: Public key substitution trust-anchor rejection",
+    "n1": "PASS: Scaffolding stripped & objective scholarly framing",
+    "n2": "PASS: Stopword guard against false substring attribution",
+    "n3": "PASS: v2 protocol array offset corrected (50/50 golden sandbox receipts bound & verified)",
+    "n4": "PASS: APA format & author preposition cleanup with Chinese pronoun support",
+    "n5": "PASS: CJS module import isolation without stdin side-effects",
+    "n6": "PASS: Static OpenAPI 3.0.3 cleanup with zero 405 paths",
+    "n7": "PASS: Reverse proposition verbatim quote guard (EXACT_MATCH requires quotes & len>=15)",
+    "n8": "PASS: Zero citations fail-open remediation (verdict=NO_CITATIONS_FOUND, score=null)",
+    "tdqs_5_0": "PASS: Glama TDQS 5.0 rubric alignment (A 4.7/5) with explicit return types and verb-noun naming"
+  },
+  "signing_authority": {
+    "algorithm": "Ed25519",
+    "fingerprint_sha256": "aa87d0cff6aa7f8fad101f2441f911070bb6f80ff361873e442422e430f73363",
+    "key_id": "veriscope-ed25519-v2-2026",
+    "public_key_hex": "be55d985d725ec36594b32ed9d81226fcdb8be12a6da02fbdf231c3aa38f1f93",
+    "spki_base64": "MCowBQYDK2VwAyEAvlXZhdcl7DZZSzLtnYEib824vhKm2gL73yMcOqOPH5M="
+  },
+  "manifest_sha256": "0e0f1fbf92af2d29305f8281cb2d4f3d2fa2d9638335a1df933ddbaf64377e28",
+  "attestation_signature": "vsk_sig:242052a35200f3f4c2e022b7078d76da986cbe53bf326792aea274b81c6e3934a49b3e06545bc54aec4cee72e94f978e666a252588705fb46e070a0623e7aa08"
+}

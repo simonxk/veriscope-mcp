@@ -1,6 +1,6 @@
 """VeriScope MCP — Cryptographic Bibliographic Index & Fair-Use Citation Verification Engine for AI Agents."""
 
-__version__ = "1.1.7"
+__version__ = "1.1.9"
 __author__ = "VeriScope Sovereign Harbor"
 __license__ = "MIT"
 
